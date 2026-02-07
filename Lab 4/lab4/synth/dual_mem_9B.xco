@@ -1,7 +1,7 @@
 ##############################################################
 #
 # Xilinx Core Generator version K.31
-# Date: Sat Jan 31 01:28:16 2026
+# Date: Sat Feb 07 05:51:46 2026
 #
 ##############################################################
 #
@@ -18,16 +18,16 @@ SET asysymbol = True
 SET busformat = BusFormatAngleBracketNotRipped
 SET createndf = False
 SET designentry = VHDL
-SET device = xc2vp30
+SET device = xc2vp50
 SET devicefamily = virtex2p
 SET flowvendor = Foundation_iSE
 SET formalverification = False
 SET foundationsym = False
 SET implementationfiletype = Ngc
-SET package = ff896
+SET package = ff1152
 SET removerpms = False
 SET simulationfiles = Behavioral
-SET speedgrade = -6
+SET speedgrade = -7
 SET verilogsim = True
 SET vhdlsim = True
 # END Project Options
@@ -35,7 +35,7 @@ SET vhdlsim = True
 SELECT Dual_Port_Block_Memory family Xilinx,_Inc. 6.3
 # END Select
 # BEGIN Parameters
-CSET component_name=dual_ram_9B
+CSET component_name=dual_mem_9B
 CSET configuration_port_a=Write_Only
 CSET configuration_port_b=Read_Only
 CSET depth_a=256
@@ -71,5 +71,5 @@ CSET write_mode_port_a=Read_After_Write
 CSET write_mode_port_b=Read_After_Write
 # END Parameters
 GENERATE
-# CRC: 81cb940e
+# CRC:  ba7b110
 

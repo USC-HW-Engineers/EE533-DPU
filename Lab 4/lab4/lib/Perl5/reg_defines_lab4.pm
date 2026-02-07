@@ -2,8 +2,8 @@
 #
 # Perl register defines
 #
-# Project: Reference router (lab4)
-# Description: Reference IPv4 router
+# Project: IDS (lab4)
+# Description: IDS Router
 #
 #############################################################
 
@@ -40,6 +40,24 @@ use Exporter;
                 IO_QUEUE_STAGE_NUM
                 DATA_WIDTH
                 CTRL_WIDTH
+                NUM_OUTPUT_QUEUES
+                OQ_DEFAULT_MAX_PKTS
+                OQ_SRAM_PKT_CNT_WIDTH
+                OQ_SRAM_WORD_CNT_WIDTH
+                OQ_SRAM_BYTE_CNT_WIDTH
+                OQ_ENABLE_SEND_BIT_NUM
+                OQ_INITIALIZE_OQ_BIT_NUM
+                ROUTER_OP_LUT_ARP_TABLE_DEPTH
+                ROUTER_OP_LUT_ROUTE_TABLE_DEPTH
+                ROUTER_OP_LUT_DST_IP_FILTER_TABLE_DEPTH
+                ROUTER_OP_LUT_DEFAULT_MAC_0_HI
+                ROUTER_OP_LUT_DEFAULT_MAC_0_LO
+                ROUTER_OP_LUT_DEFAULT_MAC_1_HI
+                ROUTER_OP_LUT_DEFAULT_MAC_1_LO
+                ROUTER_OP_LUT_DEFAULT_MAC_2_HI
+                ROUTER_OP_LUT_DEFAULT_MAC_2_LO
+                ROUTER_OP_LUT_DEFAULT_MAC_3_HI
+                ROUTER_OP_LUT_DEFAULT_MAC_3_LO
                 DEV_ID_NUM_REGS
                 DEV_ID_NON_STR_REGS
                 DEV_ID_MD5SUM_LENGTH
@@ -65,24 +83,6 @@ use Exporter;
                 DEV_ID_PROJ_NAME_WORD_LEN_V1
                 DEV_ID_PROJ_NAME_BYTE_LEN_V1
                 DEV_ID_PROJ_NAME_BIT_LEN_V1
-                ROUTER_OP_LUT_ARP_TABLE_DEPTH
-                ROUTER_OP_LUT_ROUTE_TABLE_DEPTH
-                ROUTER_OP_LUT_DST_IP_FILTER_TABLE_DEPTH
-                ROUTER_OP_LUT_DEFAULT_MAC_0_HI
-                ROUTER_OP_LUT_DEFAULT_MAC_0_LO
-                ROUTER_OP_LUT_DEFAULT_MAC_1_HI
-                ROUTER_OP_LUT_DEFAULT_MAC_1_LO
-                ROUTER_OP_LUT_DEFAULT_MAC_2_HI
-                ROUTER_OP_LUT_DEFAULT_MAC_2_LO
-                ROUTER_OP_LUT_DEFAULT_MAC_3_HI
-                ROUTER_OP_LUT_DEFAULT_MAC_3_LO
-                NUM_OUTPUT_QUEUES
-                OQ_DEFAULT_MAX_PKTS
-                OQ_SRAM_PKT_CNT_WIDTH
-                OQ_SRAM_WORD_CNT_WIDTH
-                OQ_SRAM_BYTE_CNT_WIDTH
-                OQ_ENABLE_SEND_BIT_NUM
-                OQ_INITIALIZE_OQ_BIT_NUM
                 CPU_QUEUE_REGS_ENABLE
                 CPU_QUEUE_REGS_DISABLE
                 MAC_GRP_TX_QUEUE_DISABLE_BIT_NUM
@@ -109,7 +109,9 @@ use Exporter;
                 SRAM_BASE_ADDR
                 UDP_BASE_ADDR
                 ROUTER_OP_LUT_BASE_ADDR
+                STRIP_HEADERS_BASE_ADDR
                 IN_ARB_BASE_ADDR
+                IDS_BASE_ADDR
                 OQ_BASE_ADDR
                 DRAM_BASE_ADDR
                 CPU_QUEUE_OFFSET
@@ -470,6 +472,10 @@ use Exporter;
                 IN_ARB_LAST_PKT_WORD_1_LO_REG
                 IN_ARB_LAST_PKT_CTRL_1_REG
                 IN_ARB_STATE_REG
+                IDS_PATTERN_HIGH_REG
+                IDS_PATTERN_LOW_REG
+                IDS_IDS_CMD_REG
+                IDS_MATCHES_REG
                 OQ_QUEUE_0_CTRL_REG
                 OQ_QUEUE_0_NUM_PKT_BYTES_STORED_REG
                 OQ_QUEUE_0_NUM_OVERHEAD_BYTES_STORED_REG
@@ -608,14 +614,14 @@ use Exporter;
                 OQ_QUEUE_7_FULL_THRESH_REG
                 OQ_QUEUE_GROUP_BASE_ADDR
                 OQ_QUEUE_GROUP_INST_OFFSET
-                DMA_IFACE_CTRL_DISABLE_POS
-                DMA_IFACE_CTRL_RESET_POS  
-                DMA_IFACE_CTRL_DISABLE    
-                DMA_IFACE_CTRL_RESET      
                 OQ_CONTROL_ENABLE_SEND_POS  
                 OQ_CONTROL_INITIALIZE_OQ_POS
                 OQ_CONTROL_ENABLE_SEND      
                 OQ_CONTROL_INITIALIZE_OQ    
+                DMA_IFACE_CTRL_DISABLE_POS
+                DMA_IFACE_CTRL_RESET_POS  
+                DMA_IFACE_CTRL_DISABLE    
+                DMA_IFACE_CTRL_RESET      
                 MII_CTRL_RESET_POS            
                 MII_CTRL_INTERNAL_LOOPBACK_POS
                 MII_CTRL_SPEED_SEL_LO_POS     
@@ -694,13 +700,13 @@ use Exporter;
 # -------------------------------------
 #   Version Information
 # -------------------------------------
-sub DEVICE_ID ()        { 2; }
-sub DEVICE_MAJOR ()     { 1; }
-sub DEVICE_MINOR ()     { 0; }
+sub DEVICE_ID ()        { 102; }
+sub DEVICE_MAJOR ()     { 0; }
+sub DEVICE_MINOR ()     { 1; }
 sub DEVICE_REVISION ()  { 0; }
 sub DEVICE_PROJ_DIR ()  { "lab4"; }
-sub DEVICE_PROJ_NAME () { "Reference router"; }
-sub DEVICE_PROJ_DESC () { "Reference IPv4 router"; }
+sub DEVICE_PROJ_NAME () { "IDS"; }
+sub DEVICE_PROJ_DESC () { "IDS Router"; }
 
 
 # -------------------------------------
@@ -770,6 +776,51 @@ sub DATA_WIDTH ()                               { 64;}
 sub CTRL_WIDTH ()                               { 8;}
 
 
+# ===== File: lib/verilog/core/output_queues/sram_rr_output_queues/xml/sram_rr_output_queues.xml =====
+
+sub NUM_OUTPUT_QUEUES ()                        { 8;}
+
+sub OQ_DEFAULT_MAX_PKTS ()                       { 0x7ffff;}
+
+sub OQ_SRAM_PKT_CNT_WIDTH ()                    { 19;}
+
+sub OQ_SRAM_WORD_CNT_WIDTH ()                   { 19;}
+
+sub OQ_SRAM_BYTE_CNT_WIDTH ()                   { 19;}
+
+sub OQ_ENABLE_SEND_BIT_NUM ()                   { 0;}
+
+sub OQ_INITIALIZE_OQ_BIT_NUM ()                 { 1;}
+
+
+# ===== File: lib/verilog/core/output_port_lookup/cam_router/xml/cam_router.xml =====
+
+# Number of entrties in the ARP table
+sub ROUTER_OP_LUT_ARP_TABLE_DEPTH ()            { 32;}
+
+# Number of entrties in the routing table table
+sub ROUTER_OP_LUT_ROUTE_TABLE_DEPTH ()          { 32;}
+
+# Number of entrties in the destination IP filter table
+sub ROUTER_OP_LUT_DST_IP_FILTER_TABLE_DEPTH ()  { 32;}
+
+# Default MAC address for port 0
+sub ROUTER_OP_LUT_DEFAULT_MAC_0_HI ()           { 0xcafe;}
+sub ROUTER_OP_LUT_DEFAULT_MAC_0_LO ()           { 0xf00d0001;}
+
+# Default MAC address for port 1
+sub ROUTER_OP_LUT_DEFAULT_MAC_1_HI ()           { 0xcafe;}
+sub ROUTER_OP_LUT_DEFAULT_MAC_1_LO ()           { 0xf00d0002;}
+
+# Default MAC address for port 2
+sub ROUTER_OP_LUT_DEFAULT_MAC_2_HI ()           { 0xcafe;}
+sub ROUTER_OP_LUT_DEFAULT_MAC_2_LO ()           { 0xf00d0003;}
+
+# Default MAC address for port 3
+sub ROUTER_OP_LUT_DEFAULT_MAC_3_HI ()           { 0xcafe;}
+sub ROUTER_OP_LUT_DEFAULT_MAC_3_LO ()           { 0xf00d0004;}
+
+
 # ===== File: lib/verilog/core/utils/xml/device_id_reg.xml =====
 
 # Total number of registers
@@ -836,51 +887,6 @@ sub DEV_ID_PROJ_NAME_BYTE_LEN_V1 ()             { 100;}
 sub DEV_ID_PROJ_NAME_BIT_LEN_V1 ()              { 800;}
 
 
-# ===== File: lib/verilog/core/output_port_lookup/cam_router/xml/cam_router.xml =====
-
-# Number of entrties in the ARP table
-sub ROUTER_OP_LUT_ARP_TABLE_DEPTH ()            { 32;}
-
-# Number of entrties in the routing table table
-sub ROUTER_OP_LUT_ROUTE_TABLE_DEPTH ()          { 32;}
-
-# Number of entrties in the destination IP filter table
-sub ROUTER_OP_LUT_DST_IP_FILTER_TABLE_DEPTH ()  { 32;}
-
-# Default MAC address for port 0
-sub ROUTER_OP_LUT_DEFAULT_MAC_0_HI ()           { 0xcafe;}
-sub ROUTER_OP_LUT_DEFAULT_MAC_0_LO ()           { 0xf00d0001;}
-
-# Default MAC address for port 1
-sub ROUTER_OP_LUT_DEFAULT_MAC_1_HI ()           { 0xcafe;}
-sub ROUTER_OP_LUT_DEFAULT_MAC_1_LO ()           { 0xf00d0002;}
-
-# Default MAC address for port 2
-sub ROUTER_OP_LUT_DEFAULT_MAC_2_HI ()           { 0xcafe;}
-sub ROUTER_OP_LUT_DEFAULT_MAC_2_LO ()           { 0xf00d0003;}
-
-# Default MAC address for port 3
-sub ROUTER_OP_LUT_DEFAULT_MAC_3_HI ()           { 0xcafe;}
-sub ROUTER_OP_LUT_DEFAULT_MAC_3_LO ()           { 0xf00d0004;}
-
-
-# ===== File: lib/verilog/core/output_queues/sram_rr_output_queues/xml/sram_rr_output_queues.xml =====
-
-sub NUM_OUTPUT_QUEUES ()                        { 8;}
-
-sub OQ_DEFAULT_MAX_PKTS ()                       { 0x7ffff;}
-
-sub OQ_SRAM_PKT_CNT_WIDTH ()                    { 19;}
-
-sub OQ_SRAM_WORD_CNT_WIDTH ()                   { 19;}
-
-sub OQ_SRAM_BYTE_CNT_WIDTH ()                   { 19;}
-
-sub OQ_ENABLE_SEND_BIT_NUM ()                   { 0;}
-
-sub OQ_INITIALIZE_OQ_BIT_NUM ()                 { 1;}
-
-
 # ===== File: lib/verilog/core/io_queues/cpu_dma_queue/xml/cpu_dma_queue.xml =====
 
 sub CPU_QUEUE_REGS_ENABLE ()                     { 0x00000000;}
@@ -939,7 +945,9 @@ sub CPU_QUEUE_3_BASE_ADDR ()     { 0x07c0000; }
 sub SRAM_BASE_ADDR ()            { 0x1000000; }
 sub UDP_BASE_ADDR ()             { 0x2000000; }
 sub ROUTER_OP_LUT_BASE_ADDR ()   { 0x2000000; }
-sub IN_ARB_BASE_ADDR ()          { 0x2000100; }
+sub STRIP_HEADERS_BASE_ADDR ()   { 0x2000100; }
+sub IN_ARB_BASE_ADDR ()          { 0x2000200; }
+sub IDS_BASE_ADDR ()             { 0x2000300; }
 sub OQ_BASE_ADDR ()              { 0x2001000; }
 sub DRAM_BASE_ADDR ()            { 0x4000000; }
 
@@ -1351,17 +1359,29 @@ sub ROUTER_OP_LUT_DST_IP_FILTER_TABLE_ENTRY_IP_REG ()    { 0x2000074;}
 sub ROUTER_OP_LUT_DST_IP_FILTER_TABLE_RD_ADDR_REG ()     { 0x2000078;}
 sub ROUTER_OP_LUT_DST_IP_FILTER_TABLE_WR_ADDR_REG ()     { 0x200007c;}
 
+# Name: strip_headers (STRIP_HEADERS)
+# Description: Strip headers from data
+# File: lib/verilog/core/strip_headers/keep_length/xml/strip_headers.xml
+
 # Name: in_arb (IN_ARB)
 # Description: Round-robin input arbiter
 # File: lib/verilog/core/input_arbiter/rr_input_arbiter/xml/rr_input_arbiter.xml
-sub IN_ARB_NUM_PKTS_SENT_REG ()        { 0x2000100;}
-sub IN_ARB_LAST_PKT_WORD_0_HI_REG ()   { 0x2000104;}
-sub IN_ARB_LAST_PKT_WORD_0_LO_REG ()   { 0x2000108;}
-sub IN_ARB_LAST_PKT_CTRL_0_REG ()      { 0x200010c;}
-sub IN_ARB_LAST_PKT_WORD_1_HI_REG ()   { 0x2000110;}
-sub IN_ARB_LAST_PKT_WORD_1_LO_REG ()   { 0x2000114;}
-sub IN_ARB_LAST_PKT_CTRL_1_REG ()      { 0x2000118;}
-sub IN_ARB_STATE_REG ()                { 0x200011c;}
+sub IN_ARB_NUM_PKTS_SENT_REG ()        { 0x2000200;}
+sub IN_ARB_LAST_PKT_WORD_0_HI_REG ()   { 0x2000204;}
+sub IN_ARB_LAST_PKT_WORD_0_LO_REG ()   { 0x2000208;}
+sub IN_ARB_LAST_PKT_CTRL_0_REG ()      { 0x200020c;}
+sub IN_ARB_LAST_PKT_WORD_1_HI_REG ()   { 0x2000210;}
+sub IN_ARB_LAST_PKT_WORD_1_LO_REG ()   { 0x2000214;}
+sub IN_ARB_LAST_PKT_CTRL_1_REG ()      { 0x2000218;}
+sub IN_ARB_STATE_REG ()                { 0x200021c;}
+
+# Name: ids (IDS)
+# Description: Registers for IDS
+# File: projects/lab4/include/ids.xml
+sub IDS_PATTERN_HIGH_REG ()   { 0x2000300;}
+sub IDS_PATTERN_LOW_REG ()    { 0x2000304;}
+sub IDS_IDS_CMD_REG ()        { 0x2000308;}
+sub IDS_MATCHES_REG ()        { 0x200030c;}
 
 # Name: output_queues (OQ)
 # Description: SRAM-based output queue using round-robin removal
@@ -1515,6 +1535,17 @@ sub OQ_QUEUE_GROUP_INST_OFFSET() { 0x0000200; }
 #   Bitmasks
 # -------------------------------------
 
+# Type: oq_control
+# File: lib/verilog/core/output_queues/sram_rr_output_queues/xml/sram_rr_output_queues.xml
+
+# Part 1: bit positions
+sub OQ_CONTROL_ENABLE_SEND_POS   ()   { 0; }
+sub OQ_CONTROL_INITIALIZE_OQ_POS ()   { 1; }
+
+# Part 2: masks/values
+sub OQ_CONTROL_ENABLE_SEND       ()   { 0x1; }
+sub OQ_CONTROL_INITIALIZE_OQ     ()   { 0x2; }
+
 # Type: dma_iface_ctrl
 # Description: DMA interface control register
 # File: lib/verilog/core/dma/xml/dma.xml
@@ -1526,17 +1557,6 @@ sub DMA_IFACE_CTRL_RESET_POS   ()   { 1; }
 # Part 2: masks/values
 sub DMA_IFACE_CTRL_DISABLE     ()   { 0x001; }
 sub DMA_IFACE_CTRL_RESET       ()   { 0x002; }
-
-# Type: oq_control
-# File: lib/verilog/core/output_queues/sram_rr_output_queues/xml/sram_rr_output_queues.xml
-
-# Part 1: bit positions
-sub OQ_CONTROL_ENABLE_SEND_POS   ()   { 0; }
-sub OQ_CONTROL_INITIALIZE_OQ_POS ()   { 1; }
-
-# Part 2: masks/values
-sub OQ_CONTROL_ENABLE_SEND       ()   { 0x1; }
-sub OQ_CONTROL_INITIALIZE_OQ     ()   { 0x2; }
 
 # Type: mii_ctrl
 # Description: MII control register

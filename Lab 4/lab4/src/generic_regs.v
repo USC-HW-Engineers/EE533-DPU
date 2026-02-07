@@ -90,8 +90,8 @@
 ///////////////////////////////////////////////////////////////////////////////
 `timescale 1ns/1ps
 
-`define UDP_REG_ADDR_WIDTH 16
-`define CPCI_NF2_DATA_WIDTH 16
+//`define UDP_REG_ADDR_WIDTH 16
+//`define CPCI_NF2_DATA_WIDTH 16
 `define IDS_BLOCK_TAG 1
 `define IDS_REG_ADDR_WIDTH 16
 

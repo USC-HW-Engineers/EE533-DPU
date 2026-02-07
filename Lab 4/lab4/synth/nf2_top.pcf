@@ -1,5 +1,5 @@
 //! **************************************************************************
-// Written by: Map K.39 on Thu Feb 05 16:14:51 2026
+// Written by: Map K.39 on Sat Feb 07 02:30:11 2026
 //! **************************************************************************
 
 SCHEMATIC START;
@@ -27622,14 +27622,14 @@ PIN
         = BEL
         "nf2_core/user_data_path/output_queues/oq_regs/oq_reg_instances/oq_full_thresh_reg/ram/Mram_ram.B"
         PINNAME CLKB;
-PIN nf2_core/user_data_path/ids/drop_fifo/XLXI_34/B6.A_pins<15> = BEL
-        "nf2_core/user_data_path/ids/drop_fifo/XLXI_34/B6.A" PINNAME CLKA;
-PIN nf2_core/user_data_path/ids/drop_fifo/XLXI_34/B6.B_pins<15> = BEL
-        "nf2_core/user_data_path/ids/drop_fifo/XLXI_34/B6.B" PINNAME CLKB;
-PIN nf2_core/user_data_path/ids/drop_fifo/XLXI_34/B10.A_pins<15> = BEL
-        "nf2_core/user_data_path/ids/drop_fifo/XLXI_34/B10.A" PINNAME CLKA;
-PIN nf2_core/user_data_path/ids/drop_fifo/XLXI_34/B10.B_pins<15> = BEL
-        "nf2_core/user_data_path/ids/drop_fifo/XLXI_34/B10.B" PINNAME CLKB;
+PIN nf2_core/user_data_path/ids/drop_fifo/XLXI_37/B6.A_pins<15> = BEL
+        "nf2_core/user_data_path/ids/drop_fifo/XLXI_37/B6.A" PINNAME CLKA;
+PIN nf2_core/user_data_path/ids/drop_fifo/XLXI_37/B6.B_pins<15> = BEL
+        "nf2_core/user_data_path/ids/drop_fifo/XLXI_37/B6.B" PINNAME CLKB;
+PIN nf2_core/user_data_path/ids/drop_fifo/XLXI_37/B10.A_pins<15> = BEL
+        "nf2_core/user_data_path/ids/drop_fifo/XLXI_37/B10.A" PINNAME CLKA;
+PIN nf2_core/user_data_path/ids/drop_fifo/XLXI_37/B10.B_pins<15> = BEL
+        "nf2_core/user_data_path/ids/drop_fifo/XLXI_37/B10.B" PINNAME CLKB;
 PIN
         nf2_core/cpu_queues[3].cpu_dma_queue_i/cpu_dma_tx_queue/cpu_fifos64.tx_fifo/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg/blk_mem_generator/valid.cstr/ramloop[0].ram.r/v2.ram/dp36x18.ram.A_pins<15>
         = BEL
@@ -39044,10 +39044,10 @@ TIMEGRP core_clk_int = BEL
         "nf2_core/user_data_path/ids/drop_fifo/XLXI_6" BEL
         "nf2_core/user_data_path/ids/drop_fifo/XLXI_7" BEL
         "nf2_core/user_data_path/ids/drop_fifo/XLXI_13" PIN
-        "nf2_core/user_data_path/ids/drop_fifo/XLXI_34/B6.A_pins<15>" PIN
-        "nf2_core/user_data_path/ids/drop_fifo/XLXI_34/B6.B_pins<15>" PIN
-        "nf2_core/user_data_path/ids/drop_fifo/XLXI_34/B10.A_pins<15>" PIN
-        "nf2_core/user_data_path/ids/drop_fifo/XLXI_34/B10.B_pins<15>" BEL
+        "nf2_core/user_data_path/ids/drop_fifo/XLXI_37/B6.A_pins<15>" PIN
+        "nf2_core/user_data_path/ids/drop_fifo/XLXI_37/B6.B_pins<15>" PIN
+        "nf2_core/user_data_path/ids/drop_fifo/XLXI_37/B10.A_pins<15>" PIN
+        "nf2_core/user_data_path/ids/drop_fifo/XLXI_37/B10.B_pins<15>" BEL
         "nf2_core/user_data_path/ids/drop_fifo/XLXI_5/I_Q0" BEL
         "nf2_core/user_data_path/ids/drop_fifo/XLXI_5/I_Q1" BEL
         "nf2_core/user_data_path/ids/drop_fifo/XLXI_5/I_Q2" BEL

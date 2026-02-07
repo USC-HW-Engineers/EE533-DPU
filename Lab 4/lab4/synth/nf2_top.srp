@@ -106,9 +106,12 @@ Module <comparator> compiled
 Compiling verilog file "../src/fallthrough_small_fifo_v2.v" in library work
 Module <busmerge> compiled
 Compiling verilog file "../src/generic_regs.v" in library work
+WARNING:HDLCompilers:38 - "../src/generic_regs.v" line 96 Macro 'IDS_REG_ADDR_WIDTH' redefined
 Module <fallthrough_small_fifo> compiled
-Compiling verilog file "../src/wordmatch.v" in library work
+Compiling verilog file "../src/dual_mem_9B.v" in library work
 Module <generic_regs> compiled
+Compiling verilog file "../src/wordmatch.v" in library work
+Module <dual_mem_9B> compiled
 Module <OR8_MXILINX_wordmatch> compiled
 Compiling verilog file "../src/dropfifo.v" in library work
 Module <wordmatch> compiled
@@ -121,10 +124,8 @@ Module <COMP8_MXILINX_dropfifo> compiled
 Module <FD8CE_MXILINX_dropfifo> compiled
 Compiling verilog file "../src/ids.v" in library work
 Module <dropfifo> compiled
-Compiling verilog file "../src/dual_ram_9B.v" in library work
-Module <ids> compiled
 Compiling verilog file "../src/reg9B.v" in library work
-Module <dual_ram_9B> compiled
+Module <ids> compiled
 Module <FD16CE_MXILINX_reg9B> compiled
 Module <FD8CE_MXILINX_reg9B> compiled
 Compiling verilog file "../src/user_data_path.v" in library work
@@ -139,8 +140,12 @@ Compiling verilog file "/root/netfpga/lib/verilog/core/io_queues/cpu_dma_queue/s
 Module <cpu_dma_rx_queue> compiled
 Compiling verilog file "/root/netfpga/lib/verilog/core/io_queues/cpu_dma_queue/src/cpu_dma_tx_queue.v" in library work
 Module <cpu_dma_queue_no_regs> compiled
-Compiling verilog file "/root/netfpga/lib/verilog/core/io_queues/ethernet_queue/src/nf2_mac_grp.v" in library work
+Compiling verilog file "/root/netfpga/lib/verilog/core/input_arbiter/rr_input_arbiter/src/in_arb_regs.v" in library work
 Module <cpu_dma_tx_queue> compiled
+Compiling verilog file "/root/netfpga/lib/verilog/core/input_arbiter/rr_input_arbiter/src/input_arbiter.v" in library work
+Module <in_arb_regs> compiled
+Compiling verilog file "/root/netfpga/lib/verilog/core/io_queues/ethernet_queue/src/nf2_mac_grp.v" in library work
+Module <input_arbiter> compiled
 Compiling verilog file "/root/netfpga/lib/verilog/core/io_queues/ethernet_queue/src/mac_grp_regs.v" in library work
 Module <nf2_mac_grp> compiled
 Compiling verilog file "/root/netfpga/lib/verilog/core/io_queues/ethernet_queue/src/rx_queue.v" in library work
@@ -157,12 +162,8 @@ Compiling verilog file "/root/netfpga/lib/verilog/contrib/ucsd/gig_eth_mac/src/g
 Module <CRC_chk> compiled
 Compiling verilog file "/root/netfpga/lib/verilog/contrib/ucsd/gig_eth_mac/src/gig_eth_mac_rx.v" in library work
 Module <gig_eth_mac> compiled
-Compiling verilog file "/root/netfpga/lib/verilog/core/input_arbiter/rr_input_arbiter/src/in_arb_regs.v" in library work
-Module <gig_eth_mac_rx> compiled
-Compiling verilog file "/root/netfpga/lib/verilog/core/input_arbiter/rr_input_arbiter/src/input_arbiter.v" in library work
-Module <in_arb_regs> compiled
 Compiling verilog file "/root/netfpga/lib/verilog/core/nf2/generic_top/src/rgmii_io.v" in library work
-Module <input_arbiter> compiled
+Module <gig_eth_mac_rx> compiled
 Compiling verilog file "/root/netfpga/lib/verilog/core/nf2/generic_top/src/nf2_top.v" in library work
 Module <rgmii_io> compiled
 Compiling verilog file "/root/netfpga/lib/verilog/core/nf2/generic_top/src/dump.v" in library work
@@ -253,8 +254,10 @@ Compiling verilog file "/root/netfpga/lib/verilog/core/io_queues/add_rm_hdr/src/
 Module <add_hdr> compiled
 Compiling verilog file "/root/netfpga/lib/verilog/core/io_queues/add_rm_hdr/src/rm_hdr.v" in library work
 Module <add_rm_hdr> compiled
-Compiling verilog file "/root/netfpga/lib/verilog/core/utils/src/small_fifo_v2.v" in library work
+Compiling verilog file "/root/netfpga/lib/verilog/core/strip_headers/keep_length/src/strip_headers.v" in library work
 Module <rm_hdr> compiled
+Compiling verilog file "/root/netfpga/lib/verilog/core/utils/src/small_fifo_v2.v" in library work
+Module <strip_headers> compiled
 Compiling verilog file "/root/netfpga/lib/verilog/core/utils/src/rotate.v" in library work
 Module <small_fifo_v2> compiled
 Compiling verilog file "/root/netfpga/lib/verilog/core/utils/src/priority_encoder.v" in library work
@@ -264,8 +267,10 @@ Compiling verilog file "/root/netfpga/lib/verilog/core/utils/src/fallthrough_sma
 Module <pri_encode_test> compiled
 Compiling verilog file "/root/netfpga/lib/verilog/core/utils/src/arbitrator.v" in library work
 Module <fallthrough_small_fifo_old> compiled
-Compiling verilog file "/root/netfpga/lib/verilog/core/utils/src/lfsr32.v" in library work
+Compiling verilog file "/root/netfpga/lib/verilog/core/utils/src/small_fifo.v" in library work
 Module <arbitrator> compiled
+Compiling verilog file "/root/netfpga/lib/verilog/core/utils/src/lfsr32.v" in library work
+Module <small_fifo_v1> compiled
 Compiling verilog file "/root/netfpga/lib/verilog/core/utils/src/unused_reg.v" in library work
 Module <lfsr32> compiled
 Compiling verilog file "/root/netfpga/lib/verilog/core/utils/src/reg_grp.v" in library work
@@ -411,19 +416,19 @@ Analyzing hierarchy for module <reg_grp> in library <work> with parameters.
 	SWITCH_ADDR_BITS = "00000000000000000000000000000100"
 
 Analyzing hierarchy for module <device_id_reg> in library <work> with parameters.
-	DEVICE_ID = "00000000000000000000000000000010"
-	MAJOR = "00000000000000000000000000000001"
+	DEVICE_ID = "00000000000000000000000001100110"
+	MAJOR = "00000000000000000000000000000000"
 	MAX_STR_LEN = "00000000000000000000000001100100"
-	MINOR = "00000000000000000000000000000000"
+	MINOR = "00000000000000000000000000000001"
 	NON_STR_REGS = "00000000000000000000000000000111"
 	NUM_REGS = "00000000000000000000000001000000"
-	PROJ_DESC = "Reference IPv4 router"
+	PROJ_DESC = "IDS Router"
 	PROJ_DESC_BYTE_LEN = "00000000000000000000000001100100"
 	PROJ_DESC_WORD_LEN = "00000000000000000000000000011001"
 	PROJ_DIR = "lab4"
 	PROJ_DIR_BYTE_LEN = "00000000000000000000000001000000"
 	PROJ_DIR_WORD_LEN = "00000000000000000000000000010000"
-	PROJ_NAME = "Reference router"
+	PROJ_NAME = "IDS"
 	PROJ_NAME_BYTE_LEN = "00000000000000000000000001000000"
 	PROJ_NAME_WORD_LEN = "00000000000000000000000000010000"
 	REVISION = "00000000000000000000000000000000"
@@ -2964,19 +2969,19 @@ Analyzing module <reg_grp.2> in library <work>.
 Module <reg_grp.2> is correct for synthesis.
  
 Analyzing module <device_id_reg> in library <work>.
-	DEVICE_ID = 32'sb00000000000000000000000000000010
-	MAJOR = 32'sb00000000000000000000000000000001
+	DEVICE_ID = 32'sb00000000000000000000000001100110
+	MAJOR = 32'sb00000000000000000000000000000000
 	MAX_STR_LEN = 32'sb00000000000000000000000001100100
-	MINOR = 32'sb00000000000000000000000000000000
+	MINOR = 32'sb00000000000000000000000000000001
 	NON_STR_REGS = 32'sb00000000000000000000000000000111
 	NUM_REGS = 32'sb00000000000000000000000001000000
-	PROJ_DESC = "Reference IPv4 router"
+	PROJ_DESC = "IDS Router"
 	PROJ_DESC_BYTE_LEN = 32'sb00000000000000000000000001100100
 	PROJ_DESC_WORD_LEN = 32'sb00000000000000000000000000011001
 	PROJ_DIR = "lab4"
 	PROJ_DIR_BYTE_LEN = 32'sb00000000000000000000000001000000
 	PROJ_DIR_WORD_LEN = 32'sb00000000000000000000000000010000
-	PROJ_NAME = "Reference router"
+	PROJ_NAME = "IDS"
 	PROJ_NAME_BYTE_LEN = 32'sb00000000000000000000000001000000
 	PROJ_NAME_WORD_LEN = 32'sb00000000000000000000000000010000
 	REVISION = 32'sb00000000000000000000000000000000
@@ -11576,7 +11581,7 @@ Design Statistics
 # IOs                              : 437
 
 Cell Usage :
-# BELS                             : 22291
+# BELS                             : 22283
 #      AND2                        : 72
 #      AND2B1                      : 9
 #      AND3                        : 4
@@ -11588,13 +11593,13 @@ Cell Usage :
 #      GND                         : 138
 #      INV                         : 751
 #      LUT1                        : 306
-#      LUT2                        : 1816
-#      LUT3                        : 5146
-#      LUT4                        : 8285
+#      LUT2                        : 1845
+#      LUT3                        : 5137
+#      LUT4                        : 8265
 #      MULT_AND                    : 3
 #      MUXCY                       : 2138
-#      MUXF5                       : 886
-#      MUXF6                       : 194
+#      MUXF5                       : 889
+#      MUXF6                       : 183
 #      MUXF7                       : 33
 #      OR2                         : 11
 #      OR2B1                       : 56
@@ -11640,7 +11645,7 @@ Cell Usage :
 #      bram_cam_unencoded_32x32    : 2
 #      cdq_rx_fifo_512x36_to_72    : 4
 #      cdq_tx_fifo_256x72_to_36    : 4
-#      dual_ram_9B                 : 1
+#      dual_mem_9B                 : 1
 #      FMAP                        : 19
 #      net2pci_16x32               : 1
 #      pci2net_16x60               : 1
@@ -11656,7 +11661,7 @@ Device utilization summary:
 
 Selected Device : 2vp50ff1152-7 
 
- Number of Slices:                    12609  out of  23616    53%  
+ Number of Slices:                    12597  out of  23616    53%  
  Number of Slice Flip Flops:          10600  out of  47232    22%  
  Number of 4 input LUTs:              18748  out of  47232    39%  
     Number used as logic:             16304
@@ -11705,29 +11710,29 @@ Asynchronous Control Signals Information:
 ---------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------+-------+
 Control Signal                                                                                                                               | Buffer(FF name)                                                                  | Load  |
 ---------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------+-------+
-reset(reset1:O)                                                                                                                              | NONE(rgmii_0_io/gmii_txd_rising_0)                                               | 180   |
-nf2_core/mac_groups[0].nf2_mac_grp/mac_grp_regs/reset_MAC(nf2_core/mac_groups[0].nf2_mac_grp/mac_grp_regs/reset_MAC_f5:O)                    | NONE(nf2_core/mac_groups[0].nf2_mac_grp/gig_eth_mac/mac_tx/tx_crc_gen/CRC_reg_31)| 158   |
-nf2_core/mac_groups[1].nf2_mac_grp/mac_grp_regs/reset_MAC(nf2_core/mac_groups[1].nf2_mac_grp/mac_grp_regs/reset_MAC_f5:O)                    | NONE(nf2_core/mac_groups[1].nf2_mac_grp/gig_eth_mac/mac_tx/tx_crc_gen/CRC_reg_28)| 158   |
-nf2_core/mac_groups[2].nf2_mac_grp/mac_grp_regs/reset_MAC(nf2_core/mac_groups[2].nf2_mac_grp/mac_grp_regs/reset_MAC_f5:O)                    | NONE(nf2_core/mac_groups[2].nf2_mac_grp/gig_eth_mac/mac_tx/tx_crc_gen/CRC_reg_17)| 158   |
-nf2_core/mac_groups[3].nf2_mac_grp/mac_grp_regs/reset_MAC(nf2_core/mac_groups[3].nf2_mac_grp/mac_grp_regs/reset_MAC_f5:O)                    | NONE(nf2_core/mac_groups[3].nf2_mac_grp/gig_eth_mac/mac_tx/gmii_txer_out_reg)    | 158   |
-nf2_core/user_data_path/reset_2(nf2_core/user_data_path/reset_2:O)                                                                           | NONE(nf2_core/user_data_path/ids/drop_fifo/XLXI_15/XLXI_2/I_Q3)                  | 97    |
-nf2_core/user_data_path/ids/matcher/XLXN_15(nf2_core/user_data_path/ids/matcher/XLXI_4:Q)                                                    | NONE(nf2_core/user_data_path/ids/matcher/XLXI_2/XLXI_2/I_Q0)                     | 73    |
+reset(reset1:O)                                                                                                                              | NONE(rgmii_0_io/gmii_txd_rising_3)                                               | 180   |
+nf2_core/mac_groups[0].nf2_mac_grp/mac_grp_regs/reset_MAC(nf2_core/mac_groups[0].nf2_mac_grp/mac_grp_regs/reset_MAC_f5:O)                    | NONE(nf2_core/mac_groups[0].nf2_mac_grp/gig_eth_mac/mac_tx/tx_crc_gen/CRC_reg_14)| 158   |
+nf2_core/mac_groups[1].nf2_mac_grp/mac_grp_regs/reset_MAC(nf2_core/mac_groups[1].nf2_mac_grp/mac_grp_regs/reset_MAC_f5:O)                    | NONE(nf2_core/mac_groups[1].nf2_mac_grp/gig_eth_mac/mac_tx/tx_crc_gen/CRC_reg_11)| 158   |
+nf2_core/mac_groups[2].nf2_mac_grp/mac_grp_regs/reset_MAC(nf2_core/mac_groups[2].nf2_mac_grp/mac_grp_regs/reset_MAC_f5:O)                    | NONE(nf2_core/mac_groups[2].nf2_mac_grp/gig_eth_mac/mac_tx/tx_crc_gen/CRC_reg_6) | 158   |
+nf2_core/mac_groups[3].nf2_mac_grp/mac_grp_regs/reset_MAC(nf2_core/mac_groups[3].nf2_mac_grp/mac_grp_regs/reset_MAC_f5:O)                    | NONE(nf2_core/mac_groups[3].nf2_mac_grp/gig_eth_mac/mac_tx/tx_crc_gen/CRC_reg_10)| 158   |
+nf2_core/user_data_path/reset_2(nf2_core/user_data_path/reset_2:O)                                                                           | NONE(nf2_core/user_data_path/ids/drop_fifo/XLXI_15/XLXI_5/I_Q4)                  | 97    |
+nf2_core/user_data_path/ids/matcher/XLXN_15(nf2_core/user_data_path/ids/matcher/XLXI_4:Q)                                                    | NONE(nf2_core/user_data_path/ids/matcher/XLXI_2/XLXI_2/I_Q12)                    | 73    |
 nf2_core/nf2_dma/nf2_dma_sync/rx_async_fifo/wptr_full/wrst_n_inv(nf2_core/nf2_dma/nf2_dma_sync/rx_async_fifo/wptr_full/wrst_n_inv1_INV_0:O)  | NONE(nf2_core/nf2_dma/nf2_dma_sync/rx_async_fifo/wptr_full/w_almost_full)        | 10    |
 nf2_core/nf2_dma/nf2_dma_sync/tx_async_fifo/wptr_full/wrst_n_inv(nf2_core/nf2_dma/nf2_dma_sync/tx_async_fifo/wptr_full/wrst_n_inv1_INV_0:O)  | NONE(nf2_core/nf2_dma/nf2_dma_sync/tx_async_fifo/wptr_full/wptr_3)               | 10    |
-nf2_core/nf2_dma/nf2_dma_sync/rx_async_fifo/rptr_empty/rrst_n_inv(nf2_core/nf2_dma/nf2_dma_sync/rx_async_fifo/rptr_empty/rrst_n_inv1_INV_0:O)| NONE(nf2_core/nf2_dma/nf2_dma_sync/rx_async_fifo/rptr_empty/rbin_2)              | 9     |
-nf2_core/nf2_dma/nf2_dma_sync/tx_async_fifo/rptr_empty/rrst_n_inv(nf2_core/nf2_dma/nf2_dma_sync/tx_async_fifo/rptr_empty/rrst_n_inv1_INV_0:O)| NONE(nf2_core/nf2_dma/nf2_dma_sync/tx_async_fifo/rptr_empty/rptr_2)              | 9     |
-nf2_core/nf2_dma/nf2_dma_sync/rx_async_fifo/sync_r2w/wrst_n_inv(nf2_core/nf2_dma/nf2_dma_sync/rx_async_fifo/sync_r2w/wrst_n_inv1_INV_0:O)    | NONE(nf2_core/nf2_dma/nf2_dma_sync/rx_async_fifo/sync_r2w/wq1_rptr_0)            | 8     |
-nf2_core/nf2_dma/nf2_dma_sync/rx_async_fifo/sync_w2r/rrst_n_inv(nf2_core/nf2_dma/nf2_dma_sync/rx_async_fifo/sync_w2r/rrst_n_inv1_INV_0:O)    | NONE(nf2_core/nf2_dma/nf2_dma_sync/rx_async_fifo/sync_w2r/rq1_wptr_0)            | 8     |
-nf2_core/nf2_dma/nf2_dma_sync/tx_async_fifo/sync_r2w/wrst_n_inv(nf2_core/nf2_dma/nf2_dma_sync/tx_async_fifo/sync_r2w/wrst_n_inv1_INV_0:O)    | NONE(nf2_core/nf2_dma/nf2_dma_sync/tx_async_fifo/sync_r2w/wq2_rptr_2)            | 8     |
-nf2_core/nf2_dma/nf2_dma_sync/tx_async_fifo/sync_w2r/rrst_n_inv(nf2_core/nf2_dma/nf2_dma_sync/tx_async_fifo/sync_w2r/rrst_n_inv1_INV_0:O)    | NONE(nf2_core/nf2_dma/nf2_dma_sync/tx_async_fifo/sync_w2r/rq2_wptr_1)            | 8     |
+nf2_core/nf2_dma/nf2_dma_sync/rx_async_fifo/rptr_empty/rrst_n_inv(nf2_core/nf2_dma/nf2_dma_sync/rx_async_fifo/rptr_empty/rrst_n_inv1_INV_0:O)| NONE(nf2_core/nf2_dma/nf2_dma_sync/rx_async_fifo/rptr_empty/rptr_3)              | 9     |
+nf2_core/nf2_dma/nf2_dma_sync/tx_async_fifo/rptr_empty/rrst_n_inv(nf2_core/nf2_dma/nf2_dma_sync/tx_async_fifo/rptr_empty/rrst_n_inv1_INV_0:O)| NONE(nf2_core/nf2_dma/nf2_dma_sync/tx_async_fifo/rptr_empty/rbin_3)              | 9     |
+nf2_core/nf2_dma/nf2_dma_sync/rx_async_fifo/sync_r2w/wrst_n_inv(nf2_core/nf2_dma/nf2_dma_sync/rx_async_fifo/sync_r2w/wrst_n_inv1_INV_0:O)    | NONE(nf2_core/nf2_dma/nf2_dma_sync/rx_async_fifo/sync_r2w/wq1_rptr_1)            | 8     |
+nf2_core/nf2_dma/nf2_dma_sync/rx_async_fifo/sync_w2r/rrst_n_inv(nf2_core/nf2_dma/nf2_dma_sync/rx_async_fifo/sync_w2r/rrst_n_inv1_INV_0:O)    | NONE(nf2_core/nf2_dma/nf2_dma_sync/rx_async_fifo/sync_w2r/rq1_wptr_2)            | 8     |
+nf2_core/nf2_dma/nf2_dma_sync/tx_async_fifo/sync_r2w/wrst_n_inv(nf2_core/nf2_dma/nf2_dma_sync/tx_async_fifo/sync_r2w/wrst_n_inv1_INV_0:O)    | NONE(nf2_core/nf2_dma/nf2_dma_sync/tx_async_fifo/sync_r2w/wq1_rptr_3)            | 8     |
+nf2_core/nf2_dma/nf2_dma_sync/tx_async_fifo/sync_w2r/rrst_n_inv(nf2_core/nf2_dma/nf2_dma_sync/tx_async_fifo/sync_w2r/rrst_n_inv1_INV_0:O)    | NONE(nf2_core/nf2_dma/nf2_dma_sync/tx_async_fifo/sync_w2r/rq1_wptr_2)            | 8     |
 ---------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------+-------+
 
 Timing Summary:
 ---------------
 Speed Grade: -7
 
-   Minimum period: 8.386ns (Maximum Frequency: 119.241MHz)
-   Minimum input arrival time before clock: 10.008ns
+   Minimum period: 8.388ns (Maximum Frequency: 119.217MHz)
+   Minimum input arrival time before clock: 9.925ns
    Maximum output required time after clock: 4.276ns
    Maximum combinational path delay: 4.773ns
 
@@ -11761,15 +11766,15 @@ Delay:               6.831ns (Levels of Logic = 18)
      MUXCY:CI->O           3   0.416   0.415  Mcompar_tx_state_cmp_lt0000_cy(6) (Mcompar_tx_state_cmp_lt0000_cy(6))
      LUT3:I2->O            1   0.275   0.349  tx_state_FSM_FFd9-In2_SW0 (N23)
      LUT4:I2->O            2   0.275   0.396  tx_state_FSM_FFd9-In2 (N3)
-     LUT4:I2->O            2   0.275   0.396  tx_state_FSM_FFd9-In69 (tx_state_cmp_eq0019)
+     LUT4:I2->O            2   0.275   0.396  tx_state_FSM_FFd9-In68 (tx_state_cmp_eq0019)
      LUT4:I2->O            1   0.275   0.000  Mcompar_tx_counter_next_cmp_ne0000_lut(0) (Mcompar_tx_counter_next_cmp_ne0000_lut(0))
      MUXCY:S->O            1   0.334   0.000  Mcompar_tx_counter_next_cmp_ne0000_cy(0) (Mcompar_tx_counter_next_cmp_ne0000_cy(0))
      MUXCY:CI->O           1   0.036   0.000  Mcompar_tx_counter_next_cmp_ne0000_cy(1) (Mcompar_tx_counter_next_cmp_ne0000_cy(1))
      MUXCY:CI->O           1   0.036   0.000  Mcompar_tx_counter_next_cmp_ne0000_cy(2) (Mcompar_tx_counter_next_cmp_ne0000_cy(2))
      MUXCY:CI->O           1   0.036   0.000  Mcompar_tx_counter_next_cmp_ne0000_cy(3) (Mcompar_tx_counter_next_cmp_ne0000_cy(3))
      MUXCY:CI->O          14   0.416   0.570  Mcompar_tx_counter_next_cmp_ne0000_cy(4) (Mcompar_tx_counter_next_cmp_ne0000_cy(4))
-     LUT4:I2->O            1   0.275   0.000  tx_counter_next(13)1 (tx_counter_next(13))
-     FDC:D                     0.208          tx_counter_13
+     LUT4:I2->O            1   0.275   0.000  tx_counter_next(9)1 (tx_counter_next(9))
+     FDC:D                     0.208          tx_counter_9
     ----------------------------------------
     Total                      6.831ns (4.019ns logic, 2.812ns route)
                                        (58.8% logic, 41.2% route)
@@ -11932,10 +11937,10 @@ Delay:               7.145ns (Levels of Logic = 18)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'core_clk'
-  Clock period: 8.386ns (frequency: 119.241MHz)
-  Total number of paths / destination ports: 886215 / 24515
+  Clock period: 8.388ns (frequency: 119.217MHz)
+  Total number of paths / destination ports: 888319 / 24515
 -------------------------------------------------------------------------
-Delay:               8.386ns (Levels of Logic = 13)
+Delay:               8.388ns (Levels of Logic = 13)
   Source:            nf2_core/user_data_path/output_port_lookup/op_lut_process_sm/state_2 (FF)
   Destination:       nf2_core/user_data_path/output_port_lookup/input_fifo/fifo/depth_5 (FF)
   Source Clock:      core_clk rising
@@ -11947,11 +11952,11 @@ Delay:               8.386ns (Levels of Logic = 13)
     ----------------------------------------  ------------
      FD:C->Q              18   0.370   0.691  state_2 (state_2)
      LUT3:I1->O           11   0.275   0.539  out_data_next_or000111 (N67)
-     LUT3:I2->O            5   0.275   0.446  state_next_cmp_eq000011 (N108)
+     LUT3:I2->O            6   0.275   0.463  state_next_cmp_eq000011 (N108)
      LUT3:I2->O            3   0.275   0.415  state_next_cmp_eq00041 (state_next_cmp_eq0004)
-     LUT4:I2->O            4   0.275   0.431  in_fifo_rd_en3 (N86)
-     LUT3:I2->O            1   0.275   0.350  in_fifo_rd_en_SW0_SW0_SW0 (N32)
-     LUT4:I2->O            3   0.275   0.415  in_fifo_rd_en (in_fifo_rd_en)
+     LUT4:I2->O            3   0.275   0.415  in_fifo_rd_en3 (N86)
+     LUT4:I2->O            1   0.275   0.350  in_fifo_rd_en_SW0_SW0 (N30)
+     LUT3:I2->O            3   0.275   0.415  in_fifo_rd_en (in_fifo_rd_en)
      end scope: 'op_lut_process_sm'
      begin scope: 'input_fifo'
      LUT3:I2->O           11   0.275   0.619  fifo_rd_en1 (fifo_rd_en)
@@ -11962,13 +11967,13 @@ Delay:               8.386ns (Levels of Logic = 13)
      MUXF5:I1->O           1   0.303   0.000  Result(5)_f5 (Result(5))
      FDRE:D                    0.208          depth_5
     ----------------------------------------
-    Total                      8.386ns (3.631ns logic, 4.755ns route)
+    Total                      8.388ns (3.631ns logic, 4.757ns route)
                                        (43.3% logic, 56.7% route)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'cpci_clk'
   Clock period: 7.683ns (frequency: 130.159MHz)
-  Total number of paths / destination ports: 9002 / 562
+  Total number of paths / destination ports: 9068 / 562
 -------------------------------------------------------------------------
 Delay:               7.683ns (Levels of Logic = 15)
   Source:            nf2_core/nf2_dma/nf2_dma_bus_fsm/watchdog_timer_7 (FF)
@@ -11996,7 +12001,7 @@ Delay:               7.683ns (Levels of Logic = 15)
      LUT4:I2->O            5   0.275   0.446  Madd_rbinnext_cy(1)11 (Madd_rbinnext_cy(1))
      LUT3:I2->O            3   0.275   0.415  Madd_rbinnext_xor(3)11 (Madd_subtract_addsub00006)
      LUT4:I2->O            1   0.275   0.349  rempty_val447 (rempty_val447)
-     LUT4:I2->O            1   0.275   0.000  rempty_val464 (rempty_val)
+     LUT4:I2->O            1   0.275   0.000  rempty_val465 (rempty_val)
      FDP:D                     0.208          rempty
     ----------------------------------------
     Total                      7.683ns (3.637ns logic, 4.046ns route)
@@ -12006,7 +12011,7 @@ Delay:               7.683ns (Levels of Logic = 15)
 Timing constraint: Default OFFSET IN BEFORE for Clock 'gtx_clk'
   Total number of paths / destination ports: 184 / 124
 -------------------------------------------------------------------------
-Offset:              4.546ns (Levels of Logic = 6)
+Offset:              4.508ns (Levels of Logic = 6)
   Source:            nf2_core/mac_groups[3].nf2_mac_grp/tx_queue/tx_fifo_64.gmac_tx_fifo:dout(8) (PAD)
   Destination:       nf2_core/mac_groups[3].nf2_mac_grp/tx_queue/txf_num_pkts_waiting_6 (FF)
   Destination Clock: gtx_clk rising
@@ -12019,19 +12024,19 @@ Offset:              4.546ns (Levels of Logic = 6)
      LUT4:I0->O           11   0.275   0.521  txf_num_pkts_waiting_mux0000(1)1 (N01)
      MUXF5:S->O            2   0.539   0.396  Maddsub_txf_num_pkts_waiting_addsub0000_cy(2)1 (Maddsub_txf_num_pkts_waiting_addsub0000_cy(2))
      LUT4:I2->O            2   0.275   0.396  Maddsub_txf_num_pkts_waiting_addsub0000_cy(3)11 (Maddsub_txf_num_pkts_waiting_addsub0000_cy(3))
-     LUT4:I2->O            3   0.275   0.533  txf_num_pkts_waiting_mux0000(5)11 (N5)
-     LUT4:I0->O            1   0.275   0.000  txf_num_pkts_waiting_mux0000(6)22 (txf_num_pkts_waiting_mux0000(6)21)
+     LUT4:I2->O            3   0.275   0.495  txf_num_pkts_waiting_mux0000(5)11 (N5)
+     LUT4:I1->O            1   0.275   0.000  txf_num_pkts_waiting_mux0000(6)22 (txf_num_pkts_waiting_mux0000(6)21)
      MUXF5:I0->O           1   0.303   0.000  txf_num_pkts_waiting_mux0000(6)2_f5 (txf_num_pkts_waiting_mux0000(6))
      FDR:D                     0.208          txf_num_pkts_waiting_6
     ----------------------------------------
-    Total                      4.546ns (2.150ns logic, 2.396ns route)
-                                       (47.3% logic, 52.7% route)
+    Total                      4.508ns (2.150ns logic, 2.358ns route)
+                                       (47.7% logic, 52.3% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'rgmii_0_rxc'
   Total number of paths / destination ports: 38 / 38
 -------------------------------------------------------------------------
-Offset:              3.214ns (Levels of Logic = 3)
+Offset:              3.176ns (Levels of Logic = 3)
   Source:            nf2_core/mac_groups[0].nf2_mac_grp/rx_queue/rx_fifo_64.gmac_rx_fifo:prog_full (PAD)
   Destination:       nf2_core/mac_groups[0].nf2_mac_grp/rx_queue/num_bytes_written_0 (FF)
   Destination Clock: rgmii_0_rxc rising
@@ -12042,18 +12047,18 @@ Offset:              3.214ns (Levels of Logic = 3)
     ----------------------------------------  ------------
     rxfifo_8kx9_to_72:prog_full    3   0.000   0.495  rx_fifo_64.gmac_rx_fifo (rx_fifo_almost_full)
      LUT2:I1->O            1   0.275   0.369  num_bytes_written_or00002 (num_bytes_written_or00002)
-     LUT4:I3->O            1   0.275   0.467  num_bytes_written_or000016 (num_bytes_written_or000016)
-     LUT3:I0->O           12   0.275   0.521  num_bytes_written_or000040 (num_bytes_written_or0000)
+     LUT4:I3->O            1   0.275   0.429  num_bytes_written_or000016 (num_bytes_written_or000016)
+     LUT3:I1->O           12   0.275   0.521  num_bytes_written_or000040 (num_bytes_written_or0000)
      FDRE:R                    0.536          num_bytes_written_0
     ----------------------------------------
-    Total                      3.214ns (1.361ns logic, 1.853ns route)
-                                       (42.3% logic, 57.7% route)
+    Total                      3.176ns (1.361ns logic, 1.815ns route)
+                                       (42.9% logic, 57.1% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'rgmii_1_rxc'
   Total number of paths / destination ports: 38 / 38
 -------------------------------------------------------------------------
-Offset:              3.214ns (Levels of Logic = 3)
+Offset:              3.176ns (Levels of Logic = 3)
   Source:            nf2_core/mac_groups[1].nf2_mac_grp/rx_queue/rx_fifo_64.gmac_rx_fifo:prog_full (PAD)
   Destination:       nf2_core/mac_groups[1].nf2_mac_grp/rx_queue/num_bytes_written_0 (FF)
   Destination Clock: rgmii_1_rxc rising
@@ -12064,18 +12069,18 @@ Offset:              3.214ns (Levels of Logic = 3)
     ----------------------------------------  ------------
     rxfifo_8kx9_to_72:prog_full    3   0.000   0.495  rx_fifo_64.gmac_rx_fifo (rx_fifo_almost_full)
      LUT2:I1->O            1   0.275   0.369  num_bytes_written_or00002 (num_bytes_written_or00002)
-     LUT4:I3->O            1   0.275   0.467  num_bytes_written_or000016 (num_bytes_written_or000016)
-     LUT3:I0->O           12   0.275   0.521  num_bytes_written_or000040 (num_bytes_written_or0000)
+     LUT4:I3->O            1   0.275   0.429  num_bytes_written_or000016 (num_bytes_written_or000016)
+     LUT3:I1->O           12   0.275   0.521  num_bytes_written_or000040 (num_bytes_written_or0000)
      FDRE:R                    0.536          num_bytes_written_0
     ----------------------------------------
-    Total                      3.214ns (1.361ns logic, 1.853ns route)
-                                       (42.3% logic, 57.7% route)
+    Total                      3.176ns (1.361ns logic, 1.815ns route)
+                                       (42.9% logic, 57.1% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'rgmii_2_rxc'
   Total number of paths / destination ports: 38 / 38
 -------------------------------------------------------------------------
-Offset:              3.214ns (Levels of Logic = 3)
+Offset:              3.176ns (Levels of Logic = 3)
   Source:            nf2_core/mac_groups[2].nf2_mac_grp/rx_queue/rx_fifo_64.gmac_rx_fifo:prog_full (PAD)
   Destination:       nf2_core/mac_groups[2].nf2_mac_grp/rx_queue/num_bytes_written_0 (FF)
   Destination Clock: rgmii_2_rxc rising
@@ -12086,18 +12091,18 @@ Offset:              3.214ns (Levels of Logic = 3)
     ----------------------------------------  ------------
     rxfifo_8kx9_to_72:prog_full    3   0.000   0.495  rx_fifo_64.gmac_rx_fifo (rx_fifo_almost_full)
      LUT2:I1->O            1   0.275   0.369  num_bytes_written_or00002 (num_bytes_written_or00002)
-     LUT4:I3->O            1   0.275   0.467  num_bytes_written_or000016 (num_bytes_written_or000016)
-     LUT3:I0->O           12   0.275   0.521  num_bytes_written_or000040 (num_bytes_written_or0000)
+     LUT4:I3->O            1   0.275   0.429  num_bytes_written_or000016 (num_bytes_written_or000016)
+     LUT3:I1->O           12   0.275   0.521  num_bytes_written_or000040 (num_bytes_written_or0000)
      FDRE:R                    0.536          num_bytes_written_0
     ----------------------------------------
-    Total                      3.214ns (1.361ns logic, 1.853ns route)
-                                       (42.3% logic, 57.7% route)
+    Total                      3.176ns (1.361ns logic, 1.815ns route)
+                                       (42.9% logic, 57.1% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'rgmii_3_rxc'
   Total number of paths / destination ports: 38 / 38
 -------------------------------------------------------------------------
-Offset:              3.214ns (Levels of Logic = 3)
+Offset:              3.176ns (Levels of Logic = 3)
   Source:            nf2_core/mac_groups[3].nf2_mac_grp/rx_queue/rx_fifo_64.gmac_rx_fifo:prog_full (PAD)
   Destination:       nf2_core/mac_groups[3].nf2_mac_grp/rx_queue/num_bytes_written_0 (FF)
   Destination Clock: rgmii_3_rxc rising
@@ -12108,18 +12113,18 @@ Offset:              3.214ns (Levels of Logic = 3)
     ----------------------------------------  ------------
     rxfifo_8kx9_to_72:prog_full    3   0.000   0.495  rx_fifo_64.gmac_rx_fifo (rx_fifo_almost_full)
      LUT2:I1->O            1   0.275   0.369  num_bytes_written_or00002 (num_bytes_written_or00002)
-     LUT4:I3->O            1   0.275   0.467  num_bytes_written_or000016 (num_bytes_written_or000016)
-     LUT3:I0->O           12   0.275   0.521  num_bytes_written_or000040 (num_bytes_written_or0000)
+     LUT4:I3->O            1   0.275   0.429  num_bytes_written_or000016 (num_bytes_written_or000016)
+     LUT3:I1->O           12   0.275   0.521  num_bytes_written_or000040 (num_bytes_written_or0000)
      FDRE:R                    0.536          num_bytes_written_0
     ----------------------------------------
-    Total                      3.214ns (1.361ns logic, 1.853ns route)
-                                       (42.3% logic, 57.7% route)
+    Total                      3.176ns (1.361ns logic, 1.815ns route)
+                                       (42.9% logic, 57.1% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'core_clk'
-  Total number of paths / destination ports: 78047 / 10955
+  Total number of paths / destination ports: 78028 / 10955
 -------------------------------------------------------------------------
-Offset:              10.008ns (Levels of Logic = 11)
+Offset:              9.925ns (Levels of Logic = 11)
   Source:            nf2_reset (PAD)
   Destination:       nf2_core/user_data_path/output_port_lookup/op_lut_regs/router_op_lut_regs_non_cntr/state_1 (FF)
   Destination Clock: core_clk rising
@@ -12129,22 +12134,22 @@ Offset:              10.008ns (Levels of Logic = 11)
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
      IBUF:I->O            14   0.878   0.650  nf2_reset_IBUF (_and0000)
-     LUT2:I1->O          405   0.275   1.201  reset1_1 (reset1_1)
+     LUT2:I1->O          404   0.275   1.200  reset1_1 (reset1_1)
      begin scope: 'nf2_core/user_data_path'
-     BUF:I->O            445   0.275   1.258  reset_1 (reset_1)
+     BUF:I->O            444   0.275   1.257  reset_1 (reset_1)
      begin scope: 'output_port_lookup'
      BUF:I->O            438   0.275   1.248  reset_1 (reset_1)
      begin scope: 'op_lut_regs'
      begin scope: 'router_op_lut_regs_non_cntr'
-     BUF:I->O            274   0.275   1.113  reset_1 (reset_1)
-     LUT3:I1->O            3   0.275   0.415  state_mux0000(2)121 (N60)
-     LUT3:I2->O            1   0.275   0.467  state_mux0000(6)147 (state_mux0000(6)147)
-     LUT3:I0->O            1   0.275   0.369  state_mux0000(6)149 (state_mux0000(6)149)
+     BUF:I->O            274   0.275   1.033  reset_1 (reset_1)
+     LUT3:I2->O            3   0.275   0.533  state_mux0000(2)121 (N60)
+     LUT3:I0->O            1   0.275   0.350  state_mux0000(6)147 (state_mux0000(6)147)
+     LUT4:I2->O            1   0.275   0.369  state_mux0000(6)151 (state_mux0000(6)151)
      LUT4:I3->O            1   0.275   0.000  state_mux0000(6)174 (state_mux0000(6)1)
      FD:D                      0.208          state_1
     ----------------------------------------
-    Total                     10.008ns (3.286ns logic, 6.722ns route)
-                                       (32.8% logic, 67.2% route)
+    Total                      9.925ns (3.286ns logic, 6.639ns route)
+                                       (33.1% logic, 66.9% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'cpci_clk'
@@ -12359,15 +12364,15 @@ Delay:               4.773ns (Levels of Logic = 3)
 =========================================================================
 
 
-Total REAL time to Xst completion: 124.00 secs
-Total CPU time to Xst completion: 96.85 secs
+Total REAL time to Xst completion: 136.00 secs
+Total CPU time to Xst completion: 110.94 secs
  
 --> 
 
 
-Total memory usage is 1099740 kilobytes
+Total memory usage is 1097000 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings : 3594 (   0 filtered)
+Number of warnings : 3595 (   0 filtered)
 Number of infos    :  250 (   0 filtered)
 

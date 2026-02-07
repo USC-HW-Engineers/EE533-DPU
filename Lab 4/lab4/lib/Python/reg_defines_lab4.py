@@ -3,8 +3,8 @@
 #
 # Python register defines
 #
-# Project: Reference router (lab4)
-# Description: Reference IPv4 router
+# Project: IDS (lab4)
+# Description: IDS Router
 #
 #############################################################
 
@@ -12,13 +12,13 @@
 #   Version Information
 # -------------------------------------
 def DEVICE_ID ():
-    return 2
+    return 102
 
 def DEVICE_MAJOR ():
-    return 1
+    return 0
 
 def DEVICE_MINOR ():
-    return 0
+    return 1
 
 def DEVICE_REVISION ():
     return 0
@@ -27,10 +27,10 @@ def DEVICE_PROJ_DIR ():
     return "lab4"
 
 def DEVICE_PROJ_NAME ():
-    return "Reference router"
+    return "IDS"
 
 def DEVICE_PROJ_DESC ():
-    return "Reference IPv4 router"
+    return "IDS Router"
 
 
 # -------------------------------------
@@ -117,6 +117,77 @@ def DATA_WIDTH ():
 # Data path control width
 def CTRL_WIDTH ():                              
     return 8
+
+
+# ===== File: lib/verilog/core/output_queues/sram_rr_output_queues/xml/sram_rr_output_queues.xml =====
+
+def NUM_OUTPUT_QUEUES ():                       
+    return 8
+
+def OQ_DEFAULT_MAX_PKTS ():                     
+    return 0x7ffff
+
+def OQ_SRAM_PKT_CNT_WIDTH ():                   
+    return 19
+
+def OQ_SRAM_WORD_CNT_WIDTH ():                  
+    return 19
+
+def OQ_SRAM_BYTE_CNT_WIDTH ():                  
+    return 19
+
+def OQ_ENABLE_SEND_BIT_NUM ():                  
+    return 0
+
+def OQ_INITIALIZE_OQ_BIT_NUM ():                
+    return 1
+
+
+# ===== File: lib/verilog/core/output_port_lookup/cam_router/xml/cam_router.xml =====
+
+# Number of entrties in the ARP table
+def ROUTER_OP_LUT_ARP_TABLE_DEPTH ():           
+    return 32
+
+# Number of entrties in the routing table table
+def ROUTER_OP_LUT_ROUTE_TABLE_DEPTH ():         
+    return 32
+
+# Number of entrties in the destination IP filter table
+def ROUTER_OP_LUT_DST_IP_FILTER_TABLE_DEPTH (): 
+    return 32
+
+# Default MAC address for port 0
+def ROUTER_OP_LUT_DEFAULT_MAC_0_HI ():          
+    return 0xcafe
+
+def ROUTER_OP_LUT_DEFAULT_MAC_0_LO ():          
+    return 0xf00d0001
+
+
+# Default MAC address for port 1
+def ROUTER_OP_LUT_DEFAULT_MAC_1_HI ():          
+    return 0xcafe
+
+def ROUTER_OP_LUT_DEFAULT_MAC_1_LO ():          
+    return 0xf00d0002
+
+
+# Default MAC address for port 2
+def ROUTER_OP_LUT_DEFAULT_MAC_2_HI ():          
+    return 0xcafe
+
+def ROUTER_OP_LUT_DEFAULT_MAC_2_LO ():          
+    return 0xf00d0003
+
+
+# Default MAC address for port 3
+def ROUTER_OP_LUT_DEFAULT_MAC_3_HI ():          
+    return 0xcafe
+
+def ROUTER_OP_LUT_DEFAULT_MAC_3_LO ():          
+    return 0xf00d0004
+
 
 
 # ===== File: lib/verilog/core/utils/xml/device_id_reg.xml =====
@@ -218,77 +289,6 @@ def DEV_ID_PROJ_NAME_BIT_LEN_V1 ():
     return 800
 
 
-# ===== File: lib/verilog/core/output_port_lookup/cam_router/xml/cam_router.xml =====
-
-# Number of entrties in the ARP table
-def ROUTER_OP_LUT_ARP_TABLE_DEPTH ():           
-    return 32
-
-# Number of entrties in the routing table table
-def ROUTER_OP_LUT_ROUTE_TABLE_DEPTH ():         
-    return 32
-
-# Number of entrties in the destination IP filter table
-def ROUTER_OP_LUT_DST_IP_FILTER_TABLE_DEPTH (): 
-    return 32
-
-# Default MAC address for port 0
-def ROUTER_OP_LUT_DEFAULT_MAC_0_HI ():          
-    return 0xcafe
-
-def ROUTER_OP_LUT_DEFAULT_MAC_0_LO ():          
-    return 0xf00d0001
-
-
-# Default MAC address for port 1
-def ROUTER_OP_LUT_DEFAULT_MAC_1_HI ():          
-    return 0xcafe
-
-def ROUTER_OP_LUT_DEFAULT_MAC_1_LO ():          
-    return 0xf00d0002
-
-
-# Default MAC address for port 2
-def ROUTER_OP_LUT_DEFAULT_MAC_2_HI ():          
-    return 0xcafe
-
-def ROUTER_OP_LUT_DEFAULT_MAC_2_LO ():          
-    return 0xf00d0003
-
-
-# Default MAC address for port 3
-def ROUTER_OP_LUT_DEFAULT_MAC_3_HI ():          
-    return 0xcafe
-
-def ROUTER_OP_LUT_DEFAULT_MAC_3_LO ():          
-    return 0xf00d0004
-
-
-
-# ===== File: lib/verilog/core/output_queues/sram_rr_output_queues/xml/sram_rr_output_queues.xml =====
-
-def NUM_OUTPUT_QUEUES ():                       
-    return 8
-
-def OQ_DEFAULT_MAX_PKTS ():                     
-    return 0x7ffff
-
-def OQ_SRAM_PKT_CNT_WIDTH ():                   
-    return 19
-
-def OQ_SRAM_WORD_CNT_WIDTH ():                  
-    return 19
-
-def OQ_SRAM_BYTE_CNT_WIDTH ():                  
-    return 19
-
-def OQ_ENABLE_SEND_BIT_NUM ():                  
-    return 0
-
-def OQ_INITIALIZE_OQ_BIT_NUM ():                
-    return 1
-
-
 # ===== File: lib/verilog/core/io_queues/cpu_dma_queue/xml/cpu_dma_queue.xml =====
 
 def CPU_QUEUE_REGS_ENABLE ():                   
@@ -388,8 +388,14 @@ def UDP_BASE_ADDR ():
 def ROUTER_OP_LUT_BASE_ADDR (): 
     return 0x2000000
 
-def IN_ARB_BASE_ADDR ():        
+def STRIP_HEADERS_BASE_ADDR (): 
     return 0x2000100
+
+def IN_ARB_BASE_ADDR ():        
+    return 0x2000200
+
+def IDS_BASE_ADDR ():           
+    return 0x2000300
 
 def OQ_BASE_ADDR ():            
     return 0x2001000
@@ -1505,32 +1511,52 @@ def ROUTER_OP_LUT_DST_IP_FILTER_TABLE_WR_ADDR_REG ():
     return 0x200007c
 
 
+# Name: strip_headers (STRIP_HEADERS)
+# Description: Strip headers from data
+# File: lib/verilog/core/strip_headers/keep_length/xml/strip_headers.xml
+
 # Name: in_arb (IN_ARB)
 # Description: Round-robin input arbiter
 # File: lib/verilog/core/input_arbiter/rr_input_arbiter/xml/rr_input_arbiter.xml
 def IN_ARB_NUM_PKTS_SENT_REG ():      
-    return 0x2000100
+    return 0x2000200
 
 def IN_ARB_LAST_PKT_WORD_0_HI_REG (): 
-    return 0x2000104
+    return 0x2000204
 
 def IN_ARB_LAST_PKT_WORD_0_LO_REG (): 
-    return 0x2000108
+    return 0x2000208
 
 def IN_ARB_LAST_PKT_CTRL_0_REG ():    
-    return 0x200010c
+    return 0x200020c
 
 def IN_ARB_LAST_PKT_WORD_1_HI_REG (): 
-    return 0x2000110
+    return 0x2000210
 
 def IN_ARB_LAST_PKT_WORD_1_LO_REG (): 
-    return 0x2000114
+    return 0x2000214
 
 def IN_ARB_LAST_PKT_CTRL_1_REG ():    
-    return 0x2000118
+    return 0x2000218
 
 def IN_ARB_STATE_REG ():              
-    return 0x200011c
+    return 0x200021c
+
+
+# Name: ids (IDS)
+# Description: Registers for IDS
+# File: projects/lab4/include/ids.xml
+def IDS_PATTERN_HIGH_REG (): 
+    return 0x2000300
+
+def IDS_PATTERN_LOW_REG ():  
+    return 0x2000304
+
+def IDS_IDS_CMD_REG ():      
+    return 0x2000308
+
+def IDS_MATCHES_REG ():      
+    return 0x200030c
 
 
 # Name: output_queues (OQ)
@@ -1960,6 +1986,25 @@ def OQ_QUEUE_GROUP_INST_OFFSET():
 #   Bitmasks
 # -------------------------------------
 
+# Type: oq_control
+# File: lib/verilog/core/output_queues/sram_rr_output_queues/xml/sram_rr_output_queues.xml
+
+# Part 1: bit positions
+def OQ_CONTROL_ENABLE_SEND_POS():
+    return 0
+
+def OQ_CONTROL_INITIALIZE_OQ_POS():
+    return 1
+
+
+# Part 2: masks/values
+def OQ_CONTROL_ENABLE_SEND():
+    return 0x1; 
+
+def OQ_CONTROL_INITIALIZE_OQ():
+    return 0x2; 
+
+
 # Type: dma_iface_ctrl
 # Description: DMA interface control register
 # File: lib/verilog/core/dma/xml/dma.xml
@@ -1978,25 +2023,6 @@ def DMA_IFACE_CTRL_DISABLE():
 
 def DMA_IFACE_CTRL_RESET():
     return 0x002; 
-
-
-# Type: oq_control
-# File: lib/verilog/core/output_queues/sram_rr_output_queues/xml/sram_rr_output_queues.xml
-
-# Part 1: bit positions
-def OQ_CONTROL_ENABLE_SEND_POS():
-    return 0
-
-def OQ_CONTROL_INITIALIZE_OQ_POS():
-    return 1
-
-
-# Part 2: masks/values
-def OQ_CONTROL_ENABLE_SEND():
-    return 0x1; 
-
-def OQ_CONTROL_INITIALIZE_OQ():
-    return 0x2; 
 
 
 # Type: mii_ctrl
@@ -2616,14 +2642,19 @@ __main__.nf_regmap.update({
     0x2000078 : "ROUTER_OP_LUT_DST_IP_FILTER_TABLE_RD_ADDR_REG",
     0x200007c : "ROUTER_OP_LUT_DST_IP_FILTER_TABLE_WR_ADDR_REG",
 
-    0x2000100 : "IN_ARB_NUM_PKTS_SENT_REG",
-    0x2000104 : "IN_ARB_LAST_PKT_WORD_0_HI_REG",
-    0x2000108 : "IN_ARB_LAST_PKT_WORD_0_LO_REG",
-    0x200010c : "IN_ARB_LAST_PKT_CTRL_0_REG",
-    0x2000110 : "IN_ARB_LAST_PKT_WORD_1_HI_REG",
-    0x2000114 : "IN_ARB_LAST_PKT_WORD_1_LO_REG",
-    0x2000118 : "IN_ARB_LAST_PKT_CTRL_1_REG",
-    0x200011c : "IN_ARB_STATE_REG",
+    0x2000200 : "IN_ARB_NUM_PKTS_SENT_REG",
+    0x2000204 : "IN_ARB_LAST_PKT_WORD_0_HI_REG",
+    0x2000208 : "IN_ARB_LAST_PKT_WORD_0_LO_REG",
+    0x200020c : "IN_ARB_LAST_PKT_CTRL_0_REG",
+    0x2000210 : "IN_ARB_LAST_PKT_WORD_1_HI_REG",
+    0x2000214 : "IN_ARB_LAST_PKT_WORD_1_LO_REG",
+    0x2000218 : "IN_ARB_LAST_PKT_CTRL_1_REG",
+    0x200021c : "IN_ARB_STATE_REG",
+
+    0x2000300 : "IDS_PATTERN_HIGH_REG",
+    0x2000304 : "IDS_PATTERN_LOW_REG",
+    0x2000308 : "IDS_IDS_CMD_REG",
+    0x200030c : "IDS_MATCHES_REG",
 
     0x2001000 : "OQ_QUEUE_0_CTRL_REG",
     0x2001004 : "OQ_QUEUE_0_NUM_PKT_BYTES_STORED_REG",

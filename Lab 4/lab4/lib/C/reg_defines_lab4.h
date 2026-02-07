@@ -1,8 +1,8 @@
 /********************************************************
  *
  * C register defines file
- * Project: Reference router (lab4)
- * Description: Reference IPv4 router
+ * Project: IDS (lab4)
+ * Description: IDS Router
  *
  ********************************************************/
 
@@ -11,13 +11,13 @@
 
 /* ========= Version Information ========= */
 
-#define DEVICE_ID          2
-#define DEVICE_MAJOR       1
-#define DEVICE_MINOR       0
+#define DEVICE_ID          102
+#define DEVICE_MAJOR       0
+#define DEVICE_MINOR       1
 #define DEVICE_REVISION    0
 #define DEVICE_PROJ_DIR    "lab4"
-#define DEVICE_PROJ_NAME   "Reference router"
-#define DEVICE_PROJ_DESC   "Reference IPv4 router"
+#define DEVICE_PROJ_NAME   "IDS"
+#define DEVICE_PROJ_DESC   "IDS Router"
 
 
 /* ========= Constants ========= */
@@ -83,6 +83,55 @@
 
 // Data path control width
 #define CTRL_WIDTH                                8
+
+
+// ===== File: lib/verilog/core/output_queues/sram_rr_output_queues/xml/sram_rr_output_queues.xml =====
+
+#define NUM_OUTPUT_QUEUES                         8
+
+#define OQ_DEFAULT_MAX_PKTS                       0x7ffff
+
+#define OQ_SRAM_PKT_CNT_WIDTH                     19
+
+#define OQ_SRAM_WORD_CNT_WIDTH                    19
+
+#define OQ_SRAM_BYTE_CNT_WIDTH                    19
+
+#define OQ_ENABLE_SEND_BIT_NUM                    0
+
+#define OQ_INITIALIZE_OQ_BIT_NUM                  1
+
+
+// ===== File: lib/verilog/core/output_port_lookup/cam_router/xml/cam_router.xml =====
+
+// Number of entrties in the ARP table
+#define ROUTER_OP_LUT_ARP_TABLE_DEPTH             32
+
+// Number of entrties in the routing table table
+#define ROUTER_OP_LUT_ROUTE_TABLE_DEPTH           32
+
+// Number of entrties in the destination IP filter table
+#define ROUTER_OP_LUT_DST_IP_FILTER_TABLE_DEPTH   32
+
+// Default MAC address for port 0
+#define ROUTER_OP_LUT_DEFAULT_MAC_0               0xcafef00d0001
+#define ROUTER_OP_LUT_DEFAULT_MAC_0_HI            0x0000cafe
+#define ROUTER_OP_LUT_DEFAULT_MAC_0_LO            0xf00d0001
+
+// Default MAC address for port 1
+#define ROUTER_OP_LUT_DEFAULT_MAC_1               0xcafef00d0002
+#define ROUTER_OP_LUT_DEFAULT_MAC_1_HI            0x0000cafe
+#define ROUTER_OP_LUT_DEFAULT_MAC_1_LO            0xf00d0002
+
+// Default MAC address for port 2
+#define ROUTER_OP_LUT_DEFAULT_MAC_2               0xcafef00d0003
+#define ROUTER_OP_LUT_DEFAULT_MAC_2_HI            0x0000cafe
+#define ROUTER_OP_LUT_DEFAULT_MAC_2_LO            0xf00d0003
+
+// Default MAC address for port 3
+#define ROUTER_OP_LUT_DEFAULT_MAC_3               0xcafef00d0004
+#define ROUTER_OP_LUT_DEFAULT_MAC_3_HI            0x0000cafe
+#define ROUTER_OP_LUT_DEFAULT_MAC_3_LO            0xf00d0004
 
 
 // ===== File: lib/verilog/core/utils/xml/device_id_reg.xml =====
@@ -153,55 +202,6 @@
 #define DEV_ID_PROJ_NAME_BIT_LEN_V1               800
 
 
-// ===== File: lib/verilog/core/output_port_lookup/cam_router/xml/cam_router.xml =====
-
-// Number of entrties in the ARP table
-#define ROUTER_OP_LUT_ARP_TABLE_DEPTH             32
-
-// Number of entrties in the routing table table
-#define ROUTER_OP_LUT_ROUTE_TABLE_DEPTH           32
-
-// Number of entrties in the destination IP filter table
-#define ROUTER_OP_LUT_DST_IP_FILTER_TABLE_DEPTH   32
-
-// Default MAC address for port 0
-#define ROUTER_OP_LUT_DEFAULT_MAC_0               0xcafef00d0001
-#define ROUTER_OP_LUT_DEFAULT_MAC_0_HI            0x0000cafe
-#define ROUTER_OP_LUT_DEFAULT_MAC_0_LO            0xf00d0001
-
-// Default MAC address for port 1
-#define ROUTER_OP_LUT_DEFAULT_MAC_1               0xcafef00d0002
-#define ROUTER_OP_LUT_DEFAULT_MAC_1_HI            0x0000cafe
-#define ROUTER_OP_LUT_DEFAULT_MAC_1_LO            0xf00d0002
-
-// Default MAC address for port 2
-#define ROUTER_OP_LUT_DEFAULT_MAC_2               0xcafef00d0003
-#define ROUTER_OP_LUT_DEFAULT_MAC_2_HI            0x0000cafe
-#define ROUTER_OP_LUT_DEFAULT_MAC_2_LO            0xf00d0003
-
-// Default MAC address for port 3
-#define ROUTER_OP_LUT_DEFAULT_MAC_3               0xcafef00d0004
-#define ROUTER_OP_LUT_DEFAULT_MAC_3_HI            0x0000cafe
-#define ROUTER_OP_LUT_DEFAULT_MAC_3_LO            0xf00d0004
-
-
-// ===== File: lib/verilog/core/output_queues/sram_rr_output_queues/xml/sram_rr_output_queues.xml =====
-
-#define NUM_OUTPUT_QUEUES                         8
-
-#define OQ_DEFAULT_MAX_PKTS                       0x7ffff
-
-#define OQ_SRAM_PKT_CNT_WIDTH                     19
-
-#define OQ_SRAM_WORD_CNT_WIDTH                    19
-
-#define OQ_SRAM_BYTE_CNT_WIDTH                    19
-
-#define OQ_ENABLE_SEND_BIT_NUM                    0
-
-#define OQ_INITIALIZE_OQ_BIT_NUM                  1
-
-
 // ===== File: lib/verilog/core/io_queues/cpu_dma_queue/xml/cpu_dma_queue.xml =====
 
 #define CPU_QUEUE_REGS_ENABLE                     0x00000000
@@ -257,7 +257,9 @@
 #define SRAM_BASE_ADDR           0x1000000
 #define UDP_BASE_ADDR            0x2000000
 #define ROUTER_OP_LUT_BASE_ADDR  0x2000000
-#define IN_ARB_BASE_ADDR         0x2000100
+#define STRIP_HEADERS_BASE_ADDR  0x2000100
+#define IN_ARB_BASE_ADDR         0x2000200
+#define IDS_BASE_ADDR            0x2000300
 #define OQ_BASE_ADDR             0x2001000
 #define DRAM_BASE_ADDR           0x4000000
 
@@ -667,17 +669,29 @@
 #define ROUTER_OP_LUT_DST_IP_FILTER_TABLE_RD_ADDR_REG     0x2000078
 #define ROUTER_OP_LUT_DST_IP_FILTER_TABLE_WR_ADDR_REG     0x200007c
 
+// Name: strip_headers (STRIP_HEADERS)
+// Description: Strip headers from data
+// File: lib/verilog/core/strip_headers/keep_length/xml/strip_headers.xml
+
 // Name: in_arb (IN_ARB)
 // Description: Round-robin input arbiter
 // File: lib/verilog/core/input_arbiter/rr_input_arbiter/xml/rr_input_arbiter.xml
-#define IN_ARB_NUM_PKTS_SENT_REG        0x2000100
-#define IN_ARB_LAST_PKT_WORD_0_HI_REG   0x2000104
-#define IN_ARB_LAST_PKT_WORD_0_LO_REG   0x2000108
-#define IN_ARB_LAST_PKT_CTRL_0_REG      0x200010c
-#define IN_ARB_LAST_PKT_WORD_1_HI_REG   0x2000110
-#define IN_ARB_LAST_PKT_WORD_1_LO_REG   0x2000114
-#define IN_ARB_LAST_PKT_CTRL_1_REG      0x2000118
-#define IN_ARB_STATE_REG                0x200011c
+#define IN_ARB_NUM_PKTS_SENT_REG        0x2000200
+#define IN_ARB_LAST_PKT_WORD_0_HI_REG   0x2000204
+#define IN_ARB_LAST_PKT_WORD_0_LO_REG   0x2000208
+#define IN_ARB_LAST_PKT_CTRL_0_REG      0x200020c
+#define IN_ARB_LAST_PKT_WORD_1_HI_REG   0x2000210
+#define IN_ARB_LAST_PKT_WORD_1_LO_REG   0x2000214
+#define IN_ARB_LAST_PKT_CTRL_1_REG      0x2000218
+#define IN_ARB_STATE_REG                0x200021c
+
+// Name: ids (IDS)
+// Description: Registers for IDS
+// File: projects/lab4/include/ids.xml
+#define IDS_PATTERN_HIGH_REG   0x2000300
+#define IDS_PATTERN_LOW_REG    0x2000304
+#define IDS_IDS_CMD_REG        0x2000308
+#define IDS_MATCHES_REG        0x200030c
 
 // Name: output_queues (OQ)
 // Description: SRAM-based output queue using round-robin removal
@@ -829,6 +843,17 @@
 
 /* ========== Bitmasks ========== */
 
+// Type: oq_control
+// File: lib/verilog/core/output_queues/sram_rr_output_queues/xml/sram_rr_output_queues.xml
+
+// Part 1: bit positions
+#define OQ_CONTROL_ENABLE_SEND_POS     0
+#define OQ_CONTROL_INITIALIZE_OQ_POS   1
+
+// Part 2: masks/values
+#define OQ_CONTROL_ENABLE_SEND         0x1
+#define OQ_CONTROL_INITIALIZE_OQ       0x2
+
 // Type: dma_iface_ctrl
 // Description: DMA interface control register
 // File: lib/verilog/core/dma/xml/dma.xml
@@ -840,17 +865,6 @@
 // Part 2: masks/values
 #define DMA_IFACE_CTRL_DISABLE       0x001
 #define DMA_IFACE_CTRL_RESET         0x002
-
-// Type: oq_control
-// File: lib/verilog/core/output_queues/sram_rr_output_queues/xml/sram_rr_output_queues.xml
-
-// Part 1: bit positions
-#define OQ_CONTROL_ENABLE_SEND_POS     0
-#define OQ_CONTROL_INITIALIZE_OQ_POS   1
-
-// Part 2: masks/values
-#define OQ_CONTROL_ENABLE_SEND         0x1
-#define OQ_CONTROL_INITIALIZE_OQ       0x2
 
 // Type: mii_ctrl
 // Description: MII control register

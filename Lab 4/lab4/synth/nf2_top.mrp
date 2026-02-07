@@ -10,7 +10,7 @@ Target Device  : xc2vp50
 Target Package : ff1152
 Target Speed   : -7
 Mapper Version : virtex2p -- $Revision: 1.46.12.2 $
-Mapped Date    : Thu Feb  5 16:12:20 2026
+Mapped Date    : Sat Feb  7 02:27:27 2026
 
 Design Summary
 --------------
@@ -18,15 +18,15 @@ Number of errors:      0
 Number of warnings: 2303
 Logic Utilization:
   Number of Slice Flip Flops:        14,598 out of  47,232   30%
-  Number of 4 input LUTs:            21,905 out of  47,232   46%
+  Number of 4 input LUTs:            21,883 out of  47,232   46%
 Logic Distribution:
-  Number of occupied Slices:         14,882 out of  23,616   63%
-    Number of Slices containing only related logic:  14,882 out of  14,882 100%
-    Number of Slices containing unrelated logic:          0 out of  14,882   0%
+  Number of occupied Slices:         15,194 out of  23,616   64%
+    Number of Slices containing only related logic:  15,194 out of  15,194 100%
+    Number of Slices containing unrelated logic:          0 out of  15,194   0%
       *See NOTES below for an explanation of the effects of unrelated logic.
-  Total Number of 4 input LUTs:      23,149 out of  47,232   49%
-    Number used as logic:            18,821
-    Number used as a route-thru:      1,244
+  Total Number of 4 input LUTs:      23,134 out of  47,232   48%
+    Number used as logic:            18,799
+    Number used as a route-thru:      1,251
     Number used for Dual Port RAMs:   1,964
       (Two LUTs used per Dual Port RAM)
     Number used for 32x1 RAMs:          384
@@ -40,9 +40,9 @@ Logic Distribution:
   Number of DCMs:                         6 out of       8   75%
 
   Number of RPM macros:           25
-Peak Memory Usage:  1761 MB
-Total REAL time to MAP completion:  2 mins 33 secs 
-Total CPU time to MAP completion:   2 mins 27 secs 
+Peak Memory Usage:  1763 MB
+Total REAL time to MAP completion:  2 mins 48 secs 
+Total CPU time to MAP completion:   2 mins 32 secs 
 
 Table of Contents
 -----------------
@@ -5652,7 +5652,7 @@ WARNING:PhysDesignRules:1060 - Dangling pins on
    The block is configured to use input parity pins. There are dangling output
    parity pins.
 WARNING:PhysDesignRules:1060 - Dangling pins on
-   block:<nf2_core/user_data_path/ids/drop_fifo/XLXI_34/B10.A>:<RAMB16_RAMB16A>.
+   block:<nf2_core/user_data_path/ids/drop_fifo/XLXI_37/B10.A>:<RAMB16_RAMB16A>.
     The block is configured to use input parity pins. There are dangling output
    parity pins.
 WARNING:PhysDesignRules:812 - Dangling pin <DOA19> on
@@ -5939,7 +5939,7 @@ WARNING:PhysDesignRules:812 - Dangling pin <DOA31> on
    block:<nf2_core/user_data_path/output_queues/oq_regs/oq_reg_instances/oq_rd_a
    ddr_reg/ram/Mram_ram.A>:<RAMB16_RAMB16A>.
 WARNING:PhysDesignRules:1060 - Dangling pins on
-   block:<nf2_core/user_data_path/ids/drop_fifo/XLXI_34/B6.A>:<RAMB16_RAMB16A>. 
+   block:<nf2_core/user_data_path/ids/drop_fifo/XLXI_37/B6.A>:<RAMB16_RAMB16A>. 
    The block is configured to use input parity pins. There are dangling output
    parity pins.
 WARNING:PhysDesignRules:1060 - Dangling pins on
@@ -9914,8 +9914,8 @@ VCC 		nf2_core/user_data_path/ids/XST_VCC
 VCC 		nf2_core/user_data_path/ids/drop_fifo/XLXI_12/I_36_16
 VCC 		nf2_core/user_data_path/ids/drop_fifo/XLXI_14/I_36_12
 VCC 		nf2_core/user_data_path/ids/drop_fifo/XLXI_16
-GND 		nf2_core/user_data_path/ids/drop_fifo/XLXI_34/GND
-VCC 		nf2_core/user_data_path/ids/drop_fifo/XLXI_34/VCC
+GND 		nf2_core/user_data_path/ids/drop_fifo/XLXI_37/GND
+VCC 		nf2_core/user_data_path/ids/drop_fifo/XLXI_37/VCC
 GND 		nf2_core/user_data_path/ids/input_fifo/fifo/XST_GND
 GND 		nf2_core/user_data_path/ids/module_regs/.generic_hw_regs/XST_GND
 VCC 		nf2_core/user_data_path/ids/module_regs/.generic_hw_regs/XST_VCC
@@ -19678,7 +19678,7 @@ INIT_B = 000000000
 SRVAL_B = 000000000
 
 
-RAMB16 "nf2_core/user_data_path/ids/drop_fifo/XLXI_34/B10":
+RAMB16 "nf2_core/user_data_path/ids/drop_fifo/XLXI_37/B10":
 INITP_00 = 0000000000000000000000000000000000000000000000000000000000000000
 INITP_01 = 0000000000000000000000000000000000000000000000000000000000000000
 INITP_02 = 0000000000000000000000000000000000000000000000000000000000000000
@@ -19761,7 +19761,7 @@ INIT_B = 000000000
 SRVAL_B = 000000000
 
 
-RAMB16 "nf2_core/user_data_path/ids/drop_fifo/XLXI_34/B6":
+RAMB16 "nf2_core/user_data_path/ids/drop_fifo/XLXI_37/B6":
 INITP_00 = 0000000000000000000000000000000000000000000000000000000000000000
 INITP_01 = 0000000000000000000000000000000000000000000000000000000000000000
 INITP_02 = 0000000000000000000000000000000000000000000000000000000000000000
