@@ -1,0 +1,90 @@
++++testStarted:build.registers.cpci
+
+NetFPGA environment:
+  Root dir:       /root/netfpga
+  Project name:   cpci
+  Project dir:    /root/netfpga/projects/cpci
+  Work dir:       /tmp/student
+
+Processing /root/netfpga/lib/verilog/core/common/xml/global.xml...
+Processing /root/netfpga/lib/verilog/core/common/xml/nf_defines.xml...
+Processing /root/netfpga/projects/cpci/include/project.xml...
+
+Project: 'CPCI' (cpci)
+Description: NetFPGA PCI interface
+Version: 4.1.0
+Device ID: 0
+
+Processing /root/netfpga/projects/cpci/include/cpci_regs.xml...
+Processed registers.
++++testFinished:build.registers.cpci
++++testStarted:build.registers.lab4_1
+
+NetFPGA environment:
+  Root dir:       /root/netfpga
+  Project name:   lab4_1
+  Project dir:    /root/netfpga/projects/lab4_1
+  Work dir:       /tmp/student
+
+Processing /root/netfpga/lib/verilog/core/common/xml/global.xml...
+Processing /root/netfpga/lib/verilog/core/common/xml/nf_defines.xml...
+Processing /root/netfpga/projects/lab4_1/include/project.xml...
+
+Project: 'IDS' (lab4_1)
+Description: IDS router
+Version: 1.0.0
+Device ID: 2
+
+Processing /root/netfpga/lib/verilog/core/io_queues/cpu_dma_queue/xml/cpu_dma_queue.xml...
+Processing /root/netfpga/lib/verilog/core/io_queues/ethernet_queue/xml/ethernet_mac.xml...
+WARNING: No module specific XML found for module 'contrib/ucsd/gig_eth_mac'
+Processing /root/netfpga/lib/verilog/core/input_arbiter/rr_input_arbiter/xml/rr_input_arbiter.xml...
+WARNING: No module specific XML found for module 'core/nf2/generic_top'
+WARNING: No module specific XML found for module 'core/nf2/reference_core'
+Processing /root/netfpga/lib/verilog/core/output_port_lookup/cam_router/xml/cam_router.xml...
+Processing /root/netfpga/lib/verilog/core/output_queues/sram_rr_output_queues/xml/sram_rr_output_queues.xml...
+WARNING: No module specific XML found for module 'core/sram_arbiter/sram_weighted_rr'
+WARNING: No module specific XML found for module 'core/user_data_path/reference_user_data_path'
+Processing /root/netfpga/lib/verilog/core/io/mdio/xml/mdio.xml...
+WARNING: No module specific XML found for module 'core/cpci_bus'
+Processing /root/netfpga/lib/verilog/core/dma/xml/dma.xml...
+WARNING: No module specific XML found for module 'core/user_data_path/udp_reg_master'
+WARNING: No module specific XML found for module 'core/io_queues/add_rm_hdr'
+Processing /root/netfpga/lib/verilog/core/utils/xml/device_id_reg.xml...
+WARNING: No module specific XML found for module 'core/utils/generic_regs'
+Processed registers.
++++testFinished:build.registers.lab4_1
+==================================================
+=== Generate post-synthesis verilog and SDF
+==================================================
++++testStarted:build.netgen.psv
+netgen -w -sim -ofmt verilog nf2_top_par.ncd
+Release 10.1.03 - netgen K.39 (lin64)
+Copyright (c) 1995-2008 Xilinx, Inc.  All rights reserved.
+
+Command Line: netgen -w -sim -ofmt verilog nf2_top_par.ncd  
+
+Read and Annotate design 'nf2_top_par.ncd' ...
+Flattening design ...
+Processing design ... 
+  Preping design's networks ...
+  Preping design's macros ...
+Writing Verilog SDF file 'nf2_top_par.sdf' ...
+Writing Verilog netlist file 'nf2_top_par.v' ...
+INFO:NetListWriters:633 - The generated Verilog netlist contains Xilinx SIMPRIM
+   simulation primitives and has to be used with SIMPRIM simulation library for
+   correct compilation and simulation. 
+INFO:NetListWriters - Setup Simulation - To perform a setup simulation, specify
+   values in the Maximum (MAX) field with the following command line modifier: 
+   -SDFMAX
+INFO:NetListWriters - Hold Simulation - To perform the most accurate hold
+   simulation, specify values in the Minimum (MIN) field with the following
+   command line modifier:  -SDFMIN
+INFO:NetListWriters:665 - For more information on how to pass the SDF switches
+   to the simulator, see your Simulator tool documentation.
+Number of warnings: 0
+Number of info messages: 4
+Total memory usage is 1339980 kilobytes
+
+Created netgen log file 'nf2_top_par.nlf'.
++++testFinished:build.netgen.psv
