@@ -10,7 +10,6 @@ BEGIN SCHEMATIC
         SIGNAL XLXN_3
         SIGNAL XLXN_4
         SIGNAL wena
-        SIGNAL clk
         SIGNAL wdata(63:0)
         SIGNAL r1data(63:0)
         SIGNAL r0data(63:0)
@@ -24,25 +23,15 @@ BEGIN SCHEMATIC
         SIGNAL XLXN_38(63:0)
         SIGNAL XLXN_39(63:0)
         SIGNAL XLXN_1
-        SIGNAL iclk
+        SIGNAL clk
         PORT Input wena
-        PORT Input clk
         PORT Input wdata(63:0)
         PORT Output r1data(63:0)
         PORT Output r0data(63:0)
         PORT Input waddr(1:0)
         PORT Input r0addr(1:0)
         PORT Input r1addr(1:0)
-        BEGIN BLOCKDEF ifd64
-            TIMESTAMP 2026 2 12 23 10 42
-            RECTANGLE N 64 -192 320 0 
-            LINE N 64 -96 0 -96 
-            LINE N 64 -32 0 -32 
-            LINE N 64 -160 0 -160 
-            RECTANGLE N 0 -172 64 -148 
-            LINE N 320 -160 384 -160 
-            RECTANGLE N 320 -172 384 -148 
-        END BLOCKDEF
+        PORT Input clk
         BEGIN BLOCKDEF d2_4e
             TIMESTAMP 2000 1 1 10 10 10
             RECTANGLE N 64 -384 320 -64 
@@ -70,14 +59,15 @@ BEGIN SCHEMATIC
             LINE N 64 -32 0 -32 
             RECTANGLE N 0 -44 64 -20 
         END BLOCKDEF
-        BEGIN BLOCKDEF inv
-            TIMESTAMP 2000 1 1 10 10 10
-            LINE N 0 -32 64 -32 
-            LINE N 224 -32 160 -32 
-            LINE N 64 -64 128 -32 
-            LINE N 128 -32 64 0 
-            LINE N 64 0 64 -64 
-            CIRCLE N 128 -48 160 -16 
+        BEGIN BLOCKDEF fdreg64
+            TIMESTAMP 2026 2 13 8 19 39
+            RECTANGLE N 64 -192 320 0 
+            LINE N 64 -32 0 -32 
+            LINE N 64 -96 0 -96 
+            LINE N 64 -160 0 -160 
+            RECTANGLE N 0 -172 64 -148 
+            LINE N 320 -160 384 -160 
+            RECTANGLE N 320 -172 384 -148 
         END BLOCKDEF
         BEGIN BLOCK XLXI_16 d2_4e
             PIN A0 waddr(0)
@@ -104,31 +94,27 @@ BEGIN SCHEMATIC
             PIN O(63:0) r1data(63:0)
             PIN S(1:0) r1addr(1:0)
         END BLOCK
-        BEGIN BLOCK XLXI_52 inv
-            PIN I clk
-            PIN O iclk
-        END BLOCK
-        BEGIN BLOCK XLXI_54 ifd64
-            PIN CE iclk
-            PIN CLK XLXN_1
+        BEGIN BLOCK XLXI_62 fdreg64
+            PIN CE XLXN_1
+            PIN clk clk
             PIN D(63:0) wdata(63:0)
             PIN Q(63:0) XLXN_34(63:0)
         END BLOCK
-        BEGIN BLOCK XLXI_55 ifd64
-            PIN CE iclk
-            PIN CLK XLXN_2
+        BEGIN BLOCK XLXI_63 fdreg64
+            PIN CE XLXN_2
+            PIN clk clk
             PIN D(63:0) wdata(63:0)
             PIN Q(63:0) XLXN_35(63:0)
         END BLOCK
-        BEGIN BLOCK XLXI_56 ifd64
-            PIN CE iclk
-            PIN CLK XLXN_3
+        BEGIN BLOCK XLXI_64 fdreg64
+            PIN CE XLXN_3
+            PIN clk clk
             PIN D(63:0) wdata(63:0)
             PIN Q(63:0) XLXN_38(63:0)
         END BLOCK
-        BEGIN BLOCK XLXI_57 ifd64
-            PIN CE iclk
-            PIN CLK XLXN_4
+        BEGIN BLOCK XLXI_65 fdreg64
+            PIN CE XLXN_4
+            PIN clk clk
             PIN D(63:0) wdata(63:0)
             PIN Q(63:0) XLXN_39(63:0)
         END BLOCK
@@ -151,7 +137,7 @@ BEGIN SCHEMATIC
             WIRE 736 992 736 1168
             WIRE 736 1168 1216 1168
         END BRANCH
-        BEGIN BRANCH iclk
+        BEGIN BRANCH clk
             WIRE 1184 528 1200 528
             WIRE 1200 528 1216 528
             WIRE 1184 528 1184 720
@@ -176,16 +162,12 @@ BEGIN SCHEMATIC
                 ALIGNMENT SOFT-BCENTER
             END DISPLAY
         END BRANCH
-        BEGIN BRANCH wdata(63:0)
-            WIRE 1280 160 1360 160
-        END BRANCH
         BEGIN BRANCH r1data(63:0)
             WIRE 1440 240 1520 240
         END BRANCH
         BEGIN BRANCH r0data(63:0)
             WIRE 1440 160 1520 160
         END BRANCH
-        IOMARKER 1280 160 wdata(63:0) R180 28
         IOMARKER 1520 240 r1data(63:0) R0 28
         IOMARKER 1520 160 r0data(63:0) R0 28
         BEGIN BRANCH waddr(1:0)
@@ -290,24 +272,20 @@ BEGIN SCHEMATIC
             WIRE 736 592 1216 592
         END BRANCH
         BEGIN BRANCH clk
-            WIRE 576 400 656 400
+            WIRE 800 160 880 160
         END BRANCH
-        INSTANCE XLXI_52 656 432 R0
-        IOMARKER 576 400 clk R180 28
-        BEGIN BRANCH iclk
-            WIRE 880 400 896 400
-            WIRE 896 400 960 400
-            BEGIN DISPLAY 896 400 ATTR Name
-                ALIGNMENT SOFT-BCENTER
-            END DISPLAY
+        IOMARKER 800 160 clk R180 28
+        BEGIN BRANCH wdata(63:0)
+            WIRE 1280 240 1360 240
         END BRANCH
-        BEGIN INSTANCE XLXI_54 1216 624 R0
+        IOMARKER 1280 240 wdata(63:0) R180 28
+        BEGIN INSTANCE XLXI_62 1216 624 R0
         END INSTANCE
-        BEGIN INSTANCE XLXI_55 1216 816 R0
+        BEGIN INSTANCE XLXI_63 1216 816 R0
         END INSTANCE
-        BEGIN INSTANCE XLXI_56 1216 1008 R0
+        BEGIN INSTANCE XLXI_64 1216 1008 R0
         END INSTANCE
-        BEGIN INSTANCE XLXI_57 1216 1200 R0
+        BEGIN INSTANCE XLXI_65 1216 1200 R0
         END INSTANCE
     END SHEET
 END SCHEMATIC

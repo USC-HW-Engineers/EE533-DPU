@@ -10,10 +10,6 @@ BEGIN SCHEMATIC
         SIGNAL XLXN_3
         SIGNAL XLXN_4
         SIGNAL wena
-        SIGNAL XLXN_13
-        SIGNAL XLXN_14
-        SIGNAL XLXN_15
-        SIGNAL XLXN_16
         SIGNAL clk
         SIGNAL wdata(63:0)
         SIGNAL r1data(63:0)
@@ -25,8 +21,6 @@ BEGIN SCHEMATIC
         SIGNAL waddr(1)
         SIGNAL XLXN_34(63:0)
         SIGNAL XLXN_35(63:0)
-        SIGNAL XLXN_36(63:0)
-        SIGNAL XLXN_37(63:0)
         SIGNAL XLXN_38(63:0)
         SIGNAL XLXN_39(63:0)
         SIGNAL XLXN_1
@@ -40,14 +34,14 @@ BEGIN SCHEMATIC
         PORT Input r0addr(1:0)
         PORT Input r1addr(1:0)
         BEGIN BLOCKDEF ifd64
-            TIMESTAMP 2026 2 12 10 11 52
+            TIMESTAMP 2026 2 12 23 10 42
             RECTANGLE N 64 -192 320 0 
-            RECTANGLE N 0 -172 64 -148 
-            LINE N 64 -160 0 -160 
             LINE N 64 -96 0 -96 
             LINE N 64 -32 0 -32 
-            RECTANGLE N 320 -172 384 -148 
+            LINE N 64 -160 0 -160 
+            RECTANGLE N 0 -172 64 -148 
             LINE N 320 -160 384 -160 
+            RECTANGLE N 320 -172 384 -148 
         END BLOCKDEF
         BEGIN BLOCKDEF d2_4e
             TIMESTAMP 2000 1 1 10 10 10
@@ -115,27 +109,27 @@ BEGIN SCHEMATIC
             PIN O iclk
         END BLOCK
         BEGIN BLOCK XLXI_54 ifd64
+            PIN CE iclk
+            PIN CLK XLXN_1
             PIN D(63:0) wdata(63:0)
-            PIN CLK iclk
-            PIN CE XLXN_1
             PIN Q(63:0) XLXN_34(63:0)
         END BLOCK
         BEGIN BLOCK XLXI_55 ifd64
+            PIN CE iclk
+            PIN CLK XLXN_2
             PIN D(63:0) wdata(63:0)
-            PIN CLK iclk
-            PIN CE XLXN_2
             PIN Q(63:0) XLXN_35(63:0)
         END BLOCK
         BEGIN BLOCK XLXI_56 ifd64
+            PIN CE iclk
+            PIN CLK XLXN_3
             PIN D(63:0) wdata(63:0)
-            PIN CLK iclk
-            PIN CE XLXN_3
             PIN Q(63:0) XLXN_38(63:0)
         END BLOCK
         BEGIN BLOCK XLXI_57 ifd64
+            PIN CE iclk
+            PIN CLK XLXN_4
             PIN D(63:0) wdata(63:0)
-            PIN CLK iclk
-            PIN CE XLXN_4
             PIN Q(63:0) XLXN_39(63:0)
         END BLOCK
     END NETLIST

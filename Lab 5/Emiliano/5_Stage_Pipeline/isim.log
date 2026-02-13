@@ -1,44 +1,121 @@
 Command line:
-   ./Reg_File_16b_tb_isim_beh.exe
+   ./Pipeline_Datapath_tb_isim_beh.exe
      -intstyle  ise
      -ipchost  localhost
-     -ipcport  1059
+     -ipcport  1113
 
-Thu Feb 12 15:12:16 2026
+Fri Feb 13 01:36:19 2026
 
-Total Line Count : 6951
+Total Line Count : 7870
 
- Elaboration Time: 0.109375 sec
+ Elaboration Time: 0.140625 sec
 
- Current Memory Usage: 155.173 Meg
+ Current Memory Usage: 157.45 Meg
 
- Total Signals          : 10705
- Total Nets             : 2272
- Total Signal Drivers   : 2457
- Total Blocks           : 2350
- Total Primitive Blocks : 1677
- Total Processes        : 3869
- Total Traceable Variables  : 1690
- Total Scalar Nets and Variables : 46136
-ntrace select -o on -n /Reg_File_16b_tb/r0data 
-ntrace select -o on -n /Reg_File_16b_tb/r0addr 
-ntrace select -o on -n /Reg_File_16b_tb/r1data 
-ntrace select -o on -n /Reg_File_16b_tb/r1addr 
-ntrace select -o on -n /Reg_File_16b_tb/PERIOD 
-ntrace select -o on -n /Reg_File_16b_tb/DUTY_CYCLE 
-ntrace select -o on -n /Reg_File_16b_tb/OFFSET 
-ntrace select -o on -n /Reg_File_16b_tb/clk 
-ntrace select -o on -n /Reg_File_16b_tb/waddr 
-ntrace select -o on -n /Reg_File_16b_tb/wdata 
-ntrace select -o on -n /Reg_File_16b_tb/wena 
+ Total Signals          : 11021
+ Total Nets             : 2960
+ Total Signal Drivers   : 3070
+ Total Blocks           : 2041
+ Total Primitive Blocks : 1568
+ Total Processes        : 5647
+ Total Traceable Variables  : 1618
+ Total Scalar Nets and Variables : 77722
+ntrace select -o on -n /Pipeline_Datapath_tb/PERIOD 
+ntrace select -o on -n /Pipeline_Datapath_tb/DUTY_CYCLE 
+ntrace select -o on -n /Pipeline_Datapath_tb/OFFSET 
+ntrace select -o on -n /Pipeline_Datapath_tb/CLK 
+ntrace select -o on -n /Pipeline_Datapath_tb/DIN 
+ntrace select -o on -n /Pipeline_Datapath_tb/IM_CLR 
+ntrace select -o on -n /Pipeline_Datapath_tb/IM_WE 
+ntrace select -o on -n /Pipeline_Datapath_tb/UUT/XLXN_1 
+ntrace select -o on -n /Pipeline_Datapath_tb/UUT/XLXN_140 
+ntrace select -o on -n /Pipeline_Datapath_tb/UUT/XLXN_27 
+ntrace select -o on -n /Pipeline_Datapath_tb/UUT/XLXN_185 
+ntrace select -o on -n /Pipeline_Datapath_tb/UUT/XLXN_150 
+ntrace select -o on -n /Pipeline_Datapath_tb/UUT/XLXN_151 
+ntrace select -o on -n /Pipeline_Datapath_tb/UUT/INS 
+ntrace select -o on -n /Pipeline_Datapath_tb/UUT/grnd 
+ntrace select -o on -n /Pipeline_Datapath_tb/UUT/vdd 
 ntrace start 
 isimrun 1000 ns 
 Simulator is doing circuit initialization process.
 Finished circuit initialization process.
+WARNING:Simulator:29 - at 200.000 ns: Warning: Timing violation in
+   /Pipeline_Datapath_tb/UUT/XLXI_32/inst/  $recovery( CLKB:200.000 ns,
+   CLKA:200.000 ns,1.000 ns)
 
- Total Simulation Time: 0.1875 sec
+WARNING:Simulator:29 - at 200.000 ns: Warning: Timing violation in
+   /Pipeline_Datapath_tb/UUT/XLXI_32/inst/  $recovery( CLKA:200.000 ns,
+   CLKB:200.000 ns,1.000 ns)
 
- Current Memory Usage: 165.724 Meg
+WARNING:Simulator:29 - at 300.000 ns: Warning: Timing violation in
+   /Pipeline_Datapath_tb/UUT/XLXI_32/inst/  $recovery( CLKB:300.000 ns,
+   CLKA:300.000 ns,1.000 ns)
 
-Thu Feb 12 17:22:58 2026
+WARNING:Simulator:29 - at 300.000 ns: Warning: Timing violation in
+   /Pipeline_Datapath_tb/UUT/XLXI_32/inst/  $recovery( CLKA:300.000 ns,
+   CLKB:300.000 ns,1.000 ns)
+
+WARNING:Simulator:29 - at 400.000 ns: Warning: Timing violation in
+   /Pipeline_Datapath_tb/UUT/XLXI_32/inst/  $recovery( CLKB:400.000 ns,
+   CLKA:400.000 ns,1.000 ns)
+
+WARNING:Simulator:29 - at 400.000 ns: Warning: Timing violation in
+   /Pipeline_Datapath_tb/UUT/XLXI_32/inst/  $recovery( CLKA:400.000 ns,
+   CLKB:400.000 ns,1.000 ns)
+
+WARNING:Simulator:29 - at 500.000 ns: Warning: Timing violation in
+   /Pipeline_Datapath_tb/UUT/XLXI_32/inst/  $recovery( CLKB:500.000 ns,
+   CLKA:500.000 ns,1.000 ns)
+
+WARNING:Simulator:29 - at 500.000 ns: Warning: Timing violation in
+   /Pipeline_Datapath_tb/UUT/XLXI_32/inst/  $recovery( CLKA:500.000 ns,
+   CLKB:500.000 ns,1.000 ns)
+
+WARNING:Simulator:29 - at 600.000 ns: Warning: Timing violation in
+   /Pipeline_Datapath_tb/UUT/XLXI_32/inst/  $recovery( CLKB:600.000 ns,
+   CLKA:600.000 ns,1.000 ns)
+
+WARNING:Simulator:29 - at 600.000 ns: Warning: Timing violation in
+   /Pipeline_Datapath_tb/UUT/XLXI_32/inst/  $recovery( CLKA:600.000 ns,
+   CLKB:600.000 ns,1.000 ns)
+
+WARNING:Simulator:29 - at 700.000 ns: Warning: Timing violation in
+   /Pipeline_Datapath_tb/UUT/XLXI_32/inst/  $recovery( CLKB:700.000 ns,
+   CLKA:700.000 ns,1.000 ns)
+
+WARNING:Simulator:29 - at 700.000 ns: Warning: Timing violation in
+   /Pipeline_Datapath_tb/UUT/XLXI_32/inst/  $recovery( CLKA:700.000 ns,
+   CLKB:700.000 ns,1.000 ns)
+
+WARNING:Simulator:29 - at 800.000 ns: Warning: Timing violation in
+   /Pipeline_Datapath_tb/UUT/XLXI_32/inst/  $recovery( CLKB:800.000 ns,
+   CLKA:800.000 ns,1.000 ns)
+
+WARNING:Simulator:29 - at 800.000 ns: Warning: Timing violation in
+   /Pipeline_Datapath_tb/UUT/XLXI_32/inst/  $recovery( CLKA:800.000 ns,
+   CLKB:800.000 ns,1.000 ns)
+
+WARNING:Simulator:29 - at 900.000 ns: Warning: Timing violation in
+   /Pipeline_Datapath_tb/UUT/XLXI_32/inst/  $recovery( CLKB:900.000 ns,
+   CLKA:900.000 ns,1.000 ns)
+
+WARNING:Simulator:29 - at 900.000 ns: Warning: Timing violation in
+   /Pipeline_Datapath_tb/UUT/XLXI_32/inst/  $recovery( CLKA:900.000 ns,
+   CLKB:900.000 ns,1.000 ns)
+
+WARNING:Simulator:29 - at 1.000 us: Warning: Timing violation in
+   /Pipeline_Datapath_tb/UUT/XLXI_32/inst/  $recovery( CLKB:1.000 us, CLKA:1.000
+   us,1.000 ns)
+
+WARNING:Simulator:29 - at 1.000 us: Warning: Timing violation in
+   /Pipeline_Datapath_tb/UUT/XLXI_32/inst/  $recovery( CLKA:1.000 us, CLKB:1.000
+   us,1.000 ns)
+
+
+ Total Simulation Time: 0.21875 sec
+
+ Current Memory Usage: 168.985 Meg
+
+Fri Feb 13 01:39:35 2026
 

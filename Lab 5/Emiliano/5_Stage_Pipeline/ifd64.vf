@@ -7,11 +7,11 @@
 // \   \   \/     Version : 10.1
 //  \   \         Application : sch2verilog
 //  /   /         Filename : ifd64.vf
-// /___/   /\     Timestamp : 02/12/2026 11:13:34
+// /___/   /\     Timestamp : 02/13/2026 00:13:24
 // \   \  /  \ 
 //  \___\/\___\ 
 //
-//Command: C:\Xilinx\10.1\ISE\bin\nt\unwrapped\sch2verilog.exe -intstyle ise -family virtex2p -w "C:/Documents and Settings/student/Desktop/Reg_File_and_Memories/ifd64.sch" ifd64.vf
+//Command: C:\Xilinx\10.1\ISE\bin\nt\unwrapped\sch2verilog.exe -intstyle ise -family virtex2p -w "C:/Documents and Settings/student/Desktop/5_Stage_Pipeline/ifd64.sch" ifd64.vf
 //Design Name: ifd64
 //Device: virtex2p
 //Purpose:
@@ -20,156 +20,153 @@
 //
 `timescale 1ns / 1ps
 
-module IFDX_MXILINX_ifd64(C, 
-                          CE, 
-                          D, 
-                          Q);
-
-    input C;
-    input CE;
-    input D;
-   output Q;
-   
-   wire D_IN;
-   wire XLXN_1;
-   
-   FDCE I_36_15 (.C(C), 
-                 .CE(CE), 
-                 .CLR(XLXN_1), 
-                 .D(D_IN), 
-                 .Q(Q));
-   // synthesis attribute IOB of I_36_15 is "TRUE"
-   defparam I_36_15.INIT = 1'b0;
-   IBUF I_36_24 (.I(D), 
-                 .O(D_IN));
-   // synthesis attribute IOSTANDARD of I_36_24 is "DEFAULT"
-   GND I_36_29 (.G(XLXN_1));
-endmodule
-`timescale 1ns / 1ps
-
-module IFDX16_MXILINX_ifd64(C, 
+module FD16CE_MXILINX_ifd64(C, 
                             CE, 
+                            CLR, 
                             D, 
                             Q);
 
     input C;
     input CE;
+    input CLR;
     input [15:0] D;
    output [15:0] Q;
    
    
-   IFDX_MXILINX_ifd64 I_Q0 (.C(C), 
-                            .CE(CE), 
-                            .D(D[0]), 
-                            .Q(Q[0]));
-   // synthesis attribute HU_SET of I_Q0 is "I_Q0_0"
-   IFDX_MXILINX_ifd64 I_Q1 (.C(C), 
-                            .CE(CE), 
-                            .D(D[1]), 
-                            .Q(Q[1]));
-   // synthesis attribute HU_SET of I_Q1 is "I_Q1_1"
-   IFDX_MXILINX_ifd64 I_Q2 (.C(C), 
-                            .CE(CE), 
-                            .D(D[2]), 
-                            .Q(Q[2]));
-   // synthesis attribute HU_SET of I_Q2 is "I_Q2_2"
-   IFDX_MXILINX_ifd64 I_Q3 (.C(C), 
-                            .CE(CE), 
-                            .D(D[3]), 
-                            .Q(Q[3]));
-   // synthesis attribute HU_SET of I_Q3 is "I_Q3_3"
-   IFDX_MXILINX_ifd64 I_Q4 (.C(C), 
-                            .CE(CE), 
-                            .D(D[4]), 
-                            .Q(Q[4]));
-   // synthesis attribute HU_SET of I_Q4 is "I_Q4_4"
-   IFDX_MXILINX_ifd64 I_Q5 (.C(C), 
-                            .CE(CE), 
-                            .D(D[5]), 
-                            .Q(Q[5]));
-   // synthesis attribute HU_SET of I_Q5 is "I_Q5_5"
-   IFDX_MXILINX_ifd64 I_Q6 (.C(C), 
-                            .CE(CE), 
-                            .D(D[6]), 
-                            .Q(Q[6]));
-   // synthesis attribute HU_SET of I_Q6 is "I_Q6_6"
-   IFDX_MXILINX_ifd64 I_Q7 (.C(C), 
-                            .CE(CE), 
-                            .D(D[7]), 
-                            .Q(Q[7]));
-   // synthesis attribute HU_SET of I_Q7 is "I_Q7_7"
-   IFDX_MXILINX_ifd64 I_Q8 (.C(C), 
-                            .CE(CE), 
-                            .D(D[8]), 
-                            .Q(Q[8]));
-   // synthesis attribute HU_SET of I_Q8 is "I_Q8_8"
-   IFDX_MXILINX_ifd64 I_Q9 (.C(C), 
-                            .CE(CE), 
-                            .D(D[9]), 
-                            .Q(Q[9]));
-   // synthesis attribute HU_SET of I_Q9 is "I_Q9_9"
-   IFDX_MXILINX_ifd64 I_Q10 (.C(C), 
-                             .CE(CE), 
-                             .D(D[10]), 
-                             .Q(Q[10]));
-   // synthesis attribute HU_SET of I_Q10 is "I_Q10_10"
-   IFDX_MXILINX_ifd64 I_Q11 (.C(C), 
-                             .CE(CE), 
-                             .D(D[11]), 
-                             .Q(Q[11]));
-   // synthesis attribute HU_SET of I_Q11 is "I_Q11_11"
-   IFDX_MXILINX_ifd64 I_Q12 (.C(C), 
-                             .CE(CE), 
-                             .D(D[12]), 
-                             .Q(Q[12]));
-   // synthesis attribute HU_SET of I_Q12 is "I_Q12_12"
-   IFDX_MXILINX_ifd64 I_Q13 (.C(C), 
-                             .CE(CE), 
-                             .D(D[13]), 
-                             .Q(Q[13]));
-   // synthesis attribute HU_SET of I_Q13 is "I_Q13_13"
-   IFDX_MXILINX_ifd64 I_Q14 (.C(C), 
-                             .CE(CE), 
-                             .D(D[14]), 
-                             .Q(Q[14]));
-   // synthesis attribute HU_SET of I_Q14 is "I_Q14_14"
-   IFDX_MXILINX_ifd64 I_Q15 (.C(C), 
-                             .CE(CE), 
-                             .D(D[15]), 
-                             .Q(Q[15]));
-   // synthesis attribute HU_SET of I_Q15 is "I_Q15_15"
+   FDCE I_Q0 (.C(C), 
+              .CE(CE), 
+              .CLR(CLR), 
+              .D(D[0]), 
+              .Q(Q[0]));
+   defparam I_Q0.INIT = 1'b0;
+   FDCE I_Q1 (.C(C), 
+              .CE(CE), 
+              .CLR(CLR), 
+              .D(D[1]), 
+              .Q(Q[1]));
+   defparam I_Q1.INIT = 1'b0;
+   FDCE I_Q2 (.C(C), 
+              .CE(CE), 
+              .CLR(CLR), 
+              .D(D[2]), 
+              .Q(Q[2]));
+   defparam I_Q2.INIT = 1'b0;
+   FDCE I_Q3 (.C(C), 
+              .CE(CE), 
+              .CLR(CLR), 
+              .D(D[3]), 
+              .Q(Q[3]));
+   defparam I_Q3.INIT = 1'b0;
+   FDCE I_Q4 (.C(C), 
+              .CE(CE), 
+              .CLR(CLR), 
+              .D(D[4]), 
+              .Q(Q[4]));
+   defparam I_Q4.INIT = 1'b0;
+   FDCE I_Q5 (.C(C), 
+              .CE(CE), 
+              .CLR(CLR), 
+              .D(D[5]), 
+              .Q(Q[5]));
+   defparam I_Q5.INIT = 1'b0;
+   FDCE I_Q6 (.C(C), 
+              .CE(CE), 
+              .CLR(CLR), 
+              .D(D[6]), 
+              .Q(Q[6]));
+   defparam I_Q6.INIT = 1'b0;
+   FDCE I_Q7 (.C(C), 
+              .CE(CE), 
+              .CLR(CLR), 
+              .D(D[7]), 
+              .Q(Q[7]));
+   defparam I_Q7.INIT = 1'b0;
+   FDCE I_Q8 (.C(C), 
+              .CE(CE), 
+              .CLR(CLR), 
+              .D(D[8]), 
+              .Q(Q[8]));
+   defparam I_Q8.INIT = 1'b0;
+   FDCE I_Q9 (.C(C), 
+              .CE(CE), 
+              .CLR(CLR), 
+              .D(D[9]), 
+              .Q(Q[9]));
+   defparam I_Q9.INIT = 1'b0;
+   FDCE I_Q10 (.C(C), 
+               .CE(CE), 
+               .CLR(CLR), 
+               .D(D[10]), 
+               .Q(Q[10]));
+   defparam I_Q10.INIT = 1'b0;
+   FDCE I_Q11 (.C(C), 
+               .CE(CE), 
+               .CLR(CLR), 
+               .D(D[11]), 
+               .Q(Q[11]));
+   defparam I_Q11.INIT = 1'b0;
+   FDCE I_Q12 (.C(C), 
+               .CE(CE), 
+               .CLR(CLR), 
+               .D(D[12]), 
+               .Q(Q[12]));
+   defparam I_Q12.INIT = 1'b0;
+   FDCE I_Q13 (.C(C), 
+               .CE(CE), 
+               .CLR(CLR), 
+               .D(D[13]), 
+               .Q(Q[13]));
+   defparam I_Q13.INIT = 1'b0;
+   FDCE I_Q14 (.C(C), 
+               .CE(CE), 
+               .CLR(CLR), 
+               .D(D[14]), 
+               .Q(Q[14]));
+   defparam I_Q14.INIT = 1'b0;
+   FDCE I_Q15 (.C(C), 
+               .CE(CE), 
+               .CLR(CLR), 
+               .D(D[15]), 
+               .Q(Q[15]));
+   defparam I_Q15.INIT = 1'b0;
 endmodule
 `timescale 1ns / 1ps
 
 module ifd64(CE, 
              CLK, 
+             CLR, 
              D, 
              Q);
 
     input CE;
     input CLK;
+    input CLR;
     input [63:0] D;
    output [63:0] Q;
    
    
-   IFDX16_MXILINX_ifd64 XLXI_22 (.C(CLK), 
+   FD16CE_MXILINX_ifd64 XLXI_34 (.C(CLK), 
                                  .CE(CE), 
-                                 .D(D[15:0]), 
-                                 .Q(Q[15:0]));
-   // synthesis attribute HU_SET of XLXI_22 is "XLXI_22_16"
-   IFDX16_MXILINX_ifd64 XLXI_23 (.C(CLK), 
-                                 .CE(CE), 
-                                 .D(D[31:16]), 
-                                 .Q(Q[31:16]));
-   // synthesis attribute HU_SET of XLXI_23 is "XLXI_23_17"
-   IFDX16_MXILINX_ifd64 XLXI_24 (.C(CLK), 
-                                 .CE(CE), 
-                                 .D(D[47:32]), 
-                                 .Q(Q[47:32]));
-   // synthesis attribute HU_SET of XLXI_24 is "XLXI_24_18"
-   IFDX16_MXILINX_ifd64 XLXI_25 (.C(CLK), 
-                                 .CE(CE), 
+                                 .CLR(CLR), 
                                  .D(D[63:48]), 
                                  .Q(Q[63:48]));
-   // synthesis attribute HU_SET of XLXI_25 is "XLXI_25_19"
+   // synthesis attribute HU_SET of XLXI_34 is "XLXI_34_0"
+   FD16CE_MXILINX_ifd64 XLXI_41 (.C(CLK), 
+                                 .CE(CE), 
+                                 .CLR(CLR), 
+                                 .D(D[47:32]), 
+                                 .Q(Q[47:32]));
+   // synthesis attribute HU_SET of XLXI_41 is "XLXI_41_1"
+   FD16CE_MXILINX_ifd64 XLXI_44 (.C(CLK), 
+                                 .CE(CE), 
+                                 .CLR(CLR), 
+                                 .D(D[31:16]), 
+                                 .Q(Q[31:16]));
+   // synthesis attribute HU_SET of XLXI_44 is "XLXI_44_2"
+   FD16CE_MXILINX_ifd64 XLXI_45 (.C(CLK), 
+                                 .CE(CE), 
+                                 .CLR(CLR), 
+                                 .D(D[15:0]), 
+                                 .Q(Q[15:0]));
+   // synthesis attribute HU_SET of XLXI_45 is "XLXI_45_3"
 endmodule

@@ -12,14 +12,13 @@ BEGIN SCHEMATIC
         SIGNAL Q(8:0)
         SIGNAL D(0)
         SIGNAL Q(0)
-        SIGNAL CLK
         SIGNAL CLR
-        BEGIN SIGNAL CE
-        END SIGNAL
+        SIGNAL CE
+        SIGNAL CLK
         PORT Input D(8:0)
         PORT Output Q(8:0)
-        PORT Input CLK
         PORT Input CLR
+        PORT Input CLK
         BEGIN BLOCKDEF fd8ce
             TIMESTAMP 2000 1 1 10 10 10
             LINE N 0 -128 64 -128 
@@ -105,14 +104,6 @@ BEGIN SCHEMATIC
                 ALIGNMENT SOFT-LEFT
             END DISPLAY
         END BRANCH
-        BEGIN BRANCH CLK
-            WIRE 928 944 992 944
-            WIRE 992 944 1008 944
-            WIRE 992 592 1008 592
-            WIRE 992 592 992 688
-            WIRE 992 688 992 720
-            WIRE 992 688 992 944
-        END BRANCH
         IOMARKER 928 944 CLK R180 28
         INSTANCE XLXI_16 1008 1072 R0
         INSTANCE XLXI_12 1008 720 R0
@@ -132,5 +123,11 @@ BEGIN SCHEMATIC
         END BRANCH
         IOMARKER 880 688 CLR R180 28
         INSTANCE XLXI_17 736 512 R0
+        BEGIN BRANCH CLK
+            WIRE 928 944 992 944
+            WIRE 992 944 1008 944
+            WIRE 992 592 1008 592
+            WIRE 992 592 992 944
+        END BRANCH
     END SHEET
 END SCHEMATIC

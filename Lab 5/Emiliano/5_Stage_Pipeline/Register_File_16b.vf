@@ -7,11 +7,11 @@
 // \   \   \/     Version : 10.1
 //  \   \         Application : sch2verilog
 //  /   /         Filename : Register_File_16b.vf
-// /___/   /\     Timestamp : 02/12/2026 14:12:25
+// /___/   /\     Timestamp : 02/13/2026 00:21:07
 // \   \  /  \ 
 //  \___\/\___\ 
 //
-//Command: C:\Xilinx\10.1\ISE\bin\nt\unwrapped\sch2verilog.exe -intstyle ise -family virtex2p -w "C:/Documents and Settings/student/Desktop/Reg_File_and_Memories/Register_File_16b.sch" Register_File_16b.vf
+//Command: C:\Xilinx\10.1\ISE\bin\nt\unwrapped\sch2verilog.exe -intstyle ise -family virtex2p -w "C:/Documents and Settings/student/Desktop/5_Stage_Pipeline/Register_File_16b.sch" Register_File_16b.vf
 //Design Name: Register_File_16b
 //Device: virtex2p
 //Purpose:
@@ -83,22 +83,6 @@ module Register_File_16b(clk,
    wire [63:0] XLXN_38;
    wire [63:0] XLXN_39;
    
-   ifd64 XLXI_12 (.CE(XLXN_1), 
-                  .CLK(clk), 
-                  .D(wdata[63:0]), 
-                  .Q(XLXN_34[63:0]));
-   ifd64 XLXI_13 (.CE(XLXN_2), 
-                  .CLK(clk), 
-                  .D(wdata[63:0]), 
-                  .Q(XLXN_35[63:0]));
-   ifd64 XLXI_14 (.CE(XLXN_3), 
-                  .CLK(clk), 
-                  .D(wdata[63:0]), 
-                  .Q(XLXN_38[63:0]));
-   ifd64 XLXI_15 (.CE(XLXN_4), 
-                  .CLK(clk), 
-                  .D(wdata[63:0]), 
-                  .Q(XLXN_39[63:0]));
    D2_4E_MXILINX_Register_File_16b XLXI_16 (.A0(waddr[0]), 
                                             .A1(waddr[1]), 
                                             .E(wena), 
@@ -119,4 +103,20 @@ module Register_File_16b(clk,
                        .D3(XLXN_39[63:0]), 
                        .S(r1addr[1:0]), 
                        .O(r1data[63:0]));
+   fdreg64 XLXI_62 (.CE(XLXN_1), 
+                    .clk(clk), 
+                    .D(wdata[63:0]), 
+                    .Q(XLXN_34[63:0]));
+   fdreg64 XLXI_63 (.CE(XLXN_2), 
+                    .clk(clk), 
+                    .D(wdata[63:0]), 
+                    .Q(XLXN_35[63:0]));
+   fdreg64 XLXI_64 (.CE(XLXN_3), 
+                    .clk(clk), 
+                    .D(wdata[63:0]), 
+                    .Q(XLXN_38[63:0]));
+   fdreg64 XLXI_65 (.CE(XLXN_4), 
+                    .clk(clk), 
+                    .D(wdata[63:0]), 
+                    .Q(XLXN_39[63:0]));
 endmodule

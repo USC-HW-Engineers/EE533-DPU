@@ -1,0 +1,1 @@
+sch2verilog -intstyle ise -family virtex2p   -w "C:/Documents and Settings/student/Desktop/5_Stage_Pipeline/ID_EX_Reg.sch" ID_EX_Reg.vf

@@ -18,11 +18,12 @@ BEGIN SCHEMATIC
         SIGNAL Q(47:32)
         SIGNAL D(15:0)
         SIGNAL Q(15:0)
-        SIGNAL XLXN_29
+        SIGNAL CLR
         PORT Input D(63:0)
         PORT Output Q(63:0)
         PORT Input CLK
         PORT Input CE
+        PORT Input CLR
         BEGIN BLOCKDEF fd16ce
             TIMESTAMP 2000 1 1 10 10 10
             LINE N 0 -128 64 -128 
@@ -38,45 +39,33 @@ BEGIN SCHEMATIC
             LINE N 192 -64 192 -32 
             RECTANGLE N 64 -320 320 -64 
         END BLOCKDEF
-        BEGIN BLOCKDEF gnd
-            TIMESTAMP 2000 1 1 10 10 10
-            LINE N 64 -64 64 -96 
-            LINE N 76 -48 52 -48 
-            LINE N 68 -32 60 -32 
-            LINE N 88 -64 40 -64 
-            LINE N 64 -64 64 -80 
-            LINE N 64 -128 64 -96 
-        END BLOCKDEF
         BEGIN BLOCK XLXI_34 fd16ce
             PIN C CLK
             PIN CE CE
-            PIN CLR XLXN_29
+            PIN CLR CLR
             PIN D(15:0) D(63:48)
             PIN Q(15:0) Q(63:48)
         END BLOCK
         BEGIN BLOCK XLXI_41 fd16ce
             PIN C CLK
             PIN CE CE
-            PIN CLR XLXN_29
+            PIN CLR CLR
             PIN D(15:0) D(47:32)
             PIN Q(15:0) Q(47:32)
         END BLOCK
         BEGIN BLOCK XLXI_44 fd16ce
             PIN C CLK
             PIN CE CE
-            PIN CLR XLXN_29
+            PIN CLR CLR
             PIN D(15:0) D(31:16)
             PIN Q(15:0) Q(31:16)
         END BLOCK
         BEGIN BLOCK XLXI_45 fd16ce
             PIN C CLK
             PIN CE CE
-            PIN CLR XLXN_29
+            PIN CLR CLR
             PIN D(15:0) D(15:0)
             PIN Q(15:0) Q(15:0)
-        END BLOCK
-        BEGIN BLOCK XLXI_46 gnd
-            PIN G XLXN_29
         END BLOCK
     END NETLIST
     BEGIN SHEET 1 3520 2720
@@ -170,7 +159,7 @@ BEGIN SCHEMATIC
         IOMARKER 1280 944 CE R180 28
         INSTANCE XLXI_44 1456 1440 R0
         INSTANCE XLXI_45 1456 1136 R0
-        BEGIN BRANCH XLXN_29
+        BEGIN BRANCH CLR
             WIRE 1360 2032 1440 2032
             WIRE 1440 2032 1456 2032
             WIRE 1440 1104 1456 1104
@@ -180,6 +169,6 @@ BEGIN SCHEMATIC
             WIRE 1440 1696 1456 1696
             WIRE 1440 1696 1440 2032
         END BRANCH
-        INSTANCE XLXI_46 1296 2160 R0
+        IOMARKER 1360 2032 CLR R180 28
     END SHEET
 END SCHEMATIC

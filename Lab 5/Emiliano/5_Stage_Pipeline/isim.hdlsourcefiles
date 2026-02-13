@@ -1,7 +1,9 @@
 C:/Xilinx/10.1/ISE/verilog/src/glbl.v
+N:/K.31/rtf/verilog/src/unisims/FDCE.v
+K:/IP0_K.14/env/Databases/ip/export/rtf/verilog/src/XilinxCoreLib/BLKMEMDP_V6_3.v
+N:/K.31/rtf/verilog/src/unisims/FDCE_1.v
+N:/K.31/rtf/verilog/src/unisims/GND.v
 N:/K.31/rtf/verilog/src/unisims/VCC.v
 N:/K.31/rtf/verilog/src/unisims/MUXF5.v
-N:/K.31/rtf/verilog/src/unisims/GND.v
-N:/K.31/rtf/verilog/src/unisims/IBUF.v
-N:/K.31/rtf/verilog/src/unisims/FDCE.v
-C:/Documents and Settings/student/Desktop/Reg_File_and_Memories/Reg_File_16b_tb.tfw
+K:/IP0_K.14/env/Databases/ip/export/rtf/verilog/src/XilinxCoreLib/BLKMEMSP_V6_2.v
+C:/Documents and Settings/student/Desktop/5_Stage_Pipeline/Pipeline_Datapath_tb.tfw

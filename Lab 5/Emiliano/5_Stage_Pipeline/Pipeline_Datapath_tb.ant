@@ -1,0 +1,69 @@
+////////////////////////////////////////////////////////////////////////////////
+// Copyright (c) 1995-2003 Xilinx, Inc.
+// All Right Reserved.
+////////////////////////////////////////////////////////////////////////////////
+//   ____  ____ 
+//  /   /\/   / 
+// /___/  \  /    Vendor: Xilinx 
+// \   \   \/     Version : 10.1
+//  \   \         Application : ISE
+//  /   /         Filename : Pipeline_Datapath_tb.ant
+// /___/   /\     Timestamp : Fri Feb 13 00:59:03 2026
+// \   \  /  \ 
+//  \___\/\___\ 
+//
+//Command: 
+//Design Name: Pipeline_Datapath_tb
+//Device: Xilinx
+//
+`timescale 1ns/1ps
+
+module Pipeline_Datapath_tb;
+    reg [8:0] B = 9'b000000000;
+    reg CLK = 1'b0;
+    reg [31:0] DIN = 32'b00000000000000000000000000000000;
+    reg IM_CLR = 1'b0;
+    reg IM_WE = 1'b0;
+
+    parameter PERIOD = 200;
+    parameter real DUTY_CYCLE = 0.5;
+    parameter OFFSET = 100;
+
+    initial    // Clock process for CLK
+    begin
+        #OFFSET;
+        forever
+        begin
+            CLK = 1'b0;
+            #(PERIOD-(PERIOD*DUTY_CYCLE)) CLK = 1'b1;
+            #(PERIOD*DUTY_CYCLE);
+        end
+    end
+
+    Pipeline_Datapath UUT (
+        .B(B),
+        .CLK(CLK),
+        .DIN(DIN),
+        .IM_CLR(IM_CLR),
+        .IM_WE(IM_WE));
+
+    integer TX_FILE = 0;
+    integer TX_ERROR = 0;
+    
+    initial begin  // Open the annotations file...
+        TX_FILE = $fopen("C:\\Documents and Settings\\student\\Desktop\\5_Stage_Pipeline\\Pipeline_Datapath_tb.ano");
+        #2200 // Final time:  2200 ns
+        $display("Success! Annotation Simulation Complete.");
+        $fdisplay(TX_FILE, "Total[%d]", TX_ERROR);
+        $fclose(TX_FILE);
+        $finish;
+    end
+
+    initial begin // Process for CLK
+    end
+
+    initial begin // Process for Asynchronous Signals
+    end
+
+endmodule
+
