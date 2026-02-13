@@ -1,0 +1,1 @@
+sch2verilog -intstyle ise -family virtex2p   -w "C:/Documents and Settings/student/Desktop/Reg_File_and_Memories/Mux4_1_64b.sch" Mux4_1_64b.vf

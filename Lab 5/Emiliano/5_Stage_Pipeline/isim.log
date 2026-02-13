@@ -1,0 +1,44 @@
+Command line:
+   ./Reg_File_16b_tb_isim_beh.exe
+     -intstyle  ise
+     -ipchost  localhost
+     -ipcport  1059
+
+Thu Feb 12 15:12:16 2026
+
+Total Line Count : 6951
+
+ Elaboration Time: 0.109375 sec
+
+ Current Memory Usage: 155.173 Meg
+
+ Total Signals          : 10705
+ Total Nets             : 2272
+ Total Signal Drivers   : 2457
+ Total Blocks           : 2350
+ Total Primitive Blocks : 1677
+ Total Processes        : 3869
+ Total Traceable Variables  : 1690
+ Total Scalar Nets and Variables : 46136
+ntrace select -o on -n /Reg_File_16b_tb/r0data 
+ntrace select -o on -n /Reg_File_16b_tb/r0addr 
+ntrace select -o on -n /Reg_File_16b_tb/r1data 
+ntrace select -o on -n /Reg_File_16b_tb/r1addr 
+ntrace select -o on -n /Reg_File_16b_tb/PERIOD 
+ntrace select -o on -n /Reg_File_16b_tb/DUTY_CYCLE 
+ntrace select -o on -n /Reg_File_16b_tb/OFFSET 
+ntrace select -o on -n /Reg_File_16b_tb/clk 
+ntrace select -o on -n /Reg_File_16b_tb/waddr 
+ntrace select -o on -n /Reg_File_16b_tb/wdata 
+ntrace select -o on -n /Reg_File_16b_tb/wena 
+ntrace start 
+isimrun 1000 ns 
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+
+ Total Simulation Time: 0.1875 sec
+
+ Current Memory Usage: 165.724 Meg
+
+Thu Feb 12 17:22:58 2026
+

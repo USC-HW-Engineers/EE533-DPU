@@ -1,0 +1,2 @@
+select figure at 887 330 9 -branches -sn=1
+select all in 885 328 1935 1152 -branches -enclosed -noattrwin -sn=1

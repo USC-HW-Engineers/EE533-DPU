@@ -1,0 +1,118 @@
+////////////////////////////////////////////////////////////////////////////////
+// Copyright (c) 1995-2003 Xilinx, Inc.
+// All Right Reserved.
+////////////////////////////////////////////////////////////////////////////////
+//   ____  ____ 
+//  /   /\/   / 
+// /___/  \  /    Vendor: Xilinx 
+// \   \   \/     Version : 10.1
+//  \   \         Application : ISE
+//  /   /         Filename : Reg_File_16b_tb.ant
+// /___/   /\     Timestamp : Thu Feb 12 14:12:23 2026
+// \   \  /  \ 
+//  \___\/\___\ 
+//
+//Command: 
+//Design Name: Reg_File_16b_tb
+//Device: Xilinx
+//
+`timescale 1ns/1ps
+
+module Reg_File_16b_tb;
+    reg clk = 1'b0;
+    reg [1:0] r0addr = 2'b00;
+    reg [1:0] r1addr = 2'b00;
+    reg [1:0] waddr = 2'b00;
+    reg [63:0] wdata = 64'b0000000000000000000000000000000000000000000000000000000000000000;
+    reg wena = 1'b0;
+    wire [63:0] r0data;
+    wire [63:0] r1data;
+
+    parameter PERIOD = 200;
+    parameter real DUTY_CYCLE = 0.5;
+    parameter OFFSET = 100;
+
+    initial    // Clock process for clk
+    begin
+        #OFFSET;
+        forever
+        begin
+            clk = 1'b0;
+            #(PERIOD-(PERIOD*DUTY_CYCLE)) clk = 1'b1;
+            #(PERIOD*DUTY_CYCLE);
+        end
+    end
+
+    Register_File_16b UUT (
+        .clk(clk),
+        .r0addr(r0addr),
+        .r1addr(r1addr),
+        .waddr(waddr),
+        .wdata(wdata),
+        .wena(wena),
+        .r0data(r0data),
+        .r1data(r1data));
+
+    integer TX_FILE = 0;
+    integer TX_ERROR = 0;
+    
+    initial begin    // Annotation process for clock clk
+        #0;
+        ANNOTATE_r0data;
+        ANNOTATE_r1data;
+        #OFFSET;
+        forever begin
+            #115;
+            ANNOTATE_r0data;
+            ANNOTATE_r1data;
+            #85;
+        end
+    end
+
+    initial begin  // Open the annotations file...
+        TX_FILE = $fopen("C:\\Documents and Settings\\student\\Desktop\\Reg_File_and_Memories\\Reg_File_16b_tb.ano");
+        #1200 // Final time:  1200 ns
+        $display("Success! Annotation Simulation Complete.");
+        $fdisplay(TX_FILE, "Total[%d]", TX_ERROR);
+        $fclose(TX_FILE);
+        $finish;
+    end
+
+    initial begin
+        // -------------  Current Time:  100ns
+        #100;
+        wdata = 64'b0000000000000000000000000000000000000000000000000000000100100011;
+        // -------------------------------------
+        // -------------  Current Time:  185ns
+        #85;
+        wdata = 64'b0000000000000000000000000000000000000000000000000001001000110100;
+        // -------------------------------------
+        // -------------  Current Time:  385ns
+        #200;
+        wena = 1'b1;
+        wdata = 64'b0000000000000000000000000000000000000000000000010010001101000101;
+        // -------------------------------------
+        // -------------  Current Time:  585ns
+        #200;
+        wdata = 64'b0000000000000000000000000000000000000000000100100011010001010110;
+        // -------------------------------------
+    end
+
+    task ANNOTATE_r0data;
+        #0 begin
+            $fdisplay(TX_FILE, "Annotate[%d,r0data,%b]", $time, r0data);
+            $fflush(TX_FILE);
+            TX_ERROR = TX_ERROR + 1;
+        end
+    endtask
+
+    task ANNOTATE_r1data;
+        #0 begin
+            $fdisplay(TX_FILE, "Annotate[%d,r1data,%b]", $time, r1data);
+            $fflush(TX_FILE);
+            TX_ERROR = TX_ERROR + 1;
+        end
+    endtask
+
+endmodule
+
