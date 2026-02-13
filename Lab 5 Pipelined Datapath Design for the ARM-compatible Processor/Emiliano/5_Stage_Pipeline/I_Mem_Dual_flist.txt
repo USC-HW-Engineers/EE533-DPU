@@ -1,0 +1,12 @@
+# Output products list for <I_Mem_Dual>
+I_Mem_Dual.asy
+I_Mem_Dual.mif
+I_Mem_Dual.ngc
+I_Mem_Dual.sym
+I_Mem_Dual.v
+I_Mem_Dual.veo
+I_Mem_Dual.vhd
+I_Mem_Dual.vho
+I_Mem_Dual.xco
+I_Mem_Dual_flist.txt
+I_Mem_Dual_xmdf.tcl
