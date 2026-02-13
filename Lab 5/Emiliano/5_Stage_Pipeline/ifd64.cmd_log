@@ -1,2 +1,0 @@
-sch2verilog -intstyle ise -family virtex2p   -w "C:/Documents and Settings/student/Desktop/Reg_File_and_Memories/ifd64.sch" ifd64.vf
-sch2verilog -intstyle ise -family virtex2p   -w "C:/Documents and Settings/student/Desktop/5_Stage_Pipeline/ifd64.sch" ifd64.vf

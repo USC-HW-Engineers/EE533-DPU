@@ -1,5 +1,0 @@
-sch2verilog -intstyle ise -family virtex2p   -w "C:/Documents and Settings/student/Desktop/5_Stage_Pipeline/Pipeline_Datapath.sch" Pipeline_Datapath.vf
-sch2verilog -intstyle ise -family virtex2p   -w "C:/Documents and Settings/student/Desktop/5_Stage_Pipeline/Pipeline_Datapath.sch" Pipeline_Datapath.vf
-sch2verilog -intstyle ise -family virtex2p   -w "C:/Documents and Settings/student/Desktop/5_Stage_Pipeline/Pipeline_Datapath.sch" Pipeline_Datapath.vf
-sch2verilog -intstyle ise -family virtex2p   -w "C:/Documents and Settings/student/Desktop/5_Stage_Pipeline/Pipeline_Datapath.sch" Pipeline_Datapath.vf
-sch2verilog -intstyle ise -family virtex2p   -w "C:/Documents and Settings/student/Desktop/5_Stage_Pipeline/Pipeline_Datapath.sch" Pipeline_Datapath.vf

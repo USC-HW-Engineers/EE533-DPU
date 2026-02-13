@@ -1,0 +1,5 @@
+sch2verilog -intstyle ise -family virtex2p   -w "C:/Documents and Settings/student/Desktop/5_Stage_Pipeline/ifd9.sch" ifd9.vf
+sch2verilog -intstyle ise -family virtex2p   -w "C:/Documents and Settings/student/Desktop/5_Stage_Pipeline/ifd9.sch" ifd9.vf
+sch2verilog -intstyle ise -family virtex2p   -w "C:/Documents and Settings/student/Desktop/5_Stage_Pipeline/ifd9.sch" ifd9.vf
+sch2verilog -intstyle ise -family virtex2p   -w "C:/Documents and Settings/student/Desktop/5_Stage_Pipeline/ifd9.sch" ifd9.vf
+sch2verilog -intstyle ise -family virtex2p   -w "C:/Documents and Settings/student/Desktop/5_Stage_Pipeline/ifd9.sch" ifd9.vf

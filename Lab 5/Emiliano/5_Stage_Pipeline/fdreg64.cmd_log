@@ -1,1 +1,0 @@
-sch2verilog -intstyle ise -family virtex2p   -w "C:/Documents and Settings/student/Desktop/5_Stage_Pipeline/fdreg64.sch" fdreg64.vf
