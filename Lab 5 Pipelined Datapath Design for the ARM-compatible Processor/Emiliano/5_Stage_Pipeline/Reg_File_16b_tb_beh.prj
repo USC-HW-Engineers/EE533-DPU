@@ -1,0 +1,7 @@
+verilog work "Mux4_1_16b.vf"
+verilog work "fdreg16.vf"
+verilog work "Mux4_1_64b.vf"
+verilog work "fdreg64.vf"
+verilog work "Register_File_16b.vf"
+verilog work "Reg_File_16b_tb.tfw"
+verilog work "C:/Xilinx/10.1/ISE/verilog/src/glbl.v"

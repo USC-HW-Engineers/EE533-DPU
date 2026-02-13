@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RootFolder label="COREGEN" treetype="folder" language="COREGEN">
+	<Folder label="VERILOG Component Instantiation" treetype="folder">
+		<Template label="D_Mem" treetype="template">
+ 
+ 
+// The following must be inserted into your Verilog file for this
+// core to be instantiated. Change the instance name and port connections
+// (in parentheses) to your own signal names.
+ 
+D_Mem YourInstanceName (
+    .addra(addra), // Bus [7 : 0] 
+    .addrb(addrb), // Bus [7 : 0] 
+    .clka(clka),
+    .clkb(clkb),
+    .dinb(dinb), // Bus [63 : 0] 
+    .douta(douta), // Bus [63 : 0] 
+    .web(web));
+
+ 
+		</Template>
+		<Template label="I_Mem" treetype="template">
+ 
+ 
+// The following must be inserted into your Verilog file for this
+// core to be instantiated. Change the instance name and port connections
+// (in parentheses) to your own signal names.
+ 
+I_Mem YourInstanceName (
+    .addr(addr), // Bus [8 : 0] 
+    .clk(clk),
+    .din(din), // Bus [31 : 0] 
+    .dout(dout), // Bus [31 : 0] 
+    .we(we));
+
+ 
+		</Template>
+	</Folder>
+	<Folder label="VHDL Component Instantiation" treetype="folder">
+		<Template label="D_Mem" treetype="template">
+ 
+ 
+-- The following code must appear in the VHDL architecture header:
+ 
+component D_Mem
+    port (
+    addra: IN std_logic_VECTOR(7 downto 0);
+    addrb: IN std_logic_VECTOR(7 downto 0);
+    clka: IN std_logic;
+    clkb: IN std_logic;
+    dinb: IN std_logic_VECTOR(63 downto 0);
+    douta: OUT std_logic_VECTOR(63 downto 0);
+    web: IN std_logic);
+end component;
+
+
+ 
+-------------------------------------------------------------
+ 
+-- The following code must appear in the VHDL architecture body.
+-- Substitute your own instance name and net names.
+ 
+your_instance_name : D_Mem
+        port map (
+            addra =&gt; addra,
+            addrb =&gt; addrb,
+            clka =&gt; clka,
+            clkb =&gt; clkb,
+            dinb =&gt; dinb,
+            douta =&gt; douta,
+            web =&gt; web);
+ 
+		</Template>
+		<Template label="I_Mem" treetype="template">
+ 
+ 
+-- The following code must appear in the VHDL architecture header:
+ 
+component I_Mem
+    port (
+    addr: IN std_logic_VECTOR(8 downto 0);
+    clk: IN std_logic;
+    din: IN std_logic_VECTOR(31 downto 0);
+    dout: OUT std_logic_VECTOR(31 downto 0);
+    we: IN std_logic);
+end component;
+
+
+ 
+-------------------------------------------------------------
+ 
+-- The following code must appear in the VHDL architecture body.
+-- Substitute your own instance name and net names.
+ 
+your_instance_name : I_Mem
+        port map (
+            addr =&gt; addr,
+            clk =&gt; clk,
+            din =&gt; din,
+            dout =&gt; dout,
+            we =&gt; we);
+ 
+		</Template>
+	</Folder>
+</RootFolder>

@@ -1,0 +1,3 @@
+MODULE Reg_File_16b_tb
+SUBMODULE Register_File_16b
+INSTANCE UUT

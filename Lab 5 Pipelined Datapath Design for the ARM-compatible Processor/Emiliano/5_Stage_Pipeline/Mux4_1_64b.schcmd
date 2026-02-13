@@ -1,0 +1,5 @@
+select figure at 726 655 10 -branches -sn=1
+select figure at 723 652 10 -branches -sn=1
+select figure at 726 655 10 -branches -all -sn=1
+select figure at 1490 374 10 -branches -sn=1
+select figure at 1488 371 10 -branches -sn=1

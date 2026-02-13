@@ -1,0 +1,2 @@
+sch2verilog -intstyle ise -family virtex2p   -w "C:/Documents and Settings/student/Desktop/5_Stage_Pipeline/EX_WB_Reg.sch" EX_WB_Reg.vf
+sch2verilog -intstyle ise -family virtex2p   -w "C:/Documents and Settings/student/Desktop/5_Stage_Pipeline/EX_WB_Reg.sch" EX_WB_Reg.vf
