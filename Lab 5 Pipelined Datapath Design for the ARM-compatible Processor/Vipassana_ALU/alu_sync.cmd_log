@@ -1,0 +1,2 @@
+xst -ise "C:/Xilinx/10.1/ISE/ISEexamples/lab3/lab5/lab5.ise" -intstyle ise -ifn "C:/Xilinx/10.1/ISE/ISEexamples/lab3/lab5/alu_sync.xst" -ofn "C:/Xilinx/10.1/ISE/ISEexamples/lab3/lab5/alu_sync.syr"
+xst -ise "C:/Xilinx/10.1/ISE/ISEexamples/lab3/lab5/lab5.ise" -intstyle ise -ifn "C:/Xilinx/10.1/ISE/ISEexamples/lab3/lab5/alu_sync.xst" -ofn "C:/Xilinx/10.1/ISE/ISEexamples/lab3/lab5/alu_sync.syr"
