@@ -1,0 +1,436 @@
+Release 10.1 - xst K.31 (nt)
+Copyright (c) 1995-2008 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to C:/Xilinx/10.1/ISE/ISEexamples/lab3/lab5/xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.09 secs
+ 
+--> Parameter xsthdpdir set to C:/Xilinx/10.1/ISE/ISEexamples/lab3/lab5/xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.14 secs
+ 
+--> Reading design: alu_sync.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+     9.1) Device utilization summary
+     9.2) Partition Resource Summary
+     9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "alu_sync.prj"
+Input Format                       : mixed
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "alu_sync"
+Output Format                      : NGC
+Target Device                      : xc2vp50-7-ff1152
+
+---- Source Options
+Top Module Name                    : alu_sync
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : lut
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : YES
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+ROM Style                          : Auto
+Mux Extraction                     : YES
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Multiplier Style                   : auto
+Automatic Register Balancing       : No
+
+---- Target Options
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 500
+Add Generic Clock Buffer(BUFG)     : 16
+Register Duplication               : YES
+Slice Packing                      : YES
+Optimize Instantiated Primitives   : NO
+Convert Tristates To Logic         : Yes
+Use Clock Enable                   : Yes
+Use Synchronous Set                : Yes
+Use Synchronous Reset              : Yes
+Pack IO Registers into IOBs        : auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Library Search Order               : alu_sync.lso
+Keep Hierarchy                     : NO
+Netlist Hierarchy                  : as_optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+Verilog 2001                       : YES
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling verilog file "ALU.v" in library work
+Module <alu_sync> compiled
+No errors in compilation
+Analysis of file <"alu_sync.prj"> succeeded.
+ 
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for module <alu_sync> in library <work> with parameters.
+	SHAMT_WIDTH = "00000000000000000000000000000110"
+	WIDTH = "00000000000000000000000001000000"
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing top module <alu_sync>.
+	SHAMT_WIDTH = 32'sb00000000000000000000000000000110
+	WIDTH = 32'sb00000000000000000000000001000000
+Module <alu_sync> is correct for synthesis.
+ 
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+
+Synthesizing Unit <alu_sync>.
+    Related source file is "ALU.v".
+WARNING:Xst:1872 - Variable <i> is used but never assigned.
+    Found 64-bit register for signal <Z_out>.
+    Found 7-bit register for signal <flags>.
+    Found 65-bit adder for signal <add_full>.
+    Found 64-bit comparator greater for signal <comb_gt$cmp_gt0000> created at line 119.
+    Found 64-bit comparator greater for signal <comb_gt$cmp_gt0001> created at line 128.
+    Found 64-bit comparator greater for signal <comb_gt$cmp_gt0002> created at line 156.
+    Found 64-bit comparator less for signal <comb_lt$cmp_lt0000> created at line 118.
+    Found 64-bit comparator less for signal <comb_lt$cmp_lt0001> created at line 127.
+    Found 64-bit comparator less for signal <comb_lt$cmp_lt0002> created at line 155.
+    Found 64-bit comparator equal for signal <comb_zero$cmp_eq0000> created at line 84.
+    Found 64-bit comparator equal for signal <comb_zero$cmp_eq0001> created at line 95.
+    Found 64-bit comparator equal for signal <comb_zero$cmp_eq0002> created at line 100.
+    Found 64-bit comparator equal for signal <comb_zero$cmp_eq0003> created at line 106.
+    Found 64-bit comparator equal for signal <comb_zero$cmp_eq0004> created at line 112.
+    Found 64-bit comparator equal for signal <comb_zero$cmp_eq0005> created at line 136.
+    Found 64-bit comparator equal for signal <comb_zero$cmp_eq0006> created at line 142.
+    Found 64-bit comparator equal for signal <comb_zero$cmp_eq0007> created at line 148.
+    Found 64-bit xor2 for signal <old_comb_Z_3$xor0000> created at line 111.
+    Found 65-bit adder for signal <sub_full>.
+    Summary:
+	inferred  71 D-type flip-flop(s).
+	inferred   2 Adder/Subtractor(s).
+	inferred  17 Comparator(s).
+	inferred   4 Combinational logic shifter(s).
+Unit <alu_sync> synthesized.
+
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 2
+ 65-bit adder                                          : 2
+# Registers                                            : 2
+ 64-bit register                                       : 1
+ 7-bit register                                        : 1
+# Comparators                                          : 17
+ 64-bit comparator equal                               : 11
+ 64-bit comparator greater                             : 3
+ 64-bit comparator less                                : 3
+# Logic shifters                                       : 4
+ 64-bit shifter arithmetic right                       : 1
+ 64-bit shifter logical left                           : 2
+ 64-bit shifter logical right                          : 1
+# Xors                                                 : 1
+ 64-bit xor2                                           : 1
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+Loading device for application Rf_Device from file '2vp50.nph' in environment C:\Xilinx\10.1\ISE.
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 2
+ 65-bit adder                                          : 2
+# Registers                                            : 71
+ Flip-Flops                                            : 71
+# Comparators                                          : 17
+ 64-bit comparator equal                               : 11
+ 64-bit comparator greater                             : 3
+ 64-bit comparator less                                : 3
+# Logic shifters                                       : 4
+ 64-bit shifter arithmetic right                       : 1
+ 64-bit shifter logical left                           : 2
+ 64-bit shifter logical right                          : 1
+# Xors                                                 : 1
+ 64-bit xor2                                           : 1
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+
+Optimizing unit <alu_sync> ...
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block alu_sync, actual ratio is 7.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 71
+ Flip-Flops                                            : 71
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                             *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+RTL Top Level Output File Name     : alu_sync.ngr
+Top Level Output File Name         : alu_sync
+Output Format                      : NGC
+Optimization Goal                  : Speed
+Keep Hierarchy                     : NO
+
+Design Statistics
+# IOs                              : 212
+
+Cell Usage :
+# BELS                             : 3781
+#      GND                         : 1
+#      LUT2                        : 554
+#      LUT3                        : 780
+#      LUT4                        : 1312
+#      MULT_AND                    : 16
+#      MUXCY                       : 736
+#      MUXF5                       : 254
+#      VCC                         : 1
+#      XORCY                       : 127
+# FlipFlops/Latches                : 71
+#      FDRE                        : 71
+# Clock Buffers                    : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 211
+#      IBUF                        : 140
+#      OBUF                        : 71
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 2vp50ff1152-7 
+
+ Number of Slices:                     1450  out of  23616     6%  
+ Number of Slice Flip Flops:             64  out of  47232     0%  
+ Number of 4 input LUTs:               2646  out of  47232     5%  
+ Number of IOs:                         212
+ Number of bonded IOBs:                 212  out of    692    30%  
+    IOB Flip Flops:                       7
+ Number of GCLKs:                         1  out of     16     6%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+clk                                | BUFGP                  | 71    |
+-----------------------------------+------------------------+-------+
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -7
+
+   Minimum period: 1.249ns (Maximum Frequency: 800.480MHz)
+   Minimum input arrival time before clock: 10.508ns
+   Maximum output required time after clock: 3.340ns
+   Maximum combinational path delay: No path found
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'clk'
+  Clock period: 1.249ns (frequency: 800.480MHz)
+  Total number of paths / destination ports: 64 / 64
+-------------------------------------------------------------------------
+Delay:               1.249ns (Levels of Logic = 1)
+  Source:            Z_out_0 (FF)
+  Destination:       Z_out_0 (FF)
+  Source Clock:      clk rising
+  Destination Clock: clk rising
+
+  Data Path: Z_out_0 to Z_out_0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDRE:C->Q             2   0.370   0.396  Z_out_0 (Z_out_0)
+     LUT4:I2->O            1   0.275   0.000  comb_Z<0>144 (comb_Z<0>)
+     FDRE:D                    0.208          Z_out_0
+    ----------------------------------------
+    Total                      1.249ns (0.853ns logic, 0.396ns route)
+                                       (68.3% logic, 31.7% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
+  Total number of paths / destination ports: 117702 / 213
+-------------------------------------------------------------------------
+Offset:              10.508ns (Levels of Logic = 28)
+  Source:            shamt<0> (PAD)
+  Destination:       flags_3 (FF)
+  Destination Clock: clk rising
+
+  Data Path: shamt<0> to flags_3
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O           144   0.878   0.966  shamt_0_IBUF (shamt_0_IBUF)
+     LUT3:I0->O            2   0.275   0.476  Sh36_SW0 (N714)
+     LUT3:I1->O            2   0.275   0.476  Sh36 (Sh36)
+     LUT3:I1->O            2   0.275   0.476  Sh476_SW1 (N592)
+     LUT3:I1->O            5   0.275   0.526  Sh100 (Sh100)
+     LUT2:I1->O            1   0.275   0.000  Sh1321981 (Sh1321981)
+     MUXF5:I1->O           2   0.303   0.514  Sh132198_f5 (Sh132198)
+     LUT4:I0->O            3   0.275   0.533  Sh1322 (Sh132)
+     LUT4:I0->O            1   0.275   0.000  Mcompar_comb_zero_cmp_eq0007_lut<1> (Mcompar_comb_zero_cmp_eq0007_lut<1>)
+     MUXCY:S->O            1   0.334   0.000  Mcompar_comb_zero_cmp_eq0007_cy<1> (Mcompar_comb_zero_cmp_eq0007_cy<1>)
+     MUXCY:CI->O           1   0.036   0.000  Mcompar_comb_zero_cmp_eq0007_cy<2> (Mcompar_comb_zero_cmp_eq0007_cy<2>)
+     MUXCY:CI->O           1   0.036   0.000  Mcompar_comb_zero_cmp_eq0007_cy<3> (Mcompar_comb_zero_cmp_eq0007_cy<3>)
+     MUXCY:CI->O           1   0.036   0.000  Mcompar_comb_zero_cmp_eq0007_cy<4> (Mcompar_comb_zero_cmp_eq0007_cy<4>)
+     MUXCY:CI->O           1   0.036   0.000  Mcompar_comb_zero_cmp_eq0007_cy<5> (Mcompar_comb_zero_cmp_eq0007_cy<5>)
+     MUXCY:CI->O           1   0.036   0.000  Mcompar_comb_zero_cmp_eq0007_cy<6> (Mcompar_comb_zero_cmp_eq0007_cy<6>)
+     MUXCY:CI->O           1   0.036   0.000  Mcompar_comb_zero_cmp_eq0007_cy<7> (Mcompar_comb_zero_cmp_eq0007_cy<7>)
+     MUXCY:CI->O           1   0.036   0.000  Mcompar_comb_zero_cmp_eq0007_cy<8> (Mcompar_comb_zero_cmp_eq0007_cy<8>)
+     MUXCY:CI->O           1   0.036   0.000  Mcompar_comb_zero_cmp_eq0007_cy<9> (Mcompar_comb_zero_cmp_eq0007_cy<9>)
+     MUXCY:CI->O           1   0.036   0.000  Mcompar_comb_zero_cmp_eq0007_cy<10> (Mcompar_comb_zero_cmp_eq0007_cy<10>)
+     MUXCY:CI->O           1   0.036   0.000  Mcompar_comb_zero_cmp_eq0007_cy<11> (Mcompar_comb_zero_cmp_eq0007_cy<11>)
+     MUXCY:CI->O           1   0.036   0.000  Mcompar_comb_zero_cmp_eq0007_cy<12> (Mcompar_comb_zero_cmp_eq0007_cy<12>)
+     MUXCY:CI->O           1   0.036   0.000  Mcompar_comb_zero_cmp_eq0007_cy<13> (Mcompar_comb_zero_cmp_eq0007_cy<13>)
+     MUXCY:CI->O           1   0.036   0.000  Mcompar_comb_zero_cmp_eq0007_cy<14> (Mcompar_comb_zero_cmp_eq0007_cy<14>)
+     MUXCY:CI->O           2   0.415   0.416  Mcompar_comb_zero_cmp_eq0007_cy<15> (Mcompar_comb_zero_cmp_eq0007_cy<15>)
+     LUT4:I3->O            1   0.275   0.000  comb_zero882 (comb_zero882)
+     MUXF5:I0->O           1   0.303   0.429  comb_zero88_f5 (comb_zero88)
+     LUT4:I1->O            1   0.275   0.000  comb_zero268_F (N2204)
+     MUXF5:I0->O           1   0.303   0.000  comb_zero268 (comb_zero)
+     FDRE:D                    0.208          flags_3
+    ----------------------------------------
+    Total                     10.508ns (5.694ns logic, 4.814ns route)
+                                       (54.2% logic, 45.8% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
+  Total number of paths / destination ports: 71 / 71
+-------------------------------------------------------------------------
+Offset:              3.340ns (Levels of Logic = 1)
+  Source:            Z_out_63 (FF)
+  Destination:       Z_out<63> (PAD)
+  Source Clock:      clk rising
+
+  Data Path: Z_out_63 to Z_out<63>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDRE:C->Q             2   0.370   0.378  Z_out_63 (Z_out_63)
+     OBUF:I->O                 2.592          Z_out_63_OBUF (Z_out<63>)
+    ----------------------------------------
+    Total                      3.340ns (2.962ns logic, 0.378ns route)
+                                       (88.7% logic, 11.3% route)
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 21.00 secs
+Total CPU time to Xst completion: 21.42 secs
+ 
+--> 
+
+Total memory usage is 260844 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :    1 (   0 filtered)
+Number of infos    :    0 (   0 filtered)
+

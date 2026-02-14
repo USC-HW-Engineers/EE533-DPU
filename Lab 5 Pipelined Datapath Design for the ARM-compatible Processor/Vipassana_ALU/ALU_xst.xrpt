@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<document OS="nt" product="ISE" version="10.1">
+
+  <!--The data in this file is primarily intended for consumption by Xilinx tools.
+    The structure and the elements are likely to change over the next few releases.
+    This means code written to parse this file will need to be revisited each subsequent release.-->
+
+  <application stringID="Xst" timeStamp="Thu Feb 12 15:56:20 2026">
+    <section stringID="XST_HDL_SYNTHESIS_REPORT">
+      <item dataType="int" stringID="XST_ADDERSSUBTRACTORS" value="2"></item>
+      <item dataType="int" stringID="XST_REGISTERS" value="2">
+        <item dataType="int" stringID="XST_1BIT_REGISTER" value="1"/>
+      </item>
+      <item dataType="int" stringID="XST_XORS" value="1"></item>
+    </section>
+    <section stringID="XST_ADVANCED_HDL_SYNTHESIS_REPORT">
+      <item dataType="int" stringID="XST_ADDERSSUBTRACTORS" value="2"></item>
+      <item dataType="int" stringID="XST_REGISTERS" value="65">
+        <item dataType="int" stringID="XST_FLIPFLOPS" value="65"/>
+      </item>
+      <item dataType="int" stringID="XST_XORS" value="1"></item>
+    </section>
+    <section stringID="XST_FINAL_REGISTER_REPORT">
+      <item dataType="int" stringID="XST_REGISTERS" value="65">
+        <item dataType="int" stringID="XST_FLIPFLOPS" value="65"/>
+      </item>
+    </section>
+    <section stringID="XST_PARTITION_REPORT">
+      <section stringID="XST_PARTITION_IMPLEMENTATION_STATUS">
+        <section stringID="XST_NO_PARTITIONS_WERE_FOUND_IN_THIS_DESIGN"/>
+      </section>
+    </section>
+    <section stringID="XST_FINAL_REPORT">
+      <section stringID="XST_FINAL_RESULTS">
+        <item stringID="XST_RTL_TOP_LEVEL_OUTPUT_FILE_NAME" value="ALU.ngr"/>
+        <item stringID="XST_TOP_LEVEL_OUTPUT_FILE_NAME" value="ALU"/>
+        <item stringID="XST_OUTPUT_FORMAT" value="NGC"/>
+        <item stringID="XST_OPTIMIZATION_GOAL" value="Speed"/>
+        <item stringID="XST_KEEP_HIERARCHY" value="NO"/>
+      </section>
+      <section stringID="XST_DESIGN_STATISTICS">
+        <item stringID="XST_IOS" value="198"/>
+      </section>
+      <section stringID="XST_CELL_USAGE">
+        <item dataType="int" stringID="XST_BELS" value="1765">
+          <item dataType="int" stringID="XST_GND" value="1"/>
+          <item dataType="int" stringID="XST_LUT2" value="189"/>
+          <item dataType="int" stringID="XST_LUT3" value="413"/>
+          <item dataType="int" stringID="XST_LUT4" value="793"/>
+          <item dataType="int" stringID="XST_MUXCY" value="126"/>
+          <item dataType="int" stringID="XST_MUXF5" value="115"/>
+          <item dataType="int" stringID="XST_VCC" value="1"/>
+          <item dataType="int" stringID="XST_XORCY" value="127"/>
+        </item>
+        <item dataType="int" stringID="XST_FLIPFLOPSLATCHES" value="65">
+          <item dataType="int" stringID="XST_FD" value="1"/>
+          <item dataType="int" stringID="XST_FDS" value="64"/>
+        </item>
+        <item dataType="int" stringID="XST_CLOCK_BUFFERS" value="1">
+          <item dataType="int" stringID="XST_BUFGP" value="1"/>
+        </item>
+        <item dataType="int" stringID="XST_IO_BUFFERS" value="197">
+          <item dataType="int" stringID="XST_IBUF" value="132"/>
+          <item dataType="int" stringID="XST_OBUF" value="65"/>
+        </item>
+      </section>
+    </section>
+    <section stringID="XST_DEVICE_UTILIZATION_SUMMARY">
+      <item stringID="XST_SELECTED_DEVICE" value="2vp50ff1152-7"/>
+      <item AVAILABLE="23616" dataType="int" stringID="XST_NUMBER_OF_SLICES" value="775"/>
+      <item AVAILABLE="47232" dataType="int" stringID="XST_NUMBER_OF_4_INPUT_LUTS" value="1395"/>
+      <item dataType="int" stringID="XST_NUMBER_OF_IOS" value="198"/>
+      <item AVAILABLE="692" dataType="int" stringID="XST_NUMBER_OF_BONDED_IOBS" value="198"/>
+      <item AVAILABLE="16" dataType="int" stringID="XST_NUMBER_OF_GCLKS" value="1"/>
+    </section>
+    <section stringID="XST_PARTITION_RESOURCE_SUMMARY">
+      <section stringID="XST_NO_PARTITIONS_WERE_FOUND_IN_THIS_DESIGN"/>
+    </section>
+    <section stringID="XST_ERRORS_STATISTICS">
+      <item dataType="int" filtered="0" stringID="XST_NUMBER_OF_ERRORS" value="0"/>
+      <item dataType="int" filtered="0" stringID="XST_NUMBER_OF_WARNINGS" value="0"/>
+      <item dataType="int" filtered="0" stringID="XST_NUMBER_OF_INFOS" value="0"/>
+    </section>
+  </application>
+
+</document>
