@@ -35,6 +35,24 @@ I_Mem YourInstanceName (
 
  
 		</Template>
+		<Template label="I_Mem_Dual" treetype="template">
+ 
+ 
+// The following must be inserted into your Verilog file for this
+// core to be instantiated. Change the instance name and port connections
+// (in parentheses) to your own signal names.
+ 
+I_Mem_Dual YourInstanceName (
+    .addra(addra), // Bus [8 : 0] 
+    .addrb(addrb), // Bus [8 : 0] 
+    .clka(clka),
+    .clkb(clkb),
+    .dinb(dinb), // Bus [31 : 0] 
+    .douta(douta), // Bus [31 : 0] 
+    .web(web));
+
+ 
+		</Template>
 	</Folder>
 	<Folder label="VHDL Component Instantiation" treetype="folder">
 		<Template label="D_Mem" treetype="template">
@@ -99,6 +117,40 @@ your_instance_name : I_Mem
             din =&gt; din,
             dout =&gt; dout,
             we =&gt; we);
+ 
+		</Template>
+		<Template label="I_Mem_Dual" treetype="template">
+ 
+ 
+-- The following code must appear in the VHDL architecture header:
+ 
+component I_Mem_Dual
+    port (
+    addra: IN std_logic_VECTOR(8 downto 0);
+    addrb: IN std_logic_VECTOR(8 downto 0);
+    clka: IN std_logic;
+    clkb: IN std_logic;
+    dinb: IN std_logic_VECTOR(31 downto 0);
+    douta: OUT std_logic_VECTOR(31 downto 0);
+    web: IN std_logic);
+end component;
+
+
+ 
+-------------------------------------------------------------
+ 
+-- The following code must appear in the VHDL architecture body.
+-- Substitute your own instance name and net names.
+ 
+your_instance_name : I_Mem_Dual
+        port map (
+            addra =&gt; addra,
+            addrb =&gt; addrb,
+            clka =&gt; clka,
+            clkb =&gt; clkb,
+            dinb =&gt; dinb,
+            douta =&gt; douta,
+            web =&gt; web);
  
 		</Template>
 	</Folder>
