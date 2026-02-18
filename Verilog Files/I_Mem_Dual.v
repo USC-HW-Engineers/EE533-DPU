@@ -30,79 +30,114 @@
 // supported by Xilinx, Mentor Graphics and Synplicity synthesis
 // tools. Ensure they are correct for your synthesis tool(s).
 
-// You must compile the wrapper file I_Mem.v when simulating
-// the core, I_Mem. When compiling the wrapper file, be sure to
+// You must compile the wrapper file I_Mem_Dual.v when simulating
+// the core, I_Mem_Dual. When compiling the wrapper file, be sure to
 // reference the XilinxCoreLib Verilog simulation library. For detailed
 // instructions, please refer to the "CORE Generator Help".
 
 `timescale 1ns/1ps
 
-module I_Mem(
-	addr,
-	clk,
-	din,
-	dout,
-	we);
+module I_Mem_Dual(
+	addra,
+	addrb,
+	clka,
+	clkb,
+	dinb,
+	douta,
+	web);
 
 
-input [8 : 0] addr;
-input clk;
-input [31 : 0] din;
-output [31 : 0] dout;
-input we;
+input [8 : 0] addra;
+input [8 : 0] addrb;
+input clka;
+input clkb;
+input [31 : 0] dinb;
+output [31 : 0] douta;
+input web;
 
 // synthesis translate_off
 
-      BLKMEMSP_V6_2 #(
-		.c_addr_width(9),
+      BLKMEMDP_V6_3 #(
+		.c_addra_width(9),
+		.c_addrb_width(9),
 		.c_default_data("0"),
-		.c_depth(512),
+		.c_depth_a(512),
+		.c_depth_b(512),
 		.c_enable_rlocs(0),
 		.c_has_default_data(0),
-		.c_has_din(1),
-		.c_has_en(0),
+		.c_has_dina(0),
+		.c_has_dinb(1),
+		.c_has_douta(1),
+		.c_has_doutb(0),
+		.c_has_ena(0),
+		.c_has_enb(0),
 		.c_has_limit_data_pitch(0),
-		.c_has_nd(0),
-		.c_has_rdy(0),
-		.c_has_rfd(0),
-		.c_has_sinit(0),
-		.c_has_we(1),
+		.c_has_nda(0),
+		.c_has_ndb(0),
+		.c_has_rdya(0),
+		.c_has_rdyb(0),
+		.c_has_rfda(0),
+		.c_has_rfdb(0),
+		.c_has_sinita(0),
+		.c_has_sinitb(0),
+		.c_has_wea(0),
+		.c_has_web(1),
 		.c_limit_data_pitch(18),
-		.c_mem_init_file("I_Mem.mif"),
-		.c_pipe_stages(0),
-		.c_reg_inputs(0),
-		.c_sinit_value("0"),
-		.c_width(32),
-		.c_write_mode(0),
+		.c_mem_init_file("I_Mem_Dual.mif"),
+		.c_pipe_stages_a(0),
+		.c_pipe_stages_b(0),
+		.c_reg_inputsa(0),
+		.c_reg_inputsb(0),
+		.c_sim_collision_check("NONE"),
+		.c_sinita_value("0"),
+		.c_sinitb_value("0"),
+		.c_width_a(32),
+		.c_width_b(32),
+		.c_write_modea(0),
+		.c_write_modeb(0),
 		.c_ybottom_addr("0"),
-		.c_yclk_is_rising(1),
-		.c_yen_is_high(1),
+		.c_yclka_is_rising(1),
+		.c_yclkb_is_rising(1),
+		.c_yena_is_high(1),
+		.c_yenb_is_high(1),
 		.c_yhierarchy("hierarchy1"),
 		.c_ymake_bmm(0),
 		.c_yprimitive_type("16kx1"),
-		.c_ysinit_is_high(1),
+		.c_ysinita_is_high(1),
+		.c_ysinitb_is_high(1),
 		.c_ytop_addr("1024"),
 		.c_yuse_single_primitive(0),
-		.c_ywe_is_high(1),
+		.c_ywea_is_high(1),
+		.c_yweb_is_high(1),
 		.c_yydisable_warnings(1))
 	inst (
-		.ADDR(addr),
-		.CLK(clk),
-		.DIN(din),
-		.DOUT(dout),
-		.WE(we),
-		.EN(),
-		.ND(),
-		.RFD(),
-		.RDY(),
-		.SINIT());
+		.ADDRA(addra),
+		.ADDRB(addrb),
+		.CLKA(clka),
+		.CLKB(clkb),
+		.DINB(dinb),
+		.DOUTA(douta),
+		.WEB(web),
+		.DINA(),
+		.DOUTB(),
+		.ENA(),
+		.ENB(),
+		.NDA(),
+		.NDB(),
+		.RFDA(),
+		.RFDB(),
+		.RDYA(),
+		.RDYB(),
+		.SINITA(),
+		.SINITB(),
+		.WEA());
 
 
 // synthesis translate_on
 
 // XST black box declaration
 // box_type "black_box"
-// synthesis attribute box_type of I_Mem is "black_box"
+// synthesis attribute box_type of I_Mem_Dual is "black_box"
 
 endmodule
 
