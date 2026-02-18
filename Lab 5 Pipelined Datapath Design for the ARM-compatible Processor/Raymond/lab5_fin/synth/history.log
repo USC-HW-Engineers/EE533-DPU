@@ -1,0 +1,1000 @@
+  220  make clean
+  221  make
+  222  make clean
+  223  make
+  224  cpbit
+  225  ls
+  226  ls *.ngc
+  227  ls *.ngc | grep mem
+  228  cd ..
+  229  ls
+  230  cd src/
+  231  ls
+  232  clear
+  233  ls
+  234  cd netfpga/
+  235  ls
+  236  cd projects/
+  237  ls
+  238  cd router_cpu_datapath/
+  239  ls
+  240  cd src/
+  241  ls
+  242  ls -al
+  243  cat datapath_pipeline.v | grep mem
+  244  cat datapath_pipeline.v
+  245  ise &
+  246  cd /home/mohdyusuf/Downloads/
+  247  ls
+  248  tar -zxvf meld-3.11.0.tar.xz 
+  249  cd meld-3.11.0
+  250  ls
+  251  cd bin/
+  252  ls
+  253  meld
+  254  ./meld 
+  255  ls
+  256  cd ..
+  257  cd meld-1.8.4
+  258  ls
+  259  cd bin/
+  260  ./meld 
+  261  which meld
+  262  yum update meld
+  263  cd ..
+  264  cd /root/
+  265  ls
+  266  passwd
+  267  exit
+  268  cd /media/Downloads/ee533/
+  269  vim ~/.bashrc 
+  270  cdwork
+  271  exit
+  272  cdwork
+  273  vim ~/.bashrc 
+  274  exit
+  275  cdwork
+  276  cd asm/
+  277  ls
+  278  gedit swap.c 
+  279  mips-gcc swap.c 
+  280  mips-gcc swap.c -s
+  281  mips-gcc swap.c -S
+  282  ls
+  283  rm -rf a.out 
+  284  ls
+  285  mips-gcc bubble_sort.c -o bubble_sort.o -S
+  286  mips-gcc bubble_sort.c -o bubble_sort.o -S -std=c99
+  287  ls
+  288  ls -al
+  289  mips-gcc bubble_sort.c -o bubble_sort.o -s -std=c99
+  290  mips-gcc bubble_sort.c -S -std=c99
+  291  ls -al
+  292  mips-gcc bubble_sort.c -S -std=c99
+  293  mips-gcc bubble_sort.c -o bubble_sort.o -std=c99
+  294  ls -al
+  295  mips-gcc bubble_sort.c -o bubble_sort.o
+  296  mips-gcc bubble_sort.c -o bubble_sort.o -std=c99
+  297  mips-gcc bubble_sort.c -std=c99
+  298  ls
+  299  mv bubble_sort.s bubble_sort.sba
+  300  mips-gcc bubble_sort.c -o bubble_sort.o -std=c99
+  301  ls
+  302  nautilus . &
+  303  ls
+  304  rm -rf bubble_sort.sba 
+  305  mips-gcc bubble_sort.c -o bubble_sort.o
+  306  mips-gcc bubble_sort.c -o bubble_sort.o -std=gnu99
+  307  ls
+  308  exit
+  309  cd netfpga/
+  310  ls
+  311  cd projects/
+  312  ls
+  313  cd router_cpu_datapath/
+  314  ls
+  315  cd synth/
+  316  ls
+  317  pwd
+  318  cp /media/Downloads/ee533/lab10_Datpathdesign1/*.xco ../src/
+  319  ls ../src/
+  320  ls
+  321  cd ..
+  322  cd synth/
+  323  ls
+  324  make clean
+  325  ls
+  326  make
+  327  cpbit
+  328  cat synth.txt | grep cpu_datapath
+  329  cat synth.txt | grep synthesized
+  330  cat synth.txt | grep WARNING
+  331  cat synth.txt | grep WARNING | grep cpu_datapath
+  332  ls
+  333  make
+  334  cp ../../router_ids_20pattern_origDropFifo/src/user_data_path.v ../src/
+  335  make clean
+  336  make
+  337  gedit ../src/user_data_path.v 
+  338  make clean
+  339  make
+  340  cpbit
+  341  passwd
+  342  exit
+  343  nautilus &
+  344  more ~/.bashrc 
+  345  gedit /opt/Xilinx/10.1/ISE/settings64.sh 
+  346  exit
+  347  which ise
+  348  ise &
+  349  nautilus &
+  350  nautilus . &
+  351  ls
+  352  cd netfpga/
+  353  ls
+  354  cd projects/
+  355  ls
+  356  cd router_cpu_datapath/
+  357  cd synth/
+  358  ls
+  359  make
+  360  ls
+  361  cd ..
+  362  ls
+  363  cd  ..
+  364  ls
+  365  cd router_ids_2pattern/synth/
+  366  make clean
+  367  cd ..
+  368  ls
+  369  cd ..
+  370  ls
+  371  rm -rf router_ids_20pattern
+  372  cd /media/Downloads/
+  373  ls
+  374  cd ee533/
+  375  ls
+  376  cd asm/
+  377  ls
+  378  cp bubblesort.c smallbubble.c
+  379  vim smallbubble.c 
+  380  mips-gcc -no-frame-pointer smallbubble.c -S
+  381  mips-gcc -fomit-frame-pointer smallbubble.c -S
+  382  more smallbubble.s 
+  383  vim smallbubble.c 
+  384  mips-gcc -fomit-frame-pointer smallbubble.c -S
+  385  cd ..
+  386  ls
+  387  cd lab11_cpu_bubblesort/
+  388  ls
+  389  mkdir vf
+  390  cp *.vf vf/
+  391  cd vf/
+  392  ls
+  393  rename .vf .v *
+  394  cd ..
+  395  cd asm/
+  396  ls
+  397  vim add.c
+  398  mips-gcc -fomit-frame-pointer add.c -S
+  399  ls
+  400  cd ..
+  401  ls
+  402  cd lab11_cpu_bubblesort/
+  403  cd vf/
+  404  ls
+  405  rename .vf .v *
+  406  cd ..
+  407  cd asm/
+  408  ls
+  409  touch compile.pl
+  410  gedit compile.pl &
+  411  ls
+  412  chmod +x *.pl
+  413  ./compile.pl add.c
+  414  gedit bitfile.add.s 
+  415  ./compile.pl add.c
+  416  ls
+  417  gedit bubblesort.c &
+  418  ./compile.pl bubblesort.c 
+  419  gedit bitfile.bubblesort.s 
+  420  ./compile.pl bubblesort.c 
+  421  ls
+  422  ./compile.pl swap.c
+  423  gedit bitfile.swap.s 
+  424  ./compile.pl bubblesort.c 
+  425  touch fibonacci.c
+  426  gedit fibonacci.c 
+  427  ./compile.pl fibonacci.c 
+  428  cd ..
+  429  cd lab11_cpu_bubblesort/
+  430  ls
+  431  rm -rf vf/*
+  432  cp -rf *.vf vf/
+  433  cd vf/
+  434  ls
+  435  rename .vf .v *
+  436  cd ..
+  437  mkdir v
+  438  cp -rf *.v v/
+  439  cd v
+  440  ls
+  441  cd ..
+  442  cd asm/
+  443  ls
+  444  ./compile.pl bubblesort.c 
+  445  ls
+  446  cd netfpga/projects/
+  447  ls
+  448  cd router_cpu_lab11/
+  449  ls
+  450  cd synth/
+  451  ls
+  452  make
+  453  alias
+  454  scp nf2_top_par.bit usc533aa@users.isi.deterlab.net:~/lab11
+  455  ls
+  456  cp /media/Downloads/ee533/lab11_cpu_bubblesort/vf/* ../src/
+  457  y
+  458  make
+  459  ls -alh nf2_top_par.bit 
+  460  scp nf2_top_par.bit usc533aa@users.isi.deterlab.net:~/lab11/
+  461  cp /media/Downloads/ee533/lab11_cpu_bubblesort/vf/* ../src/
+  462  y
+  463  make
+  464  scp nf2_top_par.bit usc533aa@users.isi.deterlab.net:~/lab11/
+  465  ls
+  466  cp synth.txt synth.txt.backup
+  467  cp /media/Downloads/ee533/lab11_cpu_bubblesort/vf/* ../src/
+  468  y
+  469  make
+  470  cat ../src/alumux64.v 
+  471  cp /media/Downloads/ee533/lab11_cpu_bubblesort/alumux64.v ../src/
+  472  make
+  473  scp nf2_top_par.bit usc533aa@users.isi.deterlab.net:~/lab11/nf2_top_par_golden.bit
+  474  cp /media/Downloads/ee533/lab11_cpu_bubblesort/addition64.v ../src/
+  475  make
+  476  scp nf2_top_par.bit usc533aa@users.isi.deterlab.net:~/lab11/nf2_top_par_golden.bit
+  477  cat synth.txt | grep REAL
+  478  nautilus . &
+  479  cp /media/Downloads/ee533/lab11_cpu_bubblesort/*.ngc .
+  480  cp /media/Downloads/ee533/lab11_cpu_bubblesort/*.coe ../src/
+  481  cp /media/Downloads/ee533/lab11_cpu_bubblesort/*.xco ../src/
+  482  make clean
+  483  ls
+  484  rm -rf synth.tar.gz 
+  485  make
+  486  scp nf2_top_par.bit usc533aa@users.isi.deterlab.net:~/lab11/nf2_top_par_golden2.bit
+  487  cat synth.txt | grep REAL
+  488  pwd
+  489  cp ../src/user_data_path.v ../src/cpu_datapath.v /media/Downloads/
+  490  cd netfpga/projects/router_cpu_lab11/
+  491  ls
+  492  cd synth/
+  493  ls
+  494  gedit synth.txt &
+  495  rm -rf *.ngc
+  496  ls
+  497  cp /media/Downloads/ee533/lab11_cpu_bubblesort/*.ngc .
+  498  cd ..
+  499  cd src/
+  500  ls
+  501  mv user_data_path.v user_data_path.v_bak
+  502  mv cpu_datapath.v cpu_datapath.v_bak
+  503  rm -rf *.v
+  504  ls
+  505  rm -rf *.xco
+  506  ls
+  507  mv cpu_datapath.v_bak cpu_datapath.v
+  508  mv user_data_path.v_bak user_data_path.v
+  509  gedit user_data_path.v cpu_datapath.v &
+  510  cp /media/Downloads/ee533/lab11_cpu_bubblesort/*.v .
+  511  cp /media/Downloads/ee533/lab11_cpu_bubblesort/*.xco .
+  512  cp /media/Downloads/ee533/lab11_cpu_bubblesort/*.vf .
+  513  rename .vf .v *
+  514  ls
+  515  cd ..
+  516  cd synth/
+  517  make
+  518  make clean
+  519  make
+  520  make clean
+  521  make
+  522  tar -zcvf synth.tar.gz synth.txt 
+  523  l
+  524  ls
+  525  ls -al synth.t*
+  526  ls -alh synth.t*
+  527  cp synth.tar.gz /media/Downloads/
+  528  ls
+  529  ls /media/Downloads/
+  530  ls
+  531  rm -rf *.ngc
+  532  ls
+  533  cp -rf /media/Downloads/ee533/lab11_cpu_bubblesort/*.ngc .
+  534  ls
+  535  cd ..
+  536  ls
+  537  cd src/
+  538  ls
+  539  mv cpu_datapath.v cpu_datapath.v_bak
+  540  mv user_data_path.v user_data_path.v_bak
+  541  ls
+  542  rm -rf *.xco
+  543  ls
+  544  rm -rf *.v
+  545  ls 
+  546  rm -rf *.coe
+  547  ls
+  548  mv user_data_path.v_bak user_data_path.v
+  549  mv cpu_datapath.v_bak cpu_datapath.v
+  550  cp /media/Downloads/ee533/lab11_cpu_bubblesort/*.v .
+  551  cp /media/Downloads/ee533/lab11_cpu_bubblesort/*.coe .
+  552  cp /media/Downloads/ee533/lab11_cpu_bubblesort/*.xco .
+  553  cp /media/Downloads/ee533/lab11_cpu_bubblesort/*.vf .
+  554  rename .vf .v *
+  555  ls
+  556  cd ..
+  557  cd synth/
+  558  make
+  559  vim /opt/Xilinx/10.1/ISE/settings64.sh
+  560  exit
+  561  cd /media/Downloads/ee533/
+  562  ls
+  563  cd lab12_convfifo_v12_multicore
+  564  ls
+  565  cd vf/
+  566  ls
+  567  rm -rf *
+  568  cp ../*.vf .
+  569  rename .vf .v *
+  570  ls
+  571  cd en
+  572  cd netfpga/
+  573  ls
+  574  cd projects/router_cpu_lab12_v12
+  575  cd ..
+  576  ls
+  577  rm -rf router_cpu_lab12_v10
+  578  ls
+  579  rm -rf router_cpu_lab12_v14
+  580  rm -rf router_cpu_lab12
+  581  cd router_cpu_lab12_v12
+  582  ls
+  583  cd synth/
+  584  ls
+  585  meld ../src/cpu_datapath.v /media/Downloads/ee533/lab12_convfifo_v12/cpu_datapath_sim.v &
+  586  make
+  587  scp nf2_top_par.bit usc533aa@users.isi.deterlab.net:~/lab12/nf2_v12_ids_sm4.bit
+  588  make
+  589  scp nf2_top_par.bit usc533aa@users.isi.deterlab.net:~/lab12/nf2_v12_ids_sm4.bit
+  590  make
+  591  scp nf2_top_par.bit usc533aa@users.isi.deterlab.net:~/lab12/nf2_v12_ids_sm3.bit
+  592  make
+  593  scp nf2_top_par.bit usc533aa@users.isi.deterlab.net:~/lab12/nf2_v12_ids_sm3.bit
+  594  cd ..
+  595  ls
+  596  cd ..
+  597  ls
+  598  cp -rf router_cpu_lab12_v12 router_cpu_multicore
+  599  rm -rf router_cpu_lab12_v12_2
+  600  ls
+  601  cd router_cpu_multicore/
+  602  ls
+  603  cd synth/
+  604  ls
+  605  cp /media/Downloads/ee533/lab12_convfifo_v12_multicore/*.v ../src/
+  606  y
+  607  rm -rf ../src/generic_regs.v 
+  608  meld ../src/cpu_datapath.v ../src/cpu_datapath_sim.v &
+  609  rm -rf ../src/cpu_datapath_sim.v 
+  610  cp /media/Downloads/ee533/lab12_convfifo_v12_multicore/vf/* ../src/
+  611  y
+  612  ls
+  613  cp /media/Downloads/ee533/lab12_convfifo_v12_multicore/*.ngc .
+  614  cp /media/Downloads/ee533/lab12_convfifo_v12_multicore/*.xco ../src/
+  615  make
+  616  scp nf2_top_par.bit usc533aa@users.isi.deterlab.net:~/lab12/dualcore.bit
+  617  gedit ../include/cpu_datapath.xml &
+  618  make
+  619  cat synth.txt | grep REAL
+  620  scp nf2_top_par.bit usc533aa@users.isi.deterlab.net:~/lab12/dualcore.bit
+  621  make
+  622  scp nf2_top_par.bit usc533aa@users.isi.deterlab.net:~/lab12/dualcore.bit
+  623  make
+  624  make clean
+  625  make
+  626  pwd
+  627  cd /media/Downloads/ee533/asm/
+  628  ls
+  629  gedit convfifo.c &
+  630  ./compile.pl convfifo.c 
+  631  cp bubblesort.c bubble2.c
+  632  gedit bubble2.c 
+  633  ./compile.pl bubble2.c 
+  634  ./compile.pl bubblesort.c 
+  635  ./compile.pl convfifo.c 
+  636  ./compile.pl core1.c 
+  637  ./compile.pl core1.c cor
+  638  ./compile.pl core1.c
+  639  ./compile.pl core3.c t2
+  640  ./compile.pl swap2.c t2
+  641  ./compile.pl swap.c t1
+  642  ./compile.pl bubblesort.c t1
+  643  ./compile.pl bubble2.c t2
+  644  cd /root/netfpga/projects/router_cpu_multicore/synth
+  645  ls
+  646  make
+  647  passwd
+  648  exit
+  649  pwd
+  650  cd reference_router/synth/
+  651  ls
+  652  cd ..
+  653  ls
+  654  cd synth/
+  655  ls
+  656  cd ..
+  657  ls
+  658  cd lib/
+  659  ls
+  660  mv Perl5_bak Perl5
+  661  ls
+  662  cd ..
+  663  cd synth/
+  664  ls
+  665  make
+  666  make clean
+  667  pwd
+  668  cd /root
+  669  ls
+  670  cd netfpga/
+  671  ls
+  672  ls -al
+  673  chmod 644 projects
+  674  ls
+  675  ls al
+  676  ls -al
+  677  chmod 755 projects
+  678  ls
+  679  ls -al
+  680  cd projects/
+  681  ls
+  682  find . -type d | xargs chmod 755
+  683  ls -al
+  684  find . -type f | xargs chmod 644
+  685  ls -al
+  686  rm -rf router_cpu_*
+  687  ls -al
+  688  rm -rf router_ids_2*
+  689  ls -al
+  690  passwd -d student
+  691  ls
+  692  pwd
+  693  cd /root/netfpga/projects/
+  694  ls
+  695  rm -rf netmaniacs_proj*
+  696  ls
+  697  rm -rf ref_router_ids_2pattern
+  698  ls
+  699  pwd
+  700  ls
+  701  pwd
+  702  ls
+  703  more ~/.bashrc
+  704  vim ~/.bashrc
+  705  pwd
+  706  vim /root/.bashrc 
+  707  cd /media/Downloads/
+  708  ls
+  709  vim /etc/gdm/custom.conf 
+  710  exit
+  711  cd /root/netfpga/projects/
+  712  ls
+  713  cd reference_router/
+  714  ls
+  715  cd synth/
+  716  ls
+  717  make
+  718  make clean
+  719  pwd
+  720  cd /root/netfpga/projects/reference_router/
+  721  ls
+  722  cd synth/
+  723  ls
+  724  make
+  725  make clean
+  726  exit
+  727  echo $NF_ROOT 
+  728  ls
+  729  pwd
+  730  make
+  731  ls
+  732  pwd
+  733  cd ..
+  734  ls
+  735  cp -r ../../ids_hw/src .
+  736  ls
+  737  cd synth/
+  738  make
+  739  vim ../src/ids.v 
+  740  vim ../src/generic_regs.v 
+  741  vim ../src/ids.v 
+  742  vim ../src/generic_regs.v 
+  743  vim ../src/ids.v 
+  744  vim ../src/generic_regs.v 
+  745  make
+  746  make > log
+  747  vim log 
+  748  ls
+  749  rm ../src/small_fifo.v 
+  750  ls
+  751  make | tee log
+  752  ls
+  753  vim log 
+  754  vim ../src/user_data_path.v 
+  755  vim ../src/fallthrough_small_fifo_v2.v 
+  756  vim log 
+  757  vim nf2_top.prj 
+  758  make
+  759  vim ../src/dropfifo.vf 
+  760  vim ../src/dropfifo.vf  > log
+  761  make > log
+  762  vim log
+  763  ls
+  764  cd ..
+  765  ls
+  766  vim /root/netfpga/projects/reference_router/synth/nf2_top.scr
+  767  vim synth/Makefile 
+  768  vim /.vimrc
+  769  vim ~/.viminfo 
+  770  vim ~/.vimrc
+  771  source ~/.vimrc
+  772   ~/.vimrc
+  773  vim synth/Makefile 
+  774  vim ~/.vimrc
+  775  .~/.vimrc
+  776  cd ~
+  777  ./vimrc
+  778  .vimrc
+  779  cd `
+  780  exit
+  781  cd -
+  782  ls
+  783  vim /root/netfpga/Makefile
+  784  vim /root/netfpga/projects/Makefile 
+  785  vim /root/netfpga/lib/Makefiles/synth_makefile
+  786  vim /root/netfpga/lib/Makefiles/synth_makefile.funcs 
+  787  vim /root/netfpga/lib/Makefiles/synth_makefile.vars 
+  788  vim /root/netfpga/lib/Makefiles/synth_makefile.rules 
+  789  ls
+  790  cd synth/
+  791  rm nf2_top.prj
+  792  make
+  793  pwd
+  794  vim nf2_top.prj
+  795  make
+  796  vim nf2_top.prj
+  797  make
+  798  vim ../src/generic_regs.v 
+  799  vim /root/netfpga/lib/verilog/core/utils/generic_regs/src/generic_sw_regs.v
+  800  vim ../src/generic_regs.v 
+  801  vim /root/netfpga/lib/verilog/core/utils/generic_regs/src/generic_sw_regs.v
+  802  ls
+  803  grep "UDP_REG_ADDR_WIDTH" ../src/
+  804  grep "UDP_REG_ADDR_WIDTH" ../src//root/netfpga/lib/verilog/core/utils/generic_regs/src/
+  805  grep "UDP_REG_ADDR_WIDTH" /root/netfpga/lib/verilog/core/utils/generic_regs/src/
+  806  grep -r "UDP_REG_ADDR_WIDTH" /root/netfpga/lib/verilog/core/utils/generic_regs/src/
+  807  grep -r "UDP_REG_ADDR_WIDTH" ../src/
+  808  pwd
+  809  cd ..
+  810  ls
+  811  cd ..
+  812  ls
+  813  cp -r /root/netfpga/projects/reference_router lab4_1
+  814  ls
+  815  cd lab4_1/
+  816  ls
+  817  cp -r ../lab4/src .
+  818  ls
+  819  ls src
+  820  make
+  821  cd synth/
+  822  ls
+  823  make
+  824  ls
+  825  cd ..
+  826  ls
+  827  cd ..
+  828  rm -r lab4_1
+  829  rm -rf lab4_1/
+  830  ls
+  831  cp -rf /root/netfpga/projects/reference_router lab4_1
+  832  cd lab4_1
+  833  ls
+  834  cp rf ../lab4/src .
+  835  cp -rf ../lab4/src .
+  836  ls
+  837  ls src
+  838  vim src/ids.v 
+  839  rm src/ids_sim.v 
+  840  ls
+  841  cd synth/
+  842  make
+  843  vim Makefile 
+  844  vim /root/netfpga/lib/Makefiles/synth_makefile
+  845  vim /root/netfpga/lib/Makefiles/synth_makefile.funcs 
+  846  vim /root/netfpga/lib/Makefiles/synth_makefile.vars 
+  847  vim ../Makefile 
+  848  cd ..
+  849  cp -rf lab4_1 /root/netfpga/projects/
+  850  cd /root/netfpga/projects/
+  851  ls
+  852  cd lab4_1/
+  853  ls
+  854  make
+  855  vim Makefile 
+  856  cd synth/
+  857  make
+  858  ls
+  859  vim nf2_top.prj 
+  860  vim /root/netfpga/lib/Makefiles/synth_makefile.rules
+  861  vim /root/netfpga/lib/Makefiles/synth_makefile.vars 
+  862  make
+  863  vim nf2_top.prj
+  864  rm nf2_top.prj
+  865  make
+  866  vim nf2_top.prj
+  867  make
+  868  rm nf2_top.prj 
+  869  ls
+  870  make
+  871  grep -r "gene" ../src/
+  872  vim ../src/generic_regs.v
+  873  vim /root/netfpga/lib/verilog/core/utils/generic_regs/src/generic_sw_regs.v
+  874  vim +70 /root/netfpga/lib/verilog/core/utils/generic_regs/src/generic_hw_regs.v
+  875  grep -r "UDP_REG_ADDR_WIDTH" ../src
+  876  vim +70 /root/netfpga/lib/verilog/core/utils/generic_regs/src/generic_hw_regs.v
+  877  grep -r "" ../src
+  878  grep -r "REG_ADDR_WIDTH" ../src
+  879  grep -r "REG_ADDR_WIDTH" /root/netfpga/lib/verilog/core/utils/generic_regs
+  880  vim +70 /root/netfpga/lib/verilog/core/utils/generic_regs/src/generic_hw_regs.v
+  881  vim ../src/generic_regs.v
+  882  ls
+  883  cd src
+  884  ls
+  885  make
+  886  vim ../src/user_data_path.v 
+  887  vim /root/netfpga/lib/verilog/core/utils/generic_regs/src/generic_sw_regs.v
+  888  vim ../src/generic_regs.v 
+  889  vim ../src/ids.v 
+  890  vim ../src/generic_regs.v 
+  891  vim ../src/ids.v 
+  892  vim ../src/generic_regs.v 
+  893  vim nf2_top.prj 
+  894  vim ../src/generic_regs.v 
+  895  vim ../src/ids.v 
+  896  vim lo
+  897  vim log
+  898  vim ../src/generic_regs.v 
+  899  vim nf2_top.prj 
+  900  vim ../src/generic_regs.v 
+  901  vim nf2_top.prj 
+  902  vim /root/netfpga/lib/verilog/core/common/src/udp_defines.v
+  903  vim /root/netfpga/projects/cpci/include/registers.v
+  904  vim ../src/generic_regs.v 
+  905  grep -r "UDP_REG_ADDR_WIDTH" ../src/
+  906  vim ../src/generic_regs.v 
+  907  make
+  908  vim nf2_top.srp
+  909  ls
+  910  vim synth.txt |
+  911  make | tee syn.log
+  912  vim syn.log 
+  913  vim ../src/dropfifo.vf 
+  914  vim nf2_top.prj 
+  915  vim syn.log 
+  916  cd ../src
+  917  coregen old_dp_72_256k.xco -p
+  918  coregen old_dp_72_256k.xco -p .
+  919  coregen -b old_dp_72_256k.xco -p .
+  920  chmod 777 /media/sf_sharedir/verilogs/old_dp_72_256k.ngc
+  921  cp /media/sf_sharedir/verilogs/old_dp_72_256k.ngc .
+  922  ls
+  923  cd ..
+  924  cd synth/
+  925  vim nf2_top.prj 
+  926  vim /root/netfpga/lib/Makefiles/synth_makefile.vars 
+  927  cp ../src/old_dp_72_256k.xco .
+  928  make | syn.log
+  929  vim syn.log 
+  930  cp ../src/old_dp_72_256k.ngc .
+  931  make | syn.log
+  932  make | tee syn.log
+  933  ls
+  934  vim syn.log 
+  935  vim nf2_top_summary.xml
+  936  vim syn.log 
+  937  echo $NF_ROOT
+  938  vim /root/netfpga/lib/Makefiles/synth_makefile.funcs
+  939  vim /root/netfpga/lib/Makefiles/synth_makefile.rules 
+  940  ls
+  941  vim nf2_top.scr
+  942  vim /root/netfpga/lib/Makefiles/synth_makefile.rules 
+  943  vim /root/netfpga/lib/Makefiles/synth_makefile.rules 
+  944  echo $TOP
+  945  echo $(TOP)
+  946  vim /root/netfpga/lib/Makefiles/synth_makefile.rules 
+  947  ls
+  948  vim netlist.lst 
+  949  vim /root/netfpga/lib/Makefiles/synth_makefile.rules 
+  950  vim ../include/project.xml 
+  951  vim Makefile 
+  952  vim /root/netfpga/lib/Makefiles/synth_makefile
+  953  vim /root/netfpga/lib/Makefiles/synth_makefile.vars 
+  954  make clean
+  955  ls
+  956  vim /root/netfpga/lib/Makefiles/synth_makefile.rules 
+  957  vim nf2_top.scr 
+  958  vim /root/netfpga/lib/Makefiles/synth_makefile.vars 
+  959  vim nf2_top.ngc
+  960  vim nf2_top.ngd
+  961  vim nf2_top.prj
+  962  vim nf2_top.psr
+  963  vim nf2_top.scr
+  964  vim nf2_top.ucf
+  965  vim ../src/ids.v 
+  966  cp Makefile /media/sf_sharedir/
+  967  cp /root/netfpga/lib/Makefiles/synth_makefile* /media/sf_sharedir/
+  968  vim /root/netfpga/lib/Makefiles/synth_makefile.vars 
+  969  make TOP=ids
+  970  vim ../src/ids.v 
+  971  vim nf2_top.scr 
+  972  ls
+  973  mv nf2_top.scr ids.scr
+  974  ls
+  975  make
+  976  ls
+  977  vim /root/netfpga/lib/Makefiles/synth_makefile.vars 
+  978  make TOP=ids
+  979  vim /root/netfpga/lib/Makefiles/synth_makefile.vars 
+  980  make clean
+  981  ls
+  982  vim /root/netfpga/lib/Makefiles/synth_makefile.vars 
+  983  vim nf2_top.ucf 
+  984  vim /root/netfpga/lib/Makefiles/synth_makefile.vars 
+  985  vim /root/netfpga/lib/Makefiles/synth_makefile.funcs 
+  986  vim /root/netfpga/lib/Makefiles/synth_makefile.rules 
+  987  make psv
+  988  vim /root/netfpga/lib/Makefiles/synth_makefile.vars 
+  989  make psv
+  990  make psv | tee syn.log
+  991  vim syn.log 
+  992  ls
+  993  vim /root/netfpga/lib/Makefiles/synth_makefile.rules 
+  994  make 
+  995  make psv | tee syn.log
+  996  vim nf2_top_par.ncd
+  997  ls
+  998  vim ../src/user_data_path.v 
+  999  cp ids.v ids_ft.v
+ 1000  vim ids_ft.v 
+ 1001  cp ids_ft.v /media/sf_sharedir/
+ 1002  ls
+ 1003  vim fallthrough_small_fifo_v2.v 
+ 1004  vim ids_ft.v 
+ 1005  vim user_data_path.v 
+ 1006  vim ids_ft.v 
+ 1007  ls
+ 1008  cd ../synth/
+ 1009  ls
+ 1010  make
+ 1011  vim ../src/ids_ft.v 
+ 1012  make
+ 1013  ll -t
+ 1014  cp nf2_top_par.bit /media/sf_sharedir/nf2_top_par_ft.bit
+ 1015  vim Makefile 
+ 1016  vim ../include/project.xml 
+ 1017  vim /root/netfpga/projects/reference_nic/include/project.xml 
+ 1018  vim nf2_top.prj 
+ 1019  pwd
+ 1020  cd ..
+ 1021  ls
+ 1022  cd include/
+ 1023  ls
+ 1024  cp /media/sf_sharedir/lab3_mini_ids_src_1/ids_hw/include/project.xml .
+ 1025  cp /media/sf_sharedir/lab3_mini_ids_src_1/ids_hw/include/ids.xml .
+ 1026  vim ids.xml 
+ 1027  vim project.xml 
+ 1028  cd ../src
+ 1029  ls
+ 1030  cd ..
+ 1031  cd synth/
+ 1032  ls
+ 1033  make 
+ 1034  vim /root/netfpga/bin/nf_register_gen.pl
+ 1035  vim ../include/ids.xml 
+ 1036  cp /media/sf_sharedir/lab3_mini_ids_src_1/ids_hw/sw/idsreg ../sw/
+ 1037  vim ../sw/idsreg 
+ 1038  vim syn.log 
+ 1039  ls
+ 1040  cd ..
+ 1041  ls
+ 1042  cp -r lab4_1 /media/sf_sharedir/
+ 1043  cp -r ../lab4_1 /media/sf_sharedir/
+ 1044  vim include/ids.xml 
+ 1045  ls
+ 1046  make | tee syn.log
+ 1047  cd synth/
+ 1048  ls
+ 1049  make
+ 1050  find /root/netfpga/ -name "nf2_mac_grp.xml"
+ 1051  find /root/netfpga/ -name "nf2_mac_grp"
+ 1052  grep -r "nf2_mac_grp" /root/netfpga/
+ 1053  grep -r "module nf2_mac_grp" /root/netfpga/
+ 1054  cp /root/netfpga/lib/verilog/core/io_queues/ethernet_queue/src/nf2_mac_grp.v ../src
+ 1055  make 
+ 1056  grep -r /root/netfpga/ "nf2_mac_grp" . --include="*.xml"
+ 1057  grep /root/ -r "nf2_mac_grp" . --include="*.xml"
+ 1058  vim ../include/ids.xml 
+ 1059  vim ../include/project.xml 
+ 1060  pwd
+ 1061  size /root
+ 1062  size /root/netfpga/
+ 1063  cp -r /root/netfpga /media/sf_sharedir/
+ 1064  vim ../include/project.xml 
+ 1065  make 
+ 1066  vim nf2_top.ngc
+ 1067  vim nf2_top_par.ncd 
+ 1068  vim nf2_top_par.v
+ 1069  cp nf2_top_par.bit /media/sf_sharedir/
+ 1070  vim ../src/user_data_path.v 
+ 1071  ll -t
+ 1072  vim nf2_top_summary.xml 
+ 1073  cp ../src/ids_ft.v /media/sf_sharedir/
+ 1074  vim ../src/ids_ft.v 
+ 1075  make 
+ 1076  cp nf2_top_par.bit /media/sf_sharedir/
+ 1077  vim ../src/ids_ft.v 
+ 1078  cp /media/sf_sharedir/ids_ft.v ../src/
+ 1079  vim ../src/ids_ft.v 
+ 1080  make
+ 1081  cp nf2_top_par.bit /media/sf_sharedir/
+ 1082  vim ../src/ids_ft.v 
+ 1083  cd ../src/
+ 1084  ls
+ 1085  cp ids.v ids_drop.v
+ 1086  vim ids_drop.v 
+ 1087  vim user_data_path.v 
+ 1088  vim ../synth/nf2_top.prj
+ 1089  vim user_data_path.v 
+ 1090  vim ../synth/nf2_top.prj
+ 1091  vim user_data_path.v 
+ 1092  vim ../include/registers.v 
+ 1093  ls
+ 1094  cd ../synth
+ 1095  ls
+ 1096  make 
+ 1097  vim ../src/ids_drop.v 
+ 1098  make
+ 1099  cp nf2_top_par.bit /media/sf_sharedir/nf2_top_par_drop.bit
+ 1100  vim ../src/ids.v 
+ 1101  vim nf2_top.ucf 
+ 1102  vim old_dp_72_256k.
+ 1103  vim old_dp_72_256k.xco 
+ 1104  ls
+ 1105  vim old_dp_72_256k.xco 
+ 1106  grep -r "xc2vp30" .
+ 1107  grep -r "xc2vp" .
+ 1108  vim nf2_top.scr 
+ 1109  vim old_dp_72_256k.xco 
+ 1110  mv old_dp_72_256k.ngc ../
+ 1111  make
+ 1112  cp nf2_top_par.bit /media/sf_sharedir/nf2_top_par_newmem.bit
+ 1113  vim ../src/ids.v 
+ 1114  vim ../src/user_data_path.v 
+ 1115  make
+ 1116  rm ../src/old_dp_72_256k.v
+ 1117  make
+ 1118  vim nf2_top.prj 
+ 1119  make
+ 1120  cp nf2_top_par.bit /media/sf_sharedir/nf2_top_par_ray.bit
+ 1121  vim ../src/user_data_path.v 
+ 1122  vim ../src/ids.v 
+ 1123  vim ../sw/regdump
+ 1124  vim ../sw/regdump.c 
+ 1125  vim ../include/registers.v 
+ 1126  cp ../include/registers.v /media/sf_sharedir/lab4_1/include/
+ 1127  ll ../include/registers.v 
+ 1128  vim ../src/user_data_path.v 
+ 1129  cp ../src/ids.v /media/sf_sharedir/lab4_1/src/ids.v 
+ 1130  cp ../src/ids.v /media/sf_sharedir/lab4_1/src/user_data_path.v 
+ 1131  vim /media/sf_sharedir/lab4_1/src/user_data_path.v 
+ 1132  vim nf2_top.scr 
+ 1133  grep -r "xc2vp30" .
+ 1134  grep -r "xc2vp30" ../src
+ 1135  rm ../src/old_dp_72_256k.xco 
+ 1136  ls
+ 1137  vim old_dp_72_256k.xco 
+ 1138  vim ../src/fallthrough_small_fifo_v2.v 
+ 1139  cp old_dp_72_256k.xco /media/sf_sharedir/
+ 1140  vim old_dp_72_256k.xco 
+ 1141  vim /media/sf_sharedir/old_dp_72_256k.xco 
+ 1142  rm /media/sf_sharedir/lab4_1/src/old_dp_72_256k.xco 
+ 1143  cd  ../src/
+ 1144  ls
+ 1145  rm fallthrough_small_fifo_v2.v 
+ 1146  ls
+ 1147  rm generic_regs.v 
+ 1148  ls
+ 1149  rm nf2_mac_grp.v 
+ 1150  ls
+ 1151  mv worldmatch.vf wordmatch.vf
+ 1152  ls
+ 1153  vim ids.v 
+ 1154  cd ..
+ 1155  ls
+ 1156  cd synth/
+ 1157  vim nf2_top.prj 
+ 1158  vim ../include/project.xml 
+ 1159  make
+ 1160  rm ../src/ids_drop.v 
+ 1161  vim nf2_top.prj 
+ 1162  rm ../src/ids_ft.v 
+ 1163  make
+ 1164  cp nf2_top_par.bit /media/sf_sharedir/
+ 1165  vim ../include/registers.v 
+ 1166  ll ../include/registers.v 
+ 1167  pwd
+ 1168  cp ../src/ids.v /media/sf_sharedir/
+ 1169  cp ../src/ids.v /media/sf_sharedir/lab4_1/
+ 1170  cp ../src/ids.v /media/sf_sharedir/lab4_1/src/
+ 1171  cp ../include/registers.v /media/sf_sharedir/lab4_1/include/
+ 1172  vim ../include/registers.v 
+ 1173  vim nf2_top.prj 
+ 1174  vim ../src/ids.v 
+ 1175  grep -r "CORE_BLOCK_ADDR" ../src/
+ 1176  vim ../src/ids.v 
+ 1177  grep -r "CORE_REG" ../src/
+ 1178  vim ../src/ids.v 
+ 1179  make
+ 1180  cp  nf2_top_par.bit /media/sf_sharedir/
+ 1181  vim ../include/registers.v 
+ 1182  ll ../lib/Perl5/
+ 1183  ll ../lib/
+ 1184  cp ../include/registers.v /media/sf_sharedir/
+ 1185  vim ../include/registers.v 
+ 1186  vim nf2_top.prj 
+ 1187  cp ../include/project.xml /media/sf_sharedir/lab4_1/include/
+ 1188  cp ../include/ids.xml /media/sf_sharedir/lab4_1/include/
+ 1189  cd ../
+ 1190  ls
+ 1191  cd lib/Perl5/
+ 1192  ll
+ 1193  vim reg_defines_lab4_1.pm 
+ 1194  ll
+ 1195  cd ..
+ 1196  ls
+ 1197  cd ..
+ 1198  cd synth/
+ 1199  make clean
+ 1200  vim nf2_top.prj
+ 1201  make 
+ 1202  vim ../include/project.xml 
+ 1203  cd ../src
+ 1204  ls
+ 1205  cp /root/netfpga/lib/verilog/contrib/ucsd/gig_eth_mac/src/gig_eth_mac.v .
+ 1206  ls
+ 1207  cd ..
+ 1208  ls
+ 1209  cd synth
+ 1210  ls
+ 1211  make
+ 1212  vim ../include/project.xml 
+ 1213  make
+ 1214  vim ../include/project.xml 
+ 1215  vim nf2_top.prj 
+ 1216  vim ../include/project.xml 
+ 1217  make
+ 1218  history 
+ 1219  history  > history.log

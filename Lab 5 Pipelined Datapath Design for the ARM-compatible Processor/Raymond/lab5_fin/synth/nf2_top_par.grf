@@ -1,0 +1,1002 @@
+Release 10.1.03 - par K.39 (lin64)
+Copyright (c) 1995-2008 Xilinx, Inc.  All rights reserved.
+
+Fri Feb 13 22:40:05 2026
+
+  SmartGuide Results
+  ------------------
+  This section describes the guide results after invoking the Router. This
+  report accurately reflects the differences between the input design
+  and the guide design.
+
+  Number of Components in the input design    |  15404
+    Number of guided Components               |  15002 out of  15404  97.4%
+    Number of re-implemented Components       |    201 out of  15404   1.3%
+    Number of new/changed Components          |    201 out of  15404   1.3%
+  Number of Nets in the input design          |  39066
+    Number of guided Nets                     |  38267 out of  39066  98.0%
+    Number of partially guided Nets           |    240 out of  39066   0.6%
+    Number of re-routed Nets                  |     68 out of  39066   0.2%
+    Number of new/changed Nets                |    491 out of  39066   1.3%
+
+
+The following Components were re-implemented.
+---------------------------------------------
+ nf2_core/user_data_path/cpu/datapath/EX_R2(34) : SLICE_X42Y162.
+ nf2_core/user_data_path/cpu/datapath/EX_R2(35) : SLICE_X44Y172.
+ nf2_core/user_data_path/cpu/datapath/EX_R2(3) : SLICE_X30Y167.
+ nf2_core/user_data_path/cpu/datapath/EX_R2(4) : SLICE_X32Y164.
+ nf2_core/user_data_path/cpu/datapath/EX_R2(5) : SLICE_X42Y165.
+ nf2_core/user_data_path/cpu/datapath/EX_R2(7) : SLICE_X38Y172.
+ nf2_core/user_data_path/cpu/datapath/EX_R2(10) : SLICE_X32Y172.
+ nf2_core/user_data_path/cpu/datapath/EX_R2(11) : SLICE_X34Y173.
+ nf2_core/user_data_path/cpu/datapath/EX_R2(8) : SLICE_X44Y170.
+ nf2_core/user_data_path/cpu/datapath/EX_R2(9) : SLICE_X44Y171.
+ nf2_core/user_data_path/cpu/datapath/EX_R2(0) : SLICE_X43Y164.
+ nf2_core/user_data_path/cpu/datapath/EX_R1(5) : SLICE_X44Y164.
+ nf2_core/user_data_path/cpu/datapath/EX_R1(6) : SLICE_X43Y168.
+ nf2_core/user_data_path/cpu/datapath/EX_R1(7) : SLICE_X36Y172.
+ nf2_core/user_data_path/cpu/datapath/EX_R2(19) : SLICE_X26Y168.
+ nf2_core/user_data_path/cpu/datapath/EX_R2(20) : SLICE_X24Y170.
+ nf2_core/user_data_path/cpu/datapath/EX_R2(21) : SLICE_X44Y166.
+ nf2_core/user_data_path/cpu/datapath/EX_R1(0) : SLICE_X40Y164.
+ nf2_core/user_data_path/cpu/datapath/EX_R2(26) : SLICE_X36Y170.
+ nf2_core/user_data_path/cpu/datapath/EX_R2(27) : SLICE_X38Y170.
+ nf2_core/user_data_path/cpu/datapath/EX_R2(16) : SLICE_X40Y168.
+ nf2_core/user_data_path/cpu/datapath/EX_R2(24) : SLICE_X44Y173.
+ nf2_core/user_data_path/cpu/datapath/EX_R2(17) : SLICE_X38Y168.
+ nf2_core/user_data_path/cpu/datapath/EX_R2(25) : SLICE_X24Y172.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_38(23) : SLICE_X38Y167.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_38(16) : SLICE_X40Y167.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_38(25) : SLICE_X29Y171.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_38(19) : SLICE_X28Y166.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_38(20) : SLICE_X28Y168.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_38(30) : SLICE_X51Y164.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_38(34) : SLICE_X42Y160.
+ nf2_core/core_256kb_0_reg_wr_data(461) : SLICE_X22Y51.
+ nf2_core/user_data_path/cpu/datapath/final_dm_data(12) : SLICE_X56Y169.
+ nf2_core/user_data_path/cpu/datapath/final_dm_data(13) : SLICE_X57Y169.
+ nf2_core/user_data_path/cpu/datapath/WB_DATA(10) : SLICE_X41Y168.
+ nf2_core/user_data_path/cpu/datapath/WB_DATA(11) : SLICE_X40Y169.
+ nf2_core/user_data_path/cpu/datapath/M_R2(10) : SLICE_X41Y171.
+ nf2_core/user_data_path/cpu/datapath/M_R2(11) : SLICE_X42Y170.
+ nf2_core/user_data_path/cpu/datapath/M_R2(15) : SLICE_X54Y170.
+ nf2_core/user_data_path/cpu/datapath/WB_DATA(19) : SLICE_X37Y162.
+ nf2_core/user_data_path/cpu/datapath/WB_DATA(23) : SLICE_X41Y164.
+ nf2_core/user_data_path/cpu/datapath/WB_DATA(3) : SLICE_X41Y163.
+ nf2_core/user_data_path/cpu/datapath/WB_DATA(4) : SLICE_X40Y162.
+ nf2_core/user_data_path/cpu/datapath/WB_DATA(5) : SLICE_X48Y163.
+ nf2_core/user_data_path/cpu/datapath/WB_DATA(9) : SLICE_X46Y173.
+ nf2_core/user_data_path/cpu/datapath/XLXN_164(1) : SLICE_X55Y163.
+ nf2_core/user_data_path/cpu/datapath/XLXN_164(0) : SLICE_X54Y162.
+ nf2_core/user_data_path/cpu/module_reg/.generic_hw_regs/Mmux_reg_data_out_mux00003019 : SLICE_X55Y159.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_35(7) : SLICE_X38Y173.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_35(10) : SLICE_X35Y172.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_35(11) : SLICE_X37Y171.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_35(3) : SLICE_X34Y162.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_35(4) : SLICE_X37Y163.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_35(16) : SLICE_X40Y166.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_35(25) : SLICE_X28Y172.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_35(18) : SLICE_X45Y160.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_35(19) : SLICE_X29Y166.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_35(20) : SLICE_X28Y169.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_35(21) : SLICE_X47Y172.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_35(33) : SLICE_X49Y163.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_35(34) : SLICE_X42Y161.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_39(1) : SLICE_X43Y160.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_39(10) : SLICE_X35Y173.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_39(11) : SLICE_X36Y173.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_39(3) : SLICE_X34Y163.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_39(4) : SLICE_X36Y160.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_39(25) : SLICE_X28Y173.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_39(27) : SLICE_X39Y173.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_39(19) : SLICE_X29Y167.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_39(20) : SLICE_X29Y168.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_39(30) : SLICE_X52Y162.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_39(22) : SLICE_X47Y158.
+ nf2_core/user_data_path/cpu/datapath/M_R2(32) : SLICE_X48Y161.
+ nf2_core/user_data_path/cpu/datapath/M_R2(34) : SLICE_X43Y162.
+ nf2_core/user_data_path/cpu/datapath/INS(30) : SLICE_X58Y167.
+ nf2_core/user_data_path/cpu/datapath/INS(31) : SLICE_X60Y169.
+ nf2_core/user_data_path/cpu/datapath/M_R2(23) : SLICE_X41Y167.
+ nf2_core/user_data_path/cpu/module_reg/.generic_hw_regs/Mmux_reg_data_out_mux0000213 : SLICE_X52Y154.
+ nf2_core/user_data_path/cpu/datapath/M_R1(3) : SLICE_X42Y167.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_34(7) : SLICE_X39Y170.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_34(10) : SLICE_X35Y171.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_34(11) : SLICE_X37Y170.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_34(12) : SLICE_X52Y171.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_34(4) : SLICE_X36Y162.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_34(5) : SLICE_X45Y165.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_34(23) : SLICE_X38Y166.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_34(25) : SLICE_X28Y171.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_34(17) : SLICE_X38Y169.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_34(26) : SLICE_X39Y168.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_34(18) : SLICE_X45Y163.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_34(27) : SLICE_X39Y169.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_34(19) : SLICE_X28Y167.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_34(20) : SLICE_X29Y169.
+ nf2_core/user_data_path/cpu/datapath/INS(21) : SLICE_X58Y163.
+ nf2_core/user_data_path/cpu/datapath/INS(22) : SLICE_X58Y162.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_34(32) : SLICE_X49Y161.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_34(34) : SLICE_X43Y163.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_38(10) : SLICE_X35Y170.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_38(11) : SLICE_X36Y171.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_38(12) : SLICE_X53Y171.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_38(4) : SLICE_X36Y163.
+ nf2_core/user_data_path/cpu/datapath/XLXI_1/B6 : RAMB16_X5Y20.
+ nf2_core/user_data_path/cpu/datapath/XLXI_32/B6 : RAMB16_X4Y20.
+ nf2_core/user_data_path/cpu/datapath/EX_R2(32) : SLICE_X49Y160.
+ nf2_core/user_data_path/cpu/datapath/EX_R2(33) : SLICE_X45Y164.
+ nf2_core/user_data_path/cpu/datapath/EX_R2(23) : SLICE_X34Y170.
+ nf2_core/user_data_path/cpu/datapath/WB_DATA(25) : SLICE_X34Y171.
+ nf2_core/user_data_path/cpu/datapath/EX_R1(3) : SLICE_X37Y169.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_38(17) : SLICE_X38Y171.
+ nf2_core/user_data_path/cpu/datapath/EX_R1(4) : SLICE_X39Y165.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_35(23) : SLICE_X39Y166.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_35(26) : SLICE_X39Y167.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_38(26) : SLICE_X39Y171.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_39(7) : SLICE_X39Y172.
+ nf2_core/user_data_path/cpu/datapath/EX_R1(1) : SLICE_X40Y165.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_35(0) : SLICE_X41Y165.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_34(16) : SLICE_X41Y166.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_39(16) : SLICE_X41Y169.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_39(0) : SLICE_X42Y163.
+ nf2_core/user_data_path/cpu/datapath/EX_R2(1) : SLICE_X42Y164.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_34(0) : SLICE_X42Y166.
+ nf2_core/user_data_path/cpu/datapath/M_R2(26) : SLICE_X42Y168.
+ nf2_core/user_data_path/cpu/datapath/WB_DATA(7) : SLICE_X42Y169.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_35(9) : SLICE_X42Y171.
+ nf2_core/user_data_path/cpu/datapath/M_R2(33) : SLICE_X43Y165.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_38(0) : SLICE_X43Y166.
+ nf2_core/user_data_path/cpu/datapath/WB_DATA(26) : SLICE_X43Y167.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_35(6) : SLICE_X43Y169.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_35(24) : SLICE_X43Y170.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_39(9) : SLICE_X43Y171.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_38(18) : SLICE_X44Y160.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_35(2) : SLICE_X44Y161.
+ nf2_core/user_data_path/cpu/datapath/EX_R2(2) : SLICE_X44Y162.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_34(2) : SLICE_X44Y163.
+ nf2_core/user_data_path/cpu/datapath/EX_R2(18) : SLICE_X44Y165.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_38(28) : SLICE_X44Y167.
+ nf2_core/user_data_path/cpu/datapath/EX_R2(6) : SLICE_X44Y168.
+ nf2_core/user_data_path/cpu/datapath/EX_R2(28) : SLICE_X44Y169.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_39(8) : SLICE_X44Y174.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_39(2) : SLICE_X45Y161.
+ nf2_core/user_data_path/cpu/datapath/EX_R1(2) : SLICE_X45Y162.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_38(21) : SLICE_X45Y166.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_38(33) : SLICE_X45Y167.
+ nf2_core/user_data_path/cpu/datapath/M_R2(28) : SLICE_X45Y168.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_34(6) : SLICE_X45Y169.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_39(24) : SLICE_X45Y170.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_34(9) : SLICE_X45Y171.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_34(24) : SLICE_X45Y172.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_38(9) : SLICE_X45Y173.
+ nf2_core/user_data_path/cpu/datapath/WB_DATA(24) : SLICE_X46Y172.
+ nf2_core/user_data_path/cpu/datapath/WB_DATA(34) : SLICE_X47Y160.
+ nf2_core/user_data_path/cpu/datapath/WB_DATA(18) : SLICE_X47Y161.
+ nf2_core/user_data_path/cpu/datapath/M_R2(1) : SLICE_X47Y162.
+ nf2_core/user_data_path/cpu/datapath/M_R2(0) : SLICE_X47Y163.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_39(5) : SLICE_X47Y164.
+ nf2_core/user_data_path/cpu/datapath/M_R2(5) : SLICE_X47Y165.
+ nf2_core/user_data_path/cpu/datapath/EX_R2(22) : SLICE_X47Y166.
+ nf2_core/user_data_path/cpu/datapath/WB_ADDR(0) : SLICE_X47Y167.
+ nf2_core/user_data_path/cpu/datapath/WB_DATA(28) : SLICE_X47Y168.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_34(21) : SLICE_X47Y169.
+ nf2_core/user_data_path/cpu/datapath/M_R2(35) : SLICE_X47Y170.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_38(24) : SLICE_X47Y171.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_39(21) : SLICE_X47Y173.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_39(29) : SLICE_X48Y160.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_38(32) : SLICE_X48Y162.
+ nf2_core/user_data_path/cpu/datapath/M_R1(5) : SLICE_X48Y164.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_34(22) : SLICE_X48Y165.
+ nf2_core/user_data_path/cpu/datapath/M_R2(22) : SLICE_X48Y166.
+ nf2_core/user_data_path/cpu/datapath/WB_DATA(22) : SLICE_X48Y167.
+ nf2_core/user_data_path/cpu/datapath/M_R2(21) : SLICE_X48Y168.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_34(29) : SLICE_X48Y169.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_35(13) : SLICE_X48Y170.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_35(15) : SLICE_X48Y171.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_35(22) : SLICE_X49Y162.
+ nf2_core/user_data_path/cpu/datapath/WB_DATA(33) : SLICE_X49Y164.
+ nf2_core/user_data_path/cpu/datapath/WB_DATA(21) : SLICE_X49Y165.
+ nf2_core/user_data_path/cpu/datapath/WB_DATA(6) : SLICE_X49Y166.
+ nf2_core/user_data_path/cpu/datapath/INS(28) : SLICE_X49Y167.
+ nf2_core/user_data_path/cpu/datapath/WB_DATA(15) : SLICE_X49Y168.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_38(29) : SLICE_X49Y169.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_35(30) : SLICE_X49Y170.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_39(13) : SLICE_X49Y171.
+ nf2_core/user_data_path/cpu/module_reg/.generic_hw_regs/Mmux_reg_data_out_mux00002913 : SLICE_X50Y159.
+ nf2_core/user_data_path/cpu/datapath/WB_DATA(32) : SLICE_X50Y161.
+ nf2_core/user_data_path/cpu/datapath/M_R2(29) : SLICE_X50Y164.
+ nf2_core/user_data_path/cpu/datapath/M_R2(30) : SLICE_X50Y165.
+ nf2_core/user_data_path/cpu/datapath/EX_R2(29) : SLICE_X50Y166.
+ nf2_core/user_data_path/cpu/datapath/EX_R2(30) : SLICE_X50Y167.
+ nf2_core/user_data_path/cpu/datapath/EX_R2(15) : SLICE_X50Y168.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_34(13) : SLICE_X50Y169.
+ nf2_core/user_data_path/cpu/datapath/EX_R2(13) : SLICE_X50Y173.
+ nf2_core/user_data_path/cpu/datapath/M_R2(31) : SLICE_X51Y165.
+ nf2_core/user_data_path/cpu/datapath/EX_R2(31) : SLICE_X51Y166.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_34(30) : SLICE_X51Y167.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_38(13) : SLICE_X51Y168.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_34(15) : SLICE_X51Y169.
+ nf2_core/user_data_path/cpu/datapath/EX_R2(12) : SLICE_X52Y170.
+ nf2_core/user_data_path/cpu/datapath/EX_R2(14) : SLICE_X53Y172.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_35(12) : SLICE_X54Y171.
+ nf2_core/user_data_path/cpu/datapath/M_R2(12) : SLICE_X55Y168.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_39(12) : SLICE_X55Y171.
+
+
+The following Components are new/changed.
+-----------------------------------------
+ nf2_core/user_data_path/cpu/datapath/EX_R2(34) : SLICE_X42Y162.
+ nf2_core/user_data_path/cpu/datapath/EX_R2(35) : SLICE_X44Y172.
+ nf2_core/user_data_path/cpu/datapath/EX_R2(3) : SLICE_X30Y167.
+ nf2_core/user_data_path/cpu/datapath/EX_R2(4) : SLICE_X32Y164.
+ nf2_core/user_data_path/cpu/datapath/EX_R2(5) : SLICE_X42Y165.
+ nf2_core/user_data_path/cpu/datapath/EX_R2(7) : SLICE_X38Y172.
+ nf2_core/user_data_path/cpu/datapath/EX_R2(10) : SLICE_X32Y172.
+ nf2_core/user_data_path/cpu/datapath/EX_R2(11) : SLICE_X34Y173.
+ nf2_core/user_data_path/cpu/datapath/EX_R2(8) : SLICE_X44Y170.
+ nf2_core/user_data_path/cpu/datapath/EX_R2(9) : SLICE_X44Y171.
+ nf2_core/user_data_path/cpu/datapath/EX_R2(0) : SLICE_X43Y164.
+ nf2_core/user_data_path/cpu/datapath/EX_R1(5) : SLICE_X44Y164.
+ nf2_core/user_data_path/cpu/datapath/EX_R1(6) : SLICE_X43Y168.
+ nf2_core/user_data_path/cpu/datapath/EX_R1(7) : SLICE_X36Y172.
+ nf2_core/user_data_path/cpu/datapath/EX_R2(19) : SLICE_X26Y168.
+ nf2_core/user_data_path/cpu/datapath/EX_R2(20) : SLICE_X24Y170.
+ nf2_core/user_data_path/cpu/datapath/EX_R2(21) : SLICE_X44Y166.
+ nf2_core/user_data_path/cpu/datapath/EX_R1(0) : SLICE_X40Y164.
+ nf2_core/user_data_path/cpu/datapath/EX_R2(26) : SLICE_X36Y170.
+ nf2_core/user_data_path/cpu/datapath/EX_R2(27) : SLICE_X38Y170.
+ nf2_core/user_data_path/cpu/datapath/EX_R2(16) : SLICE_X40Y168.
+ nf2_core/user_data_path/cpu/datapath/EX_R2(24) : SLICE_X44Y173.
+ nf2_core/user_data_path/cpu/datapath/EX_R2(17) : SLICE_X38Y168.
+ nf2_core/user_data_path/cpu/datapath/EX_R2(25) : SLICE_X24Y172.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_38(23) : SLICE_X38Y167.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_38(16) : SLICE_X40Y167.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_38(25) : SLICE_X29Y171.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_38(19) : SLICE_X28Y166.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_38(20) : SLICE_X28Y168.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_38(30) : SLICE_X51Y164.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_38(34) : SLICE_X42Y160.
+ nf2_core/core_256kb_0_reg_wr_data(461) : SLICE_X22Y51.
+ nf2_core/user_data_path/cpu/datapath/final_dm_data(12) : SLICE_X56Y169.
+ nf2_core/user_data_path/cpu/datapath/final_dm_data(13) : SLICE_X57Y169.
+ nf2_core/user_data_path/cpu/datapath/WB_DATA(10) : SLICE_X41Y168.
+ nf2_core/user_data_path/cpu/datapath/WB_DATA(11) : SLICE_X40Y169.
+ nf2_core/user_data_path/cpu/datapath/M_R2(10) : SLICE_X41Y171.
+ nf2_core/user_data_path/cpu/datapath/M_R2(11) : SLICE_X42Y170.
+ nf2_core/user_data_path/cpu/datapath/M_R2(15) : SLICE_X54Y170.
+ nf2_core/user_data_path/cpu/datapath/WB_DATA(19) : SLICE_X37Y162.
+ nf2_core/user_data_path/cpu/datapath/WB_DATA(23) : SLICE_X41Y164.
+ nf2_core/user_data_path/cpu/datapath/WB_DATA(3) : SLICE_X41Y163.
+ nf2_core/user_data_path/cpu/datapath/WB_DATA(4) : SLICE_X40Y162.
+ nf2_core/user_data_path/cpu/datapath/WB_DATA(5) : SLICE_X48Y163.
+ nf2_core/user_data_path/cpu/datapath/WB_DATA(9) : SLICE_X46Y173.
+ nf2_core/user_data_path/cpu/datapath/XLXN_164(1) : SLICE_X55Y163.
+ nf2_core/user_data_path/cpu/datapath/XLXN_164(0) : SLICE_X54Y162.
+ nf2_core/user_data_path/cpu/module_reg/.generic_hw_regs/Mmux_reg_data_out_mux00003019 : SLICE_X55Y159.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_35(7) : SLICE_X38Y173.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_35(10) : SLICE_X35Y172.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_35(11) : SLICE_X37Y171.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_35(3) : SLICE_X34Y162.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_35(4) : SLICE_X37Y163.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_35(16) : SLICE_X40Y166.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_35(25) : SLICE_X28Y172.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_35(18) : SLICE_X45Y160.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_35(19) : SLICE_X29Y166.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_35(20) : SLICE_X28Y169.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_35(21) : SLICE_X47Y172.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_35(33) : SLICE_X49Y163.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_35(34) : SLICE_X42Y161.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_39(1) : SLICE_X43Y160.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_39(10) : SLICE_X35Y173.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_39(11) : SLICE_X36Y173.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_39(3) : SLICE_X34Y163.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_39(4) : SLICE_X36Y160.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_39(25) : SLICE_X28Y173.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_39(27) : SLICE_X39Y173.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_39(19) : SLICE_X29Y167.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_39(20) : SLICE_X29Y168.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_39(30) : SLICE_X52Y162.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_39(22) : SLICE_X47Y158.
+ nf2_core/user_data_path/cpu/datapath/M_R2(32) : SLICE_X48Y161.
+ nf2_core/user_data_path/cpu/datapath/M_R2(34) : SLICE_X43Y162.
+ nf2_core/user_data_path/cpu/datapath/INS(30) : SLICE_X58Y167.
+ nf2_core/user_data_path/cpu/datapath/INS(31) : SLICE_X60Y169.
+ nf2_core/user_data_path/cpu/datapath/M_R2(23) : SLICE_X41Y167.
+ nf2_core/user_data_path/cpu/module_reg/.generic_hw_regs/Mmux_reg_data_out_mux0000213 : SLICE_X52Y154.
+ nf2_core/user_data_path/cpu/datapath/M_R1(3) : SLICE_X42Y167.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_34(7) : SLICE_X39Y170.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_34(10) : SLICE_X35Y171.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_34(11) : SLICE_X37Y170.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_34(12) : SLICE_X52Y171.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_34(4) : SLICE_X36Y162.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_34(5) : SLICE_X45Y165.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_34(23) : SLICE_X38Y166.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_34(25) : SLICE_X28Y171.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_34(17) : SLICE_X38Y169.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_34(26) : SLICE_X39Y168.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_34(18) : SLICE_X45Y163.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_34(27) : SLICE_X39Y169.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_34(19) : SLICE_X28Y167.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_34(20) : SLICE_X29Y169.
+ nf2_core/user_data_path/cpu/datapath/INS(21) : SLICE_X58Y163.
+ nf2_core/user_data_path/cpu/datapath/INS(22) : SLICE_X58Y162.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_34(32) : SLICE_X49Y161.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_34(34) : SLICE_X43Y163.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_38(10) : SLICE_X35Y170.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_38(11) : SLICE_X36Y171.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_38(12) : SLICE_X53Y171.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_38(4) : SLICE_X36Y163.
+ nf2_core/user_data_path/cpu/datapath/XLXI_1/B6 : RAMB16_X5Y20.
+ nf2_core/user_data_path/cpu/datapath/XLXI_32/B6 : RAMB16_X4Y20.
+ nf2_core/user_data_path/cpu/datapath/EX_R2(32) : SLICE_X49Y160.
+ nf2_core/user_data_path/cpu/datapath/EX_R2(33) : SLICE_X45Y164.
+ nf2_core/user_data_path/cpu/datapath/EX_R2(23) : SLICE_X34Y170.
+ nf2_core/user_data_path/cpu/datapath/WB_DATA(25) : SLICE_X34Y171.
+ nf2_core/user_data_path/cpu/datapath/EX_R1(3) : SLICE_X37Y169.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_38(17) : SLICE_X38Y171.
+ nf2_core/user_data_path/cpu/datapath/EX_R1(4) : SLICE_X39Y165.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_35(23) : SLICE_X39Y166.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_35(26) : SLICE_X39Y167.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_38(26) : SLICE_X39Y171.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_39(7) : SLICE_X39Y172.
+ nf2_core/user_data_path/cpu/datapath/EX_R1(1) : SLICE_X40Y165.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_35(0) : SLICE_X41Y165.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_34(16) : SLICE_X41Y166.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_39(16) : SLICE_X41Y169.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_39(0) : SLICE_X42Y163.
+ nf2_core/user_data_path/cpu/datapath/EX_R2(1) : SLICE_X42Y164.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_34(0) : SLICE_X42Y166.
+ nf2_core/user_data_path/cpu/datapath/M_R2(26) : SLICE_X42Y168.
+ nf2_core/user_data_path/cpu/datapath/WB_DATA(7) : SLICE_X42Y169.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_35(9) : SLICE_X42Y171.
+ nf2_core/user_data_path/cpu/datapath/M_R2(33) : SLICE_X43Y165.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_38(0) : SLICE_X43Y166.
+ nf2_core/user_data_path/cpu/datapath/WB_DATA(26) : SLICE_X43Y167.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_35(6) : SLICE_X43Y169.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_35(24) : SLICE_X43Y170.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_39(9) : SLICE_X43Y171.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_38(18) : SLICE_X44Y160.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_35(2) : SLICE_X44Y161.
+ nf2_core/user_data_path/cpu/datapath/EX_R2(2) : SLICE_X44Y162.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_34(2) : SLICE_X44Y163.
+ nf2_core/user_data_path/cpu/datapath/EX_R2(18) : SLICE_X44Y165.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_38(28) : SLICE_X44Y167.
+ nf2_core/user_data_path/cpu/datapath/EX_R2(6) : SLICE_X44Y168.
+ nf2_core/user_data_path/cpu/datapath/EX_R2(28) : SLICE_X44Y169.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_39(8) : SLICE_X44Y174.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_39(2) : SLICE_X45Y161.
+ nf2_core/user_data_path/cpu/datapath/EX_R1(2) : SLICE_X45Y162.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_38(21) : SLICE_X45Y166.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_38(33) : SLICE_X45Y167.
+ nf2_core/user_data_path/cpu/datapath/M_R2(28) : SLICE_X45Y168.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_34(6) : SLICE_X45Y169.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_39(24) : SLICE_X45Y170.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_34(9) : SLICE_X45Y171.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_34(24) : SLICE_X45Y172.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_38(9) : SLICE_X45Y173.
+ nf2_core/user_data_path/cpu/datapath/WB_DATA(24) : SLICE_X46Y172.
+ nf2_core/user_data_path/cpu/datapath/WB_DATA(34) : SLICE_X47Y160.
+ nf2_core/user_data_path/cpu/datapath/WB_DATA(18) : SLICE_X47Y161.
+ nf2_core/user_data_path/cpu/datapath/M_R2(1) : SLICE_X47Y162.
+ nf2_core/user_data_path/cpu/datapath/M_R2(0) : SLICE_X47Y163.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_39(5) : SLICE_X47Y164.
+ nf2_core/user_data_path/cpu/datapath/M_R2(5) : SLICE_X47Y165.
+ nf2_core/user_data_path/cpu/datapath/EX_R2(22) : SLICE_X47Y166.
+ nf2_core/user_data_path/cpu/datapath/WB_ADDR(0) : SLICE_X47Y167.
+ nf2_core/user_data_path/cpu/datapath/WB_DATA(28) : SLICE_X47Y168.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_34(21) : SLICE_X47Y169.
+ nf2_core/user_data_path/cpu/datapath/M_R2(35) : SLICE_X47Y170.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_38(24) : SLICE_X47Y171.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_39(21) : SLICE_X47Y173.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_39(29) : SLICE_X48Y160.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_38(32) : SLICE_X48Y162.
+ nf2_core/user_data_path/cpu/datapath/M_R1(5) : SLICE_X48Y164.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_34(22) : SLICE_X48Y165.
+ nf2_core/user_data_path/cpu/datapath/M_R2(22) : SLICE_X48Y166.
+ nf2_core/user_data_path/cpu/datapath/WB_DATA(22) : SLICE_X48Y167.
+ nf2_core/user_data_path/cpu/datapath/M_R2(21) : SLICE_X48Y168.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_34(29) : SLICE_X48Y169.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_35(13) : SLICE_X48Y170.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_35(15) : SLICE_X48Y171.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_35(22) : SLICE_X49Y162.
+ nf2_core/user_data_path/cpu/datapath/WB_DATA(33) : SLICE_X49Y164.
+ nf2_core/user_data_path/cpu/datapath/WB_DATA(21) : SLICE_X49Y165.
+ nf2_core/user_data_path/cpu/datapath/WB_DATA(6) : SLICE_X49Y166.
+ nf2_core/user_data_path/cpu/datapath/INS(28) : SLICE_X49Y167.
+ nf2_core/user_data_path/cpu/datapath/WB_DATA(15) : SLICE_X49Y168.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_38(29) : SLICE_X49Y169.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_35(30) : SLICE_X49Y170.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_39(13) : SLICE_X49Y171.
+ nf2_core/user_data_path/cpu/module_reg/.generic_hw_regs/Mmux_reg_data_out_mux00002913 : SLICE_X50Y159.
+ nf2_core/user_data_path/cpu/datapath/WB_DATA(32) : SLICE_X50Y161.
+ nf2_core/user_data_path/cpu/datapath/M_R2(29) : SLICE_X50Y164.
+ nf2_core/user_data_path/cpu/datapath/M_R2(30) : SLICE_X50Y165.
+ nf2_core/user_data_path/cpu/datapath/EX_R2(29) : SLICE_X50Y166.
+ nf2_core/user_data_path/cpu/datapath/EX_R2(30) : SLICE_X50Y167.
+ nf2_core/user_data_path/cpu/datapath/EX_R2(15) : SLICE_X50Y168.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_34(13) : SLICE_X50Y169.
+ nf2_core/user_data_path/cpu/datapath/EX_R2(13) : SLICE_X50Y173.
+ nf2_core/user_data_path/cpu/datapath/M_R2(31) : SLICE_X51Y165.
+ nf2_core/user_data_path/cpu/datapath/EX_R2(31) : SLICE_X51Y166.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_34(30) : SLICE_X51Y167.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_38(13) : SLICE_X51Y168.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_34(15) : SLICE_X51Y169.
+ nf2_core/user_data_path/cpu/datapath/EX_R2(12) : SLICE_X52Y170.
+ nf2_core/user_data_path/cpu/datapath/EX_R2(14) : SLICE_X53Y172.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_35(12) : SLICE_X54Y171.
+ nf2_core/user_data_path/cpu/datapath/M_R2(12) : SLICE_X55Y168.
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_39(12) : SLICE_X55Y171.
+
+
+The following Nets were re-routed.
+----------------------------------
+ nf2_core/sram64.sram_arbiter/cnet_sram_sm/rd_0_vld_and0000.
+ nf2_core/user_data_path/output_queues/remove_pkt/output_fifo64.output_fifos[3].gmac_tx_fifo/BU2/U0/grf.rf/gl0.wr/gwss.w
+sts/comp1.
+ nf2_core/user_data_path/output_queues/remove_pkt/output_fifo64.output_fifos[0].gmac_tx_fifo/BU2/U0/grf.rf/gl0.wr/gwss.w
+sts/comp0.
+ nf2_core/user_data_path/output_queues/remove_pkt/output_fifo64.output_fifos[0].gmac_tx_fifo/BU2/U0/grf.rf/gl0.wr/gwss.w
+sts/wr_rst_d1.
+ nf2_core/core_256kb_0_reg_wr_data(460).
+ nf2_core/core_256kb_0_reg_wr_data(461).
+ nf2_core/user_data_path/output_queues/remove_pkt/out_wr_selected(0).
+ nf2_core/user_data_path/output_queues/remove_pkt/out_wr_selected(7).
+ nf2_core/mac_groups[3].nf2_mac_grp/gig_eth_mac/mac_tx/tx_crc_gen/CRC_reg(5).
+ nf2_core/core_256kb_0_reg_wr_data(281).
+ nf2_core/core_256kb_0_reg_wr_data(283).
+ nf2_core/cpu_queues[1].cpu_dma_queue_i/.cpu_dma_queue_regs/new_reg_req.
+ nf2_core/sram64.sram_arbiter/cnet_sram_sm/rd_0_data(65).
+ nf2_core/cpci_bus/net2pci_fifo/BU2/U0/grf.rf/mem/dout_mem<30>.
+ nf2_core/user_data_path/cpu/module_reg/.generic_hw_regs/N22.
+ nf2_core/user_data_path/cpu/cycle_counts(9).
+ nf2_core/user_data_path/cpu/cycle_counts(15).
+ nf2_core/user_data_path/cpu/module_reg/.generic_hw_regs/N36.
+ nf2_core/user_data_path/cpu/cycle_counts(11).
+ nf2_core/mac_groups[0].nf2_mac_grp/mac_grp_regs/_old_delta_205(11).
+ nf2_core/user_data_path/cpu/module_reg/sw_reg_data_out(1).
+ nf2_core/user_data_path/cpu/module_reg/sw_reg_data_out(2).
+ nf2_core/user_data_path/cpu/module_reg/hw_reg_data_out(2).
+ nf2_core/user_data_path/cpu/module_reg/sw_reg_data_out(3).
+ nf2_core/user_data_path/cpu/module_reg/hw_reg_data_out(3).
+ nf2_core/user_data_path/cpu/module_reg/sw_reg_data_out(4).
+ nf2_core/user_data_path/cpu/module_reg/hw_reg_data_out(4).
+ nf2_core/user_data_path/cpu/module_reg/sw_reg_data_out(5).
+ nf2_core/user_data_path/cpu/module_reg/sw_reg_data_out(8).
+ nf2_core/core_256kb_0_reg_ack(13).
+ nf2_core/user_data_path/output_queues/remove_pkt/ld_pkt_len_and000011_2.
+ nf2_core/sram64.sram_arbiter/cnet_sram_sm/rd_0_data(64).
+ nf2_core/sram64.sram_arbiter/cnet_sram_sm/rd_0_data(69).
+ nf2_core/cpu_queues[3].cpu_dma_queue_i/.cpu_dma_queue_regs/control_reg(21).
+ nf2_core/user_data_path/cpu/cycle_counts(8).
+ nf2_core/user_data_path/cpu/cycle_counts(10).
+ nf2_core/user_data_path/cpu/module_reg/.generic_hw_regs/N14.
+ nf2_core/user_data_path/cpu/module_reg/sw_reg_data_out(10).
+ nf2_core/user_data_path/cpu/module_reg/.generic_hw_regs/N42.
+ nf2_core/user_data_path/cpu/module_reg/.generic_hw_regs/N38.
+ nf2_core/user_data_path/cpu/module_reg/sw_reg_data_out(20).
+ nf2_core/user_data_path/cpu/cycle_counts(21).
+ nf2_core/core_256kb_0_reg_rd_data(303).
+ nf2_core/mac_groups[0].nf2_mac_grp/mac_grp_regs/N44.
+ nf2_core/mac_groups[3].nf2_mac_grp/gig_eth_mac/mac_tx/tx_crc_gen/CRC_reg_mux0000(18)31.
+ nf2_core/core_256kb_0_reg_addr(25).
+ nf2_core/core_256kb_0_reg_addr(24).
+ nf2_core/core_256kb_0_reg_addr(31).
+ nf2_core/user_data_path/cpu/cycle_counts(23).
+ nf2_core/mac_groups[0].nf2_mac_grp/rx_queue/rx_fifo_64.gmac_rx_fifo/BU2/U0/gen_as.fgas/debug_wr_pntr_r<12>.
+ nf2_core/mac_groups[0].nf2_mac_grp/rx_queue/rx_fifo_64.gmac_rx_fifo/BU2/U0/gen_as.fgas/normgen.flblk/clkmod/cx.wrx/pntr
+_gc_x<8>.
+ nf2_core/mac_groups[0].nf2_mac_grp/rx_queue/rx_fifo_64.gmac_rx_fifo/BU2/U0/gen_as.fgas/normgen.flblk/clkmod/cx.wrx/pntr
+_gc<10>.
+ nf2_core/cpu_queues[1].cpu_dma_queue_i/cpu_dma_tx_queue/tx_fifo_data_out(18).
+ nf2_core/cpu_queues[1].cpu_dma_queue_i/cpu_dma_tx_queue/tx_fifo_data_out(14).
+ nf2_core/user_data_path/output_port_lookup/ip_lpm/cam_lut_sm/lut_wr_data(29).
+ nf2_core/mac_groups[0].nf2_mac_grp/gig_eth_mac/mac_tx/tx_crc_gen/CRC_reg_mux0000(26)25.
+ nf2_core/user_data_path/output_port_lookup/ip_lpm/cam_lut_sm/lut_wr_data(13).
+ nf2_core/in_data(6)(49).
+ nf2_core/user_data_path/cpu/module_reg/sw_reg_addr_out(4).
+ nf2_core/user_data_path/cpu/module_reg/.generic_sw_regs/N98.
+ nf2_core/core_256kb_0_reg_addr(28).
+ nf2_core/core_256kb_0_reg_addr(27).
+ nf2_core/core_256kb_0_reg_addr(29).
+ nf2_core/sram64.sram_arbiter/cnet_sram_sm/wr_data_ph1(24).
+ nf2_core/cpci_bus/p2n_addr(0).
+ nf2_core/cpci_bus/p2n_addr(3).
+ nf2_core/user_data_path/cpu/module_reg/.generic_hw_regs/reg_data_out_mux0000(2).
+ nf2_core/user_data_path/cpu/module_reg/.generic_hw_regs/reg_data_out_mux0000(4).
+
+
+The following Nets are new/changed.
+-----------------------------------
+ nf2_core/user_data_path/cpu/datapath/INS(28).
+ nf2_core/user_data_path/cpu/datapath/INS(27).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_38(34).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_39(34).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_34(34).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_35(34).
+ nf2_core/user_data_path/cpu/datapath/ID_R2(34).
+ nf2_core/user_data_path/cpu/datapath/EX_R2(34).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_38(35).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_39(35).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_34(35).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_35(35).
+ nf2_core/user_data_path/cpu/datapath/ID_R2(35).
+ nf2_core/user_data_path/cpu/datapath/EX_R2(35).
+ nf2_core/user_data_path/cpu/dmem_data(19).
+ nf2_core/user_data_path/cpu/dmem_addr(2).
+ nf2_core/user_data_path/cpu/dmem_data(2).
+ nf2_core/user_data_path/cpu/dmem_data(20).
+ nf2_core/user_data_path/cpu/dmem_data(28).
+ nf2_core/user_data_path/cpu/dmem_data(21).
+ nf2_core/user_data_path/cpu/dmem_data(29).
+ nf2_core/user_data_path/cpu/dmem_data(22).
+ nf2_core/user_data_path/cpu/dmem_addr(3).
+ nf2_core/user_data_path/cpu/dmem_data(3).
+ nf2_core/user_data_path/cpu/dmem_data(9).
+ nf2_core/user_data_path/cpu/dmem_data(23).
+ nf2_core/user_data_path/cpu/dmem_data(30).
+ nf2_core/user_data_path/cpu/dmem_data(24).
+ nf2_core/user_data_path/cpu/dmem_data(31).
+ nf2_core/user_data_path/cpu/dmem_data(25).
+ nf2_core/user_data_path/cpu/dmem_addr(4).
+ nf2_core/user_data_path/cpu/dmem_data(4).
+ nf2_core/user_data_path/cpu/dmem_data(26).
+ nf2_core/user_data_path/cpu/dmem_addr(5).
+ nf2_core/user_data_path/cpu/dmem_data(5).
+ nf2_core/user_data_path/cpu/dmem_data(27).
+ nf2_core/user_data_path/cpu/dmem_addr(6).
+ nf2_core/user_data_path/cpu/dmem_data(6).
+ nf2_core/user_data_path/cpu/dmem_addr(7).
+ nf2_core/user_data_path/cpu/dmem_data(7).
+ nf2_core/user_data_path/cpu/dmem_data(8).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_38(2).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_39(2).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_34(2).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_35(2).
+ nf2_core/user_data_path/cpu/datapath/EX_R2(2).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_38(3).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_39(3).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_34(3).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_35(3).
+ nf2_core/user_data_path/cpu/datapath/ID_R2(3).
+ nf2_core/user_data_path/cpu/datapath/EX_R2(3).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_38(4).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_39(4).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_34(4).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_35(4).
+ nf2_core/user_data_path/cpu/datapath/ID_R2(4).
+ nf2_core/user_data_path/cpu/datapath/EX_R2(4).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_38(5).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_39(5).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_34(5).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_35(5).
+ nf2_core/user_data_path/cpu/datapath/ID_R2(5).
+ nf2_core/user_data_path/cpu/datapath/EX_R2(5).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_38(6).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_39(6).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_34(6).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_35(6).
+ nf2_core/user_data_path/cpu/datapath/EX_R2(6).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_38(7).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_39(7).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_34(7).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_35(7).
+ nf2_core/user_data_path/cpu/datapath/ID_R2(7).
+ nf2_core/user_data_path/cpu/datapath/EX_R2(7).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_38(10).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_39(10).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_34(10).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_35(10).
+ nf2_core/user_data_path/cpu/datapath/ID_R2(10).
+ nf2_core/user_data_path/cpu/datapath/EX_R2(10).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_38(11).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_39(11).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_34(11).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_35(11).
+ nf2_core/user_data_path/cpu/datapath/ID_R2(11).
+ nf2_core/user_data_path/cpu/datapath/EX_R2(11).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_38(12).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_39(12).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_34(12).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_35(12).
+ nf2_core/user_data_path/cpu/datapath/EX_R2(12).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_38(13).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_39(13).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_34(13).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_35(13).
+ nf2_core/user_data_path/cpu/datapath/EX_R2(13).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_38(14).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_39(14).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_34(14).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_35(14).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_38(15).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_39(15).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_34(15).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_35(15).
+ nf2_core/user_data_path/cpu/datapath/EX_R2(15).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_38(8).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_39(8).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_34(8).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_35(8).
+ nf2_core/user_data_path/cpu/datapath/ID_R2(8).
+ nf2_core/user_data_path/cpu/datapath/EX_R2(8).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_38(9).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_39(9).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_34(9).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_35(9).
+ nf2_core/user_data_path/cpu/datapath/ID_R2(9).
+ nf2_core/user_data_path/cpu/datapath/EX_R2(9).
+ nf2_core/user_data_path/cpu/dmem_addr(0).
+ nf2_core/user_data_path/cpu/dmem_data(0).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_38(0).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_39(0).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_34(0).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_35(0).
+ nf2_core/user_data_path/cpu/datapath/ID_R2(0).
+ nf2_core/user_data_path/cpu/datapath/EX_R2(0).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_38(1).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_39(1).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_34(1).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_35(1).
+ nf2_core/user_data_path/cpu/datapath/EX_R2(1).
+ nf2_core/user_data_path/cpu/dmem_data(1).
+ nf2_core/user_data_path/cpu/cpu_ctrl(2).
+ nf2_core/user_data_path/cpu/datapath/INS(25).
+ nf2_core/user_data_path/cpu/datapath/INS(24).
+ nf2_core/user_data_path/cpu/datapath/EX_R1(2).
+ nf2_core/user_data_path/cpu/datapath/EX_R1(3).
+ nf2_core/user_data_path/cpu/datapath/EX_R1(4).
+ nf2_core/user_data_path/cpu/datapath/ID_R1(5).
+ nf2_core/user_data_path/cpu/datapath/EX_R1(5).
+ nf2_core/user_data_path/cpu/datapath/ID_R1(6).
+ nf2_core/user_data_path/cpu/datapath/EX_R1(6).
+ nf2_core/user_data_path/cpu/datapath/ID_R1(7).
+ nf2_core/user_data_path/cpu/datapath/EX_R1(7).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_38(18).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_39(18).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_34(18).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_35(18).
+ nf2_core/user_data_path/cpu/datapath/EX_R2(18).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_38(19).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_39(19).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_34(19).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_35(19).
+ nf2_core/user_data_path/cpu/datapath/ID_R2(19).
+ nf2_core/user_data_path/cpu/datapath/EX_R2(19).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_38(20).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_39(20).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_34(20).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_35(20).
+ nf2_core/user_data_path/cpu/datapath/ID_R2(20).
+ nf2_core/user_data_path/cpu/datapath/EX_R2(20).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_38(21).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_39(21).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_34(21).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_35(21).
+ nf2_core/user_data_path/cpu/datapath/ID_R2(21).
+ nf2_core/user_data_path/cpu/datapath/EX_R2(21).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_38(22).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_39(22).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_34(22).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_35(22).
+ nf2_core/user_data_path/cpu/datapath/EX_R2(22).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_38(23).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_39(23).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_34(23).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_35(23).
+ nf2_core/user_data_path/cpu/datapath/EX_R2(23).
+ nf2_core/user_data_path/cpu/datapath/ID_R1(0).
+ nf2_core/user_data_path/cpu/datapath/EX_R1(0).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_38(26).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_39(26).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_34(26).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_35(26).
+ nf2_core/user_data_path/cpu/datapath/ID_R2(26).
+ nf2_core/user_data_path/cpu/datapath/EX_R2(26).
+ nf2_core/user_data_path/cpu/datapath/EX_R1(1).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_38(27).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_39(27).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_34(27).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_35(27).
+ nf2_core/user_data_path/cpu/datapath/ID_R2(27).
+ nf2_core/user_data_path/cpu/datapath/EX_R2(27).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_38(28).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_39(28).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_34(28).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_35(28).
+ nf2_core/user_data_path/cpu/datapath/EX_R2(28).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_38(29).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_39(29).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_34(29).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_35(29).
+ nf2_core/user_data_path/cpu/datapath/EX_R2(29).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_38(30).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_39(30).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_34(30).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_35(30).
+ nf2_core/user_data_path/cpu/datapath/EX_R2(30).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_38(31).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_39(31).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_34(31).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_35(31).
+ nf2_core/user_data_path/cpu/datapath/EX_R2(31).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_38(16).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_39(16).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_34(16).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_35(16).
+ nf2_core/user_data_path/cpu/datapath/ID_R2(16).
+ nf2_core/user_data_path/cpu/datapath/EX_R2(16).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_38(24).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_39(24).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_34(24).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_35(24).
+ nf2_core/user_data_path/cpu/datapath/ID_R2(24).
+ nf2_core/user_data_path/cpu/datapath/EX_R2(24).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_38(17).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_39(17).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_34(17).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_35(17).
+ nf2_core/user_data_path/cpu/datapath/ID_R2(17).
+ nf2_core/user_data_path/cpu/datapath/EX_R2(17).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_38(25).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_39(25).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_34(25).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_35(25).
+ nf2_core/user_data_path/cpu/datapath/ID_R2(25).
+ nf2_core/user_data_path/cpu/datapath/EX_R2(25).
+ nf2_core/user_data_path/cpu/dmem_data_rd(16).
+ nf2_core/user_data_path/cpu/dmem_data_rd(29).
+ nf2_core/user_data_path/cpu/dmem_data_rd(22).
+ nf2_core/user_data_path/cpu/dmem_data_rd(9).
+ nf2_core/user_data_path/cpu/dmem_data_rd(30).
+ nf2_core/user_data_path/cpu/dmem_data_rd(24).
+ nf2_core/user_data_path/cpu/dmem_data_rd(25).
+ nf2_core/user_data_path/cpu/dmem_data_rd(14).
+ nf2_core/user_data_path/cpu/dmem_data_rd(15).
+ nf2_core/user_data_path/cpu/dmem_data_rd(11).
+ nf2_core/user_data_path/cpu/dmem_data_rd(13).
+ nf2_core/user_data_path/cpu/dmem_data_rd(19).
+ nf2_core/user_data_path/cpu/module_reg/.generic_hw_regs/Mmux_reg_data_out_mux0000113.
+ nf2_core/user_data_path/cpu/module_reg/.generic_hw_regs/Mmux_reg_data_out_mux0000119.
+ nf2_core/user_data_path/cpu/module_reg/.generic_hw_regs/Mmux_reg_data_out_mux0000213.
+ nf2_core/user_data_path/cpu/module_reg/.generic_hw_regs/Mmux_reg_data_out_mux0000219.
+ nf2_core/user_data_path/cpu/module_reg/.generic_hw_regs/Mmux_reg_data_out_mux00001313.
+ nf2_core/user_data_path/cpu/module_reg/.generic_hw_regs/Mmux_reg_data_out_mux00001319.
+ nf2_core/user_data_path/cpu/module_reg/.generic_hw_regs/Mmux_reg_data_out_mux00002413.
+ nf2_core/user_data_path/cpu/module_reg/.generic_hw_regs/Mmux_reg_data_out_mux00002419.
+ nf2_core/user_data_path/cpu/module_reg/.generic_hw_regs/Mmux_reg_data_out_mux00002713.
+ nf2_core/user_data_path/cpu/module_reg/.generic_hw_regs/Mmux_reg_data_out_mux00002719.
+ nf2_core/user_data_path/cpu/module_reg/.generic_hw_regs/Mmux_reg_data_out_mux00002813.
+ nf2_core/user_data_path/cpu/module_reg/.generic_hw_regs/Mmux_reg_data_out_mux00002819.
+ nf2_core/user_data_path/cpu/module_reg/.generic_hw_regs/Mmux_reg_data_out_mux00002913.
+ nf2_core/user_data_path/cpu/module_reg/.generic_hw_regs/Mmux_reg_data_out_mux00002919.
+ nf2_core/user_data_path/cpu/module_reg/.generic_hw_regs/Mmux_reg_data_out_mux00003013.
+ nf2_core/user_data_path/cpu/module_reg/.generic_hw_regs/Mmux_reg_data_out_mux00003019.
+ nf2_core/user_data_path/cpu/module_reg/.generic_hw_regs/Mmux_reg_data_out_mux00003113.
+ nf2_core/user_data_path/cpu/module_reg/.generic_hw_regs/Mmux_reg_data_out_mux00003119.
+ nf2_core/user_data_path/cpu/datapath/WB_DATA(23).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_3.
+ nf2_core/user_data_path/cpu/datapath/WB_DATA(16).
+ nf2_core/user_data_path/cpu/datapath/WB_DATA(25).
+ nf2_core/user_data_path/cpu/datapath/WB_DATA(17).
+ nf2_core/user_data_path/cpu/datapath/WB_DATA(26).
+ nf2_core/user_data_path/cpu/datapath/WB_DATA(18).
+ nf2_core/user_data_path/cpu/datapath/WB_DATA(27).
+ nf2_core/user_data_path/cpu/datapath/WB_DATA(19).
+ nf2_core/user_data_path/cpu/datapath/WB_DATA(28).
+ nf2_core/user_data_path/cpu/datapath/WB_DATA(20).
+ nf2_core/user_data_path/cpu/datapath/WB_DATA(29).
+ nf2_core/user_data_path/cpu/datapath/WB_DATA(21).
+ nf2_core/user_data_path/cpu/datapath/WB_DATA(30).
+ nf2_core/user_data_path/cpu/datapath/WB_DATA(22).
+ nf2_core/user_data_path/cpu/datapath/WB_DATA(31).
+ nf2_core/user_data_path/cpu/datapath/WB_DATA(24).
+ nf2_core/user_data_path/cpu/datapath/WB_DATA(32).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_38(32).
+ nf2_core/user_data_path/cpu/datapath/WB_DATA(33).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_38(33).
+ nf2_core/user_data_path/cpu/datapath/WB_DATA(34).
+ nf2_core/user_data_path/cpu/datapath/WB_DATA(35).
+ nf2_core/user_data_path/cpu/datapath/M_R2(10).
+ nf2_core/user_data_path/cpu/dmem_data(10).
+ nf2_core/user_data_path/cpu/datapath/final_dm_data(10).
+ nf2_core/user_data_path/cpu/datapath/M_R2(11).
+ nf2_core/user_data_path/cpu/dmem_data(11).
+ nf2_core/user_data_path/cpu/datapath/final_dm_data(11).
+ nf2_core/user_data_path/cpu/datapath/M_R2(12).
+ nf2_core/user_data_path/cpu/dmem_data(12).
+ nf2_core/user_data_path/cpu/datapath/final_dm_data(12).
+ nf2_core/user_data_path/cpu/datapath/M_R2(20).
+ nf2_core/user_data_path/cpu/datapath/final_dm_data(20).
+ nf2_core/user_data_path/cpu/datapath/M_R2(13).
+ nf2_core/user_data_path/cpu/dmem_data(13).
+ nf2_core/user_data_path/cpu/datapath/final_dm_data(13).
+ nf2_core/user_data_path/cpu/datapath/M_R2(21).
+ nf2_core/user_data_path/cpu/datapath/final_dm_data(21).
+ nf2_core/user_data_path/cpu/datapath/M_R2(14).
+ nf2_core/user_data_path/cpu/dmem_data(14).
+ nf2_core/user_data_path/cpu/datapath/final_dm_data(14).
+ nf2_core/user_data_path/cpu/datapath/M_R2(22).
+ nf2_core/user_data_path/cpu/datapath/final_dm_data(22).
+ nf2_core/user_data_path/cpu/datapath/M_R2(30).
+ nf2_core/user_data_path/cpu/datapath/final_dm_data(30).
+ nf2_core/user_data_path/cpu/datapath/M_R2(15).
+ nf2_core/user_data_path/cpu/dmem_data(15).
+ nf2_core/user_data_path/cpu/datapath/final_dm_data(15).
+ nf2_core/user_data_path/cpu/datapath/M_R2(23).
+ nf2_core/user_data_path/cpu/datapath/final_dm_data(23).
+ nf2_core/user_data_path/cpu/datapath/M_R2(31).
+ nf2_core/user_data_path/cpu/datapath/final_dm_data(31).
+ nf2_core/user_data_path/cpu/datapath/M_R2(16).
+ nf2_core/user_data_path/cpu/dmem_data(16).
+ nf2_core/user_data_path/cpu/datapath/final_dm_data(16).
+ nf2_core/user_data_path/cpu/datapath/M_R2(24).
+ nf2_core/user_data_path/cpu/datapath/final_dm_data(24).
+ nf2_core/user_data_path/cpu/datapath/M_R2(32).
+ nf2_core/user_data_path/cpu/datapath/final_dm_data(32).
+ nf2_core/user_data_path/cpu/datapath/M_R2(17).
+ nf2_core/user_data_path/cpu/dmem_data(17).
+ nf2_core/user_data_path/cpu/datapath/final_dm_data(17).
+ nf2_core/user_data_path/cpu/datapath/M_R2(25).
+ nf2_core/user_data_path/cpu/datapath/final_dm_data(25).
+ nf2_core/user_data_path/cpu/datapath/M_R2(33).
+ nf2_core/user_data_path/cpu/datapath/final_dm_data(33).
+ nf2_core/user_data_path/cpu/datapath/M_R2(18).
+ nf2_core/user_data_path/cpu/dmem_data(18).
+ nf2_core/user_data_path/cpu/datapath/final_dm_data(18).
+ nf2_core/user_data_path/cpu/datapath/M_R2(26).
+ nf2_core/user_data_path/cpu/datapath/final_dm_data(26).
+ nf2_core/user_data_path/cpu/datapath/M_R2(34).
+ nf2_core/user_data_path/cpu/datapath/final_dm_data(34).
+ nf2_core/user_data_path/cpu/datapath/M_R2(19).
+ nf2_core/user_data_path/cpu/datapath/final_dm_data(19).
+ nf2_core/user_data_path/cpu/datapath/M_R2(27).
+ nf2_core/user_data_path/cpu/datapath/final_dm_data(27).
+ nf2_core/user_data_path/cpu/datapath/M_R2(35).
+ nf2_core/user_data_path/cpu/datapath/final_dm_data(35).
+ nf2_core/user_data_path/cpu/datapath/M_R2(28).
+ nf2_core/user_data_path/cpu/datapath/final_dm_data(28).
+ nf2_core/user_data_path/cpu/datapath/M_R2(29).
+ nf2_core/user_data_path/cpu/datapath/final_dm_data(29).
+ nf2_core/user_data_path/cpu/dmem_data_rd(26).
+ nf2_core/user_data_path/cpu/dmem_data_rd(27).
+ nf2_core/user_data_path/cpu/dmem_data_rd(28).
+ nf2_core/user_data_path/cpu/dmem_data_rd(31).
+ nf2_core/user_data_path/cpu/dmem_data_rd(10).
+ nf2_core/user_data_path/cpu/datapath/WB_DATA(10).
+ nf2_core/user_data_path/cpu/datapath/WB_DATA(11).
+ nf2_core/user_data_path/cpu/dmem_data_rd(12).
+ nf2_core/user_data_path/cpu/datapath/WB_DATA(12).
+ nf2_core/user_data_path/cpu/datapath/WB_DATA(13).
+ nf2_core/user_data_path/cpu/datapath/WB_DATA(14).
+ nf2_core/user_data_path/cpu/datapath/WB_DATA(15).
+ nf2_core/user_data_path/cpu/datapath/M_OUT(32).
+ nf2_core/user_data_path/cpu/datapath/M_OUT(33).
+ nf2_core/user_data_path/cpu/datapath/M_OUT(34).
+ nf2_core/user_data_path/cpu/datapath/M_OUT(35).
+ nf2_core/user_data_path/cpu/dmem_data_rd(17).
+ nf2_core/user_data_path/cpu/dmem_data_rd(18).
+ nf2_core/user_data_path/cpu/dmem_data_rd(20).
+ nf2_core/user_data_path/cpu/dmem_data_rd(21).
+ nf2_core/user_data_path/cpu/dmem_data_rd(23).
+ nf2_core/user_data_path/cpu/dmem_data_rd(0).
+ nf2_core/user_data_path/cpu/datapath/WB_DATA(0).
+ nf2_core/user_data_path/cpu/dmem_data_rd(1).
+ nf2_core/user_data_path/cpu/datapath/WB_DATA(1).
+ nf2_core/user_data_path/cpu/dmem_data_rd(2).
+ nf2_core/user_data_path/cpu/datapath/WB_DATA(2).
+ nf2_core/user_data_path/cpu/dmem_data_rd(3).
+ nf2_core/user_data_path/cpu/datapath/WB_DATA(3).
+ nf2_core/user_data_path/cpu/dmem_data_rd(4).
+ nf2_core/user_data_path/cpu/datapath/WB_DATA(4).
+ nf2_core/user_data_path/cpu/dmem_data_rd(5).
+ nf2_core/user_data_path/cpu/datapath/WB_DATA(5).
+ nf2_core/user_data_path/cpu/dmem_data_rd(6).
+ nf2_core/user_data_path/cpu/datapath/WB_DATA(6).
+ nf2_core/user_data_path/cpu/dmem_data_rd(7).
+ nf2_core/user_data_path/cpu/datapath/WB_DATA(7).
+ nf2_core/user_data_path/cpu/dmem_data_rd(8).
+ nf2_core/user_data_path/cpu/datapath/WB_DATA(8).
+ nf2_core/user_data_path/cpu/datapath/WB_DATA(9).
+ nf2_core/user_data_path/cpu/datapath/M_WM.
+ nf2_core/user_data_path/cpu/datapath/final_wen.
+ nf2_core/user_data_path/cpu/datapath/INS(22).
+ nf2_core/user_data_path/cpu/datapath/XLXN_164(1).
+ nf2_core/user_data_path/cpu/datapath/INS(21).
+ nf2_core/user_data_path/cpu/datapath/XLXN_164(0).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_2.
+ nf2_core/user_data_path/cpu/datapath/M_R1(0).
+ nf2_core/user_data_path/cpu/datapath/final_dm_read_addr(0).
+ nf2_core/user_data_path/cpu/datapath/M_R1(1).
+ nf2_core/user_data_path/cpu/dmem_addr(1).
+ nf2_core/user_data_path/cpu/datapath/final_dm_read_addr(1).
+ nf2_core/user_data_path/cpu/datapath/M_R1(2).
+ nf2_core/user_data_path/cpu/datapath/final_dm_read_addr(2).
+ nf2_core/user_data_path/cpu/datapath/M_R1(3).
+ nf2_core/user_data_path/cpu/datapath/final_dm_read_addr(3).
+ nf2_core/user_data_path/cpu/datapath/M_R1(4).
+ nf2_core/user_data_path/cpu/datapath/final_dm_read_addr(4).
+ nf2_core/user_data_path/cpu/datapath/M_R1(5).
+ nf2_core/user_data_path/cpu/datapath/final_dm_read_addr(5).
+ nf2_core/user_data_path/cpu/datapath/M_R1(6).
+ nf2_core/user_data_path/cpu/datapath/final_dm_read_addr(6).
+ nf2_core/user_data_path/cpu/datapath/M_R1(7).
+ nf2_core/user_data_path/cpu/datapath/final_dm_read_addr(7).
+ nf2_core/user_data_path/cpu/datapath/final_dm_addr(0).
+ nf2_core/user_data_path/cpu/datapath/final_dm_addr(1).
+ nf2_core/user_data_path/cpu/datapath/final_dm_addr(2).
+ nf2_core/user_data_path/cpu/datapath/final_dm_addr(3).
+ nf2_core/user_data_path/cpu/datapath/final_dm_addr(4).
+ nf2_core/user_data_path/cpu/datapath/final_dm_addr(5).
+ nf2_core/user_data_path/cpu/datapath/final_dm_addr(6).
+ nf2_core/user_data_path/cpu/datapath/final_dm_addr(7).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_35(32).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_35(33).
+ nf2_core/user_data_path/cpu/datapath/M_R2(0).
+ nf2_core/user_data_path/cpu/datapath/final_dm_data(0).
+ nf2_core/user_data_path/cpu/datapath/M_R2(1).
+ nf2_core/user_data_path/cpu/datapath/final_dm_data(1).
+ nf2_core/user_data_path/cpu/datapath/final_dm_data(2).
+ nf2_core/user_data_path/cpu/datapath/M_R2(3).
+ nf2_core/user_data_path/cpu/datapath/final_dm_data(3).
+ nf2_core/user_data_path/cpu/datapath/M_R2(4).
+ nf2_core/user_data_path/cpu/datapath/final_dm_data(4).
+ nf2_core/user_data_path/cpu/datapath/M_R2(5).
+ nf2_core/user_data_path/cpu/datapath/final_dm_data(5).
+ nf2_core/user_data_path/cpu/datapath/M_R2(6).
+ nf2_core/user_data_path/cpu/datapath/final_dm_data(6).
+ nf2_core/user_data_path/cpu/datapath/M_R2(7).
+ nf2_core/user_data_path/cpu/datapath/final_dm_data(7).
+ nf2_core/user_data_path/cpu/datapath/M_R2(8).
+ nf2_core/user_data_path/cpu/datapath/final_dm_data(8).
+ nf2_core/user_data_path/cpu/datapath/M_R2(9).
+ nf2_core/user_data_path/cpu/datapath/final_dm_data(9).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_4.
+ nf2_core/user_data_path/cpu/datapath/EX_R2(32).
+ nf2_core/user_data_path/cpu/datapath/EX_R2(33).
+ nf2_core/user_data_path/cpu/datapath/IM_OUT(27).
+ nf2_core/user_data_path/cpu/datapath/IM_OUT(28).
+ nf2_core/user_data_path/cpu/datapath/IM_OUT(30).
+ nf2_core/user_data_path/cpu/datapath/INS(30).
+ nf2_core/user_data_path/cpu/datapath/IM_OUT(31).
+ nf2_core/user_data_path/cpu/datapath/INS(31).
+ nf2_core/user_data_path/cpu/datapath/XLXN_192(1).
+ nf2_core/user_data_path/cpu/datapath/WB_ADDR(1).
+ nf2_core/user_data_path/cpu/datapath/XLXN_192(0).
+ nf2_core/user_data_path/cpu/datapath/WB_ADDR(0).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_39(32).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_39(33).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_1.
+ nf2_core/user_data_path/cpu/datapath/XLXN_191.
+ nf2_core/user_data_path/cpu/datapath/WB_WRITE.
+ nf2_core/user_data_path/cpu/datapath/IM_OUT(21).
+ nf2_core/user_data_path/cpu/datapath/IM_OUT(22).
+ nf2_core/user_data_path/cpu/datapath/IM_OUT(24).
+ nf2_core/user_data_path/cpu/datapath/IM_OUT(25).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_34(32).
+ nf2_core/user_data_path/cpu/datapath/XLXI_4/XLXN_34(33).
+ nf2_core/user_data_path/cpu/datapath/XLXN_160.
+ nf2_core/user_data_path/cpu/datapath/XLXN_161.
+ nf2_core/user_data_path/cpu/datapath/ID_R2(32).
+ nf2_core/user_data_path/cpu/datapath/ID_R2(33).
+ nf2_core/user_data_path/cpu/datapath/ID_R2(23).
+ nf2_core/user_data_path/cpu/datapath/ID_R1(3).
+ nf2_core/user_data_path/cpu/datapath/ID_R1(4).
+ nf2_core/user_data_path/cpu/datapath/ID_R1(1).
+ nf2_core/user_data_path/cpu/datapath/ID_R2(1).
+ nf2_core/user_data_path/cpu/datapath/ID_R2(2).
+ nf2_core/user_data_path/cpu/datapath/ID_R2(18).
+ nf2_core/user_data_path/cpu/datapath/ID_R2(6).
+ nf2_core/user_data_path/cpu/datapath/ID_R2(28).
+ nf2_core/user_data_path/cpu/datapath/ID_R1(2).
+ nf2_core/user_data_path/cpu/datapath/M_R2(2).
+ nf2_core/user_data_path/cpu/datapath/ID_R2(22).
+ nf2_core/user_data_path/cpu/datapath/ID_R2(29).
+ nf2_core/user_data_path/cpu/datapath/ID_R2(30).
+ nf2_core/user_data_path/cpu/datapath/ID_R2(15).
+ nf2_core/user_data_path/cpu/datapath/ID_R2(13).
+ nf2_core/user_data_path/cpu/datapath/ID_R2(31).
+ nf2_core/user_data_path/cpu/datapath/ID_R2(12).
+ nf2_core/user_data_path/cpu/datapath/EX_R2(14).
+ nf2_core/user_data_path/cpu/datapath/ID_R2(14).
