@@ -6,13 +6,13 @@
 // /___/  \  /    Vendor: Xilinx 
 // \   \   \/     Version : 10.1
 //  \   \         Application : sch2verilog
-//  /   /         Filename : ifd32.vf
-// /___/   /\     Timestamp : 02/13/2026 13:18:09
+//  /   /         Filename : dff32.vf
+// /___/   /\     Timestamp : 02/17/2026 19:49:47
 // \   \  /  \ 
 //  \___\/\___\ 
 //
-//Command: C:\Xilinx\10.1\ISE\bin\nt\unwrapped\sch2verilog.exe -intstyle ise -family virtex2p -w "C:/Documents and Settings/student/Desktop/5_Stage_Pipeline/ifd32.sch" ifd32.vf
-//Design Name: ifd32
+//Command: C:\Xilinx\10.1\ISE\bin\nt\unwrapped\sch2verilog.exe -intstyle ise -family virtex2p -w "C:/Documents and Settings/student/Desktop/ARM_Processor/dff32.sch" dff32.vf
+//Design Name: dff32
 //Device: virtex2p
 //Purpose:
 //    This verilog netlist is translated from an ECS schematic.It can be 
@@ -20,7 +20,7 @@
 //
 `timescale 1ns / 1ps
 
-module FD16CE_MXILINX_ifd32(C, 
+module FD16CE_MXILINX_dff32(C, 
                             CE, 
                             CLR, 
                             D, 
@@ -132,7 +132,7 @@ module FD16CE_MXILINX_ifd32(C,
 endmodule
 `timescale 1ns / 1ps
 
-module ifd32(CE, 
+module dff32(CE, 
              CLK, 
              CLR, 
              D, 
@@ -145,13 +145,13 @@ module ifd32(CE,
    output [31:0] Q;
    
    
-   FD16CE_MXILINX_ifd32 XLXI_45 (.C(CLK), 
+   FD16CE_MXILINX_dff32 XLXI_45 (.C(CLK), 
                                  .CE(CE), 
                                  .CLR(CLR), 
                                  .D(D[31:16]), 
                                  .Q(Q[31:16]));
    // synthesis attribute HU_SET of XLXI_45 is "XLXI_45_0"
-   FD16CE_MXILINX_ifd32 XLXI_46 (.C(CLK), 
+   FD16CE_MXILINX_dff32 XLXI_46 (.C(CLK), 
                                  .CE(CE), 
                                  .CLR(CLR), 
                                  .D(D[15:0]), 

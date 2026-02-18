@@ -6,13 +6,13 @@
 // /___/  \  /    Vendor: Xilinx 
 // \   \   \/     Version : 10.1
 //  \   \         Application : sch2verilog
-//  /   /         Filename : ifd9.vf
-// /___/   /\     Timestamp : 02/13/2026 13:23:36
+//  /   /         Filename : PC_9b.vf
+// /___/   /\     Timestamp : 02/17/2026 19:49:50
 // \   \  /  \ 
 //  \___\/\___\ 
 //
-//Command: C:\Xilinx\10.1\ISE\bin\nt\unwrapped\sch2verilog.exe -intstyle ise -family virtex2p -w "C:/Documents and Settings/student/Desktop/5_Stage_Pipeline/ifd9.sch" ifd9.vf
-//Design Name: ifd9
+//Command: C:\Xilinx\10.1\ISE\bin\nt\unwrapped\sch2verilog.exe -intstyle ise -family virtex2p -w "C:/Documents and Settings/student/Desktop/ARM_Processor/PC_9b.sch" PC_9b.vf
+//Design Name: PC_9b
 //Device: virtex2p
 //Purpose:
 //    This verilog netlist is translated from an ECS schematic.It can be 
@@ -20,11 +20,11 @@
 //
 `timescale 1ns / 1ps
 
-module FD8CE_MXILINX_ifd9(C, 
-                          CE, 
-                          CLR, 
-                          D, 
-                          Q);
+module FD8CE_MXILINX_PC_9b(C, 
+                           CE, 
+                           CLR, 
+                           D, 
+                           Q);
 
     input C;
     input CE;
@@ -84,10 +84,10 @@ module FD8CE_MXILINX_ifd9(C,
 endmodule
 `timescale 1ns / 1ps
 
-module ifd9(CLK, 
-            CLR, 
-            D, 
-            Q);
+module PC_9b(CLK, 
+             CLR, 
+             D, 
+             Q);
 
     input CLK;
     input CLR;
@@ -96,11 +96,11 @@ module ifd9(CLK,
    
    wire CE;
    
-   FD8CE_MXILINX_ifd9 XLXI_12 (.C(CLK), 
-                               .CE(CE), 
-                               .CLR(CLR), 
-                               .D(D[8:1]), 
-                               .Q(Q[8:1]));
+   FD8CE_MXILINX_PC_9b XLXI_12 (.C(CLK), 
+                                .CE(CE), 
+                                .CLR(CLR), 
+                                .D(D[8:1]), 
+                                .Q(Q[8:1]));
    // synthesis attribute HU_SET of XLXI_12 is "XLXI_12_0"
    FDCE XLXI_16 (.C(CLK), 
                  .CE(CE), 

@@ -6,13 +6,13 @@
 // /___/  \  /    Vendor: Xilinx 
 // \   \   \/     Version : 10.1
 //  \   \         Application : sch2verilog
-//  /   /         Filename : fdreg16.vf
-// /___/   /\     Timestamp : 02/13/2026 13:39:43
+//  /   /         Filename : reg_file_16.vf
+// /___/   /\     Timestamp : 02/17/2026 19:49:49
 // \   \  /  \ 
 //  \___\/\___\ 
 //
-//Command: C:\Xilinx\10.1\ISE\bin\nt\unwrapped\sch2verilog.exe -intstyle ise -family virtex2p -w "C:/Documents and Settings/student/Desktop/5_Stage_Pipeline/fdreg16.sch" fdreg16.vf
-//Design Name: fdreg16
+//Command: C:\Xilinx\10.1\ISE\bin\nt\unwrapped\sch2verilog.exe -intstyle ise -family virtex2p -w "C:/Documents and Settings/student/Desktop/ARM_Processor/reg_file_16.sch" reg_file_16.vf
+//Design Name: reg_file_16
 //Device: virtex2p
 //Purpose:
 //    This verilog netlist is translated from an ECS schematic.It can be 
@@ -20,11 +20,11 @@
 //
 `timescale 1ns / 1ps
 
-module fdreg16(C, 
-               CE, 
-               CLR, 
-               D, 
-               Q);
+module reg_file_16(C, 
+                   CE, 
+                   CLR, 
+                   D, 
+                   Q);
 
     input C;
     input CE;

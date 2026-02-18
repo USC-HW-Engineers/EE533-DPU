@@ -32,8 +32,8 @@ BEGIN SCHEMATIC
             LINE N 64 -64 64 -80 
             LINE N 64 -128 64 -96 
         END BLOCKDEF
-        BEGIN BLOCKDEF fdreg16
-            TIMESTAMP 2026 2 13 6 49 29
+        BEGIN BLOCKDEF reg_file_16
+            TIMESTAMP 2026 2 18 2 30 41
             RECTANGLE N 64 -256 320 0 
             LINE N 64 -96 0 -96 
             LINE N 64 -160 0 -160 
@@ -46,28 +46,28 @@ BEGIN SCHEMATIC
         BEGIN BLOCK XLXI_46 gnd
             PIN G XLXN_29
         END BLOCK
-        BEGIN BLOCK XLXI_47 fdreg16
+        BEGIN BLOCK XLXI_51 reg_file_16
             PIN C clk
             PIN CE CE
             PIN CLR XLXN_29
             PIN D(15:0) D(15:0)
             PIN Q(15:0) Q(15:0)
         END BLOCK
-        BEGIN BLOCK XLXI_48 fdreg16
+        BEGIN BLOCK XLXI_52 reg_file_16
             PIN C clk
             PIN CE CE
             PIN CLR XLXN_29
             PIN D(15:0) D(31:16)
             PIN Q(15:0) Q(31:16)
         END BLOCK
-        BEGIN BLOCK XLXI_49 fdreg16
+        BEGIN BLOCK XLXI_53 reg_file_16
             PIN C clk
             PIN CE CE
             PIN CLR XLXN_29
             PIN D(15:0) D(47:32)
             PIN Q(15:0) Q(47:32)
         END BLOCK
-        BEGIN BLOCK XLXI_50 fdreg16
+        BEGIN BLOCK XLXI_54 reg_file_16
             PIN C clk
             PIN CE CE
             PIN CLR XLXN_29
@@ -159,14 +159,6 @@ BEGIN SCHEMATIC
         IOMARKER 1760 560 Q(63:0) R0 28
         IOMARKER 1264 1184 clk R180 28
         IOMARKER 1264 816 CE R180 28
-        BEGIN INSTANCE XLXI_47 1440 976 R0
-        END INSTANCE
-        BEGIN INSTANCE XLXI_48 1440 1280 R0
-        END INSTANCE
-        BEGIN INSTANCE XLXI_49 1440 1568 R0
-        END INSTANCE
-        BEGIN INSTANCE XLXI_50 1440 1904 R0
-        END INSTANCE
         BEGIN BRANCH D(63:48)
             WIRE 1360 1680 1392 1680
             WIRE 1392 1680 1440 1680
@@ -184,5 +176,13 @@ BEGIN SCHEMATIC
             WIRE 1408 880 1440 880
             WIRE 1408 880 1408 1184
         END BRANCH
+        BEGIN INSTANCE XLXI_51 1440 976 R0
+        END INSTANCE
+        BEGIN INSTANCE XLXI_52 1440 1280 R0
+        END INSTANCE
+        BEGIN INSTANCE XLXI_53 1440 1568 R0
+        END INSTANCE
+        BEGIN INSTANCE XLXI_54 1440 1904 R0
+        END INSTANCE
     END SHEET
 END SCHEMATIC

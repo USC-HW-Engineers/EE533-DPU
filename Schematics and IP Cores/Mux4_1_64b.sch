@@ -39,52 +39,52 @@ BEGIN SCHEMATIC
         PORT Input D2(63:0)
         PORT Input D3(63:0)
         BEGIN BLOCKDEF Mux4_1_16b
-            TIMESTAMP 2026 2 12 11 5 38
+            TIMESTAMP 2026 2 18 2 36 52
             RECTANGLE N 64 -320 320 0 
-            RECTANGLE N 0 -300 64 -276 
-            LINE N 64 -288 0 -288 
-            RECTANGLE N 0 -236 64 -212 
-            LINE N 64 -224 0 -224 
-            RECTANGLE N 0 -172 64 -148 
             LINE N 64 -160 0 -160 
-            RECTANGLE N 0 -108 64 -84 
+            RECTANGLE N 0 -172 64 -148 
             LINE N 64 -96 0 -96 
-            RECTANGLE N 0 -44 64 -20 
-            LINE N 64 -32 0 -32 
-            RECTANGLE N 320 -300 384 -276 
+            RECTANGLE N 0 -108 64 -84 
+            LINE N 64 -288 0 -288 
+            RECTANGLE N 0 -300 64 -276 
+            LINE N 64 -224 0 -224 
+            RECTANGLE N 0 -236 64 -212 
             LINE N 320 -288 384 -288 
+            RECTANGLE N 320 -300 384 -276 
+            LINE N 64 -32 0 -32 
+            RECTANGLE N 0 -44 64 -20 
         END BLOCKDEF
         BEGIN BLOCK XLXI_1 Mux4_1_16b
-            PIN D2(15:0) D2(15:0)
-            PIN D3(15:0) D3(15:0)
             PIN D0(15:0) D0(15:0)
             PIN D1(15:0) D1(15:0)
-            PIN S(1:0) S(1:0)
+            PIN D2(15:0) D2(15:0)
+            PIN D3(15:0) D3(15:0)
             PIN O(15:0) O(15:0)
+            PIN S(1:0) S(1:0)
         END BLOCK
         BEGIN BLOCK XLXI_2 Mux4_1_16b
-            PIN D2(15:0) D2(31:16)
-            PIN D3(15:0) D3(31:16)
             PIN D0(15:0) D0(31:16)
             PIN D1(15:0) D1(31:16)
-            PIN S(1:0) S(1:0)
+            PIN D2(15:0) D2(31:16)
+            PIN D3(15:0) D3(31:16)
             PIN O(15:0) O(31:16)
+            PIN S(1:0) S(1:0)
         END BLOCK
         BEGIN BLOCK XLXI_3 Mux4_1_16b
-            PIN D2(15:0) D2(47:32)
-            PIN D3(15:0) D3(47:32)
             PIN D0(15:0) D0(47:32)
             PIN D1(15:0) D1(47:32)
-            PIN S(1:0) S(1:0)
+            PIN D2(15:0) D2(47:32)
+            PIN D3(15:0) D3(47:32)
             PIN O(15:0) O(47:32)
+            PIN S(1:0) S(1:0)
         END BLOCK
         BEGIN BLOCK XLXI_4 Mux4_1_16b
-            PIN D2(15:0) D2(63:48)
-            PIN D3(15:0) D3(63:48)
             PIN D0(15:0) D0(63:48)
             PIN D1(15:0) D1(63:48)
-            PIN S(1:0) S(1:0)
+            PIN D2(15:0) D2(63:48)
+            PIN D3(15:0) D3(63:48)
             PIN O(15:0) O(63:48)
+            PIN S(1:0) S(1:0)
         END BLOCK
     END NETLIST
     BEGIN SHEET 1 3520 2720

@@ -7,11 +7,11 @@
 // \   \   \/     Version : 10.1
 //  \   \         Application : sch2verilog
 //  /   /         Filename : Pipeline_Datapath.vf
-// /___/   /\     Timestamp : 02/13/2026 13:18:07
+// /___/   /\     Timestamp : 02/17/2026 19:49:50
 // \   \  /  \ 
 //  \___\/\___\ 
 //
-//Command: C:\Xilinx\10.1\ISE\bin\nt\unwrapped\sch2verilog.exe -intstyle ise -family virtex2p -w "C:/Documents and Settings/student/Desktop/5_Stage_Pipeline/Pipeline_Datapath.sch" Pipeline_Datapath.vf
+//Command: C:\Xilinx\10.1\ISE\bin\nt\unwrapped\sch2verilog.exe -intstyle ise -family virtex2p -w "C:/Documents and Settings/student/Desktop/ARM_Processor/Pipeline_Datapath.sch" Pipeline_Datapath.vf
 //Design Name: Pipeline_Datapath
 //Device: virtex2p
 //Purpose:
@@ -44,31 +44,18 @@ module Pipeline_Datapath(B,
    wire [63:0] M_R1;
    wire [63:0] M_R2;
    wire M_WM;
-   wire [8:0] PC;
    wire vdd;
    wire [1:0] WB_ADDR;
    wire [63:0] WB_DATA;
    wire WB_WRITE;
-   wire [8:0] XLXN_81;
    wire XLXN_160;
    wire XLXN_161;
    wire [1:0] XLXN_164;
    wire XLXN_191;
    wire [1:0] XLXN_192;
+   wire [8:0] XLXN_230;
+   wire [8:0] XLXN_231;
    
-   I_Mem XLXI_1 (.addr(PC[8:0]), 
-                 .clk(CLK), 
-                 .din(DIN[31:0]), 
-                 .we(IM_WE), 
-                 .dout(IM_OUT[31:0]));
-   Register_File_16b XLXI_4 (.clk(CLK), 
-                             .r0addr(INS[28:27]), 
-                             .r1addr(INS[25:24]), 
-                             .waddr(WB_ADDR[1:0]), 
-                             .wdata(WB_DATA[63:0]), 
-                             .wena(WB_WRITE), 
-                             .r0data(ID_R2[63:0]), 
-                             .r1data(ID_R1[63:0]));
    D_Mem XLXI_32 (.addra(M_R1[7:0]), 
                   .addrb(M_R1[7:0]), 
                   .clka(CLK), 
@@ -76,11 +63,6 @@ module Pipeline_Datapath(B,
                   .dinb(M_R2[63:0]), 
                   .web(M_WM), 
                   .douta(M_OUT[63:0]));
-   adder_9bit XLXI_66 (.A(PC[8:0]), 
-                       .B(B[8:0]), 
-                       .Cin(vdd), 
-                       .Cout(), 
-                       .S(XLXN_81[8:0]));
    VCC XLXI_72 (.P(vdd));
    ID_EX_Reg XLXI_74 (.CE(vdd), 
                       .CLK(CLK), 
@@ -117,11 +99,31 @@ module Pipeline_Datapath(B,
                       .WB_DOUT(WB_DATA[63:0]), 
                       .WB_REG1(WB_ADDR[1:0]), 
                       .WB_WRE(WB_WRITE));
-   ifd9 XLXI_84 (.CLK(CLK), 
-                 .CLR(IM_CLR), 
-                 .D(XLXN_81[8:0]), 
-                 .Q(PC[8:0]));
-   ifd32 XLXI_86 (.CE(vdd), 
+   I_Mem_Dual XLXI_89 (.addra(XLXN_231[8:0]), 
+                       .addrb(XLXN_231[8:0]), 
+                       .clka(CLK), 
+                       .clkb(CLK), 
+                       .dinb(DIN[31:0]), 
+                       .web(IM_WE), 
+                       .douta(IM_OUT[31:0]));
+   Register_File XLXI_90 (.clk(CLK), 
+                          .r0addr(INS[28:27]), 
+                          .r1addr(INS[25:24]), 
+                          .waddr(WB_ADDR[1:0]), 
+                          .wdata(WB_DATA[63:0]), 
+                          .wena(WB_WRITE), 
+                          .r0data(ID_R1[63:0]), 
+                          .r1data(ID_R2[63:0]));
+   RCA_9bit XLXI_91 (.A(XLXN_231[8:0]), 
+                     .B(B[8:0]), 
+                     .Cin(vdd), 
+                     .Cout(), 
+                     .S(XLXN_230[8:0]));
+   PC_9b XLXI_92 (.CLK(CLK), 
+                  .CLR(IM_CLR), 
+                  .D(XLXN_230[8:0]), 
+                  .Q(XLXN_231[8:0]));
+   dff32 XLXI_93 (.CE(vdd), 
                   .CLK(CLK), 
                   .CLR(CLR_ALL), 
                   .D(IM_OUT[31:0]), 
