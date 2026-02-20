@@ -1,0 +1,74 @@
+////////////////////////////////////////////////////////////////////////////////
+// Copyright (c) 1995-2008 Xilinx, Inc.  All rights reserved.
+////////////////////////////////////////////////////////////////////////////////
+//   ____  ____ 
+//  /   /\/   / 
+// /___/  \  /    Vendor: Xilinx 
+// \   \   \/     Version : 10.1
+//  \   \         Application : sch2verilog
+//  /   /         Filename : Mux2_1_3b.vf
+// /___/   /\     Timestamp : 02/18/2026 17:52:22
+// \   \  /  \ 
+//  \___\/\___\ 
+//
+//Command: C:\Xilinx\10.1\ISE\bin\nt\unwrapped\sch2verilog.exe -intstyle ise -family virtex2p -w "C:/Documents and Settings/student/Desktop/ARM_Processor/Mux2_1_3b.sch" Mux2_1_3b.vf
+//Design Name: Mux2_1_3b
+//Device: virtex2p
+//Purpose:
+//    This verilog netlist is translated from an ECS schematic.It can be 
+//    synthesized and simulated, but it should not be modified. 
+//
+`timescale 1ns / 1ps
+
+module M2_1_MXILINX_Mux2_1_3b(D0, 
+                              D1, 
+                              S0, 
+                              O);
+
+    input D0;
+    input D1;
+    input S0;
+   output O;
+   
+   wire M0;
+   wire M1;
+   
+   AND2B1 I_36_7 (.I0(S0), 
+                  .I1(D0), 
+                  .O(M0));
+   OR2 I_36_8 (.I0(M1), 
+               .I1(M0), 
+               .O(O));
+   AND2 I_36_9 (.I0(D1), 
+                .I1(S0), 
+                .O(M1));
+endmodule
+`timescale 1ns / 1ps
+
+module Mux2_1_3b(D0, 
+                 D1, 
+                 S, 
+                 O);
+
+    input [2:0] D0;
+    input [2:0] D1;
+    input S;
+   output [2:0] O;
+   
+   
+   M2_1_MXILINX_Mux2_1_3b XLXI_1 (.D0(D0[0]), 
+                                  .D1(D1[0]), 
+                                  .S0(S), 
+                                  .O(O[0]));
+   // synthesis attribute HU_SET of XLXI_1 is "XLXI_1_1"
+   M2_1_MXILINX_Mux2_1_3b XLXI_2 (.D0(D0[1]), 
+                                  .D1(D1[1]), 
+                                  .S0(S), 
+                                  .O(O[1]));
+   // synthesis attribute HU_SET of XLXI_2 is "XLXI_2_2"
+   M2_1_MXILINX_Mux2_1_3b XLXI_3 (.D0(D0[2]), 
+                                  .D1(D1[2]), 
+                                  .S0(S), 
+                                  .O(O[2]));
+   // synthesis attribute HU_SET of XLXI_3 is "XLXI_3_0"
+endmodule

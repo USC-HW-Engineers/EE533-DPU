@@ -1,0 +1,710 @@
+VERSION 6
+BEGIN SCHEMATIC
+    BEGIN ATTR DeviceFamilyName "virtex2p"
+        DELETE all:0
+        EDITNAME all:0
+        EDITTRAIT all:0
+    END ATTR
+    BEGIN NETLIST
+        SIGNAL XLXN_1
+        SIGNAL XLXN_3
+        SIGNAL T3
+        SIGNAL XLXN_5
+        SIGNAL T5
+        SIGNAL XLXN_7
+        SIGNAL T6
+        SIGNAL XLXN_9
+        SIGNAL T4
+        SIGNAL XLXN_11
+        SIGNAL T7
+        SIGNAL XLXN_14
+        SIGNAL T8
+        SIGNAL XLXN_16
+        SIGNAL T9
+        SIGNAL XLXN_18
+        SIGNAL XLXN_20
+        SIGNAL XLXN_22
+        SIGNAL XLXN_24
+        SIGNAL XLXN_26
+        SIGNAL XLXN_28
+        SIGNAL XLXN_29
+        SIGNAL CE
+        SIGNAL XLXN_31
+        SIGNAL XLXN_32
+        SIGNAL C
+        SIGNAL XLXN_34
+        SIGNAL XLXN_35
+        SIGNAL CLR
+        SIGNAL XLXN_37
+        SIGNAL XLXN_39
+        SIGNAL T2
+        SIGNAL XLXN_41
+        SIGNAL Q(0)
+        SIGNAL Q(1)
+        SIGNAL Q(2)
+        SIGNAL Q(3)
+        SIGNAL Q(4)
+        SIGNAL Q(5)
+        SIGNAL Q(6)
+        SIGNAL Q(7)
+        SIGNAL Q(8)
+        SIGNAL Q(9)
+        SIGNAL Q(10)
+        SIGNAL Q(10:0)
+        SIGNAL T10
+        PORT Input CE
+        PORT Input C
+        PORT Input CLR
+        PORT Output Q(10:0)
+        BEGIN BLOCKDEF and2
+            TIMESTAMP 2000 1 1 10 10 10
+            LINE N 0 -64 64 -64 
+            LINE N 0 -128 64 -128 
+            LINE N 256 -96 192 -96 
+            ARC N 96 -144 192 -48 144 -48 144 -144 
+            LINE N 144 -48 64 -48 
+            LINE N 64 -144 144 -144 
+            LINE N 64 -48 64 -144 
+        END BLOCKDEF
+        BEGIN BLOCKDEF and3
+            TIMESTAMP 2000 1 1 10 10 10
+            LINE N 0 -64 64 -64 
+            LINE N 0 -128 64 -128 
+            LINE N 0 -192 64 -192 
+            LINE N 256 -128 192 -128 
+            LINE N 64 -176 144 -176 
+            LINE N 144 -80 64 -80 
+            ARC N 96 -176 192 -80 144 -80 144 -176 
+            LINE N 64 -64 64 -192 
+        END BLOCKDEF
+        BEGIN BLOCKDEF ftce
+            TIMESTAMP 2000 1 1 10 10 10
+            LINE N 192 -32 64 -32 
+            LINE N 192 -64 192 -32 
+            LINE N 80 -128 64 -144 
+            LINE N 64 -112 80 -128 
+            LINE N 384 -256 320 -256 
+            LINE N 0 -256 64 -256 
+            LINE N 0 -32 64 -32 
+            LINE N 0 -192 64 -192 
+            LINE N 0 -128 64 -128 
+            RECTANGLE N 64 -320 320 -64 
+        END BLOCKDEF
+        BEGIN BLOCKDEF vcc
+            TIMESTAMP 2000 1 1 10 10 10
+            LINE N 64 -32 64 -64 
+            LINE N 64 0 64 -32 
+            LINE N 96 -64 32 -64 
+        END BLOCKDEF
+        BEGIN BLOCKDEF and4
+            TIMESTAMP 2000 1 1 10 10 10
+            LINE N 144 -112 64 -112 
+            ARC N 96 -208 192 -112 144 -112 144 -208 
+            LINE N 64 -208 144 -208 
+            LINE N 64 -64 64 -256 
+            LINE N 256 -160 192 -160 
+            LINE N 0 -256 64 -256 
+            LINE N 0 -192 64 -192 
+            LINE N 0 -128 64 -128 
+            LINE N 0 -64 64 -64 
+        END BLOCKDEF
+        BEGIN BLOCKDEF and5
+            TIMESTAMP 2000 1 1 10 10 10
+            ARC N 96 -240 192 -144 144 -144 144 -240 
+            LINE N 144 -144 64 -144 
+            LINE N 64 -240 144 -240 
+            LINE N 64 -64 64 -320 
+            LINE N 256 -192 192 -192 
+            LINE N 0 -320 64 -320 
+            LINE N 0 -256 64 -256 
+            LINE N 0 -192 64 -192 
+            LINE N 0 -128 64 -128 
+            LINE N 0 -64 64 -64 
+        END BLOCKDEF
+        BEGIN BLOCK I_36_15 and2
+            PIN I0 Q(4)
+            PIN I1 T4
+            PIN O T5
+        END BLOCK
+        BEGIN BLOCK I_36_28 and2
+            PIN I0 Q(8)
+            PIN I1 T8
+            PIN O T9
+        END BLOCK
+        BEGIN BLOCK I_36_4 and2
+            PIN I0 Q(1)
+            PIN I1 Q(0)
+            PIN O T2
+        END BLOCK
+        BEGIN BLOCK I_36_3 and3
+            PIN I0 Q(2)
+            PIN I1 Q(1)
+            PIN I2 Q(0)
+            PIN O T3
+        END BLOCK
+        BEGIN BLOCK I_36_19 and3
+            PIN I0 Q(5)
+            PIN I1 Q(4)
+            PIN I2 T4
+            PIN O T6
+        END BLOCK
+        BEGIN BLOCK I_Q1 ftce
+            PIN C C
+            PIN CE CE
+            PIN CLR CLR
+            PIN T Q(0)
+            PIN Q Q(1)
+        END BLOCK
+        BEGIN BLOCK I_Q0 ftce
+            PIN C C
+            PIN CE CE
+            PIN CLR CLR
+            PIN T XLXN_1
+            PIN Q Q(0)
+        END BLOCK
+        BEGIN BLOCK I_Q3 ftce
+            PIN C C
+            PIN CE CE
+            PIN CLR CLR
+            PIN T T3
+            PIN Q Q(3)
+        END BLOCK
+        BEGIN BLOCK I_Q2 ftce
+            PIN C C
+            PIN CE CE
+            PIN CLR CLR
+            PIN T T2
+            PIN Q Q(2)
+        END BLOCK
+        BEGIN BLOCK I_Q7 ftce
+            PIN C C
+            PIN CE CE
+            PIN CLR CLR
+            PIN T T7
+            PIN Q Q(7)
+        END BLOCK
+        BEGIN BLOCK I_Q6 ftce
+            PIN C C
+            PIN CE CE
+            PIN CLR CLR
+            PIN T T6
+            PIN Q Q(6)
+        END BLOCK
+        BEGIN BLOCK I_Q5 ftce
+            PIN C C
+            PIN CE CE
+            PIN CLR CLR
+            PIN T T5
+            PIN Q Q(5)
+        END BLOCK
+        BEGIN BLOCK I_Q4 ftce
+            PIN C C
+            PIN CE CE
+            PIN CLR CLR
+            PIN T T4
+            PIN Q Q(4)
+        END BLOCK
+        BEGIN BLOCK I_Q8 ftce
+            PIN C C
+            PIN CE CE
+            PIN CLR CLR
+            PIN T T8
+            PIN Q Q(8)
+        END BLOCK
+        BEGIN BLOCK I_Q9 ftce
+            PIN C C
+            PIN CE CE
+            PIN CLR CLR
+            PIN T T9
+            PIN Q Q(9)
+        END BLOCK
+        BEGIN BLOCK I_Q10 ftce
+            PIN C C
+            PIN CE CE
+            PIN CLR CLR
+            PIN T T10
+            PIN Q Q(10)
+        END BLOCK
+        BEGIN BLOCK I_36_9 vcc
+            PIN P XLXN_1
+        END BLOCK
+        BEGIN BLOCK I_36_10 and4
+            PIN I0 Q(3)
+            PIN I1 Q(2)
+            PIN I2 Q(1)
+            PIN I3 Q(0)
+            PIN O T4
+        END BLOCK
+        BEGIN BLOCK I_36_21 and4
+            PIN I0 Q(6)
+            PIN I1 Q(5)
+            PIN I2 Q(4)
+            PIN I3 T4
+            PIN O T7
+        END BLOCK
+        BEGIN BLOCK I_36_14 and5
+            PIN I0 Q(7)
+            PIN I1 Q(6)
+            PIN I2 Q(5)
+            PIN I3 Q(4)
+            PIN I4 T4
+            PIN O T8
+        END BLOCK
+        BEGIN BLOCK I_36_27 and3
+            PIN I0 Q(9)
+            PIN I1 Q(8)
+            PIN I2 T8
+            PIN O T10
+        END BLOCK
+    END NETLIST
+    BEGIN SHEET 1 5440 7040
+        INSTANCE I_36_15 2080 4160 R0
+        INSTANCE I_36_28 4416 1376 R0
+        INSTANCE I_36_4 2080 2208 R0
+        INSTANCE I_36_3 2080 2880 R0
+        INSTANCE I_36_19 2080 4832 R0
+        INSTANCE I_Q1 896 2208 R0
+        INSTANCE I_Q0 896 1632 R0
+        INSTANCE I_Q3 896 3456 R0
+        INSTANCE I_Q2 896 2816 R0
+        INSTANCE I_Q7 896 6112 R0
+        INSTANCE I_Q6 896 5408 R0
+        INSTANCE I_Q5 896 4768 R0
+        INSTANCE I_Q4 896 4160 R0
+        INSTANCE I_Q8 3232 1376 R0
+        INSTANCE I_Q9 3232 1984 R0
+        INSTANCE I_Q10 3232 2624 R0
+        INSTANCE I_36_9 448 1376 R0
+        INSTANCE I_36_10 2080 3584 R0
+        INSTANCE I_36_21 2080 5536 R0
+        INSTANCE I_36_14 2080 6400 R0
+        BEGIN BRANCH XLXN_1
+            WIRE 512 1376 896 1376
+        END BRANCH
+        BEGIN BRANCH T3
+            WIRE 704 2912 704 3200
+            WIRE 704 3200 896 3200
+            WIRE 704 2912 2432 2912
+            WIRE 2336 2752 2368 2752
+            WIRE 2368 2752 2432 2752
+            WIRE 2432 2752 2432 2912
+            BEGIN DISPLAY 2368 2752 ATTR Name
+                ALIGNMENT SOFT-BCENTER
+            END DISPLAY
+        END BRANCH
+        BEGIN BRANCH T5
+            WIRE 704 4224 704 4512
+            WIRE 704 4512 896 4512
+            WIRE 704 4224 2432 4224
+            WIRE 2336 4064 2368 4064
+            WIRE 2368 4064 2432 4064
+            WIRE 2432 4064 2432 4224
+            BEGIN DISPLAY 2368 4064 ATTR Name
+                ALIGNMENT SOFT-BCENTER
+            END DISPLAY
+        END BRANCH
+        BEGIN BRANCH T6
+            WIRE 704 4864 704 5152
+            WIRE 704 5152 896 5152
+            WIRE 704 4864 2432 4864
+            WIRE 2336 4704 2368 4704
+            WIRE 2368 4704 2432 4704
+            WIRE 2432 4704 2432 4864
+            BEGIN DISPLAY 2368 4704 ATTR Name
+                ALIGNMENT SOFT-BCENTER
+            END DISPLAY
+        END BRANCH
+        BEGIN BRANCH T4
+            WIRE 704 3616 704 3904
+            WIRE 704 3904 896 3904
+            WIRE 704 3616 1440 3616
+            WIRE 1440 3616 1440 4032
+            WIRE 1440 4032 1440 4640
+            WIRE 1440 4640 1440 5280
+            WIRE 1440 5280 1440 6080
+            WIRE 1440 6080 2080 6080
+            WIRE 1440 5280 2080 5280
+            WIRE 1440 4640 2080 4640
+            WIRE 1440 4032 2080 4032
+            WIRE 1440 3616 2432 3616
+            WIRE 2336 3424 2368 3424
+            WIRE 2368 3424 2432 3424
+            WIRE 2432 3424 2432 3616
+            BEGIN DISPLAY 2368 3424 ATTR Name
+                ALIGNMENT SOFT-BCENTER
+            END DISPLAY
+        END BRANCH
+        BEGIN BRANCH T7
+            WIRE 704 5568 704 5856
+            WIRE 704 5856 896 5856
+            WIRE 704 5568 2432 5568
+            WIRE 2336 5376 2368 5376
+            WIRE 2368 5376 2432 5376
+            WIRE 2432 5376 2432 5568
+            BEGIN DISPLAY 2368 5376 ATTR Name
+                ALIGNMENT SOFT-BCENTER
+            END DISPLAY
+        END BRANCH
+        BEGIN BRANCH T8
+            WIRE 2336 6208 2368 6208
+            WIRE 2368 6208 2720 6208
+            WIRE 2720 928 2720 1120
+            WIRE 2720 1120 2720 6208
+            WIRE 2720 1120 3232 1120
+            WIRE 2720 928 3776 928
+            WIRE 3776 928 3776 1248
+            WIRE 3776 1248 3776 1856
+            WIRE 3776 1856 3776 2496
+            WIRE 3776 2496 3776 3296
+            WIRE 3776 3296 4416 3296
+            WIRE 3776 2496 4416 2496
+            WIRE 3776 1856 4416 1856
+            WIRE 3776 1248 4416 1248
+            BEGIN DISPLAY 2368 6208 ATTR Name
+                ALIGNMENT SOFT-BCENTER
+            END DISPLAY
+        END BRANCH
+        BEGIN BRANCH T9
+            WIRE 3040 1440 3040 1728
+            WIRE 3040 1728 3232 1728
+            WIRE 3040 1440 4768 1440
+            WIRE 4672 1280 4704 1280
+            WIRE 4704 1280 4768 1280
+            WIRE 4768 1280 4768 1440
+            BEGIN DISPLAY 4704 1280 ATTR Name
+                ALIGNMENT SOFT-BCENTER
+            END DISPLAY
+        END BRANCH
+        BEGIN BRANCH CE
+            WIRE 96 6496 128 6496
+            WIRE 128 6496 640 6496
+            WIRE 640 6496 2976 6496
+            WIRE 2976 6496 4864 6496
+            WIRE 640 1440 640 2016
+            WIRE 640 2016 640 2624
+            WIRE 640 2624 640 3264
+            WIRE 640 3264 640 3968
+            WIRE 640 3968 640 4576
+            WIRE 640 4576 640 5216
+            WIRE 640 5216 640 5920
+            WIRE 640 5920 640 6496
+            WIRE 640 5920 896 5920
+            WIRE 640 5216 896 5216
+            WIRE 640 4576 896 4576
+            WIRE 640 3968 896 3968
+            WIRE 640 3264 896 3264
+            WIRE 640 2624 896 2624
+            WIRE 640 2016 896 2016
+            WIRE 640 1440 896 1440
+            WIRE 2976 1184 2976 1792
+            WIRE 2976 1792 2976 2432
+            WIRE 2976 2432 2976 3136
+            WIRE 2976 3136 2976 3968
+            WIRE 2976 3968 2976 4576
+            WIRE 2976 4576 2976 5216
+            WIRE 2976 5216 2976 5920
+            WIRE 2976 5920 2976 6496
+            WIRE 2976 5920 3232 5920
+            WIRE 2976 5216 3232 5216
+            WIRE 2976 4576 3232 4576
+            WIRE 2976 3968 3232 3968
+            WIRE 2976 3136 3232 3136
+            WIRE 2976 2432 3232 2432
+            WIRE 2976 1792 3232 1792
+            WIRE 2976 1184 3232 1184
+            BEGIN DISPLAY 128 6496 ATTR Name
+                ALIGNMENT SOFT-BCENTER
+            END DISPLAY
+        END BRANCH
+        BEGIN BRANCH C
+            WIRE 96 6560 128 6560
+            WIRE 128 6560 576 6560
+            WIRE 576 6560 2912 6560
+            WIRE 576 1504 576 2080
+            WIRE 576 2080 576 2688
+            WIRE 576 2688 576 3328
+            WIRE 576 3328 576 4032
+            WIRE 576 4032 576 4640
+            WIRE 576 4640 576 5280
+            WIRE 576 5280 576 5984
+            WIRE 576 5984 576 6560
+            WIRE 576 5984 896 5984
+            WIRE 576 5280 896 5280
+            WIRE 576 4640 896 4640
+            WIRE 576 4032 896 4032
+            WIRE 576 3328 896 3328
+            WIRE 576 2688 896 2688
+            WIRE 576 2080 896 2080
+            WIRE 576 1504 896 1504
+            WIRE 2912 1248 2912 1856
+            WIRE 2912 1856 2912 2496
+            WIRE 2912 2496 2912 3200
+            WIRE 2912 3200 2912 4032
+            WIRE 2912 4032 2912 4640
+            WIRE 2912 4640 2912 5280
+            WIRE 2912 5280 2912 5984
+            WIRE 2912 5984 2912 6560
+            WIRE 2912 5984 3232 5984
+            WIRE 2912 5280 3232 5280
+            WIRE 2912 4640 3232 4640
+            WIRE 2912 4032 3232 4032
+            WIRE 2912 3200 3232 3200
+            WIRE 2912 2496 3232 2496
+            WIRE 2912 1856 3232 1856
+            WIRE 2912 1248 3232 1248
+            BEGIN DISPLAY 128 6560 ATTR Name
+                ALIGNMENT SOFT-BCENTER
+            END DISPLAY
+        END BRANCH
+        BEGIN BRANCH CLR
+            WIRE 96 6624 128 6624
+            WIRE 128 6624 512 6624
+            WIRE 512 6624 2848 6624
+            WIRE 512 1600 512 2176
+            WIRE 512 2176 512 2784
+            WIRE 512 2784 512 3424
+            WIRE 512 3424 512 4128
+            WIRE 512 4128 512 4736
+            WIRE 512 4736 512 5376
+            WIRE 512 5376 512 6080
+            WIRE 512 6080 512 6624
+            WIRE 512 6080 896 6080
+            WIRE 512 5376 896 5376
+            WIRE 512 4736 896 4736
+            WIRE 512 4128 896 4128
+            WIRE 512 3424 896 3424
+            WIRE 512 2784 896 2784
+            WIRE 512 2176 896 2176
+            WIRE 512 1600 896 1600
+            WIRE 2848 1344 2848 1952
+            WIRE 2848 1952 2848 2592
+            WIRE 2848 2592 2848 3296
+            WIRE 2848 3296 2848 4128
+            WIRE 2848 4128 2848 4736
+            WIRE 2848 4736 2848 5376
+            WIRE 2848 5376 2848 6080
+            WIRE 2848 6080 2848 6624
+            WIRE 2848 6080 3232 6080
+            WIRE 2848 5376 3232 5376
+            WIRE 2848 4736 3232 4736
+            WIRE 2848 4128 3232 4128
+            WIRE 2848 3296 3232 3296
+            WIRE 2848 2592 3232 2592
+            WIRE 2848 1952 3232 1952
+            WIRE 2848 1344 3232 1344
+            BEGIN DISPLAY 128 6624 ATTR Name
+                ALIGNMENT SOFT-BCENTER
+            END DISPLAY
+        END BRANCH
+        BEGIN BRANCH T2
+            WIRE 704 2272 704 2560
+            WIRE 704 2560 896 2560
+            WIRE 704 2272 2432 2272
+            WIRE 2336 2112 2368 2112
+            WIRE 2368 2112 2432 2112
+            WIRE 2432 2112 2432 2272
+            BEGIN DISPLAY 2368 2112 ATTR Name
+                ALIGNMENT SOFT-BCENTER
+            END DISPLAY
+        END BRANCH
+        BEGIN BRANCH Q(0)
+            WIRE 704 1696 1504 1696
+            WIRE 1504 1696 1504 2080
+            WIRE 1504 2080 1504 2688
+            WIRE 1504 2688 1504 3328
+            WIRE 1504 3328 2080 3328
+            WIRE 1504 2688 2080 2688
+            WIRE 1504 2080 2080 2080
+            WIRE 704 1696 704 1952
+            WIRE 704 1952 896 1952
+            WIRE 1280 1376 1504 1376
+            WIRE 1504 1376 1504 1696
+            WIRE 1504 1376 2528 1376
+            WIRE 2528 1376 2608 1376
+            BEGIN DISPLAY 2528 1376 ATTR Name
+                ALIGNMENT SOFT-BCENTER
+            END DISPLAY
+        END BRANCH
+        BUSTAP 2624 1376 2608 1376
+        BEGIN BRANCH Q(1)
+            WIRE 1280 1952 1568 1952
+            WIRE 1568 1952 1568 2144
+            WIRE 1568 2144 1568 2752
+            WIRE 1568 2752 1568 3392
+            WIRE 1568 3392 2080 3392
+            WIRE 1568 2752 2080 2752
+            WIRE 1568 2144 2080 2144
+            WIRE 1568 1952 2528 1952
+            WIRE 2528 1952 2608 1952
+            BEGIN DISPLAY 2528 1952 ATTR Name
+                ALIGNMENT SOFT-BCENTER
+            END DISPLAY
+        END BRANCH
+        BUSTAP 2624 1952 2608 1952
+        BEGIN BRANCH Q(2)
+            WIRE 1280 2560 1632 2560
+            WIRE 1632 2560 1632 2816
+            WIRE 1632 2816 1632 3456
+            WIRE 1632 3456 2080 3456
+            WIRE 1632 2816 2080 2816
+            WIRE 1632 2560 2528 2560
+            WIRE 2528 2560 2608 2560
+            BEGIN DISPLAY 2528 2560 ATTR Name
+                ALIGNMENT SOFT-BCENTER
+            END DISPLAY
+        END BRANCH
+        BUSTAP 2624 2560 2608 2560
+        BEGIN BRANCH Q(3)
+            WIRE 1280 3200 1696 3200
+            WIRE 1696 3200 1696 3520
+            WIRE 1696 3520 2080 3520
+            WIRE 1696 3200 2528 3200
+            WIRE 2528 3200 2608 3200
+            BEGIN DISPLAY 2528 3200 ATTR Name
+                ALIGNMENT SOFT-BCENTER
+            END DISPLAY
+        END BRANCH
+        BUSTAP 2624 3200 2608 3200
+        BEGIN BRANCH Q(4)
+            WIRE 1280 3904 1504 3904
+            WIRE 1504 3904 1504 4096
+            WIRE 1504 4096 1504 4704
+            WIRE 1504 4704 1504 5344
+            WIRE 1504 5344 1504 6144
+            WIRE 1504 6144 2080 6144
+            WIRE 1504 5344 2080 5344
+            WIRE 1504 4704 2080 4704
+            WIRE 1504 4096 2080 4096
+            WIRE 1504 3904 2528 3904
+            WIRE 2528 3904 2608 3904
+            BEGIN DISPLAY 2528 3904 ATTR Name
+                ALIGNMENT SOFT-BCENTER
+            END DISPLAY
+        END BRANCH
+        BUSTAP 2624 3904 2608 3904
+        BEGIN BRANCH Q(5)
+            WIRE 1280 4512 1568 4512
+            WIRE 1568 4512 1568 4768
+            WIRE 1568 4768 1568 5408
+            WIRE 1568 5408 1568 6208
+            WIRE 1568 6208 2080 6208
+            WIRE 1568 5408 2080 5408
+            WIRE 1568 4768 2080 4768
+            WIRE 1568 4512 2528 4512
+            WIRE 2528 4512 2608 4512
+            BEGIN DISPLAY 2528 4512 ATTR Name
+                ALIGNMENT SOFT-BCENTER
+            END DISPLAY
+        END BRANCH
+        BUSTAP 2624 4512 2608 4512
+        BEGIN BRANCH Q(6)
+            WIRE 1280 5152 1632 5152
+            WIRE 1632 5152 1632 5472
+            WIRE 1632 5472 1632 6272
+            WIRE 1632 6272 2080 6272
+            WIRE 1632 5472 2080 5472
+            WIRE 1632 5152 2528 5152
+            WIRE 2528 5152 2608 5152
+            BEGIN DISPLAY 2528 5152 ATTR Name
+                ALIGNMENT SOFT-BCENTER
+            END DISPLAY
+        END BRANCH
+        BUSTAP 2624 5152 2608 5152
+        BEGIN BRANCH Q(7)
+            WIRE 1280 5856 1696 5856
+            WIRE 1696 5856 1696 6336
+            WIRE 1696 6336 2080 6336
+            WIRE 1696 5856 2528 5856
+            WIRE 2528 5856 2608 5856
+            BEGIN DISPLAY 2528 5856 ATTR Name
+                ALIGNMENT SOFT-BCENTER
+            END DISPLAY
+        END BRANCH
+        BUSTAP 2624 5856 2608 5856
+        BEGIN BRANCH Q(8)
+            WIRE 3616 1120 3840 1120
+            WIRE 3840 1120 3840 1312
+            WIRE 3840 1312 3840 1920
+            WIRE 3840 1920 3840 2560
+            WIRE 3840 2560 3840 3360
+            WIRE 3840 3360 4416 3360
+            WIRE 3840 2560 4416 2560
+            WIRE 3840 1920 4416 1920
+            WIRE 3840 1312 4416 1312
+            WIRE 3840 1120 4864 1120
+            WIRE 4864 1120 4944 1120
+            BEGIN DISPLAY 4864 1120 ATTR Name
+                ALIGNMENT SOFT-BCENTER
+            END DISPLAY
+        END BRANCH
+        BUSTAP 4960 1120 4944 1120
+        BEGIN BRANCH Q(9)
+            WIRE 3616 1728 3904 1728
+            WIRE 3904 1728 3904 1984
+            WIRE 3904 1984 3904 2624
+            WIRE 3904 2624 3904 3424
+            WIRE 3904 3424 4416 3424
+            WIRE 3904 2624 4416 2624
+            WIRE 3904 1984 4416 1984
+            WIRE 3904 1728 4864 1728
+            WIRE 4864 1728 4944 1728
+            BEGIN DISPLAY 4864 1728 ATTR Name
+                ALIGNMENT SOFT-BCENTER
+            END DISPLAY
+        END BRANCH
+        BUSTAP 4960 1728 4944 1728
+        BEGIN BRANCH Q(10)
+            WIRE 3616 2368 3968 2368
+            WIRE 3968 2368 3968 2688
+            WIRE 3968 2688 3968 3488
+            WIRE 3968 3488 4416 3488
+            WIRE 3968 2688 4416 2688
+            WIRE 3968 2368 4832 2368
+            WIRE 4832 2368 4944 2368
+            BEGIN DISPLAY 4832 2368 ATTR Name
+                ALIGNMENT SOFT-BCENTER
+            END DISPLAY
+        END BRANCH
+        BUSTAP 4960 2368 4944 2368
+        BEGIN BRANCH Q(10:0)
+            WIRE 2624 832 2624 1376
+            WIRE 2624 1376 2624 1952
+            WIRE 2624 1952 2624 2560
+            WIRE 2624 2560 2624 3200
+            WIRE 2624 3200 2624 3904
+            WIRE 2624 3904 2624 4512
+            WIRE 2624 4512 2624 5152
+            WIRE 2624 5152 2624 5856
+            WIRE 2624 832 4960 832
+            WIRE 4960 832 4960 1120
+            WIRE 4960 1120 4960 1728
+            WIRE 4960 1728 4960 2368
+            WIRE 4960 2368 4960 3072
+            WIRE 4960 3072 4960 3904
+            WIRE 4960 3904 4960 4512
+            WIRE 4960 4512 4960 5152
+            WIRE 4960 5152 4960 5856
+            WIRE 4960 832 5056 832
+            WIRE 5056 832 5280 832
+            BEGIN DISPLAY 5056 832 ATTR Name
+                ALIGNMENT SOFT-BCENTER
+            END DISPLAY
+        END BRANCH
+        IOMARKER 96 6496 CE R180 28
+        IOMARKER 96 6560 C R180 28
+        IOMARKER 96 6624 CLR R180 28
+        IOMARKER 5280 832 Q(10:0) R0 28
+        INSTANCE I_36_27 4416 2048 R0
+        BEGIN BRANCH T10
+            WIRE 3040 2080 3040 2368
+            WIRE 3040 2368 3232 2368
+            WIRE 3040 2080 4768 2080
+            WIRE 4672 1920 4688 1920
+            WIRE 4688 1920 4768 1920
+            WIRE 4768 1920 4768 2080
+            BEGIN DISPLAY 4688 1920 ATTR Name
+                ALIGNMENT SOFT-BCENTER
+            END DISPLAY
+        END BRANCH
+    END SHEET
+END SCHEMATIC

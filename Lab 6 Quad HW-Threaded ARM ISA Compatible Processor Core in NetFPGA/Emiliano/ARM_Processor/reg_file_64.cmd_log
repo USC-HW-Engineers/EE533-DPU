@@ -1,0 +1,2 @@
+sch2verilog -intstyle ise -family virtex2p   -w "C:/Documents and Settings/student/Desktop/ARM_Processor/reg_file_64.sch" reg_file_64.vf
+sch2verilog -intstyle ise -family virtex2p   -w "C:/Documents and Settings/student/Desktop/ARM_Processor/reg_file_64.sch" reg_file_64.vf

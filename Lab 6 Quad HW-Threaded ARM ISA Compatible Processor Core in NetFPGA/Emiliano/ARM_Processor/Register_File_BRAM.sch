@@ -1,0 +1,118 @@
+VERSION 6
+BEGIN SCHEMATIC
+    BEGIN ATTR DeviceFamilyName "virtex2p"
+        DELETE all:0
+        EDITNAME all:0
+        EDITTRAIT all:0
+    END ATTR
+    BEGIN NETLIST
+        SIGNAL clk
+        SIGNAL wdata(63:0)
+        SIGNAL wena
+        SIGNAL r0data(63:0)
+        SIGNAL r1data(63:0)
+        SIGNAL waddr(3:0)
+        SIGNAL r0addr(3:0)
+        SIGNAL r1addr(3:0)
+        PORT Input clk
+        PORT Input wdata(63:0)
+        PORT Input wena
+        PORT Output r0data(63:0)
+        PORT Output r1data(63:0)
+        PORT Input waddr(3:0)
+        PORT Input r0addr(3:0)
+        PORT Input r1addr(3:0)
+        BEGIN BLOCKDEF Reg_File_Dual
+            TIMESTAMP 2026 2 20 2 48 48
+            RECTANGLE N 32 0 256 496 
+            BEGIN LINE W 0 48 32 48 
+            END LINE
+            BEGIN LINE W 0 80 32 80 
+            END LINE
+            LINE N 0 112 32 112 
+            LINE N 0 240 32 240 
+            BEGIN LINE W 0 272 32 272 
+            END LINE
+            LINE N 0 464 32 464 
+            BEGIN LINE W 256 272 288 272 
+            END LINE
+        END BLOCKDEF
+        BEGIN BLOCK XLXI_57 Reg_File_Dual
+            PIN addra(3:0) waddr(3:0)
+            PIN dina(63:0) wdata(63:0)
+            PIN wea wena
+            PIN clka clk
+            PIN addrb(3:0) r0addr(3:0)
+            PIN clkb clk
+            PIN doutb(63:0) r0data(63:0)
+        END BLOCK
+        BEGIN BLOCK XLXI_58 Reg_File_Dual
+            PIN addra(3:0) waddr(3:0)
+            PIN dina(63:0) wdata(63:0)
+            PIN wea wena
+            PIN clka clk
+            PIN addrb(3:0) r1addr(3:0)
+            PIN clkb clk
+            PIN doutb(63:0) r1data(63:0)
+        END BLOCK
+    END NETLIST
+    BEGIN SHEET 1 3520 2720
+        BEGIN BRANCH clk
+            WIRE 1472 1488 1536 1488
+            WIRE 1536 1488 1536 1712
+            WIRE 1536 1712 1616 1712
+            WIRE 1536 1488 1616 1488
+            WIRE 1536 944 1536 1168
+            WIRE 1536 1168 1536 1488
+            WIRE 1536 1168 1616 1168
+            WIRE 1536 944 1616 944
+        END BRANCH
+        BEGIN BRANCH wdata(63:0)
+            WIRE 1472 1104 1568 1104
+            WIRE 1568 1104 1568 1328
+            WIRE 1568 1328 1616 1328
+            WIRE 1568 784 1616 784
+            WIRE 1568 784 1568 1104
+        END BRANCH
+        BEGIN INSTANCE XLXI_57 1616 704 R0
+        END INSTANCE
+        BEGIN INSTANCE XLXI_58 1616 1248 R0
+        END INSTANCE
+        BEGIN BRANCH r0data(63:0)
+            WIRE 1904 976 1984 976
+        END BRANCH
+        IOMARKER 1984 976 r0data(63:0) R0 28
+        BEGIN BRANCH r1data(63:0)
+            WIRE 1904 1520 1984 1520
+        END BRANCH
+        IOMARKER 1984 1520 r1data(63:0) R0 28
+        BEGIN BRANCH wena
+            WIRE 1472 1360 1584 1360
+            WIRE 1584 1360 1616 1360
+            WIRE 1584 816 1616 816
+            WIRE 1584 816 1584 1360
+        END BRANCH
+        BEGIN BRANCH waddr(3:0)
+            WIRE 1472 1072 1552 1072
+            WIRE 1552 1072 1552 1296
+            WIRE 1552 1296 1616 1296
+            WIRE 1552 752 1616 752
+            WIRE 1552 752 1552 1072
+        END BRANCH
+        BEGIN BRANCH r0addr(3:0)
+            WIRE 1472 976 1600 976
+            WIRE 1600 976 1616 976
+        END BRANCH
+        BEGIN BRANCH r1addr(3:0)
+            WIRE 1472 1024 1520 1024
+            WIRE 1520 1024 1520 1520
+            WIRE 1520 1520 1616 1520
+        END BRANCH
+        IOMARKER 1472 1024 r1addr(3:0) R180 28
+        IOMARKER 1472 976 r0addr(3:0) R180 28
+        IOMARKER 1472 1360 wena R180 28
+        IOMARKER 1472 1488 clk R180 28
+        IOMARKER 1472 1072 waddr(3:0) R180 28
+        IOMARKER 1472 1104 wdata(63:0) R180 28
+    END SHEET
+END SCHEMATIC

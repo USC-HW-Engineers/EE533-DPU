@@ -1,0 +1,2 @@
+sch2verilog -intstyle ise -family virtex2p   -w "C:/Documents and Settings/student/Desktop/ARM_Processor/dff2.sch" dff2.vf
+sch2verilog -intstyle ise -family virtex2p   -w "C:/Documents and Settings/student/Desktop/ARM_Processor/dff2.sch" dff2.vf

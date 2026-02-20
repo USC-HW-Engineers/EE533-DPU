@@ -1,0 +1,4 @@
+set -tmpdir "./xst/projnav.tmp"
+elaborate
+-ifn Sign_Extend_12to64.prj
+-ifmt mixed
