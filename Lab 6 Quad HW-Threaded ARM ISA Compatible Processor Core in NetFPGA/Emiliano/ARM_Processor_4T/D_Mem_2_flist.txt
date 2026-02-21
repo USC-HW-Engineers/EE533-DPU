@@ -1,0 +1,11 @@
+# Output products list for <D_Mem_2>
+D_Mem_2.asy
+D_Mem_2.ngc
+D_Mem_2.sym
+D_Mem_2.v
+D_Mem_2.veo
+D_Mem_2.vhd
+D_Mem_2.vho
+D_Mem_2.xco
+D_Mem_2_flist.txt
+D_Mem_2_xmdf.tcl

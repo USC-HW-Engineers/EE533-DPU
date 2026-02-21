@@ -1,0 +1,13 @@
+[Inputs]
+=OP[3:0]=
+[Outputs]
+Branch
+MemtoReg
+RegWrite
+MemRead
+MemWrite
+ALUSrc
+[BiDir]
+[ATTRIBUTES]
+VeriModel Control_Unit
+
