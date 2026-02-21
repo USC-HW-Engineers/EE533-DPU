@@ -4289,11 +4289,3 @@ extern void unisims_ver_m_00000000002063979698_0060844950_init()
 	xsi_register_executes(pe);
 	xsi_register_modpathfunc(1, (void *)S58_5);
 }
-
-extern void unisims_ver_m_00000000002063979698_2468312583_init()
-{
-	static char *pe[] = {(void *)N37_0,(void *)I39_1,(void *)C41_2,(void *)A44_3,(void *)A52_4,(void *)NR46_6,(void *)NR48_7};
-	xsi_register_didat("unisims_ver_m_00000000002063979698_2468312583", "isim/_tmp/unisims_ver/m_00000000002063979698_2468312583.didat");
-	xsi_register_executes(pe);
-	xsi_register_modpathfunc(1, (void *)S58_5);
-}

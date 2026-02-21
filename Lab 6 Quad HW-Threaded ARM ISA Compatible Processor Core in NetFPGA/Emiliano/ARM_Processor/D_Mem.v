@@ -44,6 +44,7 @@ module D_Mem(
 	clkb,
 	dina,
 	doutb,
+	enb,
 	wea);
 
 
@@ -53,6 +54,7 @@ input clka;
 input clkb;
 input [63 : 0] dina;
 output [63 : 0] doutb;
+input enb;
 input wea;
 
 // synthesis translate_off
@@ -70,7 +72,7 @@ input wea;
 		.c_has_douta(0),
 		.c_has_doutb(1),
 		.c_has_ena(0),
-		.c_has_enb(0),
+		.c_has_enb(1),
 		.c_has_limit_data_pitch(0),
 		.c_has_nda(0),
 		.c_has_ndb(0),
@@ -117,11 +119,11 @@ input wea;
 		.CLKB(clkb),
 		.DINA(dina),
 		.DOUTB(doutb),
+		.ENB(enb),
 		.WEA(wea),
 		.DINB(),
 		.DOUTA(),
 		.ENA(),
-		.ENB(),
 		.NDA(),
 		.NDB(),
 		.RFDA(),

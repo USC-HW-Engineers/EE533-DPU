@@ -7,7 +7,7 @@
 // \   \   \/     Version : 10.1
 //  \   \         Application : sch2verilog
 //  /   /         Filename : M_WB_Reg.vf
-// /___/   /\     Timestamp : 02/20/2026 00:33:17
+// /___/   /\     Timestamp : 02/20/2026 22:21:08
 // \   \  /  \ 
 //  \___\/\___\ 
 //
@@ -25,13 +25,11 @@ module M_WB_Reg(CE,
                 CLR, 
                 M_Addr, 
                 M_ALU, 
-                M_B, 
                 M_Data, 
                 M_M2Reg, 
                 M_RegW, 
                 WB_Addr, 
                 WB_ALU, 
-                WB_B, 
                 WB_Data, 
                 WB_M2Reg, 
                 WB_RegW);
@@ -41,24 +39,16 @@ module M_WB_Reg(CE,
     input CLR;
     input [3:0] M_Addr;
     input [63:0] M_ALU;
-    input M_B;
     input [63:0] M_Data;
     input M_M2Reg;
     input M_RegW;
    output [3:0] WB_Addr;
    output [63:0] WB_ALU;
-   output WB_B;
    output [63:0] WB_Data;
    output WB_M2Reg;
    output WB_RegW;
    
    
-   FDCE XLXI_28 (.C(CLK), 
-                 .CE(CE), 
-                 .CLR(CLR), 
-                 .D(M_B), 
-                 .Q(WB_B));
-   defparam XLXI_28.INIT = 1'b0;
    FDCE XLXI_39 (.C(CLK), 
                  .CE(CE), 
                  .CLR(CLR), 

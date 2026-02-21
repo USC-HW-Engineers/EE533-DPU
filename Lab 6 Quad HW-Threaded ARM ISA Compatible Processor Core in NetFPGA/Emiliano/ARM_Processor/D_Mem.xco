@@ -1,7 +1,7 @@
 ##############################################################
 #
 # Xilinx Core Generator version K.31
-# Date: Fri Feb 20 22:59:35 2026
+# Date: Sat Feb 21 06:16:00 2026
 #
 ##############################################################
 #
@@ -56,7 +56,7 @@ CSET port_a_register_inputs=false
 CSET port_a_write_enable_polarity=Active_High
 CSET port_b_active_clock_edge=Falling_Edge_Triggered
 CSET port_b_additional_output_pipe_stages=0
-CSET port_b_enable_pin=false
+CSET port_b_enable_pin=true
 CSET port_b_enable_pin_polarity=Active_High
 CSET port_b_handshaking_pins=false
 CSET port_b_init_pin=false
@@ -72,5 +72,5 @@ CSET write_mode_port_a=Read_After_Write
 CSET write_mode_port_b=Read_After_Write
 # END Parameters
 GENERATE
-# CRC: 7ecb18c1
+# CRC: 5dd31f4d
 

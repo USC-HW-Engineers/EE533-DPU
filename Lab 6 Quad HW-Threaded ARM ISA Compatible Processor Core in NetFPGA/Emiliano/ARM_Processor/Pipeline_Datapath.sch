@@ -36,9 +36,6 @@ BEGIN SCHEMATIC
         SIGNAL M_ALU(63:0)
         SIGNAL M_R2(63:0)
         SIGNAL M_ALU(7:0)
-        SIGNAL M_MemtoReg
-        SIGNAL XLXN_541
-        SIGNAL XLXN_547
         SIGNAL M_OUT(63:0)
         SIGNAL WB_MemtoReg
         SIGNAL WB_ADDR(3:0)
@@ -46,29 +43,35 @@ BEGIN SCHEMATIC
         SIGNAL WB_W
         SIGNAL IM_CLR
         SIGNAL PC(8:0)
-        SIGNAL WB_Data(8:0)
-        SIGNAL XLXN_558
+        SIGNAL M_ALU(8:0)
         SIGNAL XLXN_561(63:0)
-        SIGNAL XLXN_562(63:0)
+        SIGNAL EX_ALU(63:0)
         SIGNAL WB_OUT(63:0)
         SIGNAL WB_ALU(63:0)
         SIGNAL N
         SIGNAL Z
         SIGNAL C
         SIGNAL V
-        SIGNAL XLXN_592
-        SIGNAL XLXN_593
-        SIGNAL XLXN_596(1:0)
+        SIGNAL EX_B
+        SIGNAL EX_BE
+        SIGNAL EX_BType(1:0)
         SIGNAL INS(19:18)
         SIGNAL XLXN_598(11:0)
         SIGNAL XLXN_602(3:0)
         SIGNAL XLXN_603(3:0)
         SIGNAL M_WM
         SIGNAL IM_WE
-        SIGNAL XLXN_612
         SIGNAL INS(31:0)
         SIGNAL DIN(31:0)
         SIGNAL ADDR(8:0)
+        SIGNAL M_B
+        SIGNAL M_MemR
+        SIGNAL XLXN_607
+        SIGNAL XLXN_609
+        SIGNAL M_MemtoReg
+        SIGNAL XLXN_617
+        SIGNAL XLXN_619
+        SIGNAL XLXN_541
         PORT Input CLK
         PORT Input CLR_ALL
         PORT Input IM_CLR
@@ -76,7 +79,7 @@ BEGIN SCHEMATIC
         PORT Input DIN(31:0)
         PORT Input ADDR(8:0)
         BEGIN BLOCKDEF D_Mem
-            TIMESTAMP 2026 2 20 22 59 29
+            TIMESTAMP 2026 2 21 6 15 54
             RECTANGLE N 32 0 256 496 
             BEGIN LINE W 0 48 32 48 
             END LINE
@@ -86,6 +89,7 @@ BEGIN SCHEMATIC
             LINE N 0 240 32 240 
             BEGIN LINE W 0 272 32 272 
             END LINE
+            LINE N 0 368 32 368 
             LINE N 0 464 32 464 
             BEGIN LINE W 256 272 288 272 
             END LINE
@@ -108,7 +112,7 @@ BEGIN SCHEMATIC
             RECTANGLE N 320 -236 384 -212 
         END BLOCKDEF
         BEGIN BLOCKDEF I_Mem_Dual
-            TIMESTAMP 2026 2 21 0 18 37
+            TIMESTAMP 2026 2 21 6 12 18
             RECTANGLE N 32 0 256 496 
             BEGIN LINE W 0 48 32 48 
             END LINE
@@ -240,8 +244,8 @@ BEGIN SCHEMATIC
             LINE N 400 -672 464 -672 
         END BLOCKDEF
         BEGIN BLOCKDEF M_WB_Reg
-            TIMESTAMP 2026 2 20 8 15 56
-            RECTANGLE N 64 -576 400 0 
+            TIMESTAMP 2026 2 21 6 18 29
+            RECTANGLE N 64 -512 400 0 
             LINE N 64 -160 0 -160 
             LINE N 64 -96 0 -96 
             LINE N 64 -32 0 -32 
@@ -249,20 +253,18 @@ BEGIN SCHEMATIC
             RECTANGLE N 0 -236 64 -212 
             LINE N 64 -288 0 -288 
             RECTANGLE N 0 -300 64 -276 
-            LINE N 64 -416 0 -416 
             LINE N 64 -352 0 -352 
             RECTANGLE N 0 -364 64 -340 
+            LINE N 64 -416 0 -416 
             LINE N 64 -480 0 -480 
-            LINE N 64 -544 0 -544 
             LINE N 400 -224 464 -224 
             RECTANGLE N 400 -236 464 -212 
             LINE N 400 -288 464 -288 
             RECTANGLE N 400 -300 464 -276 
-            LINE N 400 -416 464 -416 
             LINE N 400 -352 464 -352 
             RECTANGLE N 400 -364 464 -340 
+            LINE N 400 -416 464 -416 
             LINE N 400 -480 464 -480 
-            LINE N 400 -544 464 -544 
         END BLOCKDEF
         BEGIN BLOCKDEF PCL_9b
             TIMESTAMP 2026 2 19 19 13 45
@@ -321,23 +323,6 @@ BEGIN SCHEMATIC
             PIN wdata(63:0) WB_Data(63:0)
             PIN wena WB_W
         END BLOCK
-        BEGIN BLOCK XLXI_150 M_WB_Reg
-            PIN CE vdd
-            PIN CLK CLK
-            PIN CLR CLR_ALL
-            PIN M_Addr(3:0) XLXN_603(3:0)
-            PIN M_ALU(63:0) M_ALU(63:0)
-            PIN M_B XLXN_547
-            PIN M_Data(63:0) M_OUT(63:0)
-            PIN M_M2Reg M_MemtoReg
-            PIN M_RegW XLXN_541
-            PIN WB_Addr(3:0) WB_ADDR(3:0)
-            PIN WB_ALU(63:0) WB_ALU(63:0)
-            PIN WB_B XLXN_558
-            PIN WB_Data(63:0) WB_OUT(63:0)
-            PIN WB_M2Reg WB_MemtoReg
-            PIN WB_RegW WB_W
-        END BLOCK
         BEGIN BLOCK XLXI_151 Mux2_1_64b
             PIN D0(63:0) WB_ALU(63:0)
             PIN D1(63:0) WB_OUT(63:0)
@@ -370,8 +355,8 @@ BEGIN SCHEMATIC
             PIN EX_ALUC(3:0) ALUAddr(3:0)
             PIN EX_ALUD(11:0) XLXN_598(11:0)
             PIN EX_ALUSrc XLXN_437
-            PIN EX_B XLXN_593
-            PIN EX_BT(1:0) XLXN_596(1:0)
+            PIN EX_B EX_BE
+            PIN EX_BT(1:0) EX_BType(1:0)
             PIN EX_M2Reg EX_MemtoReg
             PIN EX_MemR XLXN_458
             PIN EX_MemW XLXN_457
@@ -386,8 +371,8 @@ BEGIN SCHEMATIC
             PIN CE vdd
             PIN CLK CLK
             PIN CLR IM_CLR
-            PIN D(8:0) WB_Data(8:0)
-            PIN L XLXN_558
+            PIN D(8:0) M_ALU(8:0)
+            PIN L M_B
             PIN Q(8:0) PC(8:0)
         END BLOCK
         BEGIN BLOCK XLXI_168 Control_Unit
@@ -407,7 +392,7 @@ BEGIN SCHEMATIC
             PIN Z Z
             PIN C C
             PIN V V
-            PIN ALU_Result(63:0) XLXN_562(63:0)
+            PIN ALU_Result(63:0) EX_ALU(63:0)
         END BLOCK
         BEGIN BLOCK XLXI_171 Condition_Unit
             PIN ALU_N N
@@ -417,9 +402,9 @@ BEGIN SCHEMATIC
             PIN set_flags vdd
             PIN clk CLK
             PIN reset CLR_ALL
-            PIN BType(1:0) XLXN_596(1:0)
-            PIN branch_taken XLXN_592
-            PIN br_en XLXN_593
+            PIN BType(1:0) EX_BType(1:0)
+            PIN branch_taken EX_B
+            PIN br_en EX_BE
         END BLOCK
         BEGIN BLOCK XLXI_175 Sign_Extend_12to64
             PIN ext_in(11:0) XLXN_598(11:0)
@@ -430,8 +415,8 @@ BEGIN SCHEMATIC
             PIN CLK CLK
             PIN CLR CLR_ALL
             PIN EX_Addr(3:0) XLXN_602(3:0)
-            PIN EX_ALU(63:0) XLXN_562(63:0)
-            PIN EX_B XLXN_592
+            PIN EX_ALU(63:0) EX_ALU(63:0)
+            PIN EX_B EX_B
             PIN EX_M2Reg EX_MemtoReg
             PIN EX_MemR XLXN_458
             PIN EX_MemW XLXN_457
@@ -439,9 +424,9 @@ BEGIN SCHEMATIC
             PIN EX_RegW XLXN_460
             PIN M_Addr(3:0) XLXN_603(3:0)
             PIN M_ALU(63:0) M_ALU(63:0)
-            PIN M_B XLXN_547
+            PIN M_B M_B
             PIN M_M2Reg M_MemtoReg
-            PIN M_MemR
+            PIN M_MemR M_MemR
             PIN M_MemW M_WM
             PIN M_R2(63:0) M_R2(63:0)
             PIN M_RegW XLXN_541
@@ -452,6 +437,7 @@ BEGIN SCHEMATIC
             PIN wea M_WM
             PIN clka CLK
             PIN addrb(7:0) M_ALU(7:0)
+            PIN enb M_MemR
             PIN clkb CLK
             PIN doutb(63:0) M_OUT(63:0)
         END BLOCK
@@ -470,6 +456,21 @@ BEGIN SCHEMATIC
             PIN addrb(8:0) PC(8:0)
             PIN clkb CLK
             PIN doutb(31:0) IM_OUT(31:0)
+        END BLOCK
+        BEGIN BLOCK XLXI_183 M_WB_Reg
+            PIN CE vdd
+            PIN CLK CLK
+            PIN CLR CLR_ALL
+            PIN M_Addr(3:0) XLXN_603(3:0)
+            PIN M_ALU(63:0) M_ALU(63:0)
+            PIN M_Data(63:0) M_OUT(63:0)
+            PIN M_M2Reg M_MemtoReg
+            PIN M_RegW XLXN_541
+            PIN WB_Addr(3:0) WB_ADDR(3:0)
+            PIN WB_ALU(63:0) WB_ALU(63:0)
+            PIN WB_Data(63:0) WB_OUT(63:0)
+            PIN WB_M2Reg WB_MemtoReg
+            PIN WB_RegW WB_W
         END BLOCK
     END NETLIST
     BEGIN SHEET 1 5440 3520
@@ -640,31 +641,14 @@ BEGIN SCHEMATIC
                 ALIGNMENT SOFT-TVCENTER
             END DISPLAY
         END BRANCH
-        BEGIN BRANCH M_MemtoReg
-            WIRE 3216 1168 3248 1168
-            WIRE 3248 1104 3248 1168
-            WIRE 3248 1104 3856 1104
-        END BRANCH
-        BEGIN INSTANCE XLXI_150 3856 1584 R0
-        END INSTANCE
-        BEGIN BRANCH XLXN_541
-            WIRE 3216 1104 3232 1104
-            WIRE 3232 1040 3232 1104
-            WIRE 3232 1040 3856 1040
-        END BRANCH
-        BEGIN BRANCH XLXN_547
-            WIRE 3216 1360 3264 1360
-            WIRE 3264 1168 3264 1360
-            WIRE 3264 1168 3856 1168
-        END BRANCH
         BEGIN BRANCH M_OUT(63:0)
             WIRE 3744 1456 3760 1456
             WIRE 3760 1232 3856 1232
             WIRE 3760 1232 3760 1456
         END BRANCH
         BEGIN BRANCH WB_MemtoReg
-            WIRE 4320 1104 4352 1104
-            WIRE 4352 1104 4352 1408
+            WIRE 4320 1168 4352 1168
+            WIRE 4352 1168 4352 1408
             WIRE 4352 1408 4400 1408
         END BRANCH
         BEGIN BRANCH WB_ADDR(3:0)
@@ -685,8 +669,8 @@ BEGIN SCHEMATIC
             WIRE 1024 1744 1136 1744
             WIRE 1024 1744 1024 2272
             WIRE 1024 2272 4384 2272
-            WIRE 4320 1040 4384 1040
-            WIRE 4384 1040 4384 2272
+            WIRE 4320 1104 4384 1104
+            WIRE 4384 1104 4384 2272
         END BRANCH
         BEGIN BRANCH CLK
             WIRE 3840 1488 3856 1488
@@ -764,19 +748,12 @@ BEGIN SCHEMATIC
         END BRANCH
         BEGIN INSTANCE XLXI_163 192 1040 R0
         END INSTANCE
-        BEGIN BRANCH WB_Data(8:0)
+        BEGIN BRANCH M_ALU(8:0)
             WIRE 144 752 160 752
             WIRE 160 752 192 752
             BEGIN DISPLAY 160 752 ATTR Name
                 ALIGNMENT SOFT-BCENTER
             END DISPLAY
-        END BRANCH
-        BEGIN BRANCH XLXN_558
-            WIRE 96 448 4368 448
-            WIRE 4368 448 4368 1168
-            WIRE 96 448 96 816
-            WIRE 96 816 192 816
-            WIRE 4320 1168 4368 1168
         END BRANCH
         BEGIN BRANCH WB_OUT(63:0)
             WIRE 4320 1232 4336 1232
@@ -798,7 +775,7 @@ BEGIN SCHEMATIC
                 ALIGNMENT SOFT-RIGHT
             END DISPLAY
         END BRANCH
-        BEGIN BRANCH XLXN_562(63:0)
+        BEGIN BRANCH EX_ALU(63:0)
             WIRE 2592 1680 2688 1680
             WIRE 2688 1424 2688 1680
             WIRE 2688 1424 2752 1424
@@ -891,19 +868,19 @@ BEGIN SCHEMATIC
                 ALIGNMENT SOFT-RIGHT
             END DISPLAY
         END BRANCH
-        BEGIN BRANCH XLXN_592
+        BEGIN BRANCH EX_B
             WIRE 2640 544 2688 544
             WIRE 2688 544 2688 1360
             WIRE 2688 1360 2752 1360
         END BRANCH
-        BEGIN BRANCH XLXN_593
+        BEGIN BRANCH EX_BE
             WIRE 2064 1360 2160 1360
             WIRE 2160 1056 2160 1360
             WIRE 2160 1056 2256 1056
         END BRANCH
         BEGIN INSTANCE XLXI_175 2144 2112 R0
         END INSTANCE
-        BEGIN BRANCH XLXN_596(1:0)
+        BEGIN BRANCH EX_BType(1:0)
             WIRE 2064 1040 2160 1040
             WIRE 2160 992 2160 1040
             WIRE 2160 992 2256 992
@@ -991,8 +968,7 @@ BEGIN SCHEMATIC
             END DISPLAY
         END BRANCH
         BEGIN BRANCH INS(31:0)
-            WIRE 960 1504 976 1504
-            WIRE 976 1504 992 1504
+            WIRE 960 1504 992 1504
             BEGIN DISPLAY 992 1504 ATTR Name
                 ALIGNMENT SOFT-LEFT
             END DISPLAY
@@ -1007,5 +983,25 @@ BEGIN SCHEMATIC
             WIRE 176 1280 256 1280
         END BRANCH
         IOMARKER 176 1280 ADDR(8:0) R180 28
+        BEGIN BRANCH M_B
+            WIRE 64 432 64 816
+            WIRE 64 816 192 816
+            WIRE 64 432 3280 432
+            WIRE 3280 432 3280 1360
+            WIRE 3216 1360 3280 1360
+        END BRANCH
+        BEGIN BRANCH M_MemR
+            WIRE 3216 1232 3328 1232
+            WIRE 3328 1232 3328 1552
+            WIRE 3328 1552 3456 1552
+        END BRANCH
+        BEGIN BRANCH M_MemtoReg
+            WIRE 3216 1168 3856 1168
+        END BRANCH
+        BEGIN INSTANCE XLXI_183 3856 1584 R0
+        END INSTANCE
+        BEGIN BRANCH XLXN_541
+            WIRE 3216 1104 3856 1104
+        END BRANCH
     END SHEET
 END SCHEMATIC

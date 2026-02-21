@@ -9,8 +9,6 @@ BEGIN SCHEMATIC
         SIGNAL CLK
         SIGNAL CE
         SIGNAL CLR
-        SIGNAL M_B
-        SIGNAL WB_B
         SIGNAL M_RegW
         SIGNAL WB_RegW
         SIGNAL M_ALU(63:0)
@@ -24,8 +22,6 @@ BEGIN SCHEMATIC
         PORT Input CLK
         PORT Input CE
         PORT Input CLR
-        PORT Input M_B
-        PORT Output WB_B
         PORT Input M_RegW
         PORT Output WB_RegW
         PORT Input M_ALU(63:0)
@@ -71,13 +67,6 @@ BEGIN SCHEMATIC
             LINE N 320 -224 384 -224 
             RECTANGLE N 320 -236 384 -212 
         END BLOCKDEF
-        BEGIN BLOCK XLXI_28 fdce
-            PIN C CLK
-            PIN CE CE
-            PIN CLR CLR
-            PIN D M_B
-            PIN Q WB_B
-        END BLOCK
         BEGIN BLOCK XLXI_59 fdce
             PIN C CLK
             PIN CE CE
@@ -134,7 +123,6 @@ BEGIN SCHEMATIC
             WIRE 1376 4032 1376 4368
             WIRE 1376 4016 1408 4016
             WIRE 1376 3360 1408 3360
-            WIRE 1376 2352 1408 2352
             WIRE 1376 1280 1408 1280
         END BRANCH
         BEGIN BRANCH CE
@@ -156,7 +144,6 @@ BEGIN SCHEMATIC
             WIRE 1360 3968 1360 4304
             WIRE 1360 3952 1408 3952
             WIRE 1360 3296 1408 3296
-            WIRE 1360 2288 1408 2288
             WIRE 1360 1216 1408 1216
         END BRANCH
         BEGIN BRANCH CLR
@@ -167,7 +154,6 @@ BEGIN SCHEMATIC
             WIRE 1392 1392 1392 1744
             WIRE 1392 1744 1392 2096
             WIRE 1392 2096 1392 2448
-            WIRE 1392 2448 1408 2448
             WIRE 1392 2448 1392 2560
             WIRE 1392 2560 1392 2784
             WIRE 1392 2784 1392 3088
@@ -181,15 +167,6 @@ BEGIN SCHEMATIC
             WIRE 1392 4080 1408 4080
             WIRE 1392 3424 1408 3424
             WIRE 1392 1376 1408 1376
-        END BRANCH
-        INSTANCE XLXI_28 1408 2480 R0
-        BEGIN BRANCH M_B
-            WIRE 1328 2224 1344 2224
-            WIRE 1344 2224 1408 2224
-        END BRANCH
-        BEGIN BRANCH WB_B
-            WIRE 1792 2224 1856 2224
-            WIRE 1856 2224 1872 2224
         END BRANCH
         INSTANCE XLXI_59 1408 1072 R0
         BEGIN BRANCH M_RegW
@@ -212,8 +189,6 @@ BEGIN SCHEMATIC
         BEGIN BRANCH WB_Addr(3:0)
             WIRE 1792 3888 1872 3888
         END BRANCH
-        IOMARKER 1872 2224 WB_B R0 28
-        IOMARKER 1328 2224 M_B R180 28
         IOMARKER 1328 816 M_RegW R180 28
         IOMARKER 1872 816 WB_RegW R0 28
         IOMARKER 1328 4304 CE R180 28

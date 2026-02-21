@@ -37,6 +37,7 @@ component D_Mem
 	clkb: IN std_logic;
 	dina: IN std_logic_VECTOR(63 downto 0);
 	doutb: OUT std_logic_VECTOR(63 downto 0);
+	enb: IN std_logic;
 	wea: IN std_logic);
 end component;
 
@@ -58,6 +59,7 @@ your_instance_name : D_Mem
 			clkb => clkb,
 			dina => dina,
 			doutb => doutb,
+			enb => enb,
 			wea => wea);
 -- INST_TAG_END ------ End INSTANTIATION Template ------------
 

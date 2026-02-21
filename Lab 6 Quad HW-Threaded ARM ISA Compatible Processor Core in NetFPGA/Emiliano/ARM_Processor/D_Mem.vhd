@@ -48,6 +48,7 @@ ENTITY D_Mem IS
 	clkb: IN std_logic;
 	dina: IN std_logic_VECTOR(63 downto 0);
 	doutb: OUT std_logic_VECTOR(63 downto 0);
+	enb: IN std_logic;
 	wea: IN std_logic);
 END D_Mem;
 
@@ -61,6 +62,7 @@ component wrapped_D_Mem
 	clkb: IN std_logic;
 	dina: IN std_logic_VECTOR(63 downto 0);
 	doutb: OUT std_logic_VECTOR(63 downto 0);
+	enb: IN std_logic;
 	wea: IN std_logic);
 end component;
 
@@ -111,7 +113,7 @@ end component;
 			c_has_dina => 1,
 			c_ymake_bmm => 0,
 			c_sim_collision_check => "NONE",
-			c_has_enb => 0,
+			c_has_enb => 1,
 			c_has_ena => 0,
 			c_depth_b => 256,
 			c_mem_init_file => "mif_file_16_1",
@@ -130,6 +132,7 @@ U0 : wrapped_D_Mem
 			clkb => clkb,
 			dina => dina,
 			doutb => doutb,
+			enb => enb,
 			wea => wea);
 -- synthesis translate_on
 

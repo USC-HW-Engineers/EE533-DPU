@@ -64,10 +64,19 @@ always @(*) begin
         end
 
         4'b0100: begin  // b
-            RegWrite = 0;
+            ALUSrc   = 1;
+				RegWrite = 0;
 				MemRead  = 0;
 				MemWrite = 0;
 				Branch   = 1;
+        end
+
+        4'b1000: begin  // cmp immediate
+            ALUSrc   = 1;
+            RegWrite = 0;
+				MemRead  = 0;
+				MemWrite = 0;
+				Branch   = 0;
         end
 		  
         4'b1001: begin  // R-type immediate

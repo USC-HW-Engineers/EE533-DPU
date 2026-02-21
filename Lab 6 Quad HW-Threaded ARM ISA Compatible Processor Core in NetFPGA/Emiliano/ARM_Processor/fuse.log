@@ -581,34 +581,21 @@ Compiling module FDCE(INIT=1'b0)_464
 Compiling module FDCE(INIT=1'b0)_465
 Compiling module FDCE(INIT=1'b0)_466
 Compiling module FDCE(INIT=1'b0)_467
-Compiling module FDCE(INIT=1'b0)_468
 Compiling module FD16CE_MXILINX_dff64
 Compiling module FD16CE_MXILINX_dff64_2
 Compiling module FD16CE_MXILINX_dff64_3
 Compiling module FD16CE_MXILINX_dff64_4
 Compiling module dff64
+Compiling module dff4
 Compiling module FD16CE_MXILINX_dff64_5
 Compiling module FD16CE_MXILINX_dff64_6
 Compiling module FD16CE_MXILINX_dff64_7
 Compiling module FD16CE_MXILINX_dff64_8
 Compiling module dff64_2
-Compiling module dff4
-Compiling module M_WB_Reg
-Compiling module FD16CE_MXILINX_dff64_9
-Compiling module FD16CE_MXILINX_dff64_10
-Compiling module FD16CE_MXILINX_dff64_11
-Compiling module FD16CE_MXILINX_dff64_12
-Compiling module dff64_3
 Compiling module dff4_2
-Compiling module FD16CE_MXILINX_dff64_13
-Compiling module FD16CE_MXILINX_dff64_14
-Compiling module FD16CE_MXILINX_dff64_15
-Compiling module FD16CE_MXILINX_dff64_16
-Compiling module dff64_4
 Compiling module dff4_3
 Compiling module dff4_4
 Compiling module dff4_5
-Compiling module dff4_6
 Compiling module dff12
 Compiling module dff2
 Compiling module ID_EX_Reg
@@ -630,6 +617,25 @@ Compiling module Control_Unit
 Compiling module Condition_Unit
 Compiling module ALU
 Compiling module Sign_Extend_12to64
+Compiling module FD16CE_MXILINX_dff64_9
+Compiling module FD16CE_MXILINX_dff64_10
+Compiling module FD16CE_MXILINX_dff64_11
+Compiling module FD16CE_MXILINX_dff64_12
+Compiling module dff64_3
+Compiling module FD16CE_MXILINX_dff64_13
+Compiling module FD16CE_MXILINX_dff64_14
+Compiling module FD16CE_MXILINX_dff64_15
+Compiling module FD16CE_MXILINX_dff64_16
+Compiling module dff64_4
+Compiling module dff4_6
+Compiling module EX_M_Reg
+Compiling module BLKMEMDP_V6_3(c_addra_width=8,c_...
+Compiling module D_Mem
+Compiling module FD16CE_MXILINX_dff32
+Compiling module FD16CE_MXILINX_dff32_2
+Compiling module dff32
+Compiling module BLKMEMDP_V6_3(c_addra_width=9,c_...
+Compiling module I_Mem_Dual
 Compiling module FD16CE_MXILINX_dff64_17
 Compiling module FD16CE_MXILINX_dff64_18
 Compiling module FD16CE_MXILINX_dff64_19
@@ -641,17 +647,10 @@ Compiling module FD16CE_MXILINX_dff64_23
 Compiling module FD16CE_MXILINX_dff64_24
 Compiling module dff64_6
 Compiling module dff4_7
-Compiling module EX_M_Reg
-Compiling module BLKMEMDP_V6_3(c_addra_width=8,c_...
-Compiling module D_Mem
-Compiling module FD16CE_MXILINX_dff32
-Compiling module FD16CE_MXILINX_dff32_2
-Compiling module dff32
-Compiling module BLKMEMDP_V6_3(c_addra_width=9,c_...
-Compiling module I_Mem_Dual
+Compiling module M_WB_Reg
 Compiling module Pipeline_Datapath
 Compiling module Pipeline_Datapath_tb
-Compiled 549 Verilog Units
+Compiled 548 Verilog Units
 Built simulation executable Pipeline_Datapath_tb_isim_beh.exe
 Fuse Memory Usage: 61836 Kb
-Fuse CPU Usage: 1233 ms
+Fuse CPU Usage: 1155 ms
