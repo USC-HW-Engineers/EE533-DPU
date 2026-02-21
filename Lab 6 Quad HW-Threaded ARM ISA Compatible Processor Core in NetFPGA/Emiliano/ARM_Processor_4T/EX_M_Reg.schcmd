@@ -1,0 +1,6 @@
+select figure at 2035 1727 10 -branches -sn=1
+select all in 1095 1297 2032 1725 -branches -enclosed -noattrwin -sn=1
+select figure at 2292 1717 10 -branches -sn=1
+select all in 989 1347 2289 1715 -branches -enclosed -noattrwin -sn=1
+select figure at 2161 2751 10 -branches -sn=1
+select figure at 2158 2749 10 -branches -sn=1

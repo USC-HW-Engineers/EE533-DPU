@@ -1,0 +1,11 @@
+# Output products list for <Reg_File_Dual>
+Reg_File_Dual.asy
+Reg_File_Dual.ngc
+Reg_File_Dual.sym
+Reg_File_Dual.v
+Reg_File_Dual.veo
+Reg_File_Dual.vhd
+Reg_File_Dual.vho
+Reg_File_Dual.xco
+Reg_File_Dual_flist.txt
+Reg_File_Dual_xmdf.tcl
