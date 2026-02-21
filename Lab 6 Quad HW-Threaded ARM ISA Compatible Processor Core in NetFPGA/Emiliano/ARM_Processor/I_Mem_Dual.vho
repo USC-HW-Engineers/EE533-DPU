@@ -35,9 +35,9 @@ component I_Mem_Dual
 	addrb: IN std_logic_VECTOR(8 downto 0);
 	clka: IN std_logic;
 	clkb: IN std_logic;
-	dinb: IN std_logic_VECTOR(31 downto 0);
-	douta: OUT std_logic_VECTOR(31 downto 0);
-	web: IN std_logic);
+	dina: IN std_logic_VECTOR(31 downto 0);
+	doutb: OUT std_logic_VECTOR(31 downto 0);
+	wea: IN std_logic);
 end component;
 
 -- Synplicity black box declaration
@@ -56,9 +56,9 @@ your_instance_name : I_Mem_Dual
 			addrb => addrb,
 			clka => clka,
 			clkb => clkb,
-			dinb => dinb,
-			douta => douta,
-			web => web);
+			dina => dina,
+			doutb => doutb,
+			wea => wea);
 -- INST_TAG_END ------ End INSTANTIATION Template ------------
 
 -- You must compile the wrapper file I_Mem_Dual.vhd when simulating

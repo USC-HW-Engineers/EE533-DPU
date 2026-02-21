@@ -1,6 +1,5 @@
 # Output products list for <D_Mem>
 D_Mem.asy
-D_Mem.mif
 D_Mem.ngc
 D_Mem.sym
 D_Mem.v

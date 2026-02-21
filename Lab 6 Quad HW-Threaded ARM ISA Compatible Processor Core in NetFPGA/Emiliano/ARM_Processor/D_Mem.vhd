@@ -46,10 +46,9 @@ ENTITY D_Mem IS
 	addrb: IN std_logic_VECTOR(7 downto 0);
 	clka: IN std_logic;
 	clkb: IN std_logic;
-	dinb: IN std_logic_VECTOR(63 downto 0);
-	douta: OUT std_logic_VECTOR(63 downto 0);
-	ena: IN std_logic;
-	web: IN std_logic);
+	dina: IN std_logic_VECTOR(63 downto 0);
+	doutb: OUT std_logic_VECTOR(63 downto 0);
+	wea: IN std_logic);
 END D_Mem;
 
 ARCHITECTURE D_Mem_a OF D_Mem IS
@@ -60,10 +59,9 @@ component wrapped_D_Mem
 	addrb: IN std_logic_VECTOR(7 downto 0);
 	clka: IN std_logic;
 	clkb: IN std_logic;
-	dinb: IN std_logic_VECTOR(63 downto 0);
-	douta: OUT std_logic_VECTOR(63 downto 0);
-	ena: IN std_logic;
-	web: IN std_logic);
+	dina: IN std_logic_VECTOR(63 downto 0);
+	doutb: OUT std_logic_VECTOR(63 downto 0);
+	wea: IN std_logic);
 end component;
 
 -- Configuration specification 
@@ -100,26 +98,26 @@ end component;
 			c_yweb_is_high => 1,
 			c_yenb_is_high => 1,
 			c_pipe_stages_a => 0,
-			c_yclkb_is_rising => 1,
+			c_yclkb_is_rising => 0,
 			c_yydisable_warnings => 1,
 			c_enable_rlocs => 0,
 			c_ysinitb_is_high => 1,
-			c_has_web => 1,
-			c_has_default_data => 0,
+			c_has_web => 0,
+			c_has_default_data => 1,
 			c_has_sinitb => 0,
-			c_has_wea => 0,
+			c_has_wea => 1,
 			c_has_sinita => 0,
-			c_has_dinb => 1,
-			c_has_dina => 0,
+			c_has_dinb => 0,
+			c_has_dina => 1,
 			c_ymake_bmm => 0,
 			c_sim_collision_check => "NONE",
 			c_has_enb => 0,
-			c_has_ena => 1,
-			c_mem_init_file => "D_Mem.mif",
+			c_has_ena => 0,
 			c_depth_b => 256,
+			c_mem_init_file => "mif_file_16_1",
 			c_depth_a => 256,
-			c_has_doutb => 0,
-			c_has_douta => 1,
+			c_has_doutb => 1,
+			c_has_douta => 0,
 			c_yprimitive_type => "16kx1");
 -- synthesis translate_on
 BEGIN
@@ -130,10 +128,9 @@ U0 : wrapped_D_Mem
 			addrb => addrb,
 			clka => clka,
 			clkb => clkb,
-			dinb => dinb,
-			douta => douta,
-			ena => ena,
-			web => web);
+			dina => dina,
+			doutb => doutb,
+			wea => wea);
 -- synthesis translate_on
 
 END D_Mem_a;

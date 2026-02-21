@@ -13,10 +13,9 @@ D_Mem YourInstanceName (
     .addrb(addrb), // Bus [7 : 0] 
     .clka(clka),
     .clkb(clkb),
-    .dinb(dinb), // Bus [63 : 0] 
-    .douta(douta), // Bus [63 : 0] 
-    .ena(ena),
-    .web(web));
+    .dina(dina), // Bus [63 : 0] 
+    .doutb(doutb), // Bus [63 : 0] 
+    .wea(wea));
 
  
 		</Template>
@@ -32,9 +31,9 @@ I_Mem_Dual YourInstanceName (
     .addrb(addrb), // Bus [8 : 0] 
     .clka(clka),
     .clkb(clkb),
-    .dinb(dinb), // Bus [31 : 0] 
-    .douta(douta), // Bus [31 : 0] 
-    .web(web));
+    .dina(dina), // Bus [31 : 0] 
+    .doutb(doutb), // Bus [31 : 0] 
+    .wea(wea));
 
  
 		</Template>
@@ -56,6 +55,24 @@ Reg_File_Dual YourInstanceName (
 
  
 		</Template>
+		<Template label="D_Mem_2" treetype="template">
+ 
+ 
+// The following must be inserted into your Verilog file for this
+// core to be instantiated. Change the instance name and port connections
+// (in parentheses) to your own signal names.
+ 
+D_Mem_2 YourInstanceName (
+    .addra(addra), // Bus [7 : 0] 
+    .addrb(addrb), // Bus [7 : 0] 
+    .clka(clka),
+    .clkb(clkb),
+    .dinb(dinb), // Bus [7 : 0] 
+    .douta(douta), // Bus [7 : 0] 
+    .web(web));
+
+ 
+		</Template>
 	</Folder>
 	<Folder label="VHDL Component Instantiation" treetype="folder">
 		<Template label="D_Mem" treetype="template">
@@ -69,10 +86,9 @@ component D_Mem
     addrb: IN std_logic_VECTOR(7 downto 0);
     clka: IN std_logic;
     clkb: IN std_logic;
-    dinb: IN std_logic_VECTOR(63 downto 0);
-    douta: OUT std_logic_VECTOR(63 downto 0);
-    ena: IN std_logic;
-    web: IN std_logic);
+    dina: IN std_logic_VECTOR(63 downto 0);
+    doutb: OUT std_logic_VECTOR(63 downto 0);
+    wea: IN std_logic);
 end component;
 
 
@@ -88,10 +104,9 @@ your_instance_name : D_Mem
             addrb =&gt; addrb,
             clka =&gt; clka,
             clkb =&gt; clkb,
-            dinb =&gt; dinb,
-            douta =&gt; douta,
-            ena =&gt; ena,
-            web =&gt; web);
+            dina =&gt; dina,
+            doutb =&gt; doutb,
+            wea =&gt; wea);
  
 		</Template>
 		<Template label="I_Mem_Dual" treetype="template">
@@ -105,9 +120,9 @@ component I_Mem_Dual
     addrb: IN std_logic_VECTOR(8 downto 0);
     clka: IN std_logic;
     clkb: IN std_logic;
-    dinb: IN std_logic_VECTOR(31 downto 0);
-    douta: OUT std_logic_VECTOR(31 downto 0);
-    web: IN std_logic);
+    dina: IN std_logic_VECTOR(31 downto 0);
+    doutb: OUT std_logic_VECTOR(31 downto 0);
+    wea: IN std_logic);
 end component;
 
 
@@ -123,9 +138,9 @@ your_instance_name : I_Mem_Dual
             addrb =&gt; addrb,
             clka =&gt; clka,
             clkb =&gt; clkb,
-            dinb =&gt; dinb,
-            douta =&gt; douta,
-            web =&gt; web);
+            dina =&gt; dina,
+            doutb =&gt; doutb,
+            wea =&gt; wea);
  
 		</Template>
 		<Template label="Reg_File_Dual" treetype="template">
@@ -160,6 +175,40 @@ your_instance_name : Reg_File_Dual
             dina =&gt; dina,
             doutb =&gt; doutb,
             wea =&gt; wea);
+ 
+		</Template>
+		<Template label="D_Mem_2" treetype="template">
+ 
+ 
+-- The following code must appear in the VHDL architecture header:
+ 
+component D_Mem_2
+    port (
+    addra: IN std_logic_VECTOR(7 downto 0);
+    addrb: IN std_logic_VECTOR(7 downto 0);
+    clka: IN std_logic;
+    clkb: IN std_logic;
+    dinb: IN std_logic_VECTOR(7 downto 0);
+    douta: OUT std_logic_VECTOR(7 downto 0);
+    web: IN std_logic);
+end component;
+
+
+ 
+-------------------------------------------------------------
+ 
+-- The following code must appear in the VHDL architecture body.
+-- Substitute your own instance name and net names.
+ 
+your_instance_name : D_Mem_2
+        port map (
+            addra =&gt; addra,
+            addrb =&gt; addrb,
+            clka =&gt; clka,
+            clkb =&gt; clkb,
+            dinb =&gt; dinb,
+            douta =&gt; douta,
+            web =&gt; web);
  
 		</Template>
 	</Folder>

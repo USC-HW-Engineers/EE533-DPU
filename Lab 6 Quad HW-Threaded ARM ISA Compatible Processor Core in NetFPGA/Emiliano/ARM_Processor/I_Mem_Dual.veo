@@ -36,9 +36,9 @@ I_Mem_Dual YourInstanceName (
 	.addrb(addrb), // Bus [8 : 0] 
 	.clka(clka),
 	.clkb(clkb),
-	.dinb(dinb), // Bus [31 : 0] 
-	.douta(douta), // Bus [31 : 0] 
-	.web(web));
+	.dina(dina), // Bus [31 : 0] 
+	.doutb(doutb), // Bus [31 : 0] 
+	.wea(wea));
 
 // INST_TAG_END ------ End INSTANTIATION Template ---------
 

@@ -42,18 +42,18 @@ module I_Mem_Dual(
 	addrb,
 	clka,
 	clkb,
-	dinb,
-	douta,
-	web);
+	dina,
+	doutb,
+	wea);
 
 
 input [8 : 0] addra;
 input [8 : 0] addrb;
 input clka;
 input clkb;
-input [31 : 0] dinb;
-output [31 : 0] douta;
-input web;
+input [31 : 0] dina;
+output [31 : 0] doutb;
+input wea;
 
 // synthesis translate_off
 
@@ -65,10 +65,10 @@ input web;
 		.c_depth_b(512),
 		.c_enable_rlocs(0),
 		.c_has_default_data(0),
-		.c_has_dina(0),
-		.c_has_dinb(1),
-		.c_has_douta(1),
-		.c_has_doutb(0),
+		.c_has_dina(1),
+		.c_has_dinb(0),
+		.c_has_douta(0),
+		.c_has_doutb(1),
 		.c_has_ena(0),
 		.c_has_enb(0),
 		.c_has_limit_data_pitch(0),
@@ -80,8 +80,8 @@ input web;
 		.c_has_rfdb(0),
 		.c_has_sinita(0),
 		.c_has_sinitb(0),
-		.c_has_wea(0),
-		.c_has_web(1),
+		.c_has_wea(1),
+		.c_has_web(0),
 		.c_limit_data_pitch(18),
 		.c_mem_init_file("I_Mem_Dual.mif"),
 		.c_pipe_stages_a(0),
@@ -97,7 +97,7 @@ input web;
 		.c_write_modeb(0),
 		.c_ybottom_addr("0"),
 		.c_yclka_is_rising(1),
-		.c_yclkb_is_rising(1),
+		.c_yclkb_is_rising(0),
 		.c_yena_is_high(1),
 		.c_yenb_is_high(1),
 		.c_yhierarchy("hierarchy1"),
@@ -115,11 +115,11 @@ input web;
 		.ADDRB(addrb),
 		.CLKA(clka),
 		.CLKB(clkb),
-		.DINB(dinb),
-		.DOUTA(douta),
-		.WEB(web),
-		.DINA(),
-		.DOUTB(),
+		.DINA(dina),
+		.DOUTB(doutb),
+		.WEA(wea),
+		.DINB(),
+		.DOUTA(),
 		.ENA(),
 		.ENB(),
 		.NDA(),
@@ -130,7 +130,7 @@ input web;
 		.RDYB(),
 		.SINITA(),
 		.SINITB(),
-		.WEA());
+		.WEB());
 
 
 // synthesis translate_on

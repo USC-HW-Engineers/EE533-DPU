@@ -36,10 +36,9 @@ D_Mem YourInstanceName (
 	.addrb(addrb), // Bus [7 : 0] 
 	.clka(clka),
 	.clkb(clkb),
-	.dinb(dinb), // Bus [63 : 0] 
-	.douta(douta), // Bus [63 : 0] 
-	.ena(ena),
-	.web(web));
+	.dina(dina), // Bus [63 : 0] 
+	.doutb(doutb), // Bus [63 : 0] 
+	.wea(wea));
 
 // INST_TAG_END ------ End INSTANTIATION Template ---------
 

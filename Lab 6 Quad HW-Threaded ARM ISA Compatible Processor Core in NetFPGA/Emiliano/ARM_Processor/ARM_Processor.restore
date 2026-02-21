@@ -841,37 +841,23 @@ proc restore { { project_dir "" } } {
       "Control_Unit.v" 
       "D_Mem.xco" 
       "EX_M_Reg.sch" 
-      "EX_WB_Reg.sch" 
-      "FA_1b.sch" 
       "ID_EX_Reg.sch" 
       "ID_EX_Reg_tb.tbw" 
       "I_Mem_Dual.xco" 
       "M_WB_Reg.sch" 
-      "Mux2_1_3b.sch" 
       "Mux2_1_64b.sch" 
-      "Mux4_1_16b.sch" 
-      "Mux4_1_64b.sch" 
       "Mux_2_1_16b.sch" 
-      "PCL_7b.sch" 
       "PCL_9b.sch" 
-      "PC_11b.sch" 
-      "PC_9b.sch" 
       "Pipeline_Datapath.sch" 
       "Pipeline_Datapath_tb.tbw" 
-      "RCA_9bit.sch" 
       "Reg_File_Dual.xco" 
-      "Register_File.sch" 
       "Register_File_BRAM.sch" 
       "Sign_Extend_12to64.v" 
-      "Sign_Extend_16to64.v" 
       "dff12.sch" 
       "dff2.sch" 
-      "dff3.sch" 
       "dff32.sch" 
       "dff4.sch" 
-      "dff64.sch" 
-      "reg_file_16.sch" 
-      "reg_file_64.sch"}
+      "dff64.sch"}
 
   HandleException {
     AddUserFiles $iProjHelper $user_files
@@ -905,7 +891,6 @@ proc restore { { project_dir "" } } {
       "Reg_File_Dual.vhd" 
       "Reg_File_Dual.vho" 
       "Sign_Extend_12to64.sym" 
-      "Sign_Extend_16to64.sym" 
       "Z:/EE533/EE533-DPU/Lab 5 Pipelined Datapath Design for the ARM-compatible Processor/Emiliano/5_Stage_Pipeline/Pipeline_Datapath_tb.xwv" 
       "Z:/EE533/EE533-DPU/Lab 5 Pipelined Datapath Design for the ARM-compatible Processor/Emiliano/5_Stage_Pipeline/Reg_File_16b_tb.xwv"}
 

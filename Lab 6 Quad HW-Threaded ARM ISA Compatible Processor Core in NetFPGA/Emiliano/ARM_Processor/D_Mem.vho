@@ -35,10 +35,9 @@ component D_Mem
 	addrb: IN std_logic_VECTOR(7 downto 0);
 	clka: IN std_logic;
 	clkb: IN std_logic;
-	dinb: IN std_logic_VECTOR(63 downto 0);
-	douta: OUT std_logic_VECTOR(63 downto 0);
-	ena: IN std_logic;
-	web: IN std_logic);
+	dina: IN std_logic_VECTOR(63 downto 0);
+	doutb: OUT std_logic_VECTOR(63 downto 0);
+	wea: IN std_logic);
 end component;
 
 -- Synplicity black box declaration
@@ -57,10 +56,9 @@ your_instance_name : D_Mem
 			addrb => addrb,
 			clka => clka,
 			clkb => clkb,
-			dinb => dinb,
-			douta => douta,
-			ena => ena,
-			web => web);
+			dina => dina,
+			doutb => doutb,
+			wea => wea);
 -- INST_TAG_END ------ End INSTANTIATION Template ------------
 
 -- You must compile the wrapper file D_Mem.vhd when simulating

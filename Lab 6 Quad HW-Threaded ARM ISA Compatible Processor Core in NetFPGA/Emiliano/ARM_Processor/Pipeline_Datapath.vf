@@ -7,7 +7,7 @@
 // \   \   \/     Version : 10.1
 //  \   \         Application : sch2verilog
 //  /   /         Filename : Pipeline_Datapath.vf
-// /___/   /\     Timestamp : 02/20/2026 00:33:13
+// /___/   /\     Timestamp : 02/20/2026 16:30:20
 // \   \  /  \ 
 //  \___\/\___\ 
 //
@@ -37,6 +37,7 @@ module Pipeline_Datapath(ADDR,
    wire [3:0] ALUAddr;
    wire [63:0] ALUB;
    wire C;
+   wire EX_MemtoReg;
    wire ID_ALUSrc;
    wire ID_Branch;
    wire ID_MemRead;
@@ -46,6 +47,8 @@ module Pipeline_Datapath(ADDR,
    wire [31:0] IM_OUT;
    wire [31:0] INS;
    wire [63:0] M_ALU;
+   wire M_MemtoReg;
+   wire [63:0] M_OUT;
    wire [63:0] M_R2;
    wire M_WM;
    wire N;
@@ -55,26 +58,22 @@ module Pipeline_Datapath(ADDR,
    wire V;
    wire vdd;
    wire [3:0] WB_ADDR;
+   wire [63:0] WB_ALU;
    wire [63:0] WB_Data;
+   wire WB_MemtoReg;
+   wire [63:0] WB_OUT;
+   wire WB_W;
    wire [63:0] XLXN_426;
    wire [63:0] XLXN_428;
    wire XLXN_437;
    wire XLXN_457;
    wire XLXN_458;
-   wire XLXN_459;
    wire XLXN_460;
-   wire XLXN_530;
-   wire XLXN_540;
    wire XLXN_541;
    wire XLXN_547;
-   wire [63:0] XLXN_548;
-   wire XLXN_553;
-   wire XLXN_556;
    wire XLXN_558;
    wire [63:0] XLXN_561;
    wire [63:0] XLXN_562;
-   wire [63:0] XLXN_563;
-   wire [63:0] XLXN_565;
    wire XLXN_592;
    wire XLXN_593;
    wire [1:0] XLXN_596;
@@ -83,33 +82,13 @@ module Pipeline_Datapath(ADDR,
    wire [3:0] XLXN_603;
    wire Z;
    
-   D_Mem XLXI_32 (.addra(M_ALU[7:0]), 
-                  .addrb(M_ALU[7:0]), 
-                  .clka(CLK), 
-                  .clkb(CLK), 
-                  .dinb(M_R2[63:0]), 
-                  .ena(XLXN_530), 
-                  .web(M_WM), 
-                  .douta(XLXN_548[63:0]));
    VCC XLXI_72 (.P(vdd));
-   dff32 XLXI_93 (.CE(vdd), 
-                  .CLK(CLK), 
-                  .CLR(CLR_ALL), 
-                  .D(IM_OUT[31:0]), 
-                  .Q(INS[31:0]));
-   I_Mem_Dual XLXI_97 (.addra(PC[8:0]), 
-                       .addrb(ADDR[8:0]), 
-                       .clka(CLK), 
-                       .clkb(CLK), 
-                       .dinb(DIN[31:0]), 
-                       .web(IM_WE), 
-                       .douta(IM_OUT[31:0]));
    Register_File_BRAM XLXI_119 (.clk(CLK), 
                                 .r0addr(INS[23:20]), 
                                 .r1addr(INS[19:16]), 
                                 .waddr(WB_ADDR[3:0]), 
                                 .wdata(WB_Data[63:0]), 
-                                .wena(XLXN_556), 
+                                .wena(WB_W), 
                                 .r0data(R0_OUT[63:0]), 
                                 .r1data(R1_OUT[63:0]));
    Mux2_1_64b XLXI_134 (.D0(XLXN_426[63:0]), 
@@ -122,18 +101,18 @@ module Pipeline_Datapath(ADDR,
                       .M_Addr(XLXN_603[3:0]), 
                       .M_ALU(M_ALU[63:0]), 
                       .M_B(XLXN_547), 
-                      .M_Data(XLXN_548[63:0]), 
-                      .M_M2Reg(XLXN_540), 
+                      .M_Data(M_OUT[63:0]), 
+                      .M_M2Reg(M_MemtoReg), 
                       .M_RegW(XLXN_541), 
                       .WB_Addr(WB_ADDR[3:0]), 
-                      .WB_ALU(XLXN_565[63:0]), 
+                      .WB_ALU(WB_ALU[63:0]), 
                       .WB_B(XLXN_558), 
-                      .WB_Data(XLXN_563[63:0]), 
-                      .WB_M2Reg(XLXN_553), 
-                      .WB_RegW(XLXN_556));
-   Mux2_1_64b XLXI_151 (.D0(XLXN_565[63:0]), 
-                        .D1(XLXN_563[63:0]), 
-                        .S(XLXN_553), 
+                      .WB_Data(WB_OUT[63:0]), 
+                      .WB_M2Reg(WB_MemtoReg), 
+                      .WB_RegW(WB_W));
+   Mux2_1_64b XLXI_151 (.D0(WB_ALU[63:0]), 
+                        .D1(WB_OUT[63:0]), 
+                        .S(WB_MemtoReg), 
                         .O(WB_Data[63:0]));
    ID_EX_Reg XLXI_154 (.CE(vdd), 
                        .CLK(CLK), 
@@ -158,7 +137,7 @@ module Pipeline_Datapath(ADDR,
                        .EX_BT(XLXN_596[1:0]), 
                        .EX_MemR(XLXN_458), 
                        .EX_MemW(XLXN_457), 
-                       .EX_M2Reg(XLXN_459), 
+                       .EX_M2Reg(EX_MemtoReg), 
                        .EX_RegW(XLXN_460), 
                        .EX_R1(XLXN_561[63:0]), 
                        .EX_R2(XLXN_426[63:0]));
@@ -203,15 +182,34 @@ module Pipeline_Datapath(ADDR,
                       .EX_B(XLXN_592), 
                       .EX_MemR(XLXN_458), 
                       .EX_MemW(XLXN_457), 
-                      .EX_M2Reg(XLXN_459), 
+                      .EX_M2Reg(EX_MemtoReg), 
                       .EX_RegW(XLXN_460), 
                       .EX_R2(XLXN_426[63:0]), 
                       .M_Addr(XLXN_603[3:0]), 
                       .M_ALU(M_ALU[63:0]), 
                       .M_B(XLXN_547), 
-                      .M_MemR(XLXN_530), 
+                      .M_MemR(), 
                       .M_MemW(M_WM), 
-                      .M_M2Reg(XLXN_540), 
+                      .M_M2Reg(M_MemtoReg), 
                       .M_RegW(XLXN_541), 
                       .M_R2(M_R2[63:0]));
+   D_Mem XLXI_177 (.addra(M_ALU[7:0]), 
+                   .addrb(M_ALU[7:0]), 
+                   .clka(CLK), 
+                   .clkb(CLK), 
+                   .dina(M_R2[63:0]), 
+                   .wea(M_WM), 
+                   .doutb(M_OUT[63:0]));
+   dff32 XLXI_179 (.CE(vdd), 
+                   .CLK(CLK), 
+                   .CLR(CLR_ALL), 
+                   .D(IM_OUT[31:0]), 
+                   .Q(INS[31:0]));
+   I_Mem_Dual XLXI_182 (.addra(ADDR[8:0]), 
+                        .addrb(PC[8:0]), 
+                        .clka(CLK), 
+                        .clkb(CLK), 
+                        .dina(DIN[31:0]), 
+                        .wea(IM_WE), 
+                        .doutb(IM_OUT[31:0]));
 endmodule
