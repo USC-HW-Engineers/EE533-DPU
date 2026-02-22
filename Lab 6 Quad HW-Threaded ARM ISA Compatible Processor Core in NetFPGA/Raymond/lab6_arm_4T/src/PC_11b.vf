@@ -1,0 +1,183 @@
+////////////////////////////////////////////////////////////////////////////////
+// Copyright (c) 1995-2008 Xilinx, Inc.  All rights reserved.
+////////////////////////////////////////////////////////////////////////////////
+//   ____  ____ 
+//  /   /\/   / 
+// /___/  \  /    Vendor: Xilinx 
+// \   \   \/     Version : 10.1
+//  \   \         Application : sch2verilog
+//  /   /         Filename : PC_11b.vf
+// /___/   /\     Timestamp : 02/19/2026 01:36:32
+// \   \  /  \ 
+//  \___\/\___\ 
+//
+//Command: C:\Xilinx\10.1\ISE\bin\nt\unwrapped\sch2verilog.exe -intstyle ise -family virtex2p -w "C:/Documents and Settings/student/Desktop/ARM_Processor/PC_11b.sch" PC_11b.vf
+//Design Name: PC_11b
+//Device: virtex2p
+//Purpose:
+//    This verilog netlist is translated from an ECS schematic.It can be 
+//    synthesized and simulated, but it should not be modified. 
+//
+`timescale 1ns / 1ps
+
+module FTCE_MXILINX_PC_11b(C, 
+                           CE, 
+                           CLR, 
+                           T, 
+                           Q);
+
+    input C;
+    input CE;
+    input CLR;
+    input T;
+   output Q;
+   
+   wire TQ;
+   wire Q_DUMMY;
+   
+   assign Q = Q_DUMMY;
+   XOR2 I_36_32 (.I0(T), 
+                 .I1(Q_DUMMY), 
+                 .O(TQ));
+   FDCE I_36_35 (.C(C), 
+                 .CE(CE), 
+                 .CLR(CLR), 
+                 .D(TQ), 
+                 .Q(Q_DUMMY));
+   // synthesis attribute RLOC of I_36_35 is "X0Y0"
+   defparam I_36_35.INIT = 1'b0;
+endmodule
+`timescale 1ns / 1ps
+
+module PC_11b(C, 
+              CE, 
+              CLR, 
+              Q, 
+              T_ID);
+
+    input C;
+    input CE;
+    input CLR;
+   output [10:2] Q;
+   output [1:0] T_ID;
+   
+   wire T2;
+   wire T3;
+   wire T4;
+   wire T5;
+   wire T6;
+   wire T7;
+   wire T8;
+   wire T9;
+   wire T10;
+   wire XLXN_1;
+   wire [10:2] Q_DUMMY;
+   wire [1:0] T_ID_DUMMY;
+   
+   assign Q[10:2] = Q_DUMMY[10:2];
+   assign T_ID[1:0] = T_ID_DUMMY[1:0];
+   FTCE_MXILINX_PC_11b I_Q0 (.C(C), 
+                             .CE(CE), 
+                             .CLR(CLR), 
+                             .T(XLXN_1), 
+                             .Q(T_ID_DUMMY[0]));
+   // synthesis attribute HU_SET of I_Q0 is "I_Q0_1"
+   FTCE_MXILINX_PC_11b I_Q1 (.C(C), 
+                             .CE(CE), 
+                             .CLR(CLR), 
+                             .T(T_ID_DUMMY[0]), 
+                             .Q(T_ID_DUMMY[1]));
+   // synthesis attribute HU_SET of I_Q1 is "I_Q1_0"
+   FTCE_MXILINX_PC_11b I_Q2 (.C(C), 
+                             .CE(CE), 
+                             .CLR(CLR), 
+                             .T(T2), 
+                             .Q(Q_DUMMY[2]));
+   // synthesis attribute HU_SET of I_Q2 is "I_Q2_3"
+   FTCE_MXILINX_PC_11b I_Q3 (.C(C), 
+                             .CE(CE), 
+                             .CLR(CLR), 
+                             .T(T3), 
+                             .Q(Q_DUMMY[3]));
+   // synthesis attribute HU_SET of I_Q3 is "I_Q3_2"
+   FTCE_MXILINX_PC_11b I_Q4 (.C(C), 
+                             .CE(CE), 
+                             .CLR(CLR), 
+                             .T(T4), 
+                             .Q(Q_DUMMY[4]));
+   // synthesis attribute HU_SET of I_Q4 is "I_Q4_7"
+   FTCE_MXILINX_PC_11b I_Q5 (.C(C), 
+                             .CE(CE), 
+                             .CLR(CLR), 
+                             .T(T5), 
+                             .Q(Q_DUMMY[5]));
+   // synthesis attribute HU_SET of I_Q5 is "I_Q5_6"
+   FTCE_MXILINX_PC_11b I_Q6 (.C(C), 
+                             .CE(CE), 
+                             .CLR(CLR), 
+                             .T(T6), 
+                             .Q(Q_DUMMY[6]));
+   // synthesis attribute HU_SET of I_Q6 is "I_Q6_5"
+   FTCE_MXILINX_PC_11b I_Q7 (.C(C), 
+                             .CE(CE), 
+                             .CLR(CLR), 
+                             .T(T7), 
+                             .Q(Q_DUMMY[7]));
+   // synthesis attribute HU_SET of I_Q7 is "I_Q7_4"
+   FTCE_MXILINX_PC_11b I_Q8 (.C(C), 
+                             .CE(CE), 
+                             .CLR(CLR), 
+                             .T(T8), 
+                             .Q(Q_DUMMY[8]));
+   // synthesis attribute HU_SET of I_Q8 is "I_Q8_8"
+   FTCE_MXILINX_PC_11b I_Q9 (.C(C), 
+                             .CE(CE), 
+                             .CLR(CLR), 
+                             .T(T9), 
+                             .Q(Q_DUMMY[9]));
+   // synthesis attribute HU_SET of I_Q9 is "I_Q9_9"
+   FTCE_MXILINX_PC_11b I_Q10 (.C(C), 
+                              .CE(CE), 
+                              .CLR(CLR), 
+                              .T(T10), 
+                              .Q(Q_DUMMY[10]));
+   // synthesis attribute HU_SET of I_Q10 is "I_Q10_10"
+   AND3 I_36_3 (.I0(Q_DUMMY[2]), 
+                .I1(T_ID_DUMMY[1]), 
+                .I2(T_ID_DUMMY[0]), 
+                .O(T3));
+   AND2 I_36_4 (.I0(T_ID_DUMMY[1]), 
+                .I1(T_ID_DUMMY[0]), 
+                .O(T2));
+   VCC I_36_9 (.P(XLXN_1));
+   AND4 I_36_10 (.I0(Q_DUMMY[3]), 
+                 .I1(Q_DUMMY[2]), 
+                 .I2(T_ID_DUMMY[1]), 
+                 .I3(T_ID_DUMMY[0]), 
+                 .O(T4));
+   AND5 I_36_14 (.I0(Q_DUMMY[7]), 
+                 .I1(Q_DUMMY[6]), 
+                 .I2(Q_DUMMY[5]), 
+                 .I3(Q_DUMMY[4]), 
+                 .I4(T4), 
+                 .O(T8));
+   AND2 I_36_15 (.I0(Q_DUMMY[4]), 
+                 .I1(T4), 
+                 .O(T5));
+   AND3 I_36_19 (.I0(Q_DUMMY[5]), 
+                 .I1(Q_DUMMY[4]), 
+                 .I2(T4), 
+                 .O(T6));
+   AND4 I_36_21 (.I0(Q_DUMMY[6]), 
+                 .I1(Q_DUMMY[5]), 
+                 .I2(Q_DUMMY[4]), 
+                 .I3(T4), 
+                 .O(T7));
+   AND3 I_36_27 (.I0(Q_DUMMY[9]), 
+                 .I1(Q_DUMMY[8]), 
+                 .I2(T8), 
+                 .O(T10));
+   AND2 I_36_28 (.I0(Q_DUMMY[8]), 
+                 .I1(T8), 
+                 .O(T9));
+endmodule
