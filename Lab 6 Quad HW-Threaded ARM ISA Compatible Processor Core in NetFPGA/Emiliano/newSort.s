@@ -1,4 +1,6 @@
 	.cpu arm7tdmi
+	.arch armv4t
+	.fpu softvfp
 	.eabi_attribute 20, 1
 	.eabi_attribute 21, 1
 	.eabi_attribute 23, 3
@@ -8,7 +10,7 @@
 	.eabi_attribute 30, 6
 	.eabi_attribute 34, 0
 	.eabi_attribute 18, 4
-	.file	"sort.c"
+	.file	"newSort.c"
 	.text
 	.section	.rodata
 	.align	2
@@ -26,10 +28,8 @@
 	.text
 	.align	2
 	.global	main
-	.arch armv4t
 	.syntax unified
 	.arm
-	.fpu softvfp
 	.type	main, %function
 main:
 	@ Function supports interworking.
@@ -116,4 +116,4 @@ main:
 .L8:
 	.word	.LC0
 	.size	main, .-main
-	.ident	"GCC: (15:10.3-2021.07-4) 10.3.1 20210621 (release)"
+	.ident	"GCC: (Arm GNU Toolchain 15.2.Rel1 (Build arm-15.86)) 15.2.1 20251203"

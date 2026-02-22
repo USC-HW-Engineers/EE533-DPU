@@ -1,0 +1,24 @@
+Disassembled Assembly:
+
+000: add r3, r3, #1
+001: nop
+002: nop
+003: nop
+004: add r4, r3, r3
+005: nop
+006: nop
+007: nop
+008: str r4, [r15, #9]
+009: sub r5, r4, r3
+010: nop
+011: nop
+012: ldr r6, [r15, #9]
+013: nop
+014: nop
+015: nop
+016: nop
+017: cmp r5, #-1
+018: bge 20
+019: cmp r5, #6
+020: ble 47
+021: b 38
