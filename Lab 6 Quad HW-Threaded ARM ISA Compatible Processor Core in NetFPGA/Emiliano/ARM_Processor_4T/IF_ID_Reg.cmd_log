@@ -1,1 +1,3 @@
 sch2verilog -intstyle ise -family virtex2p   -w "C:/Documents and Settings/student/Desktop/ARM_Processor_4T/IF_ID_Reg.sch" IF_ID_Reg.vf
+sch2verilog -intstyle ise -family virtex2p   -w "C:/Documents and Settings/student/Desktop/ARM_Processor_4T/IF_ID_Reg.sch" IF_ID_Reg.vf
+sch2verilog -intstyle ise -family virtex2p   -w "C:/Documents and Settings/student/Desktop/ARM_Processor_4T/IF_ID_Reg.sch" IF_ID_Reg.vf

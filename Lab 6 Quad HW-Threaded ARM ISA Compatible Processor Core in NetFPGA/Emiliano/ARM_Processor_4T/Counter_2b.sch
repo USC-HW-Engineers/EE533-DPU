@@ -13,14 +13,10 @@ BEGIN SCHEMATIC
         SIGNAL CLR
         SIGNAL CLK
         SIGNAL CE
-        SIGNAL XLXN_114
-        SIGNAL XLXN_116
-        SIGNAL TC
         PORT Output T_ID(1:0)
         PORT Input CLR
         PORT Input CLK
         PORT Input CE
-        PORT Output TC
         BEGIN BLOCKDEF ftce
             TIMESTAMP 2000 1 1 10 10 10
             LINE N 192 -32 64 -32 
@@ -40,16 +36,6 @@ BEGIN SCHEMATIC
             LINE N 64 0 64 -32 
             LINE N 96 -64 32 -64 
         END BLOCKDEF
-        BEGIN BLOCKDEF and2
-            TIMESTAMP 2000 1 1 10 10 10
-            LINE N 0 -64 64 -64 
-            LINE N 0 -128 64 -128 
-            LINE N 256 -96 192 -96 
-            ARC N 96 -144 192 -48 144 -48 144 -144 
-            LINE N 144 -48 64 -48 
-            LINE N 64 -144 144 -144 
-            LINE N 64 -48 64 -144 
-        END BLOCKDEF
         BEGIN BLOCK I_Q1 ftce
             PIN C CLK
             PIN CE CE
@@ -67,11 +53,6 @@ BEGIN SCHEMATIC
         BEGIN BLOCK I_36_9 vcc
             PIN P XLXN_1
         END BLOCK
-        BEGIN BLOCK XLXI_1 and2
-            PIN I0 T_ID(1)
-            PIN I1 T_ID(0)
-            PIN O TC
-        END BLOCK
     END NETLIST
     BEGIN SHEET 1 3520 2720
         INSTANCE I_Q1 896 2080 R0
@@ -79,31 +60,6 @@ BEGIN SCHEMATIC
         INSTANCE I_36_9 448 1248 R0
         BEGIN BRANCH XLXN_1
             WIRE 512 1248 896 1248
-        END BRANCH
-        BEGIN BRANCH T_ID(0)
-            WIRE 704 1568 1504 1568
-            WIRE 704 1568 704 1824
-            WIRE 704 1824 896 1824
-            WIRE 1280 1248 1504 1248
-            WIRE 1504 1248 1504 1568
-            WIRE 1504 1248 1680 1248
-            WIRE 1680 1248 2320 1248
-            WIRE 2320 1248 2512 1248
-            WIRE 1680 1248 1680 2000
-            WIRE 1680 2000 1856 2000
-            BEGIN DISPLAY 2320 1248 ATTR Name
-                ALIGNMENT SOFT-BCENTER
-            END DISPLAY
-        END BRANCH
-        BEGIN BRANCH T_ID(1)
-            WIRE 1280 1824 1840 1824
-            WIRE 1840 1824 2320 1824
-            WIRE 2320 1824 2512 1824
-            WIRE 1840 1824 1840 2064
-            WIRE 1840 2064 1856 2064
-            BEGIN DISPLAY 2320 1824 ATTR Name
-                ALIGNMENT SOFT-BCENTER
-            END DISPLAY
         END BRANCH
         BEGIN BRANCH T_ID(1:0)
             WIRE 2528 1136 2752 1136
@@ -136,10 +92,26 @@ BEGIN SCHEMATIC
         IOMARKER 560 1952 CLK R180 28
         IOMARKER 560 2048 CLR R180 28
         IOMARKER 2752 1136 T_ID(1:0) R0 28
-        INSTANCE XLXI_1 1856 2128 R0
-        BEGIN BRANCH TC
-            WIRE 2112 2032 2160 2032
+        BEGIN BRANCH T_ID(1)
+            WIRE 1280 1824 1840 1824
+            WIRE 1840 1824 2320 1824
+            WIRE 2320 1824 2512 1824
+            BEGIN DISPLAY 2320 1824 ATTR Name
+                ALIGNMENT SOFT-BCENTER
+            END DISPLAY
         END BRANCH
-        IOMARKER 2160 2032 TC R0 28
+        BEGIN BRANCH T_ID(0)
+            WIRE 704 1568 1504 1568
+            WIRE 704 1568 704 1824
+            WIRE 704 1824 896 1824
+            WIRE 1280 1248 1504 1248
+            WIRE 1504 1248 1504 1568
+            WIRE 1504 1248 1680 1248
+            WIRE 1680 1248 2320 1248
+            WIRE 2320 1248 2512 1248
+            BEGIN DISPLAY 2320 1248 ATTR Name
+                ALIGNMENT SOFT-BCENTER
+            END DISPLAY
+        END BRANCH
     END SHEET
 END SCHEMATIC

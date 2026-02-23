@@ -11,23 +11,12 @@ BEGIN SCHEMATIC
         SIGNAL XLXN_3
         SIGNAL XLXN_4
         SIGNAL vdd
-        SIGNAL XLXN_6
         SIGNAL CLR
-        SIGNAL XLXN_8
-        SIGNAL XLXN_9
         SIGNAL CLK
-        SIGNAL XLXN_11
-        SIGNAL XLXN_12
         SIGNAL V_in
         SIGNAL C_in
-        SIGNAL XLXN_15
-        SIGNAL XLXN_16
-        SIGNAL XLXN_17
-        SIGNAL XLXN_18
         SIGNAL Z_in
         SIGNAL N_in
-        SIGNAL XLXN_21
-        SIGNAL XLXN_22
         SIGNAL XLXN_23
         SIGNAL XLXN_26
         SIGNAL XLXN_27
@@ -44,13 +33,8 @@ BEGIN SCHEMATIC
         SIGNAL XLXN_42
         SIGNAL XLXN_44
         SIGNAL XLXN_45
-        SIGNAL XLXN_47
-        SIGNAL XLXN_48
         SIGNAL ID(1)
-        SIGNAL XLXN_51
-        SIGNAL XLXN_52
-        BEGIN SIGNAL ID(0)
-        END SIGNAL
+        SIGNAL ID(0)
         SIGNAL N_out
         SIGNAL Z_out
         SIGNAL C_out

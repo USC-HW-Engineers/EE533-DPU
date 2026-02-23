@@ -7,7 +7,7 @@
 // \   \   \/     Version : 10.1
 //  \   \         Application : sch2verilog
 //  /   /         Filename : Counter_2b.vf
-// /___/   /\     Timestamp : 02/21/2026 01:33:20
+// /___/   /\     Timestamp : 02/22/2026 21:38:23
 // \   \  /  \ 
 //  \___\/\___\ 
 //
@@ -52,13 +52,11 @@ endmodule
 module Counter_2b(CE, 
                   CLK, 
                   CLR, 
-                  TC, 
                   T_ID);
 
     input CE;
     input CLK;
     input CLR;
-   output TC;
    output [1:0] T_ID;
    
    wire XLXN_1;
@@ -78,7 +76,4 @@ module Counter_2b(CE,
                                  .Q(T_ID_DUMMY[1]));
    // synthesis attribute HU_SET of I_Q1 is "I_Q1_0"
    VCC I_36_9 (.P(XLXN_1));
-   AND2 XLXI_1 (.I0(T_ID_DUMMY[1]), 
-                .I1(T_ID_DUMMY[0]), 
-                .O(TC));
 endmodule

@@ -35,9 +35,6 @@ BEGIN SCHEMATIC
         SIGNAL ID_ALUSrc
         SIGNAL ID_TID(1:0)
         SIGNAL EX_TID(1:0)
-        SIGNAL XLXN_3
-        SIGNAL XLXN_4
-        SIGNAL XLXN_5
         PORT Input ID_R1(63:0)
         PORT Output EX_R1(63:0)
         PORT Output EX_R2(63:0)

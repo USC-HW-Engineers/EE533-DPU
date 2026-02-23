@@ -15,21 +15,18 @@ BEGIN SCHEMATIC
         SIGNAL XLXN_16
         SIGNAL XLXN_17
         SIGNAL XLXN_18
-        SIGNAL XLXN_19
-        SIGNAL XLXN_20
         SIGNAL L
         SIGNAL vdd
         SIGNAL ID(0)
         SIGNAL ID(1)
         SIGNAL XLXN_32
         SIGNAL XLXN_33
-        SIGNAL XLXN_34
         SIGNAL ID(1:0)
-        SIGNAL XLXN_43(6:0)
-        SIGNAL XLXN_44(6:0)
-        SIGNAL XLXN_45(6:0)
-        SIGNAL XLXN_46(6:0)
         SIGNAL Q(6:0)
+        SIGNAL XLXN_47(6:0)
+        SIGNAL XLXN_48(6:0)
+        SIGNAL XLXN_49(6:0)
+        SIGNAL XLXN_50(6:0)
         PORT Input CLR
         PORT Input CLK
         PORT Input D(6:0)
@@ -97,7 +94,7 @@ BEGIN SCHEMATIC
             PIN CLR CLR
             PIN D(6:0) D(6:0)
             PIN L XLXN_7
-            PIN Q(6:0) XLXN_43(6:0)
+            PIN Q(6:0) XLXN_47(6:0)
         END BLOCK
         BEGIN BLOCK XLXI_190 PCL_7b
             PIN CE XLXN_32
@@ -105,7 +102,7 @@ BEGIN SCHEMATIC
             PIN CLR CLR
             PIN D(6:0) D(6:0)
             PIN L XLXN_16
-            PIN Q(6:0) XLXN_44(6:0)
+            PIN Q(6:0) XLXN_48(6:0)
         END BLOCK
         BEGIN BLOCK XLXI_191 PCL_7b
             PIN CE XLXN_33
@@ -113,7 +110,7 @@ BEGIN SCHEMATIC
             PIN CLR CLR
             PIN D(6:0) D(6:0)
             PIN L XLXN_17
-            PIN Q(6:0) XLXN_45(6:0)
+            PIN Q(6:0) XLXN_49(6:0)
         END BLOCK
         BEGIN BLOCK XLXI_192 PCL_7b
             PIN CE XLXN_12
@@ -121,7 +118,7 @@ BEGIN SCHEMATIC
             PIN CLR CLR
             PIN D(6:0) D(6:0)
             PIN L XLXN_18
-            PIN Q(6:0) XLXN_46(6:0)
+            PIN Q(6:0) XLXN_50(6:0)
         END BLOCK
         BEGIN BLOCK XLXI_197 and2
             PIN I0 L
@@ -156,10 +153,10 @@ BEGIN SCHEMATIC
             PIN P vdd
         END BLOCK
         BEGIN BLOCK XLXI_206 Mux4_1_7b
-            PIN D0(6:0) XLXN_46(6:0)
-            PIN D1(6:0) XLXN_45(6:0)
-            PIN D2(6:0) XLXN_44(6:0)
-            PIN D3(6:0) XLXN_43(6:0)
+            PIN D0(6:0) XLXN_47(6:0)
+            PIN D1(6:0) XLXN_48(6:0)
+            PIN D2(6:0) XLXN_49(6:0)
+            PIN D3(6:0) XLXN_50(6:0)
             PIN O(6:0) Q(6:0)
             PIN S(1:0) ID(1:0)
         END BLOCK
@@ -267,7 +264,6 @@ BEGIN SCHEMATIC
             WIRE 784 1408 896 1408
             WIRE 896 1088 1008 1088
             WIRE 896 1088 896 1184
-            WIRE 896 1184 896 1184
             WIRE 896 1184 896 1408
             WIRE 896 1184 1360 1184
         END BRANCH
@@ -288,26 +284,6 @@ BEGIN SCHEMATIC
         IOMARKER 640 896 CLR R180 28
         BEGIN INSTANCE XLXI_206 2048 1504 R0
         END INSTANCE
-        BEGIN BRANCH XLXN_43(6:0)
-            WIRE 1744 640 1888 640
-            WIRE 1888 640 1888 1216
-            WIRE 1888 1216 2048 1216
-        END BRANCH
-        BEGIN BRANCH XLXN_44(6:0)
-            WIRE 1744 1056 1872 1056
-            WIRE 1872 1056 1872 1280
-            WIRE 1872 1280 2048 1280
-        END BRANCH
-        BEGIN BRANCH XLXN_45(6:0)
-            WIRE 1744 1472 1888 1472
-            WIRE 1888 1344 1888 1472
-            WIRE 1888 1344 2048 1344
-        END BRANCH
-        BEGIN BRANCH XLXN_46(6:0)
-            WIRE 1744 1888 1904 1888
-            WIRE 1904 1408 1904 1888
-            WIRE 1904 1408 2048 1408
-        END BRANCH
         BEGIN BRANCH ID(1:0)
             WIRE 2000 1472 2048 1472
             BEGIN DISPLAY 2000 1472 ATTR Name
@@ -318,5 +294,25 @@ BEGIN SCHEMATIC
             WIRE 2432 1216 2480 1216
         END BRANCH
         IOMARKER 2480 1216 Q(6:0) R0 28
+        BEGIN BRANCH XLXN_47(6:0)
+            WIRE 1744 640 1888 640
+            WIRE 1888 640 1888 1408
+            WIRE 1888 1408 2048 1408
+        END BRANCH
+        BEGIN BRANCH XLXN_48(6:0)
+            WIRE 1744 1056 1872 1056
+            WIRE 1872 1056 1872 1344
+            WIRE 1872 1344 2048 1344
+        END BRANCH
+        BEGIN BRANCH XLXN_49(6:0)
+            WIRE 1744 1472 1856 1472
+            WIRE 1856 1280 1856 1472
+            WIRE 1856 1280 2048 1280
+        END BRANCH
+        BEGIN BRANCH XLXN_50(6:0)
+            WIRE 1744 1888 1840 1888
+            WIRE 1840 1216 1840 1888
+            WIRE 1840 1216 2048 1216
+        END BRANCH
     END SHEET
 END SCHEMATIC

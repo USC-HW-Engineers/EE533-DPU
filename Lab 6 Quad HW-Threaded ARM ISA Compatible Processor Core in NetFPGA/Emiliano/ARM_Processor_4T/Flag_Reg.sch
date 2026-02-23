@@ -9,12 +9,9 @@ BEGIN SCHEMATIC
         SIGNAL C_in
         SIGNAL V_in
         SIGNAL C_out
-        SIGNAL XLXN_4
         SIGNAL CLK
         SIGNAL V_out
-        SIGNAL XLXN_7
         SIGNAL CE
-        SIGNAL XLXN_9
         SIGNAL CLR
         SIGNAL Z_in
         SIGNAL Z_out

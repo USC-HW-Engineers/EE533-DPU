@@ -6,7 +6,6 @@ BEGIN SCHEMATIC
         EDITTRAIT all:0
     END ATTR
     BEGIN NETLIST
-        SIGNAL XLXN_671(1:0)
         SIGNAL CLK
         SIGNAL INS(23:20)
         SIGNAL INS(19:16)
@@ -23,7 +22,6 @@ BEGIN SCHEMATIC
         SIGNAL ID_RegWrite
         SIGNAL ID_ALUSrc
         SIGNAL XLXN_426(63:0)
-        SIGNAL XLXN_698(63:0)
         SIGNAL XLXN_428(63:0)
         SIGNAL ALUAddr(3:0)
         SIGNAL XLXN_437
@@ -32,12 +30,9 @@ BEGIN SCHEMATIC
         SIGNAL EX_MemtoReg
         SIGNAL XLXN_460
         SIGNAL M_ALU(63:0)
-        SIGNAL XLXN_707(63:0)
         SIGNAL M_R2(63:0)
-        SIGNAL XLXN_709(63:0)
-        SIGNAL M_ALU(7:0)
+        SIGNAL M_ALU(9:2)
         SIGNAL M_OUT(63:0)
-        SIGNAL XLXN_714(63:0)
         SIGNAL WB_MemtoReg
         SIGNAL vdd
         SIGNAL CLR_ALL
@@ -75,12 +70,9 @@ BEGIN SCHEMATIC
         SIGNAL PC(8:7)
         SIGNAL PC(8:0)
         SIGNAL ID_TID(1:0)
-        SIGNAL XLXN_776
         SIGNAL WB_W
         SIGNAL WB_Data(63:0)
-        SIGNAL XLXN_779(63:0)
         SIGNAL WB_ADDR(3:0)
-        SIGNAL XLXN_781(3:0)
         SIGNAL EX_TID(1:0)
         SIGNAL IM_CLR
         SIGNAL PC(6:0)
@@ -115,7 +107,7 @@ BEGIN SCHEMATIC
             LINE N 96 -64 32 -64 
         END BLOCKDEF
         BEGIN BLOCKDEF I_Mem_Dual
-            TIMESTAMP 2026 2 21 21 58 27
+            TIMESTAMP 2026 2 23 5 37 48
             RECTANGLE N 32 0 256 496 
             BEGIN LINE W 0 48 32 48 
             END LINE
@@ -362,12 +354,11 @@ BEGIN SCHEMATIC
             RECTANGLE N 320 -300 384 -276 
         END BLOCKDEF
         BEGIN BLOCKDEF Counter_2b
-            TIMESTAMP 2026 2 21 9 30 13
+            TIMESTAMP 2026 2 23 5 2 51
             RECTANGLE N 64 -192 320 0 
             LINE N 64 -160 0 -160 
             LINE N 64 -96 0 -96 
             LINE N 64 -32 0 -32 
-            LINE N 320 -96 384 -96 
             LINE N 320 -160 384 -160 
             RECTANGLE N 320 -172 384 -148 
         END BLOCKDEF
@@ -407,11 +398,11 @@ BEGIN SCHEMATIC
             PIN ext_out(63:0) XLXN_428(63:0)
         END BLOCK
         BEGIN BLOCK XLXI_177 D_Mem
-            PIN addra(7:0) M_ALU(7:0)
+            PIN addra(7:0) M_ALU(9:2)
             PIN dina(63:0) M_R2(63:0)
             PIN wea M_WM
             PIN clka CLK
-            PIN addrb(7:0) M_ALU(7:0)
+            PIN addrb(7:0) M_ALU(9:2)
             PIN enb M_MemR
             PIN clkb CLK
             PIN doutb(63:0) M_OUT(63:0)
@@ -502,7 +493,6 @@ BEGIN SCHEMATIC
             PIN CE vdd
             PIN CLK CLK
             PIN CLR IM_CLR
-            PIN TC
             PIN T_ID(1:0) PC(8:7)
         END BLOCK
         BEGIN BLOCK XLXI_219 EX_M_Reg
@@ -694,15 +684,17 @@ BEGIN SCHEMATIC
             WIRE 3456 1264 3536 1264
             WIRE 3456 1264 3456 1488
         END BRANCH
-        BEGIN BRANCH M_ALU(7:0)
+        BEGIN BRANCH M_ALU(9:2)
             WIRE 3456 1232 3504 1232
+            WIRE 3504 1232 3504 1232
             WIRE 3504 1232 3536 1232
             BEGIN DISPLAY 3512 1232 ATTR Name
                 ALIGNMENT SOFT-BCENTER
             END DISPLAY
         END BRANCH
-        BEGIN BRANCH M_ALU(7:0)
+        BEGIN BRANCH M_ALU(9:2)
             WIRE 3440 1456 3504 1456
+            WIRE 3504 1456 3504 1456
             WIRE 3504 1456 3536 1456
             BEGIN DISPLAY 3512 1456 ATTR Name
                 ALIGNMENT SOFT-BCENTER

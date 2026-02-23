@@ -7,7 +7,7 @@
 // \   \   \/     Version : 10.1
 //  \   \         Application : sch2verilog
 //  /   /         Filename : Pipeline_Datapath.vf
-// /___/   /\     Timestamp : 02/21/2026 13:58:54
+// /___/   /\     Timestamp : 02/22/2026 21:38:22
 // \   \  /  \ 
 //  \___\/\___\ 
 //
@@ -116,8 +116,8 @@ module Pipeline_Datapath(ADDR,
                  .Z(Z));
    Sign_Extend_12to64 XLXI_175 (.ext_in(XLXN_598[11:0]), 
                                 .ext_out(XLXN_428[63:0]));
-   D_Mem XLXI_177 (.addra(M_ALU[7:0]), 
-                   .addrb(M_ALU[7:0]), 
+   D_Mem XLXI_177 (.addra(M_ALU[9:2]), 
+                   .addrb(M_ALU[9:2]), 
                    .clka(CLK), 
                    .clkb(CLK), 
                    .dina(M_R2[63:0]), 
@@ -194,7 +194,6 @@ module Pipeline_Datapath(ADDR,
    Counter_2b XLXI_217 (.CE(vdd), 
                         .CLK(CLK), 
                         .CLR(IM_CLR), 
-                        .TC(), 
                         .T_ID(PC[8:7]));
    EX_M_Reg XLXI_219 (.CE(vdd), 
                       .CLK(CLK), 

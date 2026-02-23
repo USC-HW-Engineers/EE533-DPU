@@ -9,16 +9,12 @@ BEGIN SCHEMATIC
         SIGNAL D(7:4)
         SIGNAL D(3:0)
         SIGNAL Q(7:4)
-        SIGNAL XLXN_4
         SIGNAL CLK
         SIGNAL Q(3:0)
-        SIGNAL XLXN_7
         SIGNAL CE
-        SIGNAL XLXN_9
         SIGNAL CLR
         SIGNAL D(11:8)
         SIGNAL Q(11:8)
-        SIGNAL XLXN_17
         SIGNAL D(11:0)
         SIGNAL Q(11:0)
         PORT Input CLK

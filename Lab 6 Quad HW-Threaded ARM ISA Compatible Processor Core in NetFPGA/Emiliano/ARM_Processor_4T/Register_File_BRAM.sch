@@ -14,8 +14,6 @@ BEGIN SCHEMATIC
         SIGNAL waddr(3:0)
         SIGNAL r1addr(3:0)
         SIGNAL r0addr(3:0)
-        SIGNAL XLXN_8
-        SIGNAL XLXN_14(5:0)
         SIGNAL R_ID(1:0)
         SIGNAL W_ID(1:0)
         SIGNAL XLXN_18(5:0)
@@ -42,7 +40,7 @@ BEGIN SCHEMATIC
             LINE N 320 -96 384 -96 
         END BLOCKDEF
         BEGIN BLOCKDEF Reg_File_Dual
-            TIMESTAMP 2026 2 21 7 59 41
+            TIMESTAMP 2026 2 23 5 33 4
             RECTANGLE N 32 0 256 496 
             BEGIN LINE W 0 48 32 48 
             END LINE
@@ -173,9 +171,8 @@ BEGIN SCHEMATIC
         END BRANCH
         BEGIN BRANCH XLXN_20(5:0)
             WIRE 1072 912 1328 912
-            WIRE 1328 912 1488 912
-            WIRE 1488 912 1488 1296
-            WIRE 1488 1296 1616 1296
+            WIRE 1328 912 1328 1296
+            WIRE 1328 1296 1616 1296
             WIRE 1328 752 1328 912
             WIRE 1328 752 1616 752
         END BRANCH

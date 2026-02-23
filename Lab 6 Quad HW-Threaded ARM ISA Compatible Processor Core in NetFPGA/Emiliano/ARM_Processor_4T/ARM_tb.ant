@@ -1,0 +1,78 @@
+////////////////////////////////////////////////////////////////////////////////
+// Copyright (c) 1995-2003 Xilinx, Inc.
+// All Right Reserved.
+////////////////////////////////////////////////////////////////////////////////
+//   ____  ____ 
+//  /   /\/   / 
+// /___/  \  /    Vendor: Xilinx 
+// \   \   \/     Version : 10.1
+//  \   \         Application : ISE
+//  /   /         Filename : ARM_tb.ant
+// /___/   /\     Timestamp : Sat Feb 21 20:08:36 2026
+// \   \  /  \ 
+//  \___\/\___\ 
+//
+//Command: 
+//Design Name: ARM_tb
+//Device: Xilinx
+//
+`timescale 1ns/1ps
+
+module ARM_tb;
+    reg [8:0] ADDR = 9'b000000000;
+    reg CLK = 1'b0;
+    reg CLR_ALL = 1'b0;
+    reg [31:0] DIN = 32'b00000000000000000000000000000000;
+    reg IM_CLR = 1'b0;
+    reg IM_WE = 1'b0;
+
+    parameter PERIOD = 20;
+    parameter real DUTY_CYCLE = 0.5;
+    parameter OFFSET = 0;
+
+    initial    // Clock process for CLK
+    begin
+        #OFFSET;
+        forever
+        begin
+            CLK = 1'b0;
+            #(PERIOD-(PERIOD*DUTY_CYCLE)) CLK = 1'b1;
+            #(PERIOD*DUTY_CYCLE);
+        end
+    end
+
+    Pipeline_Datapath UUT (
+        .ADDR(ADDR),
+        .CLK(CLK),
+        .CLR_ALL(CLR_ALL),
+        .DIN(DIN),
+        .IM_CLR(IM_CLR),
+        .IM_WE(IM_WE));
+
+    integer TX_FILE = 0;
+    integer TX_ERROR = 0;
+    
+    initial begin  // Open the annotations file...
+        TX_FILE = $fopen("C:\\Documents and Settings\\student\\Desktop\\ARM_Processor_4T\\ARM_tb.ano");
+        #3020 // Final time:  3020 ns
+        $display("Success! Annotation Simulation Complete.");
+        $fdisplay(TX_FILE, "Total[%d]", TX_ERROR);
+        $fclose(TX_FILE);
+        $finish;
+    end
+
+    initial begin
+        // -------------  Current Time:  85ns
+        #85;
+        CLR_ALL = 1'b1;
+        IM_CLR = 1'b1;
+        // -------------------------------------
+        // -------------  Current Time:  105ns
+        #20;
+        CLR_ALL = 1'b0;
+        IM_CLR = 1'b0;
+        // -------------------------------------
+    end
+
+endmodule
+

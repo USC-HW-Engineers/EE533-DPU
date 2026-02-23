@@ -7,11 +7,11 @@
 // \   \   \/     Version : 10.1
 //  \   \         Application : sch2verilog
 //  /   /         Filename : Mux2_1_64b.vf
-// /___/   /\     Timestamp : 02/18/2026 19:45:35
+// /___/   /\     Timestamp : 02/21/2026 14:27:32
 // \   \  /  \ 
 //  \___\/\___\ 
 //
-//Command: C:\Xilinx\10.1\ISE\bin\nt\unwrapped\sch2verilog.exe -intstyle ise -family virtex2p -w "C:/Documents and Settings/student/Desktop/ARM_Processor/Mux2_1_64b.sch" Mux2_1_64b.vf
+//Command: C:\Xilinx\10.1\ISE\bin\nt\unwrapped\sch2verilog.exe -intstyle ise -family virtex2p -w "C:/Documents and Settings/student/Desktop/ARM_Processor_4T/Mux2_1_64b.sch" Mux2_1_64b.vf
 //Design Name: Mux2_1_64b
 //Device: virtex2p
 //Purpose:

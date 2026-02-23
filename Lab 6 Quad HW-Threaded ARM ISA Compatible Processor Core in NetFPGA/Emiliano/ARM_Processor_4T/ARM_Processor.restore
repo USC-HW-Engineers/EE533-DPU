@@ -837,6 +837,7 @@ proc restore { { project_dir "" } } {
 
   set user_files { 
       "ALU.v" 
+      "ARM_tb.tbw" 
       "Condition_Unit.v" 
       "Control_Unit.v" 
       "Counter_2b.sch" 
@@ -854,8 +855,6 @@ proc restore { { project_dir "" } } {
       "Mux_2_1_16b.sch" 
       "PCL_7b.sch" 
       "PCL_7b_4.sch" 
-      "PCL_9b.sch" 
-      "PC_9b.sch" 
       "Pipeline_Datapath.sch" 
       "Pipeline_Datapath_tb.tbw" 
       "Reg_File_Dual.xco" 
@@ -874,6 +873,7 @@ proc restore { { project_dir "" } } {
 
   set imported_files { 
       "ALU.sym" 
+      "ARM_tb.xwv" 
       "Condition_Unit.sym" 
       "Control_Unit.sym" 
       "D_Mem.asy" 

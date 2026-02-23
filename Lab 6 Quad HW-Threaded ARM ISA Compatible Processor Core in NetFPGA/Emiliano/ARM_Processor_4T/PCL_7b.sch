@@ -6,22 +6,16 @@ BEGIN SCHEMATIC
         EDITTRAIT all:0
     END ATTR
     BEGIN NETLIST
-        SIGNAL XLXN_1
         SIGNAL Q(0)
         SIGNAL Q(1)
         SIGNAL Q(2)
         SIGNAL Q(3)
-        SIGNAL XLXN_6
         SIGNAL T2
-        SIGNAL XLXN_8
         SIGNAL T3
         SIGNAL Q(4)
-        SIGNAL XLXN_11
         SIGNAL XLXN_52
-        SIGNAL XLXN_13
         SIGNAL XLXN_55
         SIGNAL Q(5)
-        SIGNAL XLXN_16
         SIGNAL XLXN_58
         SIGNAL Q(6)
         SIGNAL XLXN_19
@@ -32,24 +26,12 @@ BEGIN SCHEMATIC
         SIGNAL D(4)
         SIGNAL D(5)
         SIGNAL D(6)
-        SIGNAL XLXN_28
         SIGNAL Q(6:0)
         SIGNAL D(6:0)
-        SIGNAL XLXN_34(8:0)
-        SIGNAL XLXN_35
-        SIGNAL XLXN_36
-        SIGNAL XLXN_37
         SIGNAL L
-        SIGNAL XLXN_39
-        SIGNAL XLXN_40
         SIGNAL CLK
-        SIGNAL XLXN_42
-        SIGNAL XLXN_43
         SIGNAL CLR
-        SIGNAL XLXN_45
         SIGNAL CE
-        SIGNAL XLXN_49
-        SIGNAL XLXN_50
         SIGNAL XLXN_169
         PORT Output Q(6:0)
         PORT Input D(6:0)
@@ -449,12 +431,26 @@ BEGIN SCHEMATIC
             WIRE 3488 160 7056 160
             WIRE 7056 160 7328 160
             WIRE 7056 160 7056 1136
-            WIRE 3488 160 3488 4784
+            WIRE 3488 160 3488 512
+            WIRE 3488 512 3488 1088
+            WIRE 3488 1088 3488 1728
+            WIRE 3488 1728 3488 2496
+            WIRE 3488 2496 3488 3360
+            WIRE 3488 3360 3488 4000
+            WIRE 3488 4000 3488 4736
+            WIRE 3488 4736 3488 4784
         END BRANCH
         BEGIN BRANCH D(6:0)
             WIRE 208 5168 416 5168
             WIRE 416 5168 3984 5168
-            WIRE 416 304 416 5168
+            WIRE 416 304 416 384
+            WIRE 416 384 416 960
+            WIRE 416 960 416 1600
+            WIRE 416 1600 416 2368
+            WIRE 416 2368 416 3232
+            WIRE 416 3232 416 3872
+            WIRE 416 3872 416 4608
+            WIRE 416 4608 416 5168
             WIRE 3984 336 3984 944
             WIRE 3984 944 3984 5168
         END BRANCH

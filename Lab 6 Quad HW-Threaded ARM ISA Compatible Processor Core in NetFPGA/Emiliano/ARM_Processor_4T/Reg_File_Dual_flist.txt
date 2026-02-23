@@ -1,5 +1,6 @@
 # Output products list for <Reg_File_Dual>
 Reg_File_Dual.asy
+Reg_File_Dual.mif
 Reg_File_Dual.ngc
 Reg_File_Dual.sym
 Reg_File_Dual.v

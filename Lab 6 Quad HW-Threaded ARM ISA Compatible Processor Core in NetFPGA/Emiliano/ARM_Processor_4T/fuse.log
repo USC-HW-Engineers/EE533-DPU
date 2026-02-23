@@ -149,7 +149,7 @@ Restoring Verilog parse-tree unisims_ver.AND4 from
 c:/xilinx/10.1/ise/verilog/hdp/nt/unisims_ver/unisims_ver.sdbl
 Completed static elaboration
 Fuse Memory Usage: 57224 Kb
-Fuse CPU Usage: 577 ms
+Fuse CPU Usage: 515 ms
 Compiling module glbl
 Compiling module VCC
 Compiling module AND2B1
@@ -793,4 +793,4 @@ Compiling module Pipeline_Datapath_tb
 Compiled 640 Verilog Units
 Built simulation executable Pipeline_Datapath_tb_isim_beh.exe
 Fuse Memory Usage: 61836 Kb
-Fuse CPU Usage: 1593 ms
+Fuse CPU Usage: 1437 ms

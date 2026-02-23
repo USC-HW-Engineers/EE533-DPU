@@ -6,3 +6,5 @@ sch2verilog -intstyle ise -family virtex2p   -w "C:/Documents and Settings/stude
 sch2verilog -intstyle ise -family virtex2p   -w "C:/Documents and Settings/student/Desktop/ARM_Processor/ID_EX_Reg.sch" ID_EX_Reg.vf
 sch2verilog -intstyle ise -family virtex2p   -w "C:/Documents and Settings/student/Desktop/ARM_Processor/ID_EX_Reg.sch" ID_EX_Reg.vf
 sch2verilog -intstyle ise -family virtex2p   -w "C:/Documents and Settings/student/Desktop/ARM_Processor_4T/ID_EX_Reg.sch" ID_EX_Reg.vf
+sch2verilog -intstyle ise -family virtex2p   -w "C:/Documents and Settings/student/Desktop/ARM_Processor_4T/ID_EX_Reg.sch" ID_EX_Reg.vf
+sch2verilog -intstyle ise -family virtex2p   -w "C:/Documents and Settings/student/Desktop/ARM_Processor_4T/ID_EX_Reg.sch" ID_EX_Reg.vf

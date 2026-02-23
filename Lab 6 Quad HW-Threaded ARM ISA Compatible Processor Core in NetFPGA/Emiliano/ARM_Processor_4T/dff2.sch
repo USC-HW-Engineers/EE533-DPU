@@ -12,9 +12,6 @@ BEGIN SCHEMATIC
         SIGNAL CLK
         SIGNAL D(1:0)
         SIGNAL Q(1:0)
-        SIGNAL XLXN_1
-        SIGNAL XLXN_2
-        SIGNAL XLXN_4
         SIGNAL Q(0)
         SIGNAL CE
         SIGNAL CLR
