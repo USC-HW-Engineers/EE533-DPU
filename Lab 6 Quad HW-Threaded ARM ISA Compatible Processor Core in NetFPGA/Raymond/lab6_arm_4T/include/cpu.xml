@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<nf:module xmlns:nf="http://www.NetFPGA.org/NF2_register_system" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.NetFPGA.org/NF2_register_system NF2_register_system.xsd ">
+	<nf:name>cpu</nf:name>
+	<nf:prefix>cpu</nf:prefix>
+	<nf:location>udp</nf:location>
+	<nf:description>Registers for CPU</nf:description>
+	<nf:blocksize>64</nf:blocksize>
+	<nf:registers>
+                <!-- Software Registers  -->
+		<nf:register>
+		  <nf:name>imem_addr</nf:name>
+			<nf:description>Instruction Memory Address</nf:description>
+			<nf:type>generic_software32</nf:type>
+		</nf:register>
+		<nf:register>
+		  <nf:name>imem_data</nf:name>
+			<nf:description>Instruction Memory Data</nf:description>
+			<nf:type>generic_software32</nf:type>
+		</nf:register>
+		<nf:register>
+		  <nf:name>dmem_addr</nf:name>
+			<nf:description>Data  Memory Address</nf:description>
+			<nf:type>generic_software32</nf:type>
+		</nf:register>
+		<nf:register>
+		  <nf:name>dmem_data</nf:name>
+			<nf:description>Data Memory Data</nf:description>
+			<nf:type>generic_software32</nf:type>
+		</nf:register>
+		<nf:register>
+		  <nf:name>cpu_ctrl</nf:name>
+			<nf:description>bit 0: reset, bit 1: imem write, bit 2: dmem_write</nf:description>
+			<nf:type>generic_software32</nf:type>
+		</nf:register>
+
+                <!-- Hardware Registers -->
+        	<nf:register>
+		  <nf:name>current_pc</nf:name>
+			<nf:description>Monitor PC counter</nf:description>
+			<nf:type>generic_hardware32</nf:type>
+		</nf:register>
+        	<nf:register>
+		  <nf:name>dmem_data_low_rd</nf:name>
+			<nf:description> lower 32 bit data from data memory</nf:description>
+			<nf:type>generic_hardware32</nf:type>
+		</nf:register>
+        	<nf:register>
+		  <nf:name>dmem_data_high_rd</nf:name>
+			<nf:description> higher 32 bit data from data memory</nf:description>
+			<nf:type>generic_hardware32</nf:type>
+		</nf:register>
+        	<nf:register>
+		  <nf:name>cycle_counts</nf:name>
+			<nf:description>Total clock cycles</nf:description>
+			<nf:type>generic_hardware32</nf:type>
+		</nf:register>
+	</nf:registers>
+</nf:module>
+
