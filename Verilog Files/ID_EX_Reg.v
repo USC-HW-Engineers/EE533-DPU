@@ -7,11 +7,11 @@
 // \   \   \/     Version : 10.1
 //  \   \         Application : sch2verilog
 //  /   /         Filename : ID_EX_Reg.vf
-// /___/   /\     Timestamp : 02/13/2026 13:18:08
+// /___/   /\     Timestamp : 02/17/2026 19:49:48
 // \   \  /  \ 
 //  \___\/\___\ 
 //
-//Command: C:\Xilinx\10.1\ISE\bin\nt\unwrapped\sch2verilog.exe -intstyle ise -family virtex2p -w "C:/Documents and Settings/student/Desktop/5_Stage_Pipeline/ID_EX_Reg.sch" ID_EX_Reg.vf
+//Command: C:\Xilinx\10.1\ISE\bin\nt\unwrapped\sch2verilog.exe -intstyle ise -family virtex2p -w "C:/Documents and Settings/student/Desktop/ARM_Processor/ID_EX_Reg.sch" ID_EX_Reg.vf
 //Design Name: ID_EX_Reg
 //Device: virtex2p
 //Purpose:
@@ -49,21 +49,6 @@ module ID_EX_Reg(CE,
    output EX_WRE;
    
    
-   ifd64 XLXI_6 (.CE(CE), 
-                 .CLK(CLK), 
-                 .CLR(CLR), 
-                 .D(ID_R1[63:0]), 
-                 .Q(EX_R1[63:0]));
-   ifd64 XLXI_7 (.CE(CE), 
-                 .CLK(CLK), 
-                 .CLR(CLR), 
-                 .D(ID_R2[63:0]), 
-                 .Q(EX_R2[63:0]));
-   ifd2 XLXI_10 (.CE(CE), 
-                 .CLK(CLK), 
-                 .CLR(CLR), 
-                 .D(ID_REG1[1:0]), 
-                 .Q(EX_REG1[1:0]));
    FDCE XLXI_12 (.C(CLK), 
                  .CE(CE), 
                  .CLR(CLR), 
@@ -76,4 +61,19 @@ module ID_EX_Reg(CE,
                  .D(ID_WRE), 
                  .Q(EX_WRE));
    defparam XLXI_13.INIT = 1'b0;
+   dff64 XLXI_14 (.CE(CE), 
+                  .CLK(CLK), 
+                  .CLR(CLR), 
+                  .D(ID_R1[63:0]), 
+                  .Q(EX_R1[63:0]));
+   dff64 XLXI_15 (.CE(CE), 
+                  .CLK(CLK), 
+                  .CLR(CLR), 
+                  .D(ID_R2[63:0]), 
+                  .Q(EX_R2[63:0]));
+   dff2 XLXI_16 (.CE(CE), 
+                 .CLK(CLK), 
+                 .CLR(CLR), 
+                 .D(ID_REG1[1:0]), 
+                 .Q(EX_REG1[1:0]));
 endmodule

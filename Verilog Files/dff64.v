@@ -6,13 +6,13 @@
 // /___/  \  /    Vendor: Xilinx 
 // \   \   \/     Version : 10.1
 //  \   \         Application : sch2verilog
-//  /   /         Filename : ifd64.vf
-// /___/   /\     Timestamp : 02/13/2026 13:18:06
+//  /   /         Filename : dff64.vf
+// /___/   /\     Timestamp : 02/17/2026 19:49:47
 // \   \  /  \ 
 //  \___\/\___\ 
 //
-//Command: C:\Xilinx\10.1\ISE\bin\nt\unwrapped\sch2verilog.exe -intstyle ise -family virtex2p -w "C:/Documents and Settings/student/Desktop/5_Stage_Pipeline/ifd64.sch" ifd64.vf
-//Design Name: ifd64
+//Command: C:\Xilinx\10.1\ISE\bin\nt\unwrapped\sch2verilog.exe -intstyle ise -family virtex2p -w "C:/Documents and Settings/student/Desktop/ARM_Processor/dff64.sch" dff64.vf
+//Design Name: dff64
 //Device: virtex2p
 //Purpose:
 //    This verilog netlist is translated from an ECS schematic.It can be 
@@ -20,7 +20,7 @@
 //
 `timescale 1ns / 1ps
 
-module FD16CE_MXILINX_ifd64(C, 
+module FD16CE_MXILINX_dff64(C, 
                             CE, 
                             CLR, 
                             D, 
@@ -132,7 +132,7 @@ module FD16CE_MXILINX_ifd64(C,
 endmodule
 `timescale 1ns / 1ps
 
-module ifd64(CE, 
+module dff64(CE, 
              CLK, 
              CLR, 
              D, 
@@ -145,25 +145,25 @@ module ifd64(CE,
    output [63:0] Q;
    
    
-   FD16CE_MXILINX_ifd64 XLXI_34 (.C(CLK), 
+   FD16CE_MXILINX_dff64 XLXI_34 (.C(CLK), 
                                  .CE(CE), 
                                  .CLR(CLR), 
                                  .D(D[63:48]), 
                                  .Q(Q[63:48]));
    // synthesis attribute HU_SET of XLXI_34 is "XLXI_34_0"
-   FD16CE_MXILINX_ifd64 XLXI_41 (.C(CLK), 
+   FD16CE_MXILINX_dff64 XLXI_41 (.C(CLK), 
                                  .CE(CE), 
                                  .CLR(CLR), 
                                  .D(D[47:32]), 
                                  .Q(Q[47:32]));
    // synthesis attribute HU_SET of XLXI_41 is "XLXI_41_1"
-   FD16CE_MXILINX_ifd64 XLXI_44 (.C(CLK), 
+   FD16CE_MXILINX_dff64 XLXI_44 (.C(CLK), 
                                  .CE(CE), 
                                  .CLR(CLR), 
                                  .D(D[31:16]), 
                                  .Q(Q[31:16]));
    // synthesis attribute HU_SET of XLXI_44 is "XLXI_44_2"
-   FD16CE_MXILINX_ifd64 XLXI_45 (.C(CLK), 
+   FD16CE_MXILINX_dff64 XLXI_45 (.C(CLK), 
                                  .CE(CE), 
                                  .CLR(CLR), 
                                  .D(D[15:0]), 

@@ -1,0 +1,382 @@
+VERSION 6
+BEGIN SCHEMATIC
+    BEGIN ATTR DeviceFamilyName "virtex2p"
+        DELETE all:0
+        EDITNAME all:0
+        EDITTRAIT all:0
+    END ATTR
+    BEGIN NETLIST
+        SIGNAL ID_R1(63:0)
+        SIGNAL EX_R1(63:0)
+        SIGNAL EX_R2(63:0)
+        SIGNAL ID_R2(63:0)
+        SIGNAL ID_Addr(2:0)
+        SIGNAL EX_Addr(2:0)
+        SIGNAL ID_ALUC(3:0)
+        SIGNAL EX_ALUC(3:0)
+        SIGNAL CLR
+        SIGNAL CLK
+        SIGNAL CE
+        SIGNAL ID_B
+        SIGNAL EX_B
+        SIGNAL ID_MemW
+        SIGNAL EX_MemW
+        SIGNAL ID_MemR
+        SIGNAL EX_MemR
+        SIGNAL ID_M2Reg
+        SIGNAL EX_M2Reg
+        SIGNAL ID_RegW
+        SIGNAL EX_RegW
+        SIGNAL EX_ALUSrc
+        SIGNAL ID_ALUSrc
+        SIGNAL ID_ALUD(15:0)
+        SIGNAL EX_ALUD(15:0)
+        PORT Input ID_R1(63:0)
+        PORT Output EX_R1(63:0)
+        PORT Output EX_R2(63:0)
+        PORT Input ID_R2(63:0)
+        PORT Input ID_Addr(2:0)
+        PORT Output EX_Addr(2:0)
+        PORT Input ID_ALUC(3:0)
+        PORT Output EX_ALUC(3:0)
+        PORT Input CLR
+        PORT Input CLK
+        PORT Input CE
+        PORT Input ID_B
+        PORT Output EX_B
+        PORT Input ID_MemW
+        PORT Output EX_MemW
+        PORT Input ID_MemR
+        PORT Output EX_MemR
+        PORT Input ID_M2Reg
+        PORT Output EX_M2Reg
+        PORT Input ID_RegW
+        PORT Output EX_RegW
+        PORT Output EX_ALUSrc
+        PORT Input ID_ALUSrc
+        PORT Input ID_ALUD(15:0)
+        PORT Output EX_ALUD(15:0)
+        BEGIN BLOCKDEF fdce
+            TIMESTAMP 2000 1 1 10 10 10
+            LINE N 0 -128 64 -128 
+            LINE N 0 -192 64 -192 
+            LINE N 0 -32 64 -32 
+            LINE N 0 -256 64 -256 
+            LINE N 384 -256 320 -256 
+            LINE N 64 -112 80 -128 
+            LINE N 80 -128 64 -144 
+            LINE N 192 -64 192 -32 
+            LINE N 192 -32 64 -32 
+            RECTANGLE N 64 -320 320 -64 
+        END BLOCKDEF
+        BEGIN BLOCKDEF dff64
+            TIMESTAMP 2026 2 18 2 44 0
+            RECTANGLE N 64 -256 320 0 
+            LINE N 64 -160 0 -160 
+            LINE N 64 -96 0 -96 
+            LINE N 64 -32 0 -32 
+            LINE N 64 -224 0 -224 
+            RECTANGLE N 0 -236 64 -212 
+            LINE N 320 -224 384 -224 
+            RECTANGLE N 320 -236 384 -212 
+        END BLOCKDEF
+        BEGIN BLOCKDEF dff3
+            TIMESTAMP 2026 2 18 6 33 12
+            RECTANGLE N 64 -256 320 0 
+            LINE N 64 -160 0 -160 
+            LINE N 64 -96 0 -96 
+            LINE N 64 -32 0 -32 
+            LINE N 64 -224 0 -224 
+            RECTANGLE N 0 -236 64 -212 
+            LINE N 320 -224 384 -224 
+            RECTANGLE N 320 -236 384 -212 
+        END BLOCKDEF
+        BEGIN BLOCKDEF dff4
+            TIMESTAMP 2026 2 18 23 59 5
+            RECTANGLE N 64 -256 320 0 
+            LINE N 64 -160 0 -160 
+            LINE N 64 -96 0 -96 
+            LINE N 64 -32 0 -32 
+            LINE N 64 -224 0 -224 
+            RECTANGLE N 0 -236 64 -212 
+            LINE N 320 -224 384 -224 
+            RECTANGLE N 320 -236 384 -212 
+        END BLOCKDEF
+        BEGIN BLOCKDEF fd16ce
+            TIMESTAMP 2000 1 1 10 10 10
+            LINE N 0 -128 64 -128 
+            LINE N 0 -192 64 -192 
+            LINE N 0 -32 64 -32 
+            LINE N 0 -256 64 -256 
+            LINE N 384 -256 320 -256 
+            LINE N 80 -128 64 -144 
+            LINE N 64 -112 80 -128 
+            RECTANGLE N 320 -268 384 -244 
+            RECTANGLE N 0 -268 64 -244 
+            LINE N 192 -32 64 -32 
+            LINE N 192 -64 192 -32 
+            RECTANGLE N 64 -320 320 -64 
+        END BLOCKDEF
+        BEGIN BLOCK XLXI_15 dff64
+            PIN CE CE
+            PIN CLK CLK
+            PIN CLR CLR
+            PIN D(63:0) ID_R2(63:0)
+            PIN Q(63:0) EX_R2(63:0)
+        END BLOCK
+        BEGIN BLOCK XLXI_17 dff3
+            PIN CE CE
+            PIN CLK CLK
+            PIN CLR CLR
+            PIN D(2:0) ID_Addr(2:0)
+            PIN Q(2:0) EX_Addr(2:0)
+        END BLOCK
+        BEGIN BLOCK XLXI_65 fdce
+            PIN C CLK
+            PIN CE CE
+            PIN CLR CLR
+            PIN D ID_ALUSrc
+            PIN Q EX_ALUSrc
+        END BLOCK
+        BEGIN BLOCK XLXI_28 fdce
+            PIN C CLK
+            PIN CE CE
+            PIN CLR CLR
+            PIN D ID_B
+            PIN Q EX_B
+        END BLOCK
+        BEGIN BLOCK XLXI_29 fdce
+            PIN C CLK
+            PIN CE CE
+            PIN CLR CLR
+            PIN D ID_MemW
+            PIN Q EX_MemW
+        END BLOCK
+        BEGIN BLOCK XLXI_30 fdce
+            PIN C CLK
+            PIN CE CE
+            PIN CLR CLR
+            PIN D ID_MemR
+            PIN Q EX_MemR
+        END BLOCK
+        BEGIN BLOCK XLXI_39 fdce
+            PIN C CLK
+            PIN CE CE
+            PIN CLR CLR
+            PIN D ID_M2Reg
+            PIN Q EX_M2Reg
+        END BLOCK
+        BEGIN BLOCK XLXI_59 fdce
+            PIN C CLK
+            PIN CE CE
+            PIN CLR CLR
+            PIN D ID_RegW
+            PIN Q EX_RegW
+        END BLOCK
+        BEGIN BLOCK XLXI_78 fd16ce
+            PIN C CLK
+            PIN CE CE
+            PIN CLR CLR
+            PIN D(15:0) ID_ALUD(15:0)
+            PIN Q(15:0) EX_ALUD(15:0)
+        END BLOCK
+        BEGIN BLOCK XLXI_79 dff4
+            PIN CE CE
+            PIN CLK CLK
+            PIN CLR CLR
+            PIN D(3:0) ID_ALUC(3:0)
+            PIN Q(3:0) EX_ALUC(3:0)
+        END BLOCK
+        BEGIN BLOCK XLXI_80 dff64
+            PIN CE CE
+            PIN CLK CLK
+            PIN CLR CLR
+            PIN D(63:0) ID_R1(63:0)
+            PIN Q(63:0) EX_R1(63:0)
+        END BLOCK
+    END NETLIST
+    BEGIN SHEET 1 3520 5440
+        BEGIN BRANCH ID_R1(63:0)
+            WIRE 1312 2528 1392 2528
+        END BRANCH
+        BEGIN BRANCH EX_R1(63:0)
+            WIRE 1776 2528 1856 2528
+        END BRANCH
+        BEGIN BRANCH EX_R2(63:0)
+            WIRE 1776 2848 1856 2848
+        END BRANCH
+        BEGIN BRANCH ID_R2(63:0)
+            WIRE 1312 2848 1392 2848
+        END BRANCH
+        BEGIN BRANCH ID_Addr(2:0)
+            WIRE 1312 3200 1392 3200
+        END BRANCH
+        BEGIN BRANCH EX_Addr(2:0)
+            WIRE 1776 3200 1856 3200
+        END BRANCH
+        BEGIN INSTANCE XLXI_15 1392 3072 R0
+        END INSTANCE
+        BEGIN INSTANCE XLXI_17 1392 3424 R0
+        END INSTANCE
+        IOMARKER 1312 2528 ID_R1(63:0) R180 28
+        IOMARKER 1856 2528 EX_R1(63:0) R0 28
+        IOMARKER 1312 2848 ID_R2(63:0) R180 28
+        IOMARKER 1856 2848 EX_R2(63:0) R0 28
+        IOMARKER 1312 3200 ID_Addr(2:0) R180 28
+        IOMARKER 1856 3200 EX_Addr(2:0) R0 28
+        BEGIN BRANCH ID_ALUC(3:0)
+            WIRE 1312 3536 1392 3536
+        END BRANCH
+        BEGIN BRANCH EX_ALUC(3:0)
+            WIRE 1776 3536 1856 3536
+        END BRANCH
+        IOMARKER 1312 3536 ID_ALUC(3:0) R180 28
+        IOMARKER 1856 3536 EX_ALUC(3:0) R0 28
+        BEGIN BRANCH CLK
+            WIRE 1312 4000 1360 4000
+            WIRE 1360 4000 1392 4000
+            WIRE 1360 576 1392 576
+            WIRE 1360 576 1360 928
+            WIRE 1360 928 1360 1280
+            WIRE 1360 1280 1360 1632
+            WIRE 1360 1632 1360 1984
+            WIRE 1360 1984 1360 2320
+            WIRE 1360 2320 1360 2656
+            WIRE 1360 2656 1360 2976
+            WIRE 1360 2976 1360 3328
+            WIRE 1360 3328 1360 3664
+            WIRE 1360 3664 1392 3664
+            WIRE 1360 3664 1360 4000
+            WIRE 1360 3328 1392 3328
+            WIRE 1360 2976 1392 2976
+            WIRE 1360 2656 1392 2656
+            WIRE 1360 2320 1392 2320
+            WIRE 1360 1984 1392 1984
+            WIRE 1360 1632 1392 1632
+            WIRE 1360 1280 1392 1280
+            WIRE 1360 928 1392 928
+        END BRANCH
+        BEGIN BRANCH CE
+            WIRE 1312 3936 1344 3936
+            WIRE 1344 3936 1392 3936
+            WIRE 1344 512 1392 512
+            WIRE 1344 512 1344 864
+            WIRE 1344 864 1344 1216
+            WIRE 1344 1216 1344 1568
+            WIRE 1344 1568 1344 1920
+            WIRE 1344 1920 1344 2256
+            WIRE 1344 2256 1344 2592
+            WIRE 1344 2592 1344 2912
+            WIRE 1344 2912 1344 3264
+            WIRE 1344 3264 1344 3600
+            WIRE 1344 3600 1392 3600
+            WIRE 1344 3600 1344 3936
+            WIRE 1344 3264 1392 3264
+            WIRE 1344 2912 1392 2912
+            WIRE 1344 2592 1392 2592
+            WIRE 1344 2256 1392 2256
+            WIRE 1344 1920 1392 1920
+            WIRE 1344 1568 1392 1568
+            WIRE 1344 1216 1392 1216
+            WIRE 1344 864 1392 864
+        END BRANCH
+        BEGIN BRANCH CLR
+            WIRE 1312 4096 1376 4096
+            WIRE 1376 4096 1392 4096
+            WIRE 1376 672 1392 672
+            WIRE 1376 672 1376 1024
+            WIRE 1376 1024 1376 1376
+            WIRE 1376 1376 1376 1728
+            WIRE 1376 1728 1376 2080
+            WIRE 1376 2080 1376 2416
+            WIRE 1376 2416 1376 2720
+            WIRE 1376 2720 1376 3040
+            WIRE 1376 3040 1376 3392
+            WIRE 1376 3392 1376 3728
+            WIRE 1376 3728 1392 3728
+            WIRE 1376 3728 1376 4096
+            WIRE 1376 3392 1392 3392
+            WIRE 1376 3040 1392 3040
+            WIRE 1376 2720 1392 2720
+            WIRE 1376 2416 1392 2416
+            WIRE 1376 2080 1392 2080
+            WIRE 1376 1728 1392 1728
+            WIRE 1376 1376 1392 1376
+            WIRE 1376 1024 1392 1024
+        END BRANCH
+        INSTANCE XLXI_65 1392 2448 R0
+        INSTANCE XLXI_28 1392 2112 R0
+        BEGIN BRANCH ID_B
+            WIRE 1312 1856 1328 1856
+            WIRE 1328 1856 1392 1856
+        END BRANCH
+        BEGIN BRANCH EX_B
+            WIRE 1776 1856 1840 1856
+            WIRE 1840 1856 1856 1856
+        END BRANCH
+        INSTANCE XLXI_29 1392 1760 R0
+        BEGIN BRANCH ID_MemW
+            WIRE 1312 1504 1392 1504
+        END BRANCH
+        BEGIN BRANCH EX_MemW
+            WIRE 1776 1504 1856 1504
+        END BRANCH
+        INSTANCE XLXI_30 1392 1408 R0
+        BEGIN BRANCH ID_MemR
+            WIRE 1312 1152 1392 1152
+        END BRANCH
+        BEGIN BRANCH EX_MemR
+            WIRE 1776 1152 1856 1152
+        END BRANCH
+        INSTANCE XLXI_39 1392 1056 R0
+        BEGIN BRANCH ID_M2Reg
+            WIRE 1312 800 1392 800
+        END BRANCH
+        BEGIN BRANCH EX_M2Reg
+            WIRE 1776 800 1856 800
+        END BRANCH
+        INSTANCE XLXI_59 1392 704 R0
+        BEGIN BRANCH ID_RegW
+            WIRE 1312 448 1392 448
+        END BRANCH
+        BEGIN BRANCH EX_RegW
+            WIRE 1776 448 1856 448
+        END BRANCH
+        BEGIN BRANCH EX_ALUSrc
+            WIRE 1776 2192 1840 2192
+            WIRE 1840 2192 1856 2192
+        END BRANCH
+        BEGIN BRANCH ID_ALUSrc
+            WIRE 1312 2192 1376 2192
+            WIRE 1376 2192 1392 2192
+        END BRANCH
+        IOMARKER 1856 1856 EX_B R0 28
+        IOMARKER 1312 1856 ID_B R180 28
+        IOMARKER 1312 1504 ID_MemW R180 28
+        IOMARKER 1856 1504 EX_MemW R0 28
+        IOMARKER 1312 1152 ID_MemR R180 28
+        IOMARKER 1856 1152 EX_MemR R0 28
+        IOMARKER 1312 800 ID_M2Reg R180 28
+        IOMARKER 1856 800 EX_M2Reg R0 28
+        IOMARKER 1312 448 ID_RegW R180 28
+        IOMARKER 1856 448 EX_RegW R0 28
+        IOMARKER 1312 2192 ID_ALUSrc R180 28
+        IOMARKER 1856 2192 EX_ALUSrc R0 28
+        BEGIN INSTANCE XLXI_79 1392 3760 R0
+        END INSTANCE
+        INSTANCE XLXI_78 1392 4128 R0
+        BEGIN BRANCH ID_ALUD(15:0)
+            WIRE 1312 3872 1392 3872
+        END BRANCH
+        BEGIN BRANCH EX_ALUD(15:0)
+            WIRE 1776 3872 1856 3872
+        END BRANCH
+        IOMARKER 1312 3872 ID_ALUD(15:0) R180 28
+        IOMARKER 1856 3872 EX_ALUD(15:0) R0 28
+        IOMARKER 1312 3936 CE R180 28
+        IOMARKER 1312 4000 CLK R180 28
+        IOMARKER 1312 4096 CLR R180 28
+        BEGIN INSTANCE XLXI_80 1392 2752 R0
+        END INSTANCE
+    END SHEET
+END SCHEMATIC

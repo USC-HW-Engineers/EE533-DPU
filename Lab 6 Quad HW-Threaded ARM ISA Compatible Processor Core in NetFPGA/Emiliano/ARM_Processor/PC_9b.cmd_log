@@ -1,0 +1,1 @@
+sch2verilog -intstyle ise -family virtex2p   -w "C:/Documents and Settings/student/Desktop/ARM_Processor/PC_9b.sch" PC_9b.vf

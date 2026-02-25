@@ -1,0 +1,6 @@
+verilog work "dff64.vf"
+verilog work "dff4.vf"
+verilog work "dff3.vf"
+verilog work "ID_EX_Reg.vf"
+verilog work "ID_EX_Reg_tb.tfw"
+verilog work "C:/Xilinx/10.1/ISE/verilog/src/glbl.v"

@@ -1,0 +1,4 @@
+sch2verilog -intstyle ise -family virtex2p   -w "C:/Documents and Settings/student/Desktop/ARM_Processor/Mux_2_1_16b.sch" Mux_2_1_16b.vf
+sch2verilog -intstyle ise -family virtex2p   -w "C:/Documents and Settings/student/Desktop/ARM_Processor/Mux_2_1_16b.sch" Mux_2_1_16b.vf
+sch2verilog -intstyle ise -family virtex2p   -w "C:/Documents and Settings/student/Desktop/ARM_Processor_4T/Mux_2_1_16b.sch" Mux_2_1_16b.vf
+sch2verilog -intstyle ise -family virtex2p   -w "C:/Documents and Settings/student/Desktop/ARM_Processor_4T/Mux_2_1_16b.sch" Mux_2_1_16b.vf

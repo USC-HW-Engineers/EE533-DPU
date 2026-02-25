@@ -6,13 +6,13 @@
 // /___/  \  /    Vendor: Xilinx 
 // \   \   \/     Version : 10.1
 //  \   \         Application : sch2verilog
-//  /   /         Filename : adder_1b.vf
-// /___/   /\     Timestamp : 02/13/2026 00:13:26
+//  /   /         Filename : FA_1b.vf
+// /___/   /\     Timestamp : 02/17/2026 19:49:47
 // \   \  /  \ 
 //  \___\/\___\ 
 //
-//Command: C:\Xilinx\10.1\ISE\bin\nt\unwrapped\sch2verilog.exe -intstyle ise -family virtex2p -w "C:/Documents and Settings/student/Desktop/5_Stage_Pipeline/adder_1b.sch" adder_1b.vf
-//Design Name: adder_1b
+//Command: C:\Xilinx\10.1\ISE\bin\nt\unwrapped\sch2verilog.exe -intstyle ise -family virtex2p -w "C:/Documents and Settings/student/Desktop/ARM_Processor/FA_1b.sch" FA_1b.vf
+//Design Name: FA_1b
 //Device: virtex2p
 //Purpose:
 //    This verilog netlist is translated from an ECS schematic.It can be 
@@ -20,11 +20,11 @@
 //
 `timescale 1ns / 1ps
 
-module adder_1b(A, 
-                B, 
-                C, 
-                CO, 
-                S);
+module FA_1b(A, 
+             B, 
+             C, 
+             CO, 
+             S);
 
     input A;
     input B;

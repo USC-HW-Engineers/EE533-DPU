@@ -6,13 +6,13 @@
 // /___/  \  /    Vendor: Xilinx 
 // \   \   \/     Version : 10.1
 //  \   \         Application : sch2verilog
-//  /   /         Filename : ifd2.vf
-// /___/   /\     Timestamp : 02/13/2026 00:13:25
+//  /   /         Filename : dff2.vf
+// /___/   /\     Timestamp : 02/17/2026 19:49:46
 // \   \  /  \ 
 //  \___\/\___\ 
 //
-//Command: C:\Xilinx\10.1\ISE\bin\nt\unwrapped\sch2verilog.exe -intstyle ise -family virtex2p -w "C:/Documents and Settings/student/Desktop/5_Stage_Pipeline/ifd2.sch" ifd2.vf
-//Design Name: ifd2
+//Command: C:\Xilinx\10.1\ISE\bin\nt\unwrapped\sch2verilog.exe -intstyle ise -family virtex2p -w "C:/Documents and Settings/student/Desktop/ARM_Processor/dff2.sch" dff2.vf
+//Design Name: dff2
 //Device: virtex2p
 //Purpose:
 //    This verilog netlist is translated from an ECS schematic.It can be 
@@ -20,7 +20,7 @@
 //
 `timescale 1ns / 1ps
 
-module ifd2(CE, 
+module dff2(CE, 
             CLK, 
             CLR, 
             D, 

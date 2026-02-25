@@ -1,0 +1,8 @@
+[Inputs]
+=ext_in[15:0]=
+[Outputs]
+=ext_out[63:0]=
+[BiDir]
+[ATTRIBUTES]
+VeriModel Sign_Extend_16to64
+

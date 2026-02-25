@@ -24,28 +24,6 @@ BEGIN SCHEMATIC
         PORT Input EX_DOUT(63:0)
         PORT Input EX_REG1(1:0)
         PORT Output WB_REG1(1:0)
-        BEGIN BLOCKDEF ifd64
-            TIMESTAMP 2026 2 13 4 28 24
-            RECTANGLE N 64 -256 320 0 
-            LINE N 64 -160 0 -160 
-            LINE N 64 -96 0 -96 
-            LINE N 64 -32 0 -32 
-            LINE N 64 -224 0 -224 
-            RECTANGLE N 0 -236 64 -212 
-            LINE N 320 -224 384 -224 
-            RECTANGLE N 320 -236 384 -212 
-        END BLOCKDEF
-        BEGIN BLOCKDEF ifd2
-            TIMESTAMP 2026 2 13 4 43 18
-            RECTANGLE N 64 -256 320 0 
-            LINE N 64 -160 0 -160 
-            LINE N 64 -96 0 -96 
-            LINE N 64 -32 0 -32 
-            LINE N 64 -224 0 -224 
-            RECTANGLE N 0 -236 64 -212 
-            LINE N 320 -224 384 -224 
-            RECTANGLE N 320 -236 384 -212 
-        END BLOCKDEF
         BEGIN BLOCKDEF fdce
             TIMESTAMP 2000 1 1 10 10 10
             LINE N 0 -128 64 -128 
@@ -59,20 +37,28 @@ BEGIN SCHEMATIC
             LINE N 192 -32 64 -32 
             RECTANGLE N 64 -320 320 -64 
         END BLOCKDEF
-        BEGIN BLOCK XLXI_34 ifd64
-            PIN CE CE
-            PIN CLK CLK
-            PIN CLR CLR
-            PIN D(63:0) EX_DOUT(63:0)
-            PIN Q(63:0) WB_DOUT(63:0)
-        END BLOCK
-        BEGIN BLOCK XLXI_47 ifd2
-            PIN CE CE
-            PIN CLK CLK
-            PIN CLR CLR
-            PIN D(1:0) EX_REG1(1:0)
-            PIN Q(1:0) WB_REG1(1:0)
-        END BLOCK
+        BEGIN BLOCKDEF dff2
+            TIMESTAMP 2026 2 18 2 43 29
+            RECTANGLE N 64 -256 320 0 
+            LINE N 64 -160 0 -160 
+            LINE N 64 -96 0 -96 
+            LINE N 64 -32 0 -32 
+            LINE N 64 -224 0 -224 
+            RECTANGLE N 0 -236 64 -212 
+            LINE N 320 -224 384 -224 
+            RECTANGLE N 320 -236 384 -212 
+        END BLOCKDEF
+        BEGIN BLOCKDEF dff64
+            TIMESTAMP 2026 2 18 2 44 0
+            RECTANGLE N 64 -256 320 0 
+            LINE N 64 -160 0 -160 
+            LINE N 64 -96 0 -96 
+            LINE N 64 -32 0 -32 
+            LINE N 64 -224 0 -224 
+            RECTANGLE N 0 -236 64 -212 
+            LINE N 320 -224 384 -224 
+            RECTANGLE N 320 -236 384 -212 
+        END BLOCKDEF
         BEGIN BLOCK XLXI_12 fdce
             PIN C CLK
             PIN CE CE
@@ -80,10 +66,22 @@ BEGIN SCHEMATIC
             PIN D EX_WRE
             PIN Q WB_WRE
         END BLOCK
+        BEGIN BLOCK XLXI_50 dff2
+            PIN CE CE
+            PIN CLK CLK
+            PIN CLR CLR
+            PIN D(1:0) EX_REG1(1:0)
+            PIN Q(1:0) WB_REG1(1:0)
+        END BLOCK
+        BEGIN BLOCK XLXI_51 dff64
+            PIN CE CE
+            PIN CLK CLK
+            PIN CLR CLR
+            PIN D(63:0) EX_DOUT(63:0)
+            PIN Q(63:0) WB_DOUT(63:0)
+        END BLOCK
     END NETLIST
     BEGIN SHEET 1 3520 2720
-        BEGIN INSTANCE XLXI_34 1504 1216 R0
-        END INSTANCE
         BEGIN BRANCH CLR
             WIRE 1440 880 1488 880
             WIRE 1488 880 1488 1184
@@ -93,8 +91,6 @@ BEGIN SCHEMATIC
             WIRE 1488 880 1504 880
         END BRANCH
         INSTANCE XLXI_12 1504 912 R0
-        BEGIN INSTANCE XLXI_47 1504 1552 R0
-        END INSTANCE
         BEGIN BRANCH CLK
             WIRE 1440 784 1472 784
             WIRE 1472 784 1504 784
@@ -138,5 +134,9 @@ BEGIN SCHEMATIC
         IOMARKER 1968 656 WB_WRE R0 28
         IOMARKER 1968 992 WB_DOUT(63:0) R0 28
         IOMARKER 1968 1328 WB_REG1(1:0) R0 28
+        BEGIN INSTANCE XLXI_50 1504 1552 R0
+        END INSTANCE
+        BEGIN INSTANCE XLXI_51 1504 1216 R0
+        END INSTANCE
     END SHEET
 END SCHEMATIC

@@ -1,0 +1,95 @@
+Disassembled Assembly:
+
+000: nop
+001: nop
+002: nop
+003: nop
+004: nop
+005: nop
+006: nop
+007: sub r15, r15, r15
+008: add r0, r15, #23
+009: add r1, r15, #123
+010: add r2, r15, #-455
+011: add r3, r15, #2
+012: nop
+013: str r0, [r15, #140]
+014: str r1, [r15, #144]
+015: str r2, [r15, #148]
+016: str r3, [r15, #152]
+017: nop
+018: add r0, r15, #98
+019: add r1, r15, #125
+020: add r2, r15, #10
+021: add r3, r15, #65
+022: nop
+023: str r0, [r15, #156]
+024: str r1, [r15, #160]
+025: str r2, [r15, #164]
+026: str r3, [r15, #168]
+027: nop
+028: add r0, r15, #-56
+029: add r1, r15, #0
+030: str r0, [r15, #172]
+031: str r1, [r15, #176]
+032: add fp, r15, #196
+033: add sp, r15, #136
+034: b 117
+035: ldr r3, [fp, #-8]
+036: add r3, r3, #1
+037: str r3, [fp, #-12]
+038: b 115
+039: ldr r3, [fp, #-12]
+040: lsl r3, r3, #2
+041: sub r3, r3, #4
+042: add r3, r3, fp
+043: ldr r2, [r3, #-52]
+044: ldr r3, [fp, #-8]
+045: lsl r3, r3, #2
+046: sub r3, r3, #4
+047: add r3, r3, fp
+048: ldr r3, [r3, #-52]
+049: cmp r2, r3
+050: bge 124
+051: ldr r3, [fp, #-12]
+052: lsl r3, r3, #2
+053: sub r3, r3, #4
+054: add r3, r3, fp
+055: ldr r3, [r3, #-52]
+056: str r3, [fp, #-16]
+057: ldr r3, [fp, #-8]
+058: lsl r3, r3, #2
+059: sub r3, r3, #4
+060: add r3, r3, fp
+061: ldr r2, [r3, #-52]
+062: ldr r3, [fp, #-12]
+063: lsl r3, r3, #2
+064: sub r3, r3, #4
+065: add r3, r3, fp
+066: str r2, [r3, #-52]
+067: ldr r3, [fp, #-8]
+068: lsl r3, r3, #2
+069: sub r3, r3, #4
+070: add r3, r3, fp
+071: ldr r2, [fp, #-16]
+072: str r2, [r3, #-52]
+073: ldr r3, [fp, #-12]
+074: add r3, r3, #1
+075: str r3, [fp, #-12]
+076: ldr r3, [fp, #-12]
+077: cmp r3, #9
+078: ble -138
+079: ldr r3, [fp, #-8]
+080: add r3, r3, #1
+081: str r3, [fp, #-8]
+082: ldr r3, [fp, #-8]
+083: cmp r3, #9
+084: ble -136
+085: add r3, r15, #0
+086: add r0, r3, r15
+087: sub sp, fp, #4
+088: ldr fp, [sp, #0]
+089: ldr lr, [sp, #4]
+090: add sp, sp, #8
+091: nop
+092: b 184

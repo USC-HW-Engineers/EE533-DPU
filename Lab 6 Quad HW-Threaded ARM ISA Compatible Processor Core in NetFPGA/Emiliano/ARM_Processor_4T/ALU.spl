@@ -1,0 +1,14 @@
+[Inputs]
+=A[63:0]=
+=B[63:0]=
+=aluctrl[3:0]=
+[Outputs]
+N
+Z
+C
+V
+=ALU_Result[63:0]=
+[BiDir]
+[ATTRIBUTES]
+VeriModel ALU
+

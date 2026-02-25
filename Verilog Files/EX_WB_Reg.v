@@ -7,11 +7,11 @@
 // \   \   \/     Version : 10.1
 //  \   \         Application : sch2verilog
 //  /   /         Filename : EX_WB_Reg.vf
-// /___/   /\     Timestamp : 02/13/2026 13:18:09
+// /___/   /\     Timestamp : 02/17/2026 19:49:47
 // \   \  /  \ 
 //  \___\/\___\ 
 //
-//Command: C:\Xilinx\10.1\ISE\bin\nt\unwrapped\sch2verilog.exe -intstyle ise -family virtex2p -w "C:/Documents and Settings/student/Desktop/5_Stage_Pipeline/EX_WB_Reg.sch" EX_WB_Reg.vf
+//Command: C:\Xilinx\10.1\ISE\bin\nt\unwrapped\sch2verilog.exe -intstyle ise -family virtex2p -w "C:/Documents and Settings/student/Desktop/ARM_Processor/EX_WB_Reg.sch" EX_WB_Reg.vf
 //Design Name: EX_WB_Reg
 //Device: virtex2p
 //Purpose:
@@ -47,14 +47,14 @@ module EX_WB_Reg(CE,
                  .D(EX_WRE), 
                  .Q(WB_WRE));
    defparam XLXI_12.INIT = 1'b0;
-   ifd64 XLXI_34 (.CE(CE), 
-                  .CLK(CLK), 
-                  .CLR(CLR), 
-                  .D(EX_DOUT[63:0]), 
-                  .Q(WB_DOUT[63:0]));
-   ifd2 XLXI_47 (.CE(CE), 
+   dff2 XLXI_50 (.CE(CE), 
                  .CLK(CLK), 
                  .CLR(CLR), 
                  .D(EX_REG1[1:0]), 
                  .Q(WB_REG1[1:0]));
+   dff64 XLXI_51 (.CE(CE), 
+                  .CLK(CLK), 
+                  .CLR(CLR), 
+                  .D(EX_DOUT[63:0]), 
+                  .Q(WB_DOUT[63:0]));
 endmodule

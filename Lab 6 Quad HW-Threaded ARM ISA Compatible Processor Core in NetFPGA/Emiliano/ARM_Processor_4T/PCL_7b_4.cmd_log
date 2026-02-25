@@ -1,0 +1,4 @@
+sch2verilog -intstyle ise -family virtex2p   -w "C:/Documents and Settings/student/Desktop/ARM_Processor_4T/PCL_7b_4.sch" PCL_7b_4.vf
+sch2verilog -intstyle ise -family virtex2p   -w "C:/Documents and Settings/student/Desktop/ARM_Processor_4T/PCL_7b_4.sch" PCL_7b_4.vf
+sch2verilog -intstyle ise -family virtex2p   -w "C:/Documents and Settings/student/Desktop/ARM_Processor_4T/PCL_7b_4.sch" PCL_7b_4.vf
+sch2verilog -intstyle ise -family virtex2p   -w "C:/Documents and Settings/student/Desktop/ARM_Processor_4T/PCL_7b_4.sch" PCL_7b_4.vf

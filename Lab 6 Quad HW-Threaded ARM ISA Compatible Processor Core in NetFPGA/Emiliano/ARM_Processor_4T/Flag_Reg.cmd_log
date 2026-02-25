@@ -1,0 +1,3 @@
+sch2verilog -intstyle ise -family virtex2p   -w "C:/Documents and Settings/student/Desktop/ARM_Processor_4T/Flag_Reg.sch" Flag_Reg.vf
+sch2verilog -intstyle ise -family virtex2p   -w "C:/Documents and Settings/student/Desktop/ARM_Processor_4T/Flag_Reg.sch" Flag_Reg.vf
+sch2verilog -intstyle ise -family virtex2p   -w "C:/Documents and Settings/student/Desktop/ARM_Processor_4T/Flag_Reg.sch" Flag_Reg.vf

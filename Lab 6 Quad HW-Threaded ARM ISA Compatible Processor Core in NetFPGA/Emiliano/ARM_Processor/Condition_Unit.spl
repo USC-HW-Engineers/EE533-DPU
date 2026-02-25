@@ -1,0 +1,16 @@
+[Inputs]
+ALU_N
+ALU_Z
+ALU_C
+ALU_V
+set_flags
+br_en
+clk
+reset
+=BType[1:0]=
+[Outputs]
+branch_taken
+[BiDir]
+[ATTRIBUTES]
+VeriModel Condition_Unit
+
