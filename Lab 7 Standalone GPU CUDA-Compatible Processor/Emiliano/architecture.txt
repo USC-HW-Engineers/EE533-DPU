@@ -2,11 +2,10 @@
 
   Big Picture
 
-  This is a simple SIMD GPU core that operates on 64-bit registers, where each register holds 4 packed 16-bit lanes (either int16 or BFloat16). It executes one
-  instruction at a time through a multi-cycle FSM (no pipelining of instructions). The design targets a Xilinx FPGA (uses MULT18X18S hard multiplier).
+  This is a simple SIMD GPU core that operates on 64-bit registers, where each register holds 4 packed 16-bit lanes (either int16 or BFloat16). It executes one instruction at a time through a multi-cycle FSM (no pipelining of instructions). The design targets a Xilinx FPGA (uses MULT18X18S hard multiplier).
 
                     ┌──────────┐
-    program.hex ──► │   IMEM   │──── instruction ──┐
+    program.hex ──► │   IMEM   │──── instruction  ──┐
                     │ (1024x32)│                    │
                     └──────────┘                    ▼
                          ▲              ┌──────────────────┐
@@ -16,11 +15,11 @@
                          │                     │ control signals
                     ┌────┴─────────────────────┼──────────────────┐
                     │               gpu_top    ▼                  │
-                    │  ┌──────────┐  ┌─────┐  ┌───────────┐      │
-                    │  │ Reg File │─►│ ALU │  │ Tensor    │      │
-                    │  │ (32x64)  │─►│     │  │ Unit (x4  │      │
-                    │  │ 3R / 1W  │─►│     │  │ BF16 lane)│      │
-                    │  └──────────┘  └──┬──┘  └─────┬─────┘      │
+                    │  ┌──────────┐  ┌─────┐  ┌───────────┐       │
+                    │  │ Reg File │─►│ ALU │  │ Tensor    │       │
+                    │  │ (32x64)  │─►│     │  │ Unit (x4  │       │
+                    │  │ 3R / 1W  │─►│     │  │ BF16 lane)│       │
+                    │  └──────────┘  └──┬──┘  └─────┬─────┘       │
                     │       ▲           │           │             │
                     │       │     ┌─────┴───────────┴──┐          │
                     │       └─────┤  Writeback Mux     │          │
@@ -59,7 +58,7 @@
   - R0 is hardwired to zero: writes to address 0 are ignored (w_addr != 5'b0)
   - R31 is initialized with thread_id during the INIT state
 
-  The 3 read ports allow the FMA instruction to read 3 source operands simultaneously (Ra, Rb, Rc).
+  The 3 read ports allow the Fused Multiply-Add (FMA) instruction to read 3 source operands simultaneously (Ra, Rb, Rc).
 
   4. alu.v — Integer SIMD ALU
 
@@ -86,7 +85,7 @@
 
   5. bf16_lane.v — Single BFloat16 Compute Lane
 
-  This is the most complex module. It implements a 4-stage pipelined FMA (fused multiply-add) for BFloat16 numbers.
+  It implements a 4-stage pipelined FMA for BFloat16 numbers.
 
   BFloat16 format (same upper 16 bits as IEEE-754 float32):
   [15] sign  |  [14:7] exponent (8-bit, bias=127)  |  [6:0] fraction (7-bit, implied 1.xxx)
@@ -146,7 +145,7 @@
 
   8. control_unit.v — FSM + Instruction Decoder
 
-  This is the brain. It implements a multi-cycle FSM with 10 states:
+  It implements a multi-cycle FSM with 10 states:
 
   IDLE ──► INIT ──► FETCH ──► FETCH2 ──► DECODE ──► EXECUTE ──► WRITEBACK ──► FETCH
                                                         │              ▲
