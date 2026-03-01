@@ -1,0 +1,39 @@
+
+--- Disassembly of gpu_program.hex ---
+// Kernel: _Z10vector_addPsS_S_
+0x000: 10860000  |  LD           R2, [R3 + 0]
+0x001: 110a0000  |  LD           R4, [R5 + 0]
+0x002: 01882000  |  VADD         R6, R4, R2
+0x003: 198e0000  |  ST           [R7 + 0], R6
+0x004: 50000000  |  HALT
+// Kernel: _Z10vector_subPsS_S_
+0x005: 10860000  |  LD           R2, [R3 + 0]
+0x006: 110a0000  |  LD           R4, [R5 + 0]
+0x007: 01844008  |  VSUB         R6, R2, R4
+0x008: 198e0000  |  ST           [R7 + 0], R6
+0x009: 50000000  |  HALT
+// Kernel: _Z15bf16_vector_mulP13__nv_bfloat16S0_S0_
+0x00a: 10860000  |  LD           R2, [R3 + 0]
+0x00b: 110a0000  |  LD           R4, [R5 + 0]
+0x00c: 61808000  |  MOVI         R6, 32768
+0x00d: 09c44302  |  TENSOR_FMA      R7, R2, R4, R6
+0x00e: 19d00000  |  ST           [R8 + 0], R7
+0x00f: 50000000  |  HALT
+// Kernel: _Z8bf16_fmaP13__nv_bfloat16S0_S0_S0_
+0x010: 10860000  |  LD           R2, [R3 + 0]
+0x011: 110a0000  |  LD           R4, [R5 + 0]
+0x012: 118e0000  |  LD           R6, [R7 + 0]
+0x013: 0a044302  |  TENSOR_FMA      R8, R2, R4, R6
+0x014: 1a120000  |  ST           [R9 + 0], R8
+0x015: 50000000  |  HALT
+// Kernel: _Z10relu_int16PsS_
+0x016: 10860000  |  LD           R2, [R3 + 0]
+0x017: 69040000  |  RELU_INT     R4, R2
+0x018: 190a0000  |  ST           [R5 + 0], R4
+0x019: 50000000  |  HALT
+// Kernel: _Z9relu_bf16P13__nv_bfloat16S0_
+0x01a: 10860000  |  LD           R2, [R3 + 0]
+0x01b: 61400000  |  MOVI         R5, 0
+0x01c: 61800000  |  MOVI         R6, 0
+0x01d: 188e0000  |  ST           [R7 + 0], R2
+0x01e: 50000000  |  HALT
