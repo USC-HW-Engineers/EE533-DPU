@@ -1,0 +1,108 @@
+# Architectural Summary: Quad HW-Threaded ARM ISA Compatible Processor
+
+This document describes the architecture and features of the 5-stage pipelined processor designed for the EE-533 Lab #6 on the NetFPGA platform.
+
+## 1. Core Architecture
+- **Pipeline Stages**: 5 stages (Instruction Fetch, Instruction Decode, Execute, Memory, Write-Back).
+- **Multithreading**: Fine-Grained Multithreading (FGMT) supporting 4 concurrent hardware threads.
+- **Context Switching**: Zero-overhead switching achieved by interleaving threads in a fixed sequence: **T0 -> T1 -> T2 -> T3** every clock cycle.
+- **Design Methodology**: Hybrid design using **Xilinx ISE 10.1**, employing both Verilog HDL (.v) and schematic-generated Verilog (.vf).
+- **Hardware Resources**:
+  - 4 Independent Program Counters (PC0-PC3).
+  - 4 Independent Flag Registers (C, N, V, Z per thread).
+  - Shared Register File (indexed by Thread ID).
+  - Dual-Port Instruction Memory and Data Memory implemented using BRAM.
+
+## 2. Memory Organization (Virtual Mapping)
+The processor uses a word-addressable memory scheme but supports ARM-style byte-addressable target calculation via hardware bit-shifting.
+- **Instruction Memory (IM)**: 512 words (32-bit). Mapped to byte addresses `0x000` to `0x7FF`.
+- **Data Memory (DM)**: 256 words (64-bit). Mapped to byte addresses starting at `0x800` (Word 512).
+- **Addressing**: Hardware slices `[n:2]` of the ALU result to translate ARM byte addresses into BRAM word indices.
+- **Initialization**: Memories and Register Files are initialized using `.coe` files (e.g., `IM_init.coe`, `DM_init.coe`, `RF_init.coe`) via the Xilinx IP Core Generator.
+
+## 3. Instruction Set Architecture (ISA)
+Instructions are 32-bit wide. The processor executes a custom instruction format parsed from ARM assembly using a dedicated Python parser.
+
+### Software Assembly (Python Parser)
+To convert ARM assembly into the custom machine code format:
+```bash
+python3 Vipassana_parse/updated_parser.py <input_file.s> <output_file.hex>
+```
+
+### Opcode Table (Bits 31:28)
+| Opcode | Instruction Type | Description |
+|--------|------------------|-------------|
+| 0001   | R-Type           | Register-Register operations |
+| 1001   | R-Type Immediate | Register-Immediate operations |
+| 0010   | LW               | Load Word (64-bit from DM/IM) |
+| 0011   | SW               | Store Word (64-bit to DM) |
+| 0100   | B                | Branch (Conditional/Unconditional) |
+| 1000   | CMPI             | Compare Immediate |
+| 0000   | NOP / CMP        | No Operation or Compare Register |
+
+### ALU Control Signals (Bits 27:24)
+| Signal | Operation | Description |
+|--------|-----------|-------------|
+| 0000   | ADD       | Addition |
+| 0001   | SUB       | Subtraction |
+| 0010   | AND       | Logical AND |
+| 0011   | OR        | Logical OR |
+| 0100   | XOR       | Logical Exclusive OR |
+| 0101   | XNOR      | Logical Exclusive NOR |
+| 0110   | LSL       | Logical Shift Left |
+| 0111   | LSR       | Logical Shift Right |
+| 1000   | ASR       | Arithmetic Shift Right |
+| 1001   | EQ        | Equal (Returns 1 if A == B) |
+| 1010   | LT        | Less Than (Signed) |
+| 1011   | GT        | Greater Than (Signed) |
+
+### Branch Types (Bits 19:18)
+Used when Opcode = 0100:
+- `01`: B (Unconditional)
+- `10`: BGE (Greater or Equal)
+- `11`: BLE (Less or Equal)
+
+## 4. Register File Configuration
+The register file provides 16 registers per thread.
+- **R0 - R10**: General Purpose.
+- **R11 (fp)**: Frame Pointer.
+- **R12 (ip)**: Intra-Procedure-call scratch register.
+- **R13 (sp)**: Stack Pointer.
+- **R14 (lr)**: Link Register.
+- **R15 (pc)**: In this hardware implementation, R15 is hardwired to 0 (similar to MIPS $zero).
+
+## 5. Instruction Formats
+- **R-type / CMP**: `[OP(31:28)] [ALU(27:24)] [R1(23:20)] [R2(19:16)] [Rd(15:12)] [UNUSED(11:0)]`
+- **Immediate / LW / CMPI**: `[OP(31:28)] [ALU(27:24)] [R1(23:20)] [UNUSED(19:16)] [Rd(15:12)] [IMM(11:0)]`
+- **SW**: `[OP(31:28)] [ALU(27:24)] [R1(23:20)] [R2(19:16)] [UNUSED(15:12)] [IMM(11:0)]`
+## 6. Pipeline Block Diagram
+
+```text
+       IF STAGE             ID STAGE             EX STAGE             MEM STAGE            WB STAGE
+    +------------+       +------------+       +------------+       +------------+       +------------+
+    |            |       |            |       |            |       |            |       |            |
+    |  PC Logic  |       |  Control   |       |    ALU     |       |   D-Mem    |       |   WB Mux   |
+    | (PCL_7b_4) |       |    Unit    |       |            |       |            |       |            |
+    |      |     |       |      |     |       |     ^      |       |     ^      |       |     ^      |
+    +------|-----+       +------|-----+       +-----|------+       +-----|------+       +-----|------+
+           |                    |                   |                    |                    |
+    +------v-----+       +------v-----+       +-----|------+       +-----|------+             |
+    |            |       |            |       |     |      |       |     |      |             |
+    |   I-Mem    |       |  Register  |       |  Flags /   |       |  Virtual   |             |
+    | (Port A/B) |       |    File    |       |  Cond Unit |       |  Mapping   |             |
+    |            |       |            |       |            |       | (IM read)  |             |
+    +------|-----+       +------|-----+       +-----|------+       +-----|------+             |
+           |                    |                   |                    |                    |
+    =======|====================|===================|====================|====================|=======
+      [ IF/ID REG ]        [ ID/EX REG ]       [ EX/MEM REG ]       [ MEM/WB REG ]            |
+    =======|====================|===================|====================|====================|=======
+           |                    |                   |                    |                    |
+           +--------------------|-------------------|--------------------|--------------------+
+                                |                   |                    |             (Write-Back Path)
+                                |                   |                    |
+                                +-------------------|--------------------+
+                                              (Branch Path)
+
+    Note: The Thread ID (TID) from the Counter_2b increments every cycle, 
+          indexing the PC, Flags, and Register File for the interleaved threads.
+```
