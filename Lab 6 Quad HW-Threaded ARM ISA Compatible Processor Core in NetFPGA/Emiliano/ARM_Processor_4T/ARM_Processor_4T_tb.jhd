@@ -1,0 +1,3 @@
+MODULE ARM_Processor_4T_tb
+SUBMODULE ARM_Processor_4T
+INSTANCE UUT

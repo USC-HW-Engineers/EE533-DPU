@@ -47,6 +47,7 @@ ENTITY I_Mem_Dual IS
 	clka: IN std_logic;
 	clkb: IN std_logic;
 	dina: IN std_logic_VECTOR(31 downto 0);
+	douta: OUT std_logic_VECTOR(31 downto 0);
 	doutb: OUT std_logic_VECTOR(31 downto 0);
 	wea: IN std_logic);
 END I_Mem_Dual;
@@ -60,6 +61,7 @@ component wrapped_I_Mem_Dual
 	clka: IN std_logic;
 	clkb: IN std_logic;
 	dina: IN std_logic_VECTOR(31 downto 0);
+	douta: OUT std_logic_VECTOR(31 downto 0);
 	doutb: OUT std_logic_VECTOR(31 downto 0);
 	wea: IN std_logic);
 end component;
@@ -103,7 +105,7 @@ end component;
 			c_enable_rlocs => 0,
 			c_ysinitb_is_high => 1,
 			c_has_web => 0,
-			c_has_default_data => 0,
+			c_has_default_data => 1,
 			c_has_sinitb => 0,
 			c_has_wea => 1,
 			c_has_sinita => 0,
@@ -113,11 +115,11 @@ end component;
 			c_sim_collision_check => "NONE",
 			c_has_enb => 0,
 			c_has_ena => 0,
-			c_mem_init_file => "I_Mem_Dual.mif",
 			c_depth_b => 512,
+			c_mem_init_file => "mif_file_16_1",
 			c_depth_a => 512,
 			c_has_doutb => 1,
-			c_has_douta => 0,
+			c_has_douta => 1,
 			c_yprimitive_type => "16kx1");
 -- synthesis translate_on
 BEGIN
@@ -129,6 +131,7 @@ U0 : wrapped_I_Mem_Dual
 			clka => clka,
 			clkb => clkb,
 			dina => dina,
+			douta => douta,
 			doutb => doutb,
 			wea => wea);
 -- synthesis translate_on

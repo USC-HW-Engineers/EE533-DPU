@@ -1,7 +1,7 @@
 ##############################################################
 #
 # Xilinx Core Generator version K.31
-# Date: Mon Feb 23 05:37:54 2026
+# Date: Wed Mar 04 03:42:11 2026
 #
 ##############################################################
 #
@@ -37,13 +37,13 @@ SELECT Dual_Port_Block_Memory family Xilinx,_Inc. 6.3
 # BEGIN Parameters
 CSET coefficient_file="C:\Documents and Settings\student\Desktop\ARM_Processor_4T\IM_init.coe"
 CSET component_name=I_Mem_Dual
-CSET configuration_port_a=Write_Only
+CSET configuration_port_a=Read_And_Write
 CSET configuration_port_b=Read_Only
 CSET depth_a=512
 CSET depth_b=512
 CSET disable_warning_messages=true
 CSET global_init_value=0
-CSET load_init_file=true
+CSET load_init_file=false
 CSET port_a_active_clock_edge=Falling_Edge_Triggered
 CSET port_a_additional_output_pipe_stages=0
 CSET port_a_enable_pin=false
@@ -72,5 +72,5 @@ CSET write_mode_port_a=Read_After_Write
 CSET write_mode_port_b=Read_After_Write
 # END Parameters
 GENERATE
-# CRC: 71267eb9
+# CRC: bdf4ef53
 

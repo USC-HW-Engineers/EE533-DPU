@@ -36,6 +36,7 @@ component I_Mem_Dual
 	clka: IN std_logic;
 	clkb: IN std_logic;
 	dina: IN std_logic_VECTOR(31 downto 0);
+	douta: OUT std_logic_VECTOR(31 downto 0);
 	doutb: OUT std_logic_VECTOR(31 downto 0);
 	wea: IN std_logic);
 end component;
@@ -57,6 +58,7 @@ your_instance_name : I_Mem_Dual
 			clka => clka,
 			clkb => clkb,
 			dina => dina,
+			douta => douta,
 			doutb => doutb,
 			wea => wea);
 -- INST_TAG_END ------ End INSTANTIATION Template ------------

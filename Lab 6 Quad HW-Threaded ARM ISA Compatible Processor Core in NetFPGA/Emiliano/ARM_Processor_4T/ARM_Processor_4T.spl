@@ -1,0 +1,12 @@
+[Inputs]
+CLK
+CLR_ALL
+IM_CLR
+IM_WE
+=ADDR[8:0]=
+=DIN[31:0]=
+[Outputs]
+[BiDir]
+[ATTRIBUTES]
+VeriModel ARM_Processor_4T
+
