@@ -1,7 +1,7 @@
 `timescale 1ns / 1ps
 
 module ARM_Processor_4T(
-    input  [8:0]  ADDR,
+    input  [10:2] ADDR,
     input         CLK,
     input         CLR_ALL,
     input  [31:0] DIN,
@@ -14,7 +14,7 @@ module ARM_Processor_4T(
     assign vdd = 1'b1;
     
     // Instruction Fetch (IF) Stage
-    wire [8:0]  PC;
+    wire [10:2] PC;
     wire [31:0] IM_OUT;
     
     // IF/ID Pipeline Register Outputs
@@ -103,16 +103,16 @@ module ARM_Processor_4T(
         .CE(vdd),
         .CLK(CLK),
         .CLR(IM_CLR),
-        .T_ID(PC[8:7])
+        .T_ID(PC[10:9])
     );
 
     PCL_7b_4 PC_Logic (
         .CLK(CLK),
         .CLR(IM_CLR),
         .D(M_ALU[8:2]),  // Translate byte-aligned branch target to word-aligned PC
-        .ID(PC[8:7]),
+        .ID(PC[10:9]),
         .L(M_BranchTaken),
-        .Q(PC[6:0])
+        .Q(PC[8:2])
     );
 
     // 2. IF/ID Pipeline Register
@@ -121,7 +121,7 @@ module ARM_Processor_4T(
         .CLK(CLK),
         .CLR(CLR_ALL),
         .IF_Ins(IM_OUT),
-        .IF_TID(PC[8:7]),
+        .IF_TID(PC[10:9]),
         .ID_Ins(INS),
         .ID_TID(ID_TID)
     );

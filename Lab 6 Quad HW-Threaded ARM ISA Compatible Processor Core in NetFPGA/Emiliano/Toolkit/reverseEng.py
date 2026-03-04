@@ -92,8 +92,8 @@ def decode_instruction(inst, pc):
     elif opcode == 0b0100:
         btype = (inst >> 18) & 0x3
         branch_instr = BRANCH_TYPE_REV.get(btype, "b")
-        target = pc + 1 + imm12
-        return f"{branch_instr} {target}"
+        target = (pc + 1 + imm12) * 4
+        return f"{branch_instr} {target:03d}"
 
     return "unknown"
 
@@ -116,10 +116,12 @@ def disassemble_file(input_file, output_file):
 
         out.write("Disassembled Assembly:\n\n")
 
-        for pc, inst in enumerate(instructions):
-            asm = decode_instruction(inst, pc)
+        for i, inst in enumerate(instructions):
+            pc_addr = i * 4
+            asm = decode_instruction(inst, i)
 
-            formatted = f"{pc:03}: {asm}"
+            # Format: 0xHEX | DEC: instruction
+            formatted = f"0x{pc_addr:03X} | {pc_addr:03d}: {asm}"
             print(formatted)
             out.write(formatted + "\n")
 

@@ -3,7 +3,7 @@
 module ARM_Processor_4T_tb;
 
     // Inputs
-    reg [8:0] ADDR;
+    reg [10:2] ADDR;
     reg CLK;
     reg CLR_ALL;
     reg [31:0] DIN;
@@ -11,7 +11,7 @@ module ARM_Processor_4T_tb;
     reg IM_WE;
 
     // Internal wires for monitoring (optional)
-    // wire [8:0] pc = uut.PC;
+    // wire [10:2] pc = uut.PC;
 
     // Instantiate the Unit Under Test (UUT)
     ARM_Processor_4T uut (
@@ -42,35 +42,28 @@ module ARM_Processor_4T_tb;
         #100;
         
         // --- Step 1: Load Instruction Memory ---
-        // Note: In Xilinx ISE, you can also use .coe files for BRAM initialization.
-        // This manual load uses the Port A interface we implemented.
-        $display("Starting Instruction Memory Load...");
-        
-        // Example loading loop (pseudo-code, you should replace with your hex values)
-        // Or simply use the Python-generated .coe file in your project.
-        // For simulation, we can also use hierarchical force if needed, 
-        // but here we use the actual hardware load path.
+        $display("[%t] Starting Instruction Memory Load from hex file...", $time);
         
         IM_WE = 1;
-        // Example: load a simple NOP loop or your bubble sort hex
-        // Here we just clear the memory or load dummy data
-        for (integer i = 0; i < 512; i = i + 1) begin
-            @(posedge CLK);
-            ADDR = i;
-            DIN = 32'h00000000; // Load NOPs
-        end
-        
-        // IMPORTANT: To load your actual machine code, you can use $readmemh 
-        // into a temporary buffer and loop through it here.
-        // reg [31:0] prog_buffer [0:511];
-        // $readmemh("BubbleSort.hex", prog_buffer);
-        // for(integer i=0; i<512; i=i+1) begin
-        //    @(posedge CLK); ADDR = i; DIN = prog_buffer[i];
-        // end
+        begin: IM_LOAD
+            integer i;
+            reg [31:0] prog_buffer [0:511];
+            // Initialize buffer to NOPs first
+            for (i = 0; i < 512; i = i + 1) prog_buffer[i] = 32'h00000000;
+            
+            // Load the machine code from the Toolkit directory
+            $readmemh("../Toolkit/newSort_Manual2.hex", prog_buffer);
+            
+            for (i = 0; i < 512; i = i + 1) begin
+                @(posedge CLK);
+                ADDR = i;
+                DIN = prog_buffer[i];
+            end
+        end        
 
         @(posedge CLK);
         IM_WE = 0;
-        $display("Instruction Memory Load Complete.");
+        $display("[%t] Instruction Memory Load Complete.", $time);
 
         // --- Step 2: Release Resets ---
         #20;
@@ -92,22 +85,20 @@ module ARM_Processor_4T_tb;
     end
 
     // Task to dump Data Memory contents via hierarchical probing
-    // Note: The internal path 'uut.Data_Mem.inst.memory' depends on the BRAM IP model.
-    // In ISE 10.1, it's often 'inst/native_mem_module.blk_mem_gen_vX_X_inst/memory'
-    // You may need to check the 'D_Mem.v' generated source or use ISim to find the path.
     task dump_data_mem;
+        integer i;
         begin
-            $display("Address | Value");
-            $display("----------------");
-            // Assuming we check the stack area or where the array is stored (e.g. word 140)
-            // Replace 'gen_mem' with the actual internal array name found in D_Mem
-            /*
-            for (integer i = 140; i < 150; i = i + 1) begin
-                $display("%d | %h", i, uut.Data_Mem.inst.memory[i]);
+            $display("--- Data Memory Dump (First 32 Words) ---");
+            $display("Word Addr | Value");
+            $display("-------------------------");
+            for (i = 0; i < 32; i = i + 1) begin
+                // For BLKMEMDP_V6_3 simulation models, the internal array is usually 'mem'.
+                // If this results in an error, try 'memory' or use the ISim hierarchy viewer to find the exact path.
+                $display("%d | %h", i, uut.Data_Mem.inst.mem[i]);
             end
-            */
-            $display("Probing signals in MEM stage:");
-            $display("M_ALU: %h, M_DM_OUT: %h", uut.M_ALU, uut.M_DM_OUT);
+            $display("-------------------------");
+            $display("Current MEM Stage Probe:");
+            $display("M_ALU (Addr): %h | M_DM_OUT (Data): %h", uut.M_ALU, uut.M_DM_OUT);
         end
     endtask
 
