@@ -1,0 +1,94 @@
+Release 10.1 - xst K.31 (nt)
+Copyright (c) 1995-2008 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to ./xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.17 secs
+ 
+--> 
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling verilog file "dff4.vf" in library work
+Compiling verilog file "Reg_File_Dual.v" in library work
+Module <dff4> compiled
+Compiling verilog file "PCL_7b.vf" in library work
+Module <Reg_File_Dual> compiled
+Module <M2_1_MXILINX_PCL_7b> compiled
+Module <FTCLEX_MXILINX_PCL_7b> compiled
+Compiling verilog file "Mux_2_1_16b.vf" in library work
+Module <PCL_7b> compiled
+Module <M2_1_MXILINX_Mux_2_1_16b> compiled
+Compiling verilog file "Mux4_1_7b.vf" in library work
+Module <Mux_2_1_16b> compiled
+Module <M2_1E_MXILINX_Mux4_1_7b> compiled
+Module <M4_1E_MXILINX_Mux4_1_7b> compiled
+Compiling verilog file "Flag_Reg.vf" in library work
+Module <Mux4_1_7b> compiled
+Compiling verilog file "dff64.vf" in library work
+Module <Flag_Reg> compiled
+Module <FD16CE_MXILINX_dff64> compiled
+Compiling verilog file "dff32.vf" in library work
+Module <dff64> compiled
+Module <FD16CE_MXILINX_dff32> compiled
+Compiling verilog file "dff2.vf" in library work
+Module <dff32> compiled
+Compiling verilog file "dff12.vf" in library work
+Module <dff2> compiled
+Compiling verilog file "busmerge4_2.v" in library work
+Module <dff12> compiled
+Compiling verilog file "Sign_Extend_12to64.v" in library work
+Module <busmerge4_2> compiled
+Compiling verilog file "Register_File_BRAM.vf" in library work
+Module <Sign_Extend_12to64> compiled
+Compiling verilog file "PCL_7b_4.vf" in library work
+Module <Register_File_BRAM> compiled
+Module <D2_4E_MXILINX_PCL_7b_4> compiled
+Compiling verilog file "M_WB_Reg.vf" in library work
+Module <PCL_7b_4> compiled
+Compiling verilog file "Mux2_1_64b.vf" in library work
+Module <M_WB_Reg> compiled
+Compiling verilog file "I_Mem_Dual.v" in library work
+Module <Mux2_1_64b> compiled
+Compiling verilog file "IF_ID_Reg.vf" in library work
+Module <I_Mem_Dual> compiled
+Compiling verilog file "ID_EX_Reg.vf" in library work
+Module <IF_ID_Reg> compiled
+Compiling verilog file "Flag_Reg_4.vf" in library work
+Module <ID_EX_Reg> compiled
+Module <M2_1E_MXILINX_Flag_Reg_4> compiled
+Module <M4_1E_MXILINX_Flag_Reg_4> compiled
+Module <D2_4E_MXILINX_Flag_Reg_4> compiled
+Compiling verilog file "EX_M_Reg.vf" in library work
+Module <Flag_Reg_4> compiled
+Compiling verilog file "D_Mem.v" in library work
+Module <EX_M_Reg> compiled
+Compiling verilog file "Counter_2b.vf" in library work
+Module <D_Mem> compiled
+Module <FTCE_MXILINX_Counter_2b> compiled
+Compiling verilog file "Control_Unit.v" in library work
+Module <Counter_2b> compiled
+Compiling verilog file "Condition_Unit.v" in library work
+Module <Control_Unit> compiled
+Compiling verilog file "ALU.v" in library work
+Module <Condition_Unit> compiled
+Compiling verilog file "ARM_Processor_4T.v" in library work
+Module <ALU> compiled
+Module <ARM_Processor_4T> compiled
+No errors in compilation
+Analysis of file <"ARM_Processor_4T.prj"> succeeded.
+ 
+
+
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.33 secs
+ 
+--> 
+
+Total memory usage is 104412 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :    0 (   0 filtered)
+Number of infos    :    0 (   0 filtered)
+

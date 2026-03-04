@@ -107,7 +107,7 @@ BEGIN SCHEMATIC
             LINE N 96 -64 32 -64 
         END BLOCKDEF
         BEGIN BLOCKDEF I_Mem_Dual
-            TIMESTAMP 2026 2 23 5 37 48
+            TIMESTAMP 2026 3 4 3 42 4
             RECTANGLE N 32 0 256 496 
             BEGIN LINE W 0 48 32 48 
             END LINE
@@ -118,6 +118,8 @@ BEGIN SCHEMATIC
             BEGIN LINE W 0 272 32 272 
             END LINE
             LINE N 0 464 32 464 
+            BEGIN LINE W 256 48 288 48 
+            END LINE
             BEGIN LINE W 256 272 288 272 
             END LINE
         END BLOCKDEF
@@ -414,6 +416,7 @@ BEGIN SCHEMATIC
             PIN clka CLK
             PIN addrb(8:0) PC(8:0)
             PIN clkb CLK
+            PIN douta(31:0)
             PIN doutb(31:0) IM_OUT(31:0)
         END BLOCK
         BEGIN BLOCK XLXI_185 Condition_Unit

@@ -1,0 +1,514 @@
+Disassembled Assembly:
+
+000: sub r15, r15, r15
+001: sub sp, sp, sp
+002: sub fp, fp, fp
+003: add sp, r15, #256
+004: sub sp, sp, #8
+005: str fp, [sp, #0]
+006: str lr, [sp, #4]
+007: add fp, sp, #4
+008: sub sp, sp, #56
+009: ldr r3, [r15, #86]
+010: sub ip, fp, #56
+011: add r0, r15, #23
+012: add r1, r15, #123
+013: add r2, r15, #-455
+014: add r3, r15, #2
+015: str r0, [ip, #0]
+016: str r1, [ip, #4]
+017: str r2, [ip, #8]
+018: str r3, [ip, #12]
+019: add ip, ip, #16
+020: add r0, r15, #98
+021: add r1, r15, #125
+022: add r2, r15, #10
+023: add r3, r15, #65
+024: str r0, [ip, #0]
+025: str r1, [ip, #4]
+026: str r2, [ip, #8]
+027: str r3, [ip, #12]
+028: add ip, ip, #16
+029: add r0, r15, #-56
+030: add r1, r15, #0
+031: str r0, [ip, #0]
+032: str r1, [ip, #4]
+033: b 81
+034: ldr r3, [fp, #-8]
+035: add r3, r3, #1
+036: str r3, [fp, #-12]
+037: b 75
+038: ldr r3, [fp, #-12]
+039: lsl r3, r3, #2
+040: sub r3, r3, #4
+041: add r3, r3, fp
+042: ldr r2, [r3, #-52]
+043: ldr r3, [fp, #-8]
+044: lsl r3, r3, #2
+045: sub r3, r3, #4
+046: add r3, r3, fp
+047: ldr r3, [r3, #-52]
+048: cmp r2, r3
+049: bge 72
+050: ldr r3, [fp, #-12]
+051: lsl r3, r3, #2
+052: sub r3, r3, #4
+053: add r3, r3, fp
+054: ldr r3, [r3, #-52]
+055: str r3, [fp, #-16]
+056: ldr r3, [fp, #-8]
+057: lsl r3, r3, #2
+058: sub r3, r3, #4
+059: add r3, r3, fp
+060: ldr r2, [r3, #-52]
+061: ldr r3, [fp, #-12]
+062: lsl r3, r3, #2
+063: sub r3, r3, #4
+064: add r3, r3, fp
+065: str r2, [r3, #-52]
+066: ldr r3, [fp, #-8]
+067: lsl r3, r3, #2
+068: sub r3, r3, #4
+069: add r3, r3, fp
+070: ldr r2, [fp, #-16]
+071: str r2, [r3, #-52]
+072: ldr r3, [fp, #-12]
+073: add r3, r3, #1
+074: str r3, [fp, #-12]
+075: ldr r3, [fp, #-12]
+076: cmp r3, #9
+077: ble 38
+078: ldr r3, [fp, #-8]
+079: add r3, r3, #1
+080: str r3, [fp, #-8]
+081: ldr r3, [fp, #-8]
+082: cmp r3, #9
+083: ble 34
+084: add r3, r15, #0
+085: add r0, r3, r15
+086: sub sp, fp, #4
+087: ldr fp, [sp, #0]
+088: ldr lr, [sp, #4]
+089: add sp, sp, #8
+090: b 90
+091: nop
+092: nop
+093: nop
+094: nop
+095: nop
+096: nop
+097: nop
+098: nop
+099: nop
+100: nop
+101: nop
+102: nop
+103: nop
+104: nop
+105: nop
+106: nop
+107: nop
+108: nop
+109: nop
+110: nop
+111: nop
+112: nop
+113: nop
+114: nop
+115: nop
+116: nop
+117: nop
+118: nop
+119: nop
+120: nop
+121: nop
+122: nop
+123: nop
+124: nop
+125: nop
+126: nop
+127: nop
+128: sub r15, r15, r15
+129: sub sp, sp, sp
+130: sub fp, fp, fp
+131: add sp, r15, #512
+132: sub sp, sp, #8
+133: str fp, [sp, #0]
+134: str lr, [sp, #4]
+135: add fp, sp, #4
+136: sub sp, sp, #56
+137: ldr r3, [r15, #86]
+138: sub ip, fp, #56
+139: add r0, r15, #23
+140: add r1, r15, #123
+141: add r2, r15, #-455
+142: add r3, r15, #2
+143: str r0, [ip, #0]
+144: str r1, [ip, #4]
+145: str r2, [ip, #8]
+146: str r3, [ip, #12]
+147: add ip, ip, #16
+148: add r0, r15, #98
+149: add r1, r15, #125
+150: add r2, r15, #10
+151: add r3, r15, #65
+152: str r0, [ip, #0]
+153: str r1, [ip, #4]
+154: str r2, [ip, #8]
+155: str r3, [ip, #12]
+156: add ip, ip, #16
+157: add r0, r15, #-56
+158: add r1, r15, #0
+159: str r0, [ip, #0]
+160: str r1, [ip, #4]
+161: b 209
+162: ldr r3, [fp, #-8]
+163: add r3, r3, #1
+164: str r3, [fp, #-12]
+165: b 203
+166: ldr r3, [fp, #-12]
+167: lsl r3, r3, #2
+168: sub r3, r3, #4
+169: add r3, r3, fp
+170: ldr r2, [r3, #-52]
+171: ldr r3, [fp, #-8]
+172: lsl r3, r3, #2
+173: sub r3, r3, #4
+174: add r3, r3, fp
+175: ldr r3, [r3, #-52]
+176: cmp r2, r3
+177: bge 200
+178: ldr r3, [fp, #-12]
+179: lsl r3, r3, #2
+180: sub r3, r3, #4
+181: add r3, r3, fp
+182: ldr r3, [r3, #-52]
+183: str r3, [fp, #-16]
+184: ldr r3, [fp, #-8]
+185: lsl r3, r3, #2
+186: sub r3, r3, #4
+187: add r3, r3, fp
+188: ldr r2, [r3, #-52]
+189: ldr r3, [fp, #-12]
+190: lsl r3, r3, #2
+191: sub r3, r3, #4
+192: add r3, r3, fp
+193: str r2, [r3, #-52]
+194: ldr r3, [fp, #-8]
+195: lsl r3, r3, #2
+196: sub r3, r3, #4
+197: add r3, r3, fp
+198: ldr r2, [fp, #-16]
+199: str r2, [r3, #-52]
+200: ldr r3, [fp, #-12]
+201: add r3, r3, #1
+202: str r3, [fp, #-12]
+203: ldr r3, [fp, #-12]
+204: cmp r3, #9
+205: ble 166
+206: ldr r3, [fp, #-8]
+207: add r3, r3, #1
+208: str r3, [fp, #-8]
+209: ldr r3, [fp, #-8]
+210: cmp r3, #9
+211: ble 162
+212: add r3, r15, #0
+213: add r0, r3, r15
+214: sub sp, fp, #4
+215: ldr fp, [sp, #0]
+216: ldr lr, [sp, #4]
+217: add sp, sp, #8
+218: b 218
+219: nop
+220: nop
+221: nop
+222: nop
+223: nop
+224: nop
+225: nop
+226: nop
+227: nop
+228: nop
+229: nop
+230: nop
+231: nop
+232: nop
+233: nop
+234: nop
+235: nop
+236: nop
+237: nop
+238: nop
+239: nop
+240: nop
+241: nop
+242: nop
+243: nop
+244: nop
+245: nop
+246: nop
+247: nop
+248: nop
+249: nop
+250: nop
+251: nop
+252: nop
+253: nop
+254: nop
+255: nop
+256: sub r15, r15, r15
+257: sub sp, sp, sp
+258: sub fp, fp, fp
+259: add sp, r15, #768
+260: sub sp, sp, #8
+261: str fp, [sp, #0]
+262: str lr, [sp, #4]
+263: add fp, sp, #4
+264: sub sp, sp, #56
+265: ldr r3, [r15, #86]
+266: sub ip, fp, #56
+267: add r0, r15, #23
+268: add r1, r15, #123
+269: add r2, r15, #-455
+270: add r3, r15, #2
+271: str r0, [ip, #0]
+272: str r1, [ip, #4]
+273: str r2, [ip, #8]
+274: str r3, [ip, #12]
+275: add ip, ip, #16
+276: add r0, r15, #98
+277: add r1, r15, #125
+278: add r2, r15, #10
+279: add r3, r15, #65
+280: str r0, [ip, #0]
+281: str r1, [ip, #4]
+282: str r2, [ip, #8]
+283: str r3, [ip, #12]
+284: add ip, ip, #16
+285: add r0, r15, #-56
+286: add r1, r15, #0
+287: str r0, [ip, #0]
+288: str r1, [ip, #4]
+289: b 337
+290: ldr r3, [fp, #-8]
+291: add r3, r3, #1
+292: str r3, [fp, #-12]
+293: b 331
+294: ldr r3, [fp, #-12]
+295: lsl r3, r3, #2
+296: sub r3, r3, #4
+297: add r3, r3, fp
+298: ldr r2, [r3, #-52]
+299: ldr r3, [fp, #-8]
+300: lsl r3, r3, #2
+301: sub r3, r3, #4
+302: add r3, r3, fp
+303: ldr r3, [r3, #-52]
+304: cmp r2, r3
+305: bge 328
+306: ldr r3, [fp, #-12]
+307: lsl r3, r3, #2
+308: sub r3, r3, #4
+309: add r3, r3, fp
+310: ldr r3, [r3, #-52]
+311: str r3, [fp, #-16]
+312: ldr r3, [fp, #-8]
+313: lsl r3, r3, #2
+314: sub r3, r3, #4
+315: add r3, r3, fp
+316: ldr r2, [r3, #-52]
+317: ldr r3, [fp, #-12]
+318: lsl r3, r3, #2
+319: sub r3, r3, #4
+320: add r3, r3, fp
+321: str r2, [r3, #-52]
+322: ldr r3, [fp, #-8]
+323: lsl r3, r3, #2
+324: sub r3, r3, #4
+325: add r3, r3, fp
+326: ldr r2, [fp, #-16]
+327: str r2, [r3, #-52]
+328: ldr r3, [fp, #-12]
+329: add r3, r3, #1
+330: str r3, [fp, #-12]
+331: ldr r3, [fp, #-12]
+332: cmp r3, #9
+333: ble 294
+334: ldr r3, [fp, #-8]
+335: add r3, r3, #1
+336: str r3, [fp, #-8]
+337: ldr r3, [fp, #-8]
+338: cmp r3, #9
+339: ble 290
+340: add r3, r15, #0
+341: add r0, r3, r15
+342: sub sp, fp, #4
+343: ldr fp, [sp, #0]
+344: ldr lr, [sp, #4]
+345: add sp, sp, #8
+346: b 346
+347: nop
+348: nop
+349: nop
+350: nop
+351: nop
+352: nop
+353: nop
+354: nop
+355: nop
+356: nop
+357: nop
+358: nop
+359: nop
+360: nop
+361: nop
+362: nop
+363: nop
+364: nop
+365: nop
+366: nop
+367: nop
+368: nop
+369: nop
+370: nop
+371: nop
+372: nop
+373: nop
+374: nop
+375: nop
+376: nop
+377: nop
+378: nop
+379: nop
+380: nop
+381: nop
+382: nop
+383: nop
+384: sub r15, r15, r15
+385: sub sp, sp, sp
+386: sub fp, fp, fp
+387: add sp, r15, #1024
+388: sub sp, sp, #8
+389: str fp, [sp, #0]
+390: str lr, [sp, #4]
+391: add fp, sp, #4
+392: sub sp, sp, #56
+393: ldr r3, [r15, #86]
+394: sub ip, fp, #56
+395: add r0, r15, #23
+396: add r1, r15, #123
+397: add r2, r15, #-455
+398: add r3, r15, #2
+399: str r0, [ip, #0]
+400: str r1, [ip, #4]
+401: str r2, [ip, #8]
+402: str r3, [ip, #12]
+403: add ip, ip, #16
+404: add r0, r15, #98
+405: add r1, r15, #125
+406: add r2, r15, #10
+407: add r3, r15, #65
+408: str r0, [ip, #0]
+409: str r1, [ip, #4]
+410: str r2, [ip, #8]
+411: str r3, [ip, #12]
+412: add ip, ip, #16
+413: add r0, r15, #-56
+414: add r1, r15, #0
+415: str r0, [ip, #0]
+416: str r1, [ip, #4]
+417: b 465
+418: ldr r3, [fp, #-8]
+419: add r3, r3, #1
+420: str r3, [fp, #-12]
+421: b 459
+422: ldr r3, [fp, #-12]
+423: lsl r3, r3, #2
+424: sub r3, r3, #4
+425: add r3, r3, fp
+426: ldr r2, [r3, #-52]
+427: ldr r3, [fp, #-8]
+428: lsl r3, r3, #2
+429: sub r3, r3, #4
+430: add r3, r3, fp
+431: ldr r3, [r3, #-52]
+432: cmp r2, r3
+433: bge 456
+434: ldr r3, [fp, #-12]
+435: lsl r3, r3, #2
+436: sub r3, r3, #4
+437: add r3, r3, fp
+438: ldr r3, [r3, #-52]
+439: str r3, [fp, #-16]
+440: ldr r3, [fp, #-8]
+441: lsl r3, r3, #2
+442: sub r3, r3, #4
+443: add r3, r3, fp
+444: ldr r2, [r3, #-52]
+445: ldr r3, [fp, #-12]
+446: lsl r3, r3, #2
+447: sub r3, r3, #4
+448: add r3, r3, fp
+449: str r2, [r3, #-52]
+450: ldr r3, [fp, #-8]
+451: lsl r3, r3, #2
+452: sub r3, r3, #4
+453: add r3, r3, fp
+454: ldr r2, [fp, #-16]
+455: str r2, [r3, #-52]
+456: ldr r3, [fp, #-12]
+457: add r3, r3, #1
+458: str r3, [fp, #-12]
+459: ldr r3, [fp, #-12]
+460: cmp r3, #9
+461: ble 422
+462: ldr r3, [fp, #-8]
+463: add r3, r3, #1
+464: str r3, [fp, #-8]
+465: ldr r3, [fp, #-8]
+466: cmp r3, #9
+467: ble 418
+468: add r3, r15, #0
+469: add r0, r3, r15
+470: sub sp, fp, #4
+471: ldr fp, [sp, #0]
+472: ldr lr, [sp, #4]
+473: add sp, sp, #8
+474: b 474
+475: nop
+476: nop
+477: nop
+478: nop
+479: nop
+480: nop
+481: nop
+482: nop
+483: nop
+484: nop
+485: nop
+486: nop
+487: nop
+488: nop
+489: nop
+490: nop
+491: nop
+492: nop
+493: nop
+494: nop
+495: nop
+496: nop
+497: nop
+498: nop
+499: nop
+500: nop
+501: nop
+502: nop
+503: nop
+504: nop
+505: nop
+506: nop
+507: nop
+508: nop
+509: nop
+510: nop
+511: nop

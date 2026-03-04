@@ -7,7 +7,7 @@
 // \   \   \/     Version : 10.1
 //  \   \         Application : sch2verilog
 //  /   /         Filename : Pipeline_Datapath.vf
-// /___/   /\     Timestamp : 02/22/2026 21:38:22
+// /___/   /\     Timestamp : 03/03/2026 19:58:15
 // \   \  /  \ 
 //  \___\/\___\ 
 //
@@ -130,6 +130,7 @@ module Pipeline_Datapath(ADDR,
                         .clkb(CLK), 
                         .dina(DIN[31:0]), 
                         .wea(IM_WE), 
+                        .douta(), 
                         .doutb(IM_OUT[31:0]));
    Condition_Unit XLXI_185 (.br_en(EX_BE), 
                             .BType(EX_BType[1:0]), 

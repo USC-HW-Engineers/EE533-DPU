@@ -9,9 +9,7 @@ BEGIN SCHEMATIC
         SIGNAL XLXN_7
         SIGNAL CLR
         SIGNAL CLK
-        SIGNAL XLXN_12
         SIGNAL D(6:0)
-        SIGNAL XLXN_15
         SIGNAL XLXN_16
         SIGNAL XLXN_17
         SIGNAL XLXN_18
@@ -19,14 +17,19 @@ BEGIN SCHEMATIC
         SIGNAL vdd
         SIGNAL ID(0)
         SIGNAL ID(1)
-        SIGNAL XLXN_32
-        SIGNAL XLXN_33
         SIGNAL ID(1:0)
         SIGNAL Q(6:0)
         SIGNAL XLXN_47(6:0)
         SIGNAL XLXN_48(6:0)
         SIGNAL XLXN_49(6:0)
         SIGNAL XLXN_50(6:0)
+        SIGNAL XLXN_52
+        SIGNAL XLXN_53
+        SIGNAL XLXN_54
+        SIGNAL XLXN_55
+        SIGNAL XLXN_56
+        SIGNAL XLXN_57
+        SIGNAL XLXN_58
         PORT Input CLR
         PORT Input CLK
         PORT Input D(6:0)
@@ -89,7 +92,7 @@ BEGIN SCHEMATIC
             RECTANGLE N 0 -44 64 -20 
         END BLOCKDEF
         BEGIN BLOCK XLXI_189 PCL_7b
-            PIN CE XLXN_15
+            PIN CE XLXN_52
             PIN CLK CLK
             PIN CLR CLR
             PIN D(6:0) D(6:0)
@@ -97,7 +100,7 @@ BEGIN SCHEMATIC
             PIN Q(6:0) XLXN_47(6:0)
         END BLOCK
         BEGIN BLOCK XLXI_190 PCL_7b
-            PIN CE XLXN_32
+            PIN CE XLXN_53
             PIN CLK CLK
             PIN CLR CLR
             PIN D(6:0) D(6:0)
@@ -105,7 +108,7 @@ BEGIN SCHEMATIC
             PIN Q(6:0) XLXN_48(6:0)
         END BLOCK
         BEGIN BLOCK XLXI_191 PCL_7b
-            PIN CE XLXN_33
+            PIN CE XLXN_54
             PIN CLK CLK
             PIN CLR CLR
             PIN D(6:0) D(6:0)
@@ -113,7 +116,7 @@ BEGIN SCHEMATIC
             PIN Q(6:0) XLXN_49(6:0)
         END BLOCK
         BEGIN BLOCK XLXI_192 PCL_7b
-            PIN CE XLXN_12
+            PIN CE XLXN_56
             PIN CLK CLK
             PIN CLR CLR
             PIN D(6:0) D(6:0)
@@ -122,32 +125,32 @@ BEGIN SCHEMATIC
         END BLOCK
         BEGIN BLOCK XLXI_197 and2
             PIN I0 L
-            PIN I1 XLXN_15
+            PIN I1 XLXN_56
             PIN O XLXN_7
         END BLOCK
         BEGIN BLOCK XLXI_198 and2
             PIN I0 L
-            PIN I1 XLXN_32
+            PIN I1 XLXN_52
             PIN O XLXN_16
         END BLOCK
         BEGIN BLOCK XLXI_199 and2
             PIN I0 L
-            PIN I1 XLXN_33
+            PIN I1 XLXN_53
             PIN O XLXN_17
         END BLOCK
         BEGIN BLOCK XLXI_200 and2
             PIN I0 L
-            PIN I1 XLXN_12
+            PIN I1 XLXN_54
             PIN O XLXN_18
         END BLOCK
         BEGIN BLOCK XLXI_5 d2_4e
             PIN A0 ID(0)
             PIN A1 ID(1)
             PIN E vdd
-            PIN D0 XLXN_15
-            PIN D1 XLXN_32
-            PIN D2 XLXN_33
-            PIN D3 XLXN_12
+            PIN D0 XLXN_52
+            PIN D1 XLXN_53
+            PIN D2 XLXN_54
+            PIN D3 XLXN_56
         END BLOCK
         BEGIN BLOCK XLXI_6 vcc
             PIN P vdd
@@ -192,13 +195,6 @@ BEGIN SCHEMATIC
             WIRE 1328 2080 1360 2080
             WIRE 1328 1664 1360 1664
             WIRE 1328 1248 1360 1248
-        END BRANCH
-        BEGIN BRANCH XLXN_12
-            WIRE 784 1536 800 1536
-            WIRE 800 1536 800 1920
-            WIRE 800 1920 800 2016
-            WIRE 800 2016 1360 2016
-            WIRE 800 1920 1008 1920
         END BRANCH
         BEGIN BRANCH D(6:0)
             WIRE 640 640 1312 640
@@ -253,27 +249,6 @@ BEGIN SCHEMATIC
                 ALIGNMENT SOFT-BCENTER
             END DISPLAY
         END BRANCH
-        BEGIN BRANCH XLXN_15
-            WIRE 784 1344 800 1344
-            WIRE 800 672 1008 672
-            WIRE 800 672 800 768
-            WIRE 800 768 800 1344
-            WIRE 800 768 1360 768
-        END BRANCH
-        BEGIN BRANCH XLXN_32
-            WIRE 784 1408 896 1408
-            WIRE 896 1088 1008 1088
-            WIRE 896 1088 896 1184
-            WIRE 896 1184 896 1408
-            WIRE 896 1184 1360 1184
-        END BRANCH
-        BEGIN BRANCH XLXN_33
-            WIRE 784 1472 896 1472
-            WIRE 896 1472 896 1504
-            WIRE 896 1504 1008 1504
-            WIRE 896 1504 896 1600
-            WIRE 896 1600 1360 1600
-        END BRANCH
         IOMARKER 640 736 L R180 28
         IOMARKER 640 640 D(6:0) R180 28
         BEGIN BRANCH ID(1:0)
@@ -313,6 +288,34 @@ BEGIN SCHEMATIC
             WIRE 1744 1888 1840 1888
             WIRE 1840 1216 1840 1888
             WIRE 1840 1216 2048 1216
+        END BRANCH
+        BEGIN BRANCH XLXN_52
+            WIRE 784 1344 800 1344
+            WIRE 800 768 1360 768
+            WIRE 800 768 800 1088
+            WIRE 800 1088 800 1344
+            WIRE 800 1088 1008 1088
+        END BRANCH
+        BEGIN BRANCH XLXN_53
+            WIRE 784 1408 816 1408
+            WIRE 816 1408 816 1504
+            WIRE 816 1504 1008 1504
+            WIRE 816 1184 816 1408
+            WIRE 816 1184 1360 1184
+        END BRANCH
+        BEGIN BRANCH XLXN_54
+            WIRE 784 1472 848 1472
+            WIRE 848 1472 848 1600
+            WIRE 848 1600 1360 1600
+            WIRE 848 1600 848 1920
+            WIRE 848 1920 1008 1920
+        END BRANCH
+        BEGIN BRANCH XLXN_56
+            WIRE 784 1536 880 1536
+            WIRE 880 1536 880 2016
+            WIRE 880 2016 1360 2016
+            WIRE 880 672 1008 672
+            WIRE 880 672 880 1536
         END BRANCH
     END SHEET
 END SCHEMATIC

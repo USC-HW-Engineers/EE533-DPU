@@ -37,6 +37,7 @@ I_Mem_Dual YourInstanceName (
 	.clka(clka),
 	.clkb(clkb),
 	.dina(dina), // Bus [31 : 0] 
+	.douta(douta), // Bus [31 : 0] 
 	.doutb(doutb), // Bus [31 : 0] 
 	.wea(wea));
 

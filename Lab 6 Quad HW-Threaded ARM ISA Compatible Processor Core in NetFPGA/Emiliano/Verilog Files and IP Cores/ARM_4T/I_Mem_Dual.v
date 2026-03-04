@@ -43,6 +43,7 @@ module I_Mem_Dual(
 	clka,
 	clkb,
 	dina,
+	douta,
 	doutb,
 	wea);
 
@@ -52,6 +53,7 @@ input [8 : 0] addrb;
 input clka;
 input clkb;
 input [31 : 0] dina;
+output [31 : 0] douta;
 output [31 : 0] doutb;
 input wea;
 
@@ -67,7 +69,7 @@ input wea;
 		.c_has_default_data(0),
 		.c_has_dina(1),
 		.c_has_dinb(0),
-		.c_has_douta(0),
+		.c_has_douta(1),
 		.c_has_doutb(1),
 		.c_has_ena(0),
 		.c_has_enb(0),
@@ -116,10 +118,10 @@ input wea;
 		.CLKA(clka),
 		.CLKB(clkb),
 		.DINA(dina),
+		.DOUTA(douta),
 		.DOUTB(doutb),
 		.WEA(wea),
 		.DINB(),
-		.DOUTA(),
 		.ENA(),
 		.ENB(),
 		.NDA(),
