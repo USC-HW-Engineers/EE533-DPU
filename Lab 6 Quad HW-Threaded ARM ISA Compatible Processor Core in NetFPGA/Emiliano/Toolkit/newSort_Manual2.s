@@ -39,7 +39,8 @@ main:
 	sub r15, r15, r15
 	sub sp, sp, sp
 	sub fp, fp, fp
-	add sp, r15, #256
+	add sp, r15, #9
+	lsl sp, sp, #8
 	push	{fp, lr}
 	add	fp, sp, #4
 	sub	sp, sp, #56
@@ -166,12 +167,12 @@ main:
 	nop
 	nop
 	nop
-	nop
 
 	sub r15, r15, r15
 	sub sp, sp, sp
 	sub fp, fp, fp
-	add sp, r15, #512
+	add sp, r15, #10
+	lsl sp, sp, #8
 	push	{fp, lr}
 	add	fp, sp, #4
 	sub	sp, sp, #56
@@ -298,12 +299,12 @@ main:
 	nop
 	nop
 	nop
-	nop
 
 	sub r15, r15, r15
 	sub sp, sp, sp
 	sub fp, fp, fp
-	add sp, r15, #768
+	add sp, r15, #11
+	lsl sp, sp, #8
 	push	{fp, lr}
 	add	fp, sp, #4
 	sub	sp, sp, #56
@@ -430,12 +431,12 @@ main:
 	nop
 	nop
 	nop
-	nop
 
 	sub r15, r15, r15
 	sub sp, sp, sp
 	sub fp, fp, fp
-	add sp, r15, #1024
+	add sp, r15, #12
+	lsl sp, sp, #8
 	push	{fp, lr}
 	add	fp, sp, #4
 	sub	sp, sp, #56
@@ -526,7 +527,6 @@ main:
 	pop	{fp, lr}
 .L39:
 	b	.L39
-	nop
 	nop
 	nop
 	nop

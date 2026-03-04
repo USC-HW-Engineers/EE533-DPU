@@ -51,8 +51,8 @@ module ARM_Processor_4T_tb;
             // Initialize buffer to NOPs first
             for (i = 0; i < 512; i = i + 1) prog_buffer[i] = 32'h00000000;
             
-            // Load the machine code from the Toolkit directory
-            $readmemh("../Toolkit/newSort_Manual2.hex", prog_buffer);
+            // Load the machine code from the Desktop directory using forward slashes
+            $readmemh("C:/Documents and Settings/student/Desktop/ARM_Processor_4T/newSort_Manual2.hex", prog_buffer);
             
             for (i = 0; i < 512; i = i + 1) begin
                 @(posedge CLK);
@@ -84,27 +84,53 @@ module ARM_Processor_4T_tb;
         $finish;
     end
 
-    // Task to dump Data Memory contents via hierarchical probing
+    // Task to dump Data Memory
     task dump_data_mem;
         integer i;
+        reg [63:0] word_val;
         begin
-            $display("--- Data Memory Dump (First 32 Words) ---");
-            $display("Word Addr | Value");
+            $display("--- Data Memory Dump (Indices 0-31) ---");
+            $display("Word | Value");
             $display("-------------------------");
-            for (i = 0; i < 32; i = i + 1) begin
-                // For BLKMEMDP_V6_3 simulation models, the internal array is usually 'mem'.
-                // If this results in an error, try 'memory' or use the ISim hierarchy viewer to find the exact path.
-                $display("%d | %h", i, uut.Data_Mem.inst.mem[i]);
+            for (i = 0; i < 256; i = i + 1) begin
+                // Slicing the 16384-bit vector into 64-bit chunks
+                // Index starts at i*64 and takes 64 bits upwards
+                word_val = uut.Data_Mem.inst.mem[(i*64) +: 64];
+                
+                if (word_val !== 64'h0 || i < 32) begin
+                    $display("%d | %h", i, word_val);
+                end
             end
+            
             $display("-------------------------");
-            $display("Current MEM Stage Probe:");
-            $display("M_ALU (Addr): %h | M_DM_OUT (Data): %h", uut.M_ALU, uut.M_DM_OUT);
+            $display("Final Processor State Probe:");
+            $display("PC: %h | TID: %d | INS: %h", uut.PC, uut.M_TID, uut.INS);
+            $display("MEM Stage -> Addr (M_ALU): %h | Data (M_R2): %h | WE: %b", uut.M_ALU, uut.M_R2, uut.M_MemWrite_MemStage);
+        end
+    endtask
+
+    // Task to verify Instruction Memory load
+    task dump_inst_mem;
+        integer i;
+        begin
+            $display("--- Instruction Memory Dump (First 32 Words) ---");
+            for (i = 0; i < 32; i = i + 1) begin
+                $display("IM[%d] | %h", i, uut.Inst_Mem.inst.mem[i]);
+            end
         end
     endtask
 
     // Monitor changes to see the threads interleaving
     initial begin
         $monitor("Time: %t | PC: %h | INS: %h | TID: %d", $time, uut.PC, uut.INS, uut.ID_TID);
+    end
+
+    // Real-time Data Memory Write Monitor
+    always @(posedge CLK) begin
+        if (uut.M_MemWrite_MemStage) begin
+            $display("[%t] MEM WRITE: Thread %d | Addr 0x%h | Data 0x%h", 
+                     $time, uut.M_TID, uut.M_ALU, uut.M_R2);
+        end
     end
 
 endmodule

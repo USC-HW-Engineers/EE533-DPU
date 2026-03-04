@@ -3,95 +3,95 @@ Disassembled Assembly:
 0x000 | 000: sub r15, r15, r15
 0x004 | 004: sub sp, sp, sp
 0x008 | 008: sub fp, fp, fp
-0x00C | 012: add sp, r15, #-1792
-0x010 | 016: sub sp, sp, #8
-0x014 | 020: str fp, [sp, #0]
-0x018 | 024: str lr, [sp, #4]
-0x01C | 028: add fp, sp, #4
-0x020 | 032: sub sp, sp, #56
-0x024 | 036: ldr r3, [r15, #86]
-0x028 | 040: sub ip, fp, #56
-0x02C | 044: add r0, r15, #23
-0x030 | 048: add r1, r15, #123
-0x034 | 052: add r2, r15, #-455
-0x038 | 056: add r3, r15, #2
-0x03C | 060: str r0, [ip, #0]
-0x040 | 064: str r1, [ip, #4]
-0x044 | 068: str r2, [ip, #8]
-0x048 | 072: str r3, [ip, #12]
-0x04C | 076: add ip, ip, #16
-0x050 | 080: add r0, r15, #98
-0x054 | 084: add r1, r15, #125
-0x058 | 088: add r2, r15, #10
-0x05C | 092: add r3, r15, #65
-0x060 | 096: str r0, [ip, #0]
-0x064 | 100: str r1, [ip, #4]
-0x068 | 104: str r2, [ip, #8]
-0x06C | 108: str r3, [ip, #12]
-0x070 | 112: add ip, ip, #16
-0x074 | 116: add r0, r15, #-56
-0x078 | 120: add r1, r15, #0
-0x07C | 124: str r0, [ip, #0]
-0x080 | 128: str r1, [ip, #4]
-0x084 | 132: b 1432
-0x088 | 136: ldr r3, [fp, #-8]
-0x08C | 140: add r3, r3, #1
-0x090 | 144: str r3, [fp, #-12]
-0x094 | 148: b 1352
-0x098 | 152: ldr r3, [fp, #-12]
-0x09C | 156: lsl r3, r3, #2
-0x0A0 | 160: sub r3, r3, #4
-0x0A4 | 164: add r3, r3, fp
-0x0A8 | 168: ldr r2, [r3, #-52]
-0x0AC | 172: ldr r3, [fp, #-8]
-0x0B0 | 176: lsl r3, r3, #2
-0x0B4 | 180: sub r3, r3, #4
-0x0B8 | 184: add r3, r3, fp
-0x0BC | 188: ldr r3, [r3, #-52]
-0x0C0 | 192: cmp r2, r3
-0x0C4 | 196: bge 1352
-0x0C8 | 200: ldr r3, [fp, #-12]
-0x0CC | 204: lsl r3, r3, #2
-0x0D0 | 208: sub r3, r3, #4
-0x0D4 | 212: add r3, r3, fp
-0x0D8 | 216: ldr r3, [r3, #-52]
-0x0DC | 220: str r3, [fp, #-16]
-0x0E0 | 224: ldr r3, [fp, #-8]
-0x0E4 | 228: lsl r3, r3, #2
-0x0E8 | 232: sub r3, r3, #4
-0x0EC | 236: add r3, r3, fp
-0x0F0 | 240: ldr r2, [r3, #-52]
-0x0F4 | 244: ldr r3, [fp, #-12]
-0x0F8 | 248: lsl r3, r3, #2
-0x0FC | 252: sub r3, r3, #4
-0x100 | 256: add r3, r3, fp
-0x104 | 260: str r2, [r3, #-52]
-0x108 | 264: ldr r3, [fp, #-8]
-0x10C | 268: lsl r3, r3, #2
-0x110 | 272: sub r3, r3, #4
-0x114 | 276: add r3, r3, fp
-0x118 | 280: ldr r2, [fp, #-16]
-0x11C | 284: str r2, [r3, #-52]
-0x120 | 288: ldr r3, [fp, #-12]
-0x124 | 292: add r3, r3, #1
-0x128 | 296: str r3, [fp, #-12]
-0x12C | 300: ldr r3, [fp, #-12]
-0x130 | 304: cmp r3, #9
-0x134 | 308: ble 920
-0x138 | 312: ldr r3, [fp, #-8]
-0x13C | 316: add r3, r3, #1
-0x140 | 320: str r3, [fp, #-8]
-0x144 | 324: ldr r3, [fp, #-8]
-0x148 | 328: cmp r3, #9
-0x14C | 332: ble 880
-0x150 | 336: add r3, r15, #0
-0x154 | 340: add r0, r3, r15
-0x158 | 344: sub sp, fp, #4
-0x15C | 348: ldr fp, [sp, #0]
-0x160 | 352: ldr lr, [sp, #4]
-0x164 | 356: add sp, sp, #8
-0x168 | 360: b 1804
-0x16C | 364: nop
+0x00C | 012: add sp, r15, #9
+0x010 | 016: lsl sp, sp, #8
+0x014 | 020: sub sp, sp, #8
+0x018 | 024: str fp, [sp, #0]
+0x01C | 028: str lr, [sp, #4]
+0x020 | 032: add fp, sp, #4
+0x024 | 036: sub sp, sp, #56
+0x028 | 040: ldr r3, [r15, #86]
+0x02C | 044: sub ip, fp, #56
+0x030 | 048: add r0, r15, #23
+0x034 | 052: add r1, r15, #123
+0x038 | 056: add r2, r15, #-455
+0x03C | 060: add r3, r15, #2
+0x040 | 064: str r0, [ip, #0]
+0x044 | 068: str r1, [ip, #4]
+0x048 | 072: str r2, [ip, #8]
+0x04C | 076: str r3, [ip, #12]
+0x050 | 080: add ip, ip, #16
+0x054 | 084: add r0, r15, #98
+0x058 | 088: add r1, r15, #125
+0x05C | 092: add r2, r15, #10
+0x060 | 096: add r3, r15, #65
+0x064 | 100: str r0, [ip, #0]
+0x068 | 104: str r1, [ip, #4]
+0x06C | 108: str r2, [ip, #8]
+0x070 | 112: str r3, [ip, #12]
+0x074 | 116: add ip, ip, #16
+0x078 | 120: add r0, r15, #-56
+0x07C | 124: add r1, r15, #0
+0x080 | 128: str r0, [ip, #0]
+0x084 | 132: str r1, [ip, #4]
+0x088 | 136: b 328
+0x08C | 140: ldr r3, [fp, #-8]
+0x090 | 144: add r3, r3, #1
+0x094 | 148: str r3, [fp, #-12]
+0x098 | 152: b 304
+0x09C | 156: ldr r3, [fp, #-12]
+0x0A0 | 160: lsl r3, r3, #2
+0x0A4 | 164: sub r3, r3, #4
+0x0A8 | 168: add r3, r3, fp
+0x0AC | 172: ldr r2, [r3, #-52]
+0x0B0 | 176: ldr r3, [fp, #-8]
+0x0B4 | 180: lsl r3, r3, #2
+0x0B8 | 184: sub r3, r3, #4
+0x0BC | 188: add r3, r3, fp
+0x0C0 | 192: ldr r3, [r3, #-52]
+0x0C4 | 196: cmp r2, r3
+0x0C8 | 200: bge 292
+0x0CC | 204: ldr r3, [fp, #-12]
+0x0D0 | 208: lsl r3, r3, #2
+0x0D4 | 212: sub r3, r3, #4
+0x0D8 | 216: add r3, r3, fp
+0x0DC | 220: ldr r3, [r3, #-52]
+0x0E0 | 224: str r3, [fp, #-16]
+0x0E4 | 228: ldr r3, [fp, #-8]
+0x0E8 | 232: lsl r3, r3, #2
+0x0EC | 236: sub r3, r3, #4
+0x0F0 | 240: add r3, r3, fp
+0x0F4 | 244: ldr r2, [r3, #-52]
+0x0F8 | 248: ldr r3, [fp, #-12]
+0x0FC | 252: lsl r3, r3, #2
+0x100 | 256: sub r3, r3, #4
+0x104 | 260: add r3, r3, fp
+0x108 | 264: str r2, [r3, #-52]
+0x10C | 268: ldr r3, [fp, #-8]
+0x110 | 272: lsl r3, r3, #2
+0x114 | 276: sub r3, r3, #4
+0x118 | 280: add r3, r3, fp
+0x11C | 284: ldr r2, [fp, #-16]
+0x120 | 288: str r2, [r3, #-52]
+0x124 | 292: ldr r3, [fp, #-12]
+0x128 | 296: add r3, r3, #1
+0x12C | 300: str r3, [fp, #-12]
+0x130 | 304: ldr r3, [fp, #-12]
+0x134 | 308: cmp r3, #9
+0x138 | 312: ble 156
+0x13C | 316: ldr r3, [fp, #-8]
+0x140 | 320: add r3, r3, #1
+0x144 | 324: str r3, [fp, #-8]
+0x148 | 328: ldr r3, [fp, #-8]
+0x14C | 332: cmp r3, #9
+0x150 | 336: ble 140
+0x154 | 340: add r3, r15, #0
+0x158 | 344: add r0, r3, r15
+0x15C | 348: sub sp, fp, #4
+0x160 | 352: ldr fp, [sp, #0]
+0x164 | 356: ldr lr, [sp, #4]
+0x168 | 360: add sp, sp, #8
+0x16C | 364: b 364
 0x170 | 368: nop
 0x174 | 372: nop
 0x178 | 376: nop
@@ -131,95 +131,95 @@ Disassembled Assembly:
 0x200 | 512: sub r15, r15, r15
 0x204 | 516: sub sp, sp, sp
 0x208 | 520: sub fp, fp, fp
-0x20C | 524: add sp, r15, #-1536
-0x210 | 528: sub sp, sp, #8
-0x214 | 532: str fp, [sp, #0]
-0x218 | 536: str lr, [sp, #4]
-0x21C | 540: add fp, sp, #4
-0x220 | 544: sub sp, sp, #56
-0x224 | 548: ldr r3, [r15, #86]
-0x228 | 552: sub ip, fp, #56
-0x22C | 556: add r0, r15, #23
-0x230 | 560: add r1, r15, #123
-0x234 | 564: add r2, r15, #-455
-0x238 | 568: add r3, r15, #2
-0x23C | 572: str r0, [ip, #0]
-0x240 | 576: str r1, [ip, #4]
-0x244 | 580: str r2, [ip, #8]
-0x248 | 584: str r3, [ip, #12]
-0x24C | 588: add ip, ip, #16
-0x250 | 592: add r0, r15, #98
-0x254 | 596: add r1, r15, #125
-0x258 | 600: add r2, r15, #10
-0x25C | 604: add r3, r15, #65
-0x260 | 608: str r0, [ip, #0]
-0x264 | 612: str r1, [ip, #4]
-0x268 | 616: str r2, [ip, #8]
-0x26C | 620: str r3, [ip, #12]
-0x270 | 624: add ip, ip, #16
-0x274 | 628: add r0, r15, #-56
-0x278 | 632: add r1, r15, #0
-0x27C | 636: str r0, [ip, #0]
-0x280 | 640: str r1, [ip, #4]
-0x284 | 644: b 3992
-0x288 | 648: ldr r3, [fp, #-8]
-0x28C | 652: add r3, r3, #1
-0x290 | 656: str r3, [fp, #-12]
-0x294 | 660: b 3912
-0x298 | 664: ldr r3, [fp, #-12]
-0x29C | 668: lsl r3, r3, #2
-0x2A0 | 672: sub r3, r3, #4
-0x2A4 | 676: add r3, r3, fp
-0x2A8 | 680: ldr r2, [r3, #-52]
-0x2AC | 684: ldr r3, [fp, #-8]
-0x2B0 | 688: lsl r3, r3, #2
-0x2B4 | 692: sub r3, r3, #4
-0x2B8 | 696: add r3, r3, fp
-0x2BC | 700: ldr r3, [r3, #-52]
-0x2C0 | 704: cmp r2, r3
-0x2C4 | 708: bge 3912
-0x2C8 | 712: ldr r3, [fp, #-12]
-0x2CC | 716: lsl r3, r3, #2
-0x2D0 | 720: sub r3, r3, #4
-0x2D4 | 724: add r3, r3, fp
-0x2D8 | 728: ldr r3, [r3, #-52]
-0x2DC | 732: str r3, [fp, #-16]
-0x2E0 | 736: ldr r3, [fp, #-8]
-0x2E4 | 740: lsl r3, r3, #2
-0x2E8 | 744: sub r3, r3, #4
-0x2EC | 748: add r3, r3, fp
-0x2F0 | 752: ldr r2, [r3, #-52]
-0x2F4 | 756: ldr r3, [fp, #-12]
-0x2F8 | 760: lsl r3, r3, #2
-0x2FC | 764: sub r3, r3, #4
-0x300 | 768: add r3, r3, fp
-0x304 | 772: str r2, [r3, #-52]
-0x308 | 776: ldr r3, [fp, #-8]
-0x30C | 780: lsl r3, r3, #2
-0x310 | 784: sub r3, r3, #4
-0x314 | 788: add r3, r3, fp
-0x318 | 792: ldr r2, [fp, #-16]
-0x31C | 796: str r2, [r3, #-52]
-0x320 | 800: ldr r3, [fp, #-12]
-0x324 | 804: add r3, r3, #1
-0x328 | 808: str r3, [fp, #-12]
-0x32C | 812: ldr r3, [fp, #-12]
-0x330 | 816: cmp r3, #9
-0x334 | 820: ble 3480
-0x338 | 824: ldr r3, [fp, #-8]
-0x33C | 828: add r3, r3, #1
-0x340 | 832: str r3, [fp, #-8]
-0x344 | 836: ldr r3, [fp, #-8]
-0x348 | 840: cmp r3, #9
-0x34C | 844: ble 3440
-0x350 | 848: add r3, r15, #0
-0x354 | 852: add r0, r3, r15
-0x358 | 856: sub sp, fp, #4
-0x35C | 860: ldr fp, [sp, #0]
-0x360 | 864: ldr lr, [sp, #4]
-0x364 | 868: add sp, sp, #8
-0x368 | 872: b 4364
-0x36C | 876: nop
+0x20C | 524: add sp, r15, #10
+0x210 | 528: lsl sp, sp, #8
+0x214 | 532: sub sp, sp, #8
+0x218 | 536: str fp, [sp, #0]
+0x21C | 540: str lr, [sp, #4]
+0x220 | 544: add fp, sp, #4
+0x224 | 548: sub sp, sp, #56
+0x228 | 552: ldr r3, [r15, #86]
+0x22C | 556: sub ip, fp, #56
+0x230 | 560: add r0, r15, #23
+0x234 | 564: add r1, r15, #123
+0x238 | 568: add r2, r15, #-455
+0x23C | 572: add r3, r15, #2
+0x240 | 576: str r0, [ip, #0]
+0x244 | 580: str r1, [ip, #4]
+0x248 | 584: str r2, [ip, #8]
+0x24C | 588: str r3, [ip, #12]
+0x250 | 592: add ip, ip, #16
+0x254 | 596: add r0, r15, #98
+0x258 | 600: add r1, r15, #125
+0x25C | 604: add r2, r15, #10
+0x260 | 608: add r3, r15, #65
+0x264 | 612: str r0, [ip, #0]
+0x268 | 616: str r1, [ip, #4]
+0x26C | 620: str r2, [ip, #8]
+0x270 | 624: str r3, [ip, #12]
+0x274 | 628: add ip, ip, #16
+0x278 | 632: add r0, r15, #-56
+0x27C | 636: add r1, r15, #0
+0x280 | 640: str r0, [ip, #0]
+0x284 | 644: str r1, [ip, #4]
+0x288 | 648: b 840
+0x28C | 652: ldr r3, [fp, #-8]
+0x290 | 656: add r3, r3, #1
+0x294 | 660: str r3, [fp, #-12]
+0x298 | 664: b 816
+0x29C | 668: ldr r3, [fp, #-12]
+0x2A0 | 672: lsl r3, r3, #2
+0x2A4 | 676: sub r3, r3, #4
+0x2A8 | 680: add r3, r3, fp
+0x2AC | 684: ldr r2, [r3, #-52]
+0x2B0 | 688: ldr r3, [fp, #-8]
+0x2B4 | 692: lsl r3, r3, #2
+0x2B8 | 696: sub r3, r3, #4
+0x2BC | 700: add r3, r3, fp
+0x2C0 | 704: ldr r3, [r3, #-52]
+0x2C4 | 708: cmp r2, r3
+0x2C8 | 712: bge 804
+0x2CC | 716: ldr r3, [fp, #-12]
+0x2D0 | 720: lsl r3, r3, #2
+0x2D4 | 724: sub r3, r3, #4
+0x2D8 | 728: add r3, r3, fp
+0x2DC | 732: ldr r3, [r3, #-52]
+0x2E0 | 736: str r3, [fp, #-16]
+0x2E4 | 740: ldr r3, [fp, #-8]
+0x2E8 | 744: lsl r3, r3, #2
+0x2EC | 748: sub r3, r3, #4
+0x2F0 | 752: add r3, r3, fp
+0x2F4 | 756: ldr r2, [r3, #-52]
+0x2F8 | 760: ldr r3, [fp, #-12]
+0x2FC | 764: lsl r3, r3, #2
+0x300 | 768: sub r3, r3, #4
+0x304 | 772: add r3, r3, fp
+0x308 | 776: str r2, [r3, #-52]
+0x30C | 780: ldr r3, [fp, #-8]
+0x310 | 784: lsl r3, r3, #2
+0x314 | 788: sub r3, r3, #4
+0x318 | 792: add r3, r3, fp
+0x31C | 796: ldr r2, [fp, #-16]
+0x320 | 800: str r2, [r3, #-52]
+0x324 | 804: ldr r3, [fp, #-12]
+0x328 | 808: add r3, r3, #1
+0x32C | 812: str r3, [fp, #-12]
+0x330 | 816: ldr r3, [fp, #-12]
+0x334 | 820: cmp r3, #9
+0x338 | 824: ble 668
+0x33C | 828: ldr r3, [fp, #-8]
+0x340 | 832: add r3, r3, #1
+0x344 | 836: str r3, [fp, #-8]
+0x348 | 840: ldr r3, [fp, #-8]
+0x34C | 844: cmp r3, #9
+0x350 | 848: ble 652
+0x354 | 852: add r3, r15, #0
+0x358 | 856: add r0, r3, r15
+0x35C | 860: sub sp, fp, #4
+0x360 | 864: ldr fp, [sp, #0]
+0x364 | 868: ldr lr, [sp, #4]
+0x368 | 872: add sp, sp, #8
+0x36C | 876: b 876
 0x370 | 880: nop
 0x374 | 884: nop
 0x378 | 888: nop
@@ -259,95 +259,95 @@ Disassembled Assembly:
 0x400 | 1024: sub r15, r15, r15
 0x404 | 1028: sub sp, sp, sp
 0x408 | 1032: sub fp, fp, fp
-0x40C | 1036: add sp, r15, #-1280
-0x410 | 1040: sub sp, sp, #8
-0x414 | 1044: str fp, [sp, #0]
-0x418 | 1048: str lr, [sp, #4]
-0x41C | 1052: add fp, sp, #4
-0x420 | 1056: sub sp, sp, #56
-0x424 | 1060: ldr r3, [r15, #86]
-0x428 | 1064: sub ip, fp, #56
-0x42C | 1068: add r0, r15, #23
-0x430 | 1072: add r1, r15, #123
-0x434 | 1076: add r2, r15, #-455
-0x438 | 1080: add r3, r15, #2
-0x43C | 1084: str r0, [ip, #0]
-0x440 | 1088: str r1, [ip, #4]
-0x444 | 1092: str r2, [ip, #8]
-0x448 | 1096: str r3, [ip, #12]
-0x44C | 1100: add ip, ip, #16
-0x450 | 1104: add r0, r15, #98
-0x454 | 1108: add r1, r15, #125
-0x458 | 1112: add r2, r15, #10
-0x45C | 1116: add r3, r15, #65
-0x460 | 1120: str r0, [ip, #0]
-0x464 | 1124: str r1, [ip, #4]
-0x468 | 1128: str r2, [ip, #8]
-0x46C | 1132: str r3, [ip, #12]
-0x470 | 1136: add ip, ip, #16
-0x474 | 1140: add r0, r15, #-56
-0x478 | 1144: add r1, r15, #0
-0x47C | 1148: str r0, [ip, #0]
-0x480 | 1152: str r1, [ip, #4]
-0x484 | 1156: b 6552
-0x488 | 1160: ldr r3, [fp, #-8]
-0x48C | 1164: add r3, r3, #1
-0x490 | 1168: str r3, [fp, #-12]
-0x494 | 1172: b 6472
-0x498 | 1176: ldr r3, [fp, #-12]
-0x49C | 1180: lsl r3, r3, #2
-0x4A0 | 1184: sub r3, r3, #4
-0x4A4 | 1188: add r3, r3, fp
-0x4A8 | 1192: ldr r2, [r3, #-52]
-0x4AC | 1196: ldr r3, [fp, #-8]
-0x4B0 | 1200: lsl r3, r3, #2
-0x4B4 | 1204: sub r3, r3, #4
-0x4B8 | 1208: add r3, r3, fp
-0x4BC | 1212: ldr r3, [r3, #-52]
-0x4C0 | 1216: cmp r2, r3
-0x4C4 | 1220: bge 6472
-0x4C8 | 1224: ldr r3, [fp, #-12]
-0x4CC | 1228: lsl r3, r3, #2
-0x4D0 | 1232: sub r3, r3, #4
-0x4D4 | 1236: add r3, r3, fp
-0x4D8 | 1240: ldr r3, [r3, #-52]
-0x4DC | 1244: str r3, [fp, #-16]
-0x4E0 | 1248: ldr r3, [fp, #-8]
-0x4E4 | 1252: lsl r3, r3, #2
-0x4E8 | 1256: sub r3, r3, #4
-0x4EC | 1260: add r3, r3, fp
-0x4F0 | 1264: ldr r2, [r3, #-52]
-0x4F4 | 1268: ldr r3, [fp, #-12]
-0x4F8 | 1272: lsl r3, r3, #2
-0x4FC | 1276: sub r3, r3, #4
-0x500 | 1280: add r3, r3, fp
-0x504 | 1284: str r2, [r3, #-52]
-0x508 | 1288: ldr r3, [fp, #-8]
-0x50C | 1292: lsl r3, r3, #2
-0x510 | 1296: sub r3, r3, #4
-0x514 | 1300: add r3, r3, fp
-0x518 | 1304: ldr r2, [fp, #-16]
-0x51C | 1308: str r2, [r3, #-52]
-0x520 | 1312: ldr r3, [fp, #-12]
-0x524 | 1316: add r3, r3, #1
-0x528 | 1320: str r3, [fp, #-12]
-0x52C | 1324: ldr r3, [fp, #-12]
-0x530 | 1328: cmp r3, #9
-0x534 | 1332: ble 6040
-0x538 | 1336: ldr r3, [fp, #-8]
-0x53C | 1340: add r3, r3, #1
-0x540 | 1344: str r3, [fp, #-8]
-0x544 | 1348: ldr r3, [fp, #-8]
-0x548 | 1352: cmp r3, #9
-0x54C | 1356: ble 6000
-0x550 | 1360: add r3, r15, #0
-0x554 | 1364: add r0, r3, r15
-0x558 | 1368: sub sp, fp, #4
-0x55C | 1372: ldr fp, [sp, #0]
-0x560 | 1376: ldr lr, [sp, #4]
-0x564 | 1380: add sp, sp, #8
-0x568 | 1384: b 6924
-0x56C | 1388: nop
+0x40C | 1036: add sp, r15, #11
+0x410 | 1040: lsl sp, sp, #8
+0x414 | 1044: sub sp, sp, #8
+0x418 | 1048: str fp, [sp, #0]
+0x41C | 1052: str lr, [sp, #4]
+0x420 | 1056: add fp, sp, #4
+0x424 | 1060: sub sp, sp, #56
+0x428 | 1064: ldr r3, [r15, #86]
+0x42C | 1068: sub ip, fp, #56
+0x430 | 1072: add r0, r15, #23
+0x434 | 1076: add r1, r15, #123
+0x438 | 1080: add r2, r15, #-455
+0x43C | 1084: add r3, r15, #2
+0x440 | 1088: str r0, [ip, #0]
+0x444 | 1092: str r1, [ip, #4]
+0x448 | 1096: str r2, [ip, #8]
+0x44C | 1100: str r3, [ip, #12]
+0x450 | 1104: add ip, ip, #16
+0x454 | 1108: add r0, r15, #98
+0x458 | 1112: add r1, r15, #125
+0x45C | 1116: add r2, r15, #10
+0x460 | 1120: add r3, r15, #65
+0x464 | 1124: str r0, [ip, #0]
+0x468 | 1128: str r1, [ip, #4]
+0x46C | 1132: str r2, [ip, #8]
+0x470 | 1136: str r3, [ip, #12]
+0x474 | 1140: add ip, ip, #16
+0x478 | 1144: add r0, r15, #-56
+0x47C | 1148: add r1, r15, #0
+0x480 | 1152: str r0, [ip, #0]
+0x484 | 1156: str r1, [ip, #4]
+0x488 | 1160: b 1352
+0x48C | 1164: ldr r3, [fp, #-8]
+0x490 | 1168: add r3, r3, #1
+0x494 | 1172: str r3, [fp, #-12]
+0x498 | 1176: b 1328
+0x49C | 1180: ldr r3, [fp, #-12]
+0x4A0 | 1184: lsl r3, r3, #2
+0x4A4 | 1188: sub r3, r3, #4
+0x4A8 | 1192: add r3, r3, fp
+0x4AC | 1196: ldr r2, [r3, #-52]
+0x4B0 | 1200: ldr r3, [fp, #-8]
+0x4B4 | 1204: lsl r3, r3, #2
+0x4B8 | 1208: sub r3, r3, #4
+0x4BC | 1212: add r3, r3, fp
+0x4C0 | 1216: ldr r3, [r3, #-52]
+0x4C4 | 1220: cmp r2, r3
+0x4C8 | 1224: bge 1316
+0x4CC | 1228: ldr r3, [fp, #-12]
+0x4D0 | 1232: lsl r3, r3, #2
+0x4D4 | 1236: sub r3, r3, #4
+0x4D8 | 1240: add r3, r3, fp
+0x4DC | 1244: ldr r3, [r3, #-52]
+0x4E0 | 1248: str r3, [fp, #-16]
+0x4E4 | 1252: ldr r3, [fp, #-8]
+0x4E8 | 1256: lsl r3, r3, #2
+0x4EC | 1260: sub r3, r3, #4
+0x4F0 | 1264: add r3, r3, fp
+0x4F4 | 1268: ldr r2, [r3, #-52]
+0x4F8 | 1272: ldr r3, [fp, #-12]
+0x4FC | 1276: lsl r3, r3, #2
+0x500 | 1280: sub r3, r3, #4
+0x504 | 1284: add r3, r3, fp
+0x508 | 1288: str r2, [r3, #-52]
+0x50C | 1292: ldr r3, [fp, #-8]
+0x510 | 1296: lsl r3, r3, #2
+0x514 | 1300: sub r3, r3, #4
+0x518 | 1304: add r3, r3, fp
+0x51C | 1308: ldr r2, [fp, #-16]
+0x520 | 1312: str r2, [r3, #-52]
+0x524 | 1316: ldr r3, [fp, #-12]
+0x528 | 1320: add r3, r3, #1
+0x52C | 1324: str r3, [fp, #-12]
+0x530 | 1328: ldr r3, [fp, #-12]
+0x534 | 1332: cmp r3, #9
+0x538 | 1336: ble 1180
+0x53C | 1340: ldr r3, [fp, #-8]
+0x540 | 1344: add r3, r3, #1
+0x544 | 1348: str r3, [fp, #-8]
+0x548 | 1352: ldr r3, [fp, #-8]
+0x54C | 1356: cmp r3, #9
+0x550 | 1360: ble 1164
+0x554 | 1364: add r3, r15, #0
+0x558 | 1368: add r0, r3, r15
+0x55C | 1372: sub sp, fp, #4
+0x560 | 1376: ldr fp, [sp, #0]
+0x564 | 1380: ldr lr, [sp, #4]
+0x568 | 1384: add sp, sp, #8
+0x56C | 1388: b 1388
 0x570 | 1392: nop
 0x574 | 1396: nop
 0x578 | 1400: nop
@@ -387,95 +387,95 @@ Disassembled Assembly:
 0x600 | 1536: sub r15, r15, r15
 0x604 | 1540: sub sp, sp, sp
 0x608 | 1544: sub fp, fp, fp
-0x60C | 1548: add sp, r15, #-1024
-0x610 | 1552: sub sp, sp, #8
-0x614 | 1556: str fp, [sp, #0]
-0x618 | 1560: str lr, [sp, #4]
-0x61C | 1564: add fp, sp, #4
-0x620 | 1568: sub sp, sp, #56
-0x624 | 1572: ldr r3, [r15, #86]
-0x628 | 1576: sub ip, fp, #56
-0x62C | 1580: add r0, r15, #23
-0x630 | 1584: add r1, r15, #123
-0x634 | 1588: add r2, r15, #-455
-0x638 | 1592: add r3, r15, #2
-0x63C | 1596: str r0, [ip, #0]
-0x640 | 1600: str r1, [ip, #4]
-0x644 | 1604: str r2, [ip, #8]
-0x648 | 1608: str r3, [ip, #12]
-0x64C | 1612: add ip, ip, #16
-0x650 | 1616: add r0, r15, #98
-0x654 | 1620: add r1, r15, #125
-0x658 | 1624: add r2, r15, #10
-0x65C | 1628: add r3, r15, #65
-0x660 | 1632: str r0, [ip, #0]
-0x664 | 1636: str r1, [ip, #4]
-0x668 | 1640: str r2, [ip, #8]
-0x66C | 1644: str r3, [ip, #12]
-0x670 | 1648: add ip, ip, #16
-0x674 | 1652: add r0, r15, #-56
-0x678 | 1656: add r1, r15, #0
-0x67C | 1660: str r0, [ip, #0]
-0x680 | 1664: str r1, [ip, #4]
-0x684 | 1668: b 9112
-0x688 | 1672: ldr r3, [fp, #-8]
-0x68C | 1676: add r3, r3, #1
-0x690 | 1680: str r3, [fp, #-12]
-0x694 | 1684: b 9032
-0x698 | 1688: ldr r3, [fp, #-12]
-0x69C | 1692: lsl r3, r3, #2
-0x6A0 | 1696: sub r3, r3, #4
-0x6A4 | 1700: add r3, r3, fp
-0x6A8 | 1704: ldr r2, [r3, #-52]
-0x6AC | 1708: ldr r3, [fp, #-8]
-0x6B0 | 1712: lsl r3, r3, #2
-0x6B4 | 1716: sub r3, r3, #4
-0x6B8 | 1720: add r3, r3, fp
-0x6BC | 1724: ldr r3, [r3, #-52]
-0x6C0 | 1728: cmp r2, r3
-0x6C4 | 1732: bge 9032
-0x6C8 | 1736: ldr r3, [fp, #-12]
-0x6CC | 1740: lsl r3, r3, #2
-0x6D0 | 1744: sub r3, r3, #4
-0x6D4 | 1748: add r3, r3, fp
-0x6D8 | 1752: ldr r3, [r3, #-52]
-0x6DC | 1756: str r3, [fp, #-16]
-0x6E0 | 1760: ldr r3, [fp, #-8]
-0x6E4 | 1764: lsl r3, r3, #2
-0x6E8 | 1768: sub r3, r3, #4
-0x6EC | 1772: add r3, r3, fp
-0x6F0 | 1776: ldr r2, [r3, #-52]
-0x6F4 | 1780: ldr r3, [fp, #-12]
-0x6F8 | 1784: lsl r3, r3, #2
-0x6FC | 1788: sub r3, r3, #4
-0x700 | 1792: add r3, r3, fp
-0x704 | 1796: str r2, [r3, #-52]
-0x708 | 1800: ldr r3, [fp, #-8]
-0x70C | 1804: lsl r3, r3, #2
-0x710 | 1808: sub r3, r3, #4
-0x714 | 1812: add r3, r3, fp
-0x718 | 1816: ldr r2, [fp, #-16]
-0x71C | 1820: str r2, [r3, #-52]
-0x720 | 1824: ldr r3, [fp, #-12]
-0x724 | 1828: add r3, r3, #1
-0x728 | 1832: str r3, [fp, #-12]
-0x72C | 1836: ldr r3, [fp, #-12]
-0x730 | 1840: cmp r3, #9
-0x734 | 1844: ble 8600
-0x738 | 1848: ldr r3, [fp, #-8]
-0x73C | 1852: add r3, r3, #1
-0x740 | 1856: str r3, [fp, #-8]
-0x744 | 1860: ldr r3, [fp, #-8]
-0x748 | 1864: cmp r3, #9
-0x74C | 1868: ble 8560
-0x750 | 1872: add r3, r15, #0
-0x754 | 1876: add r0, r3, r15
-0x758 | 1880: sub sp, fp, #4
-0x75C | 1884: ldr fp, [sp, #0]
-0x760 | 1888: ldr lr, [sp, #4]
-0x764 | 1892: add sp, sp, #8
-0x768 | 1896: b 9484
-0x76C | 1900: nop
+0x60C | 1548: add sp, r15, #12
+0x610 | 1552: lsl sp, sp, #8
+0x614 | 1556: sub sp, sp, #8
+0x618 | 1560: str fp, [sp, #0]
+0x61C | 1564: str lr, [sp, #4]
+0x620 | 1568: add fp, sp, #4
+0x624 | 1572: sub sp, sp, #56
+0x628 | 1576: ldr r3, [r15, #86]
+0x62C | 1580: sub ip, fp, #56
+0x630 | 1584: add r0, r15, #23
+0x634 | 1588: add r1, r15, #123
+0x638 | 1592: add r2, r15, #-455
+0x63C | 1596: add r3, r15, #2
+0x640 | 1600: str r0, [ip, #0]
+0x644 | 1604: str r1, [ip, #4]
+0x648 | 1608: str r2, [ip, #8]
+0x64C | 1612: str r3, [ip, #12]
+0x650 | 1616: add ip, ip, #16
+0x654 | 1620: add r0, r15, #98
+0x658 | 1624: add r1, r15, #125
+0x65C | 1628: add r2, r15, #10
+0x660 | 1632: add r3, r15, #65
+0x664 | 1636: str r0, [ip, #0]
+0x668 | 1640: str r1, [ip, #4]
+0x66C | 1644: str r2, [ip, #8]
+0x670 | 1648: str r3, [ip, #12]
+0x674 | 1652: add ip, ip, #16
+0x678 | 1656: add r0, r15, #-56
+0x67C | 1660: add r1, r15, #0
+0x680 | 1664: str r0, [ip, #0]
+0x684 | 1668: str r1, [ip, #4]
+0x688 | 1672: b 1864
+0x68C | 1676: ldr r3, [fp, #-8]
+0x690 | 1680: add r3, r3, #1
+0x694 | 1684: str r3, [fp, #-12]
+0x698 | 1688: b 1840
+0x69C | 1692: ldr r3, [fp, #-12]
+0x6A0 | 1696: lsl r3, r3, #2
+0x6A4 | 1700: sub r3, r3, #4
+0x6A8 | 1704: add r3, r3, fp
+0x6AC | 1708: ldr r2, [r3, #-52]
+0x6B0 | 1712: ldr r3, [fp, #-8]
+0x6B4 | 1716: lsl r3, r3, #2
+0x6B8 | 1720: sub r3, r3, #4
+0x6BC | 1724: add r3, r3, fp
+0x6C0 | 1728: ldr r3, [r3, #-52]
+0x6C4 | 1732: cmp r2, r3
+0x6C8 | 1736: bge 1828
+0x6CC | 1740: ldr r3, [fp, #-12]
+0x6D0 | 1744: lsl r3, r3, #2
+0x6D4 | 1748: sub r3, r3, #4
+0x6D8 | 1752: add r3, r3, fp
+0x6DC | 1756: ldr r3, [r3, #-52]
+0x6E0 | 1760: str r3, [fp, #-16]
+0x6E4 | 1764: ldr r3, [fp, #-8]
+0x6E8 | 1768: lsl r3, r3, #2
+0x6EC | 1772: sub r3, r3, #4
+0x6F0 | 1776: add r3, r3, fp
+0x6F4 | 1780: ldr r2, [r3, #-52]
+0x6F8 | 1784: ldr r3, [fp, #-12]
+0x6FC | 1788: lsl r3, r3, #2
+0x700 | 1792: sub r3, r3, #4
+0x704 | 1796: add r3, r3, fp
+0x708 | 1800: str r2, [r3, #-52]
+0x70C | 1804: ldr r3, [fp, #-8]
+0x710 | 1808: lsl r3, r3, #2
+0x714 | 1812: sub r3, r3, #4
+0x718 | 1816: add r3, r3, fp
+0x71C | 1820: ldr r2, [fp, #-16]
+0x720 | 1824: str r2, [r3, #-52]
+0x724 | 1828: ldr r3, [fp, #-12]
+0x728 | 1832: add r3, r3, #1
+0x72C | 1836: str r3, [fp, #-12]
+0x730 | 1840: ldr r3, [fp, #-12]
+0x734 | 1844: cmp r3, #9
+0x738 | 1848: ble 1692
+0x73C | 1852: ldr r3, [fp, #-8]
+0x740 | 1856: add r3, r3, #1
+0x744 | 1860: str r3, [fp, #-8]
+0x748 | 1864: ldr r3, [fp, #-8]
+0x74C | 1868: cmp r3, #9
+0x750 | 1872: ble 1676
+0x754 | 1876: add r3, r15, #0
+0x758 | 1880: add r0, r3, r15
+0x75C | 1884: sub sp, fp, #4
+0x760 | 1888: ldr fp, [sp, #0]
+0x764 | 1892: ldr lr, [sp, #4]
+0x768 | 1896: add sp, sp, #8
+0x76C | 1900: b 1900
 0x770 | 1904: nop
 0x774 | 1908: nop
 0x778 | 1912: nop
