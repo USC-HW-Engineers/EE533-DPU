@@ -13,12 +13,20 @@ This document describes the architecture and features of the 5-stage pipelined p
   - Shared Register File (indexed by Thread ID).
   - Dual-Port Instruction Memory and Data Memory implemented using BRAM.
 
-## 2. Memory Organization (Virtual Mapping)
-The processor uses a word-addressable memory scheme but supports ARM-style byte-addressable target calculation via hardware bit-shifting.
+## 2. Memory Organization & Addressing
+The processor uses a word-addressable memory scheme but supports ARM-style byte-addressable target calculation via hardware bit-selection.
 - **Instruction Memory (IM)**: 512 words (32-bit). Mapped to byte addresses `0x000` to `0x7FF`.
 - **Data Memory (DM)**: 256 words (64-bit). Mapped to byte addresses starting at `0x800` (Word 512).
-- **Addressing**: Hardware slices `[n:2]` of the ALU result to translate ARM byte addresses into BRAM word indices.
-- **Initialization**: Memories and Register Files are initialized using `.coe` files (e.g., `IM_init.coe`, `DM_init.coe`, `RF_init.coe`) via the Xilinx IP Core Generator.
+- **Addressing Scheme**:
+  - The processor uses bits `[10:2]` of the address for word-aligned BRAM access.
+  - Bits `[10:9]` of the PC select the **Thread ID (TID)** during instruction fetch.
+  - Bits `[8:2]` of the PC provide the word offset within the 512-word IM.
+- **Immediate Extension**:
+  - The `Sign_Extend_12to64` module was updated to **Zero-Extension** to allow loading large positive addresses (like `0x900` for Stack Pointers) without triggering negative sign-extension.
+
+## 3. PC Logic & Thread Management
+- **Fetch vs. Branch TID**: The `PC_Logic` module was refined to handle independent Thread IDs. It outputs the PC for the thread in the **IF stage** while simultaneously allowing a branch update for a different thread in the **MEM stage**.
+- **Unified Memory Map**: Uses `M_ALU[11]` to select between Instruction Memory (0) and Data Memory (1), providing a continuous logical address space for the software.
 
 ## 3. Instruction Set Architecture (ISA)
 Instructions are 32-bit wide. The processor executes a custom instruction format parsed from ARM assembly using a dedicated Python parser.

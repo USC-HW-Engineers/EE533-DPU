@@ -1,0 +1,71 @@
+EE 533 Lab 8: Convertible FIFO Design & ARM Integration
+=====================================================
+
+1. ARCHITECTURAL OVERVIEW
+-------------------------
+The Convertible FIFO is a "dual-personality" memory structure designed to act as both a network buffer (FIFO) and a shared scratchpad (RAM) for the CPU/GPU. 
+
+A. Memory Backbone:
+- Uses a 256x72-bit True Dual Port BRAM IP Core (FIFO.v).
+- 72-bit width: Matches the NetFPGA standard (64 bits data + 8 bits control).
+- True Dual Port: Allows simultaneous reads/writes on both Port A and Port B.
+
+B. Dual-Mode Operation (controlled by 'mode_select'):
+
+   Mode 0: Network Mode (FIFO)
+   - Port A is the "Input": Writes network data coming from the NetFPGA pipeline. 
+     The 'tail_ptr' acts as the write address.
+   - Port B is the "Output": Reads data to send it back to the pipeline. 
+     The 'head_ptr' acts as the read address.
+   - Flow Control: When 'in_lastword' is detected, 'packet_ready' is asserted, and 
+     'fifo_full' is set to 1 to stall the pipeline and protect the packet.
+
+   Mode 1: Processor Mode (RAM)
+   - The FIFO "converts" into a standard Dual-Port SRAM.
+   - Muxes redirect Port A and Port B controls directly to the ARM/GPU.
+   - The CPU has full random access to the packet data for inspection or modification.
+
+2. HOW IT WORKS (STEP-BY-STEP)
+------------------------------
+1. Buffering: Network Mode is active. A packet enters; 'tail_ptr' increments for every word.
+2. Detection: 'in_lastword' arrives. The FIFO stops accepting new data and signals 'packet_ready'.
+3. Handover: The CPU sees 'packet_ready'. It sets 'mode_select' to 1.
+4. Processing: The CPU uses 'cpu_addr' and 'cpu_data' to read headers and modify the payload.
+5. Completion: The CPU sets 'mode_select' back to 0 and asserts 'cpu_packet_done'.
+6. Forwarding: The FIFO increments 'head_ptr' as the pipeline reads the modified data out.
+
+3. INTERFACING WITH THE ARM CPU (LAB 6)
+---------------------------------------
+To integrate this with your Quad-Threaded ARM Processor from Lab 6, follow these steps:
+
+A. Address/Data Mapping:
+- Data Width: Connect 'cpu_data_in' and 'cpu_data_out' [63:0] to the CPU's Memory 
+  Stage (MEM) data bus. Note the 72-bit to 64-bit mapping (ignore the 8-bit control 
+  overhead unless you need to modify packet metadata).
+- Address Width: Use bits [10:2] of the ARM address for the 8-bit 'cpu_addr' inputs.
+
+B. The MEM Stage Mux:
+In Lab 6, your CPU connects to 'D_Mem.v'. You should replace or augment that 
+connection. One strategy is to memory-map the FIFO into the ARM's address space 
+(e.g., Address 0x2000 and above).
+- If Address >= 0x2000: Assert 'mode_select' and route CPU MEM signals to the FIFO.
+- If Address < 0x2000: Route signals to the standard 'D_Mem.v'.
+
+C. Control Register (The Mailbox):
+You need a way for the ARM CPU to check status. Create a small control register 
+(accessible via specific ARM address) that returns:
+- Bit 0: 'packet_ready' (Read-only)
+- Bit 1: 'mode_select' (Read/Write)
+- Bit 2: 'cpu_packet_done' (Write-only)
+
+D. Multi-Port Strategy:
+- Port A (CPU): Can be used for writing modified data.
+- Port B (CPU): Can be used for reading the packet header.
+- This allows you to potentially read and write in the same cycle if your CPU 
+  pipeline supports it.
+
+4. PREPARING FOR STEP 2 (GPU)
+----------------------------
+The use of 'douta' and 'doutb' is critical. For GPU tensor math, you can 
+simultaneously read 'cpu_data_out_a' (Address N) and 'cpu_data_out_b' (Address N+1) 
+to feed the 144-bit wide vector path into your GPU EU/Tensor units.
