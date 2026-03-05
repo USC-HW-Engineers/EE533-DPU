@@ -1,0 +1,61 @@
+EE 533 Lab 8: Convertible FIFO Design & ARM Integration
+=====================================================
+
+1. ARCHITECTURAL OVERVIEW
+-------------------------
+The Convertible FIFO is a "dual-personality" memory structure designed to act as both a network buffer (FIFO) and a shared scratchpad (RAM) for the CPU/GPU. 
+
+A. Memory Backbone:
+- Uses a 256x72-bit True Dual Port BRAM IP Core (FIFO.v).
+- 72-bit width: Matches the NetFPGA standard (64 bits data + 8 bits control).
+- True Dual Port: Allows simultaneous reads/writes on both Port A and Port B.
+
+B. Dual-Mode Operation (controlled by 'mode_select'):
+
+   Mode 0: Network Mode (FIFO)
+   - Port A is the "Input": Writes network data coming from the NetFPGA pipeline. 
+     The 'tail_ptr' acts as the write address.
+   - Port B is the "Output": Reads data to send it back to the pipeline. 
+     The 'head_ptr' acts as the read address.
+   - Flow Control: When 'in_lastword' is detected, 'packet_ready' is asserted, and 
+     'fifo_full' is set to 1 to stall the pipeline and protect the packet.
+
+   Mode 1: Processor Mode (RAM)
+   - The FIFO "converts" into a standard Dual-Port SRAM.
+   - Muxes redirect Port A and Port B controls directly to the ARM/GPU.
+   - The CPU has full random access to the packet data via MMIO.
+
+2. MMIO ADDRESS MAPPING (IMPLEMENTED)
+------------------------------------
+The ARM processor interacts with all system components via a unified 32-bit address space (using byte addresses).
+
+| Address Range       | Target Component          | Size      |
+|---------------------|---------------------------|-----------|
+| 0x0000 - 0x07FF     | Instruction Memory (IM)   | 512 words |
+| 0x0800 - 0x0BFF     | Data Memory (DM)          | 256 words |
+| 0x0C00 - 0x0FFF     | Convertible FIFO Data     | 256 words |
+| 0x1000 (0x1XXX)     | Control Register (Mailbox)| 1 word    |
+
+3. THE CONTROL REGISTER (ADDRESS 0x1000)
+---------------------------------------
+The Control Register is used for synchronization between hardware and software.
+
+- READ Operations:
+  - Bit 0: 'packet_ready' (1 = Packet fully buffered and ready for CPU).
+  - Bit 1: Current 'mode_select' state.
+  - Bit 2: 'cpu_packet_done' status (usually returns 0).
+
+- WRITE Operations:
+  - Bit 1: Set to 1 to take control of the FIFO (Mode 1), set to 0 to release (Mode 0).
+  - Bit 2: Set to 1 to pulse 'cpu_packet_done', triggering the release of the packet to the network output.
+
+4. ARM CPU INTEGRATION (IN ARM_PROCESSOR_4T.V)
+---------------------------------------------
+- Decoder Logic: A dedicated decoder in the MEM stage uses M_ALU[12:10] to steer data between the IM, DM, FIFO, and Control Register.
+- Port Assignment: 
+  - Port A of the FIFO is used for CPU writes (storing modified packet data).
+  - Port B of the FIFO is used for CPU reads (inspecting packet headers).
+
+5. PREPARING FOR STEP 2 (GPU)
+----------------------------
+The 72-bit data from Port B is already routed to the CPU. In the next step, the 144-bit wide vector path will be created by concatenating Port A and Port B outputs during GPU-specific instruction cycles, feeding the Tensor Units for parallel processing.
