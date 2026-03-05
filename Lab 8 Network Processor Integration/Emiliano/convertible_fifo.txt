@@ -23,49 +23,39 @@ B. Dual-Mode Operation (controlled by 'mode_select'):
    Mode 1: Processor Mode (RAM)
    - The FIFO "converts" into a standard Dual-Port SRAM.
    - Muxes redirect Port A and Port B controls directly to the ARM/GPU.
-   - The CPU has full random access to the packet data for inspection or modification.
+   - The CPU has full random access to the packet data via MMIO.
 
-2. HOW IT WORKS (STEP-BY-STEP)
-------------------------------
-1. Buffering: Network Mode is active. A packet enters; 'tail_ptr' increments for every word.
-2. Detection: 'in_lastword' arrives. The FIFO stops accepting new data and signals 'packet_ready'.
-3. Handover: The CPU sees 'packet_ready'. It sets 'mode_select' to 1.
-4. Processing: The CPU uses 'cpu_addr' and 'cpu_data' to read headers and modify the payload.
-5. Completion: The CPU sets 'mode_select' back to 0 and asserts 'cpu_packet_done'.
-6. Forwarding: The FIFO increments 'head_ptr' as the pipeline reads the modified data out.
+2. MMIO ADDRESS MAPPING (IMPLEMENTED)
+------------------------------------
+The ARM processor interacts with all system components via a unified 32-bit address space (using byte addresses).
 
-3. INTERFACING WITH THE ARM CPU (LAB 6)
+| Address Range       | Target Component          | Size      |
+|---------------------|---------------------------|-----------|
+| 0x0000 - 0x07FF     | Instruction Memory (IM)   | 512 words |
+| 0x0800 - 0x0BFF     | Data Memory (DM)          | 256 words |
+| 0x0C00 - 0x0FFF     | Convertible FIFO Data     | 256 words |
+| 0x1000 (0x1XXX)     | Control Register (Mailbox)| 1 word    |
+
+3. THE CONTROL REGISTER (ADDRESS 0x1000)
 ---------------------------------------
-To integrate this with your Quad-Threaded ARM Processor from Lab 6, follow these steps:
+The Control Register is used for synchronization between hardware and software.
 
-A. Address/Data Mapping:
-- Data Width: Connect 'cpu_data_in' and 'cpu_data_out' [63:0] to the CPU's Memory 
-  Stage (MEM) data bus. Note the 72-bit to 64-bit mapping (ignore the 8-bit control 
-  overhead unless you need to modify packet metadata).
-- Address Width: Use bits [10:2] of the ARM address for the 8-bit 'cpu_addr' inputs.
+- READ Operations:
+  - Bit 0: 'packet_ready' (1 = Packet fully buffered and ready for CPU).
+  - Bit 1: Current 'mode_select' state.
+  - Bit 2: 'cpu_packet_done' status (usually returns 0).
 
-B. The MEM Stage Mux:
-In Lab 6, your CPU connects to 'D_Mem.v'. You should replace or augment that 
-connection. One strategy is to memory-map the FIFO into the ARM's address space 
-(e.g., Address 0x2000 and above).
-- If Address >= 0x2000: Assert 'mode_select' and route CPU MEM signals to the FIFO.
-- If Address < 0x2000: Route signals to the standard 'D_Mem.v'.
+- WRITE Operations:
+  - Bit 1: Set to 1 to take control of the FIFO (Mode 1), set to 0 to release (Mode 0).
+  - Bit 2: Set to 1 to pulse 'cpu_packet_done', triggering the release of the packet to the network output.
 
-C. Control Register (The Mailbox):
-You need a way for the ARM CPU to check status. Create a small control register 
-(accessible via specific ARM address) that returns:
-- Bit 0: 'packet_ready' (Read-only)
-- Bit 1: 'mode_select' (Read/Write)
-- Bit 2: 'cpu_packet_done' (Write-only)
+4. ARM CPU INTEGRATION (IN ARM_PROCESSOR_4T.V)
+---------------------------------------------
+- Decoder Logic: A dedicated decoder in the MEM stage uses M_ALU[12:10] to steer data between the IM, DM, FIFO, and Control Register.
+- Port Assignment: 
+  - Port A of the FIFO is used for CPU writes (storing modified packet data).
+  - Port B of the FIFO is used for CPU reads (inspecting packet headers).
 
-D. Multi-Port Strategy:
-- Port A (CPU): Can be used for writing modified data.
-- Port B (CPU): Can be used for reading the packet header.
-- This allows you to potentially read and write in the same cycle if your CPU 
-  pipeline supports it.
-
-4. PREPARING FOR STEP 2 (GPU)
+5. PREPARING FOR STEP 2 (GPU)
 ----------------------------
-The use of 'douta' and 'doutb' is critical. For GPU tensor math, you can 
-simultaneously read 'cpu_data_out_a' (Address N) and 'cpu_data_out_b' (Address N+1) 
-to feed the 144-bit wide vector path into your GPU EU/Tensor units.
+The 72-bit data from Port B is already routed to the CPU. In the next step, the 144-bit wide vector path will be created by concatenating Port A and Port B outputs during GPU-specific instruction cycles, feeding the Tensor Units for parallel processing.
