@@ -37,7 +37,9 @@ def reg_name(num):
     elif num == 13:
         return "sp"
     elif num == 14:
-        return "lr"  
+        return "lr"
+    elif num == 15:
+        return "r15"
     else:
         return f"r{num}"
 
@@ -57,7 +59,8 @@ def decode_instruction(inst, pc):
     r1     = (inst >> 20) & 0xF
     r2     = (inst >> 16) & 0xF
     rd     = (inst >> 12) & 0xF
-    imm12  = sign_extend_12bit(inst & 0xFFF)
+    imm12_raw = inst & 0xFFF
+    imm12  = sign_extend_12bit(imm12_raw)
 
     if inst == 0:
         return "nop"
@@ -80,9 +83,12 @@ def decode_instruction(inst, pc):
     elif opcode == 0b0011:
         return f"str {reg_name(r2)}, [{reg_name(r1)}, #{imm12}]"
 
-    # CMP
+    # CMP / NOP (Opcode 0)
     elif opcode == 0b0000:
-        return f"cmp {reg_name(r1)}, {reg_name(r2)}"
+        instr = ALU_CTRL_REV.get(alu, "nop")
+        if instr == "add" and rd == 0 and r1 == 0 and r2 == 0:
+            return "nop"
+        return f"{instr} {reg_name(rd)}, {reg_name(r1)}, {reg_name(r2)}"
 
     # CMPI
     elif opcode == 0b1000:
@@ -92,10 +98,11 @@ def decode_instruction(inst, pc):
     elif opcode == 0b0100:
         btype = (inst >> 18) & 0x3
         branch_instr = BRANCH_TYPE_REV.get(btype, "b")
-        target = (pc + 1 + imm12) * 4
-        return f"{branch_instr} {target:03d}"
+        # Global Addressing: Target in machine code is the absolute byte address
+        target = imm12_raw
+        return f"{branch_instr} 0x{target:03X}"
 
-    return "unknown"
+    return f"unknown (OP={opcode:04b})"
 
 # ==========================================
 # Disassemble File
@@ -110,6 +117,8 @@ def disassemble_file(input_file, output_file):
     for line in lines:
         line = line.strip()
         if line:
+            # Handle potential comments or multi-column hex files
+            line = line.split()[0]
             instructions.append(int(line, 16))
 
     with open(output_file, "w") as out:
@@ -117,7 +126,8 @@ def disassemble_file(input_file, output_file):
         out.write("Disassembled Assembly:\n\n")
 
         for i, inst in enumerate(instructions):
-            pc_addr = i * 4
+            # 4-byte stride: 0x000, 0x004, 0x008, 0x00C...
+            pc_addr = i * 4 
             asm = decode_instruction(inst, i)
 
             # Format: 0xHEX | DEC: instruction
@@ -134,7 +144,7 @@ def disassemble_file(input_file, output_file):
 if __name__ == "__main__":
 
     if len(sys.argv) != 3:
-        print("Usage: python disassembler.py input.hex output.txt")
+        print("Usage: python reverseEng.py input.hex output.txt")
         sys.exit(1)
 
     input_file = sys.argv[1]

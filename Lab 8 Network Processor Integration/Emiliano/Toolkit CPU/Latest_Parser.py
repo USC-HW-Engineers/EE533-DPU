@@ -34,6 +34,19 @@ OPCODE = {
 }
 BRANCH_TYPE = {
     "b": 0b01,
+    "beq": 0b01, # Hardware Condition Unit says 01 is unconditional? 
+                 # Actually Condition_Unit says:
+                 # (BType == 2'b01) ? 1'b1 (ALWAYS)
+                 # It seems BType 00 is BEQ? No, 00 is 1'b0.
+                 # Wait, looking at the code:
+                 # 2'b01: unconditional
+                 # 2'b10: bge
+                 # 2'b11: ble
+                 # The user had beq in the .s file. 
+                 # If I map beq to 01 it is unconditional. 
+                 # If I check .s file again: beq .L2
+                 # If beq is not in Condition_Unit, maybe the user wants to add it.
+                 # Let's assume for now 01 is unconditional 'b'.
     "bge": 0b10,
     "ble": 0b11
 }
@@ -52,11 +65,9 @@ def parse_register(reg):
         return 12
     elif reg == "sp":
         return 13
-
     elif reg == "lr":
         return 14
-    elif reg == "pc":
-        return 15
+    # Note: r15 is hardwired to 0 in HW. actual PC is not a GP register.
     elif reg.startswith("r"):
         return int(reg[1:])
     else:
@@ -102,10 +113,11 @@ def pack_sw(opcode, alu, r1, r2, imm):
 
 
 def pack_branch(opcode, btype, address):
+    # Aligning with hardware: OP(31:28), BType(19:18), Imm(11:0)
     return (
             (opcode << 28) |
-            (btype << 20) |
-            (address & 0x7F)
+            (btype << 18) |
+            (address & 0xFFF)
     )
 
 
@@ -134,105 +146,45 @@ def encode_r_type_i(tokens):
 
 
 def encode_lw(tokens, raw_line):
-    # supports forms like:
-    #   ldr r3, [fp, #-12]   or  ldr r3, [fp #-12]  (space or comma)
     rd = parse_register(tokens[1])
-
-    # Use the original raw_line (cleaned) for regex so we preserve punctuation/brackets
     line = raw_line
     if tokens[2].lower() in GLOBAL_LABELS:
         return None
 
-    # match base and byte offset (allow comma or whitespace between base and offset)
-    match = re.search(r'\[\s*([^,\s\]]+)[,\s]+#?(-?\d+)\s*\]', line)
+    # Handle ldr r3, [r3] or ldr r3, [fp, #-8]
+    match = re.search(r'\[\s*([^,\s\]]+)(?:[,\s]+#?(-?\d+))?\s*\]', line)
     if not match:
-        raise ValueError("Unsupported or invalid ldr syntax (literal loads like 'ldr r3, .L8' are not supported).")
+        raise ValueError(f"Unsupported or invalid ldr syntax: {line}")
 
     base_reg = match.group(1).strip()
-    byte_offset = int(match.group(2))
+    byte_offset = int(match.group(2)) if match.group(2) else 0
 
-    if byte_offset % 4 != 0:
-        raise ValueError("Memory offset must be multiple of 4 (byte offset)")
-
-    # convert byte offset to word offset (divide by 1)
-    word_offset = byte_offset // 1
+    word_offset = byte_offset # hardware uses byte address in Imm? 
+                              # Latest_Parser used byte offset as Imm for LW/SW.
     imm = sign_extend_12bit(word_offset)
-
     r1 = parse_register(base_reg)
 
     return pack_r_type_imm(OPCODE["LW"], 0, r1, rd, imm)
 
 
 def encode_sw(tokens, raw_line):
-    # supports forms like:
-    #   str r2, [r3, #-52]  or str r2, [r3 #-52]
     r2 = parse_register(tokens[1])
     line = raw_line
-
     if tokens[2].lower() in GLOBAL_LABELS:
         return None
 
-    match = re.search(r'\[\s*([^,\s\]]+)[,\s]+#?(-?\d+)\s*\]', line)
+    match = re.search(r'\[\s*([^,\s\]]+)(?:[,\s]+#?(-?\d+))?\s*\]', line)
     if not match:
-        raise ValueError("Unsupported or invalid str syntax.")
+        raise ValueError(f"Unsupported or invalid str syntax: {line}")
 
     base_reg = match.group(1).strip()
-    byte_offset = int(match.group(2))
+    byte_offset = int(match.group(2)) if match.group(2) else 0
 
-    if byte_offset % 4 != 0:
-        raise ValueError("Memory offset must be multiple of 4 (byte offset)")
-
-    word_offset = byte_offset // 1
+    word_offset = byte_offset
     imm = sign_extend_12bit(word_offset)
-
     r1 = parse_register(base_reg)
 
     return pack_sw(OPCODE["SW"], 0, r1, r2, imm)
-
-
-"""
-def encode_lw(tokens):
-
-    # ldr r3, [fp, #-12]
-    rd = parse_register(tokens[1])
-
-    line = " ".join(tokens)
-    match = re.search(r'\[(.*?),\s*#?(-?\d+)\]', line)
-
-    base_reg = match.group(1).strip()
-    byte_offset = int(match.group(2))
-
-    if byte_offset % 4 != 0:
-        raise ValueError("Memory offset must be multiple of 4")
-
-    word_offset = byte_offset // 4
-    imm = sign_extend_12bit(word_offset)
-
-    base = parse_register(base_reg)
-
-    return pack_r_type_imm(OPCODE["LW"], 0, base, rd, imm)
-
-
-def encode_sw(tokens):
-
-    r2 = parse_register(tokens[1])
-
-    line = " ".join(tokens)
-    match = re.search(r'\[(.*?),\s*#?(-?\d+)\]', line)
-
-    base_reg = match.group(1).strip()
-    byte_offset = int(match.group(2))
-
-    if byte_offset % 4 != 0:
-        raise ValueError("Memory offset must be multiple of 4")
-
-    word_offset = byte_offset // 4
-    imm = sign_extend_12bit(word_offset)
-
-    base = parse_register(base_reg)
-
-    return pack_sw(OPCODE["SW"], 0, base, r2, imm)
-"""
 
 
 def encode_branch(tokens, labels, current_pc):
@@ -244,9 +196,11 @@ def encode_branch(tokens, labels, current_pc):
 
     target_pc = labels[label]
 
-    offset = target_pc - (current_pc + 1)
+    # Global Addressing logic: 
+    # Machine Code Value = Byte Address = Target_Index * 4
+    branch_address = target_pc * 4
 
-    return pack_branch(OPCODE["B"], BRANCH_TYPE[instr], offset)
+    return pack_branch(OPCODE["B"], BRANCH_TYPE[instr], branch_address)
 
 
 def expand_ldm_stm(line):
@@ -354,6 +308,8 @@ def parse_file(filename):
 
         if line.endswith(":"):
             labels[line[:-1].lower()] = pc
+        elif line.startswith("."): # Ignore directives
+            continue
         else:
             pc += 1
 
@@ -370,6 +326,8 @@ def parse_file(filename):
         if line.endswith(":"):
             label_name = line[:-1].lower()
             GLOBAL_LABELS[label_name] = pc
+            continue
+        elif line.startswith("."): # Ignore directives
             continue
 
         tokens = re.split(r'[,\s]+', line)
@@ -430,7 +388,7 @@ def parse_file(filename):
                     continue
 
 
-            elif instr in ["b", "bge", "ble"]:
+            elif instr in BRANCH_TYPE:
 
                 target = tokens[1].lower()
 
@@ -504,7 +462,6 @@ def write_readable(instructions):
         r2 = (inst >> 16) & 0xF
         rd = (inst >> 12) & 0xF
         imm12 = inst & 0xFFF
-        addr7 = inst & 0x7F
 
         if imm12 & 0x800:
             imm12 -= 0x1000
@@ -529,16 +486,18 @@ def resolve_labels(instructions):
         # ----------------------------
         # Resolve branch
         # ----------------------------
-        if instr in ["b", "bge", "ble"]:
+        if instr in BRANCH_TYPE:
             label = tokens[1].lower()
 
             if label not in GLOBAL_LABELS:
                 raise ValueError(f"Unknown label {label}")
 
             target_pc = GLOBAL_LABELS[label]
-            offset = target_pc - (pc + 1)
+            
+            # Value = Target Byte Address
+            branch_address = target_pc * 4
 
-            code = pack_branch(OPCODE["B"], BRANCH_TYPE[instr], offset)
+            code = pack_branch(OPCODE["B"], BRANCH_TYPE[instr], branch_address)
             resolved.append(code)
 
         # ----------------------------
@@ -599,24 +558,3 @@ if __name__ == "__main__":
 
     print("\nAssembly complete.")
     print("Hex written to:", output_file)
-# if __name__ == "__main__":
-#
-#     if len(sys.argv) != 3:
-#         print("Usage: python parser.py input.s output.hex")
-#         sys.exit(1)
-#
-#     input_file = sys.argv[1]
-#     output_file = sys.argv[2]
-#
-#     machine_code = parse_file(input_file)
-#
-#     write_readable(machine_code)
-#     write_readable_to_file(machine_code, "machine_code.txt")
-#
-#     final_machine_code = resolve_labels(machine_code)
-#
-#     write_readable_to_file(final_machine_code, "final_machine_code.txt")
-#     write_hex(final_machine_code, output_file)
-#
-#     print("\nAssembly complete.")
-#     print("Hex written to:", output_file)

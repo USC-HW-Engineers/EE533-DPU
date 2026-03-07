@@ -5,7 +5,7 @@ Disassembled Assembly:
 0x008 | 008: sub fp, fp, fp
 0x00C | 012: add sp, r15, #9
 0x010 | 016: lsl sp, sp, #8
-0x014 | 020: b 532
+0x014 | 020: b 0x014
 0x018 | 024: nop
 0x01C | 028: nop
 0x020 | 032: nop
@@ -133,7 +133,7 @@ Disassembled Assembly:
 0x208 | 520: sub fp, fp, fp
 0x20C | 524: add sp, r15, #10
 0x210 | 528: lsl sp, sp, #8
-0x214 | 532: b 1044
+0x214 | 532: b 0x214
 0x218 | 536: nop
 0x21C | 540: nop
 0x220 | 544: nop
@@ -261,7 +261,7 @@ Disassembled Assembly:
 0x408 | 1032: sub fp, fp, fp
 0x40C | 1036: add sp, r15, #11
 0x410 | 1040: lsl sp, sp, #8
-0x414 | 1044: b 1556
+0x414 | 1044: b 0x414
 0x418 | 1048: nop
 0x41C | 1052: nop
 0x420 | 1056: nop
@@ -389,7 +389,7 @@ Disassembled Assembly:
 0x608 | 1544: sub fp, fp, fp
 0x60C | 1548: add sp, r15, #12
 0x610 | 1552: lsl sp, sp, #8
-0x614 | 1556: b 2068
+0x614 | 1556: b 0x614
 0x618 | 1560: nop
 0x61C | 1564: nop
 0x620 | 1568: nop
