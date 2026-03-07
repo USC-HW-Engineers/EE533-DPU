@@ -1,7 +1,7 @@
 ##############################################################
 #
 # Xilinx Core Generator version K.31
-# Date: Sat Feb 21 06:16:00 2026
+# Date: Thu Mar 05 05:22:34 2026
 #
 ##############################################################
 #
@@ -35,10 +35,9 @@ SET vhdlsim = True
 SELECT Dual_Port_Block_Memory family Xilinx,_Inc. 6.3
 # END Select
 # BEGIN Parameters
-CSET coefficient_file="C:\Documents and Settings\student\Desktop\ARM_Processor\DM_init.coe"
-CSET component_name=D_Mem
-CSET configuration_port_a=Write_Only
-CSET configuration_port_b=Read_Only
+CSET component_name=FIFO
+CSET configuration_port_a=Read_And_Write
+CSET configuration_port_b=Read_And_Write
 CSET depth_a=256
 CSET depth_b=256
 CSET disable_warning_messages=true
@@ -54,9 +53,9 @@ CSET port_a_init_value=0
 CSET port_a_initialization_pin_polarity=Active_High
 CSET port_a_register_inputs=false
 CSET port_a_write_enable_polarity=Active_High
-CSET port_b_active_clock_edge=Falling_Edge_Triggered
+CSET port_b_active_clock_edge=Rising_Edge_Triggered
 CSET port_b_additional_output_pipe_stages=0
-CSET port_b_enable_pin=true
+CSET port_b_enable_pin=false
 CSET port_b_enable_pin_polarity=Active_High
 CSET port_b_handshaking_pins=false
 CSET port_b_init_pin=false
@@ -66,11 +65,11 @@ CSET port_b_register_inputs=false
 CSET port_b_write_enable_polarity=Active_High
 CSET primitive_selection=Optimize_For_Area
 CSET select_primitive=16kx1
-CSET width_a=64
-CSET width_b=64
+CSET width_a=72
+CSET width_b=72
 CSET write_mode_port_a=Read_After_Write
 CSET write_mode_port_b=Read_After_Write
 # END Parameters
 GENERATE
-# CRC: 5dd31f4d
+# CRC: ba0b0c91
 

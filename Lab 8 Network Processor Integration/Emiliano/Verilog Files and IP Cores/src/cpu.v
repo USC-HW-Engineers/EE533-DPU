@@ -69,12 +69,31 @@ generic_regs #(
 );
 
 //******************************************************************
-//    pass through for now
+//    Network Data Path Interface
 //*****************************************************************
-assign out_data = in_data;
-assign out_ctrl = in_ctrl;
-assign out_wr = in_wr;
-assign in_rdy = out_rdy;
+// Logic to detect start and end of packets
+// In NetFPGA, in_ctrl != 0 indicates a header (start) or tail (end) word.
+// For the convertible FIFO, we need to distinguish them.
+reg in_packet;
+always @(posedge clk) begin
+    if (reset) in_packet <= 1'b0;
+    else if (in_wr && in_ctrl != 0 && !in_packet) in_packet <= 1'b1;
+    else if (in_wr && in_ctrl != 0 && in_packet)  in_packet <= 1'b0;
+end
+
+wire is_first = (in_wr && in_ctrl != 0 && !in_packet);
+wire is_last  = (in_wr && in_ctrl != 0 && in_packet);
+
+// Internal wires for processor output
+wire [71:0] proc_out_72;
+wire        proc_fifo_full;
+
+// Backpressure: We are ready if the internal FIFO is not full
+assign in_rdy = !proc_fifo_full;
+
+// Output assignments: Split the 72-bit processor output back to NetFPGA format
+assign out_data = proc_out_72[63:0];
+assign out_ctrl = proc_out_72[71:64];
 
 
 //******************************************************************
@@ -99,11 +118,22 @@ ARM_Processor_4T processor (
 	.DIN (imem_data),
 	.IM_WE (cpu_ctrl[1]),
 	.ADDR (imem_addr[10:2]),
-	.EXT_DM_DIN({32'h0, dmem_data}), // padding to 64 bit as dmem is 64bit wide
+	
+	// External Monitoring & Debug
+	.EXT_DM_DIN({32'h0, dmem_data}), 
 	.EXT_DM_ADDR(dmem_addr[7:0]),
 	.EXT_DM_WEN(cpu_ctrl[2]),
 	.EXT_DM_DATA({dmem_data_rd_hi, dmem_data_rd_lo}),
-	.EXT_PC_OUT (internal_pc)
+	.EXT_PC_OUT (internal_pc),
+
+	// Network Interface
+	.in_data({in_ctrl, in_data}),
+	.in_wr_en(in_wr),
+	.in_firstword(is_first),
+	.in_lastword(is_last),
+	.fifo_full(proc_fifo_full),
+	.out_data(proc_out_72),
+	.out_rd_en(out_rdy)
 );
 
 

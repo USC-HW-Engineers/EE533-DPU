@@ -7,11 +7,22 @@ module ARM_Processor_4T(
     input  [31:0] DIN,
     input         IM_CLR,
     input         IM_WE,
+
+    // --- External Monitoring & Debug ---
     input  [63:0] EXT_DM_DIN,
     input  [7:0]  EXT_DM_ADDR,
     input         EXT_DM_WEN,
     output [63:0] EXT_DM_DATA,
-    output [10:2] EXT_PC_OUT
+    output [10:2] EXT_PC_OUT,
+
+    // --- Network Interface ---
+    input  [71:0] in_data,
+    input         in_wr_en,
+    input         in_firstword,
+    input         in_lastword,
+    output        fifo_full,
+    output [71:0] out_data,
+    input         out_rd_en
 );
 
     // --- Wire Declarations ---
@@ -21,8 +32,6 @@ module ARM_Processor_4T(
     // Instruction Fetch (IF) Stage
     wire [10:2] PC;
     wire [31:0] IM_OUT;
-    
-    assign EXT_PC_OUT = PC;
     
     // IF/ID Pipeline Register Outputs
     wire [31:0] INS;
@@ -76,10 +85,86 @@ module ARM_Processor_4T(
     wire [63:0] M_DM_OUT;
     wire [31:0] M_IM_OUT;
     wire [63:0] M_FINAL_OUT;
+
+    assign EXT_PC_OUT = PC;
+    assign EXT_DM_DATA = M_DM_OUT;
+
+    // --- Convertible FIFO & MMIO Logic ---
+    wire packet_ready;
+    reg mode_select_reg;
+    reg cpu_packet_done_reg;
+    wire [71:0] M_FIFO_OUT_72;
     
-    // Virtual Memory Mapping: Use M_ALU[11] to select between IM (0) and DM (1)
-    // IM is 512 words (byte addr 0-2047), DM is 256 words (byte addr 2048-3071)
-    assign M_FINAL_OUT = (M_ALU[11] == 1'b0) ? {32'b0, M_IM_OUT} : M_DM_OUT;
+    // Address Decoding
+    // 0x000-0x7FF: IM (M_ALU[11] == 0)
+    // 0x800-0xBFF: DM (M_ALU[11] == 1, M_ALU[10] == 0)
+    // 0xC00-0xFFF: FIFO (M_ALU[11] == 1, M_ALU[10] == 1)
+    // 0x1000: CTRL (M_ALU[12] == 1)
+    wire is_ctrl = (M_ALU[12] == 1'b1);
+    wire is_dm   = (M_ALU[11] == 1'b1 && M_ALU[10] == 1'b0 && !is_ctrl);
+    wire is_fifo = (M_ALU[11] == 1'b1 && M_ALU[10] == 1'b1 && !is_ctrl);
+
+    // External DM access muxes
+    wire [7:0]  final_dm_addr       = (EXT_DM_WEN) ? EXT_DM_ADDR : M_ALU[9:2];
+    wire [63:0] final_dm_data       = (EXT_DM_WEN) ? EXT_DM_DIN  : M_R2;
+    wire        final_dm_wen        = (EXT_DM_WEN) ? EXT_DM_WEN  : (M_MemWrite_MemStage && is_dm);
+    wire [7:0]  final_dm_read_addr  = (CLR_ALL)    ? EXT_DM_ADDR : M_ALU[9:2];
+    wire        final_dm_read_en    = (CLR_ALL)    ? 1'b1        : (M_MemRead_MemStage && is_dm);
+
+    // Control Register Logic (Address 0x1000)
+    // Bit 0: packet_ready (R)
+    // Bit 1: mode_select (RW)
+    // Bit 2: cpu_packet_done (W pulse)
+    always @(posedge CLK or posedge CLR_ALL) begin
+        if (CLR_ALL) begin
+            mode_select_reg <= 1'b0;
+            cpu_packet_done_reg <= 1'b0;
+        end else begin
+            cpu_packet_done_reg <= 1'b0; // Default pulse behavior
+            if (is_ctrl && M_MemWrite_MemStage) begin
+                mode_select_reg <= M_R2[1];
+                cpu_packet_done_reg <= M_R2[2];
+            end
+        end
+    end
+
+    wire [63:0] M_CTRL_OUT = {61'b0, cpu_packet_done_reg, mode_select_reg, packet_ready};
+
+    convertible_fifo network_fifo (
+        .clk(CLK),
+        .rst(CLR_ALL),
+        // Network Interface
+        .in_data(in_data),
+        .in_wr_en(in_wr_en),
+        .in_firstword(in_firstword),
+        .in_lastword(in_lastword),
+        .fifo_full(fifo_full),
+        .out_data(out_data),
+        .out_rd_en(out_rd_en),
+        // Processor Interface
+        .mode_select(mode_select_reg),
+        .cpu_addr_a(M_ALU[9:2]),
+        .cpu_data_in_a({8'b0, M_R2}),
+        .cpu_we_a(M_MemWrite_MemStage && is_fifo),
+        .cpu_data_out_a(), 
+        .cpu_addr_b(M_ALU[9:2]),
+        .cpu_data_in_b(72'b0),
+        .cpu_we_b(1'b0),
+        .cpu_data_out_b(M_FIFO_OUT_72),
+        .cpu_head_ptr_in(8'b0),
+        .cpu_tail_ptr_in(8'b0),
+        .cpu_ptr_we(1'b0),
+        .head_ptr_val(),
+        .tail_ptr_val(),
+        .packet_ready(packet_ready),
+        .cpu_packet_done(cpu_packet_done_reg)
+    );
+
+    // MEM Stage Final Output Selection
+    assign M_FINAL_OUT = (is_ctrl) ? M_CTRL_OUT :
+                         (is_dm)   ? M_DM_OUT   :
+                         (is_fifo) ? M_FIFO_OUT_72[63:0] :
+                         {32'b0, M_IM_OUT};
     
     // MEM/WB Pipeline Register Outputs
     wire [3:0]  WB_ADDR;
@@ -91,15 +176,6 @@ module ARM_Processor_4T(
     
     // WB Stage Final Data
     wire [63:0] WB_Data;
-
-    // External DM access muxes
-    wire [7:0]  final_dm_addr       = (EXT_DM_WEN) ? EXT_DM_ADDR : M_ALU[9:2];
-    wire [63:0] final_dm_data       = (EXT_DM_WEN) ? EXT_DM_DIN  : M_R2;
-    wire        final_dm_wen        = (EXT_DM_WEN) ? EXT_DM_WEN  : M_MemWrite_MemStage;
-    wire [7:0]  final_dm_read_addr  = (CLR_ALL)    ? EXT_DM_ADDR : M_ALU[9:2];
-    wire        final_dm_read_en    = (CLR_ALL)    ? 1'b1        : M_MemRead_MemStage;
-
-    assign EXT_DM_DATA = M_DM_OUT;
 
     // --- Pipeline Implementation ---
 

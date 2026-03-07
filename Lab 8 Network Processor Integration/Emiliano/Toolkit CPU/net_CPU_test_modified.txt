@@ -1,0 +1,28 @@
+Disassembled Assembly:
+
+0x000 | 000: sub sp, sp, #4
+0x004 | 004: str fp, [sp, #0]
+0x008 | 008: add fp, sp, #0
+0x00C | 012: sub sp, sp, #20
+0x010 | 016: add r3, r0, #0
+0x014 | 020: str r3, [fp, #-8]
+0x018 | 024: add r3, r0, #-1024
+0x01C | 028: str r3, [fp, #-12]
+0x020 | 032: nop
+0x024 | 036: ldr r3, [fp, #-8]
+0x028 | 040: and r3, r3, #1
+0x02C | 044: sub r0, r3, #0
+0x030 | 048: ldr r3, [fp, #-8]
+0x034 | 052: add r2, r0, #2
+0x038 | 056: ldr r3, [fp, #-12]
+0x03C | 060: ldr r3, [r3, #32]
+0x040 | 064: str r3, [fp, #-16]
+0x044 | 068: ldr r3, [fp, #-16]
+0x048 | 072: add r3, r3, #100
+0x04C | 076: str r3, [fp, #-16]
+0x050 | 080: ldr r3, [fp, #-12]
+0x054 | 084: add r3, r3, #32
+0x058 | 088: ldr r2, [fp, #-16]
+0x05C | 092: ldr r3, [fp, #-8]
+0x060 | 096: add r2, r0, #4
+0x064 | 100: b 108

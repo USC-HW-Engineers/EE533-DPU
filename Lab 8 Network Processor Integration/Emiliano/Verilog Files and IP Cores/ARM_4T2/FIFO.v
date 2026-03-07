@@ -30,32 +30,36 @@
 // supported by Xilinx, Mentor Graphics and Synplicity synthesis
 // tools. Ensure they are correct for your synthesis tool(s).
 
-// You must compile the wrapper file D_Mem.v when simulating
-// the core, D_Mem. When compiling the wrapper file, be sure to
+// You must compile the wrapper file FIFO.v when simulating
+// the core, FIFO. When compiling the wrapper file, be sure to
 // reference the XilinxCoreLib Verilog simulation library. For detailed
 // instructions, please refer to the "CORE Generator Help".
 
 `timescale 1ns/1ps
 
-module D_Mem(
+module FIFO(
 	addra,
 	addrb,
 	clka,
 	clkb,
 	dina,
+	dinb,
+	douta,
 	doutb,
-	enb,
-	wea);
+	wea,
+	web);
 
 
 input [7 : 0] addra;
 input [7 : 0] addrb;
 input clka;
 input clkb;
-input [63 : 0] dina;
-output [63 : 0] doutb;
-input enb;
+input [71 : 0] dina;
+input [71 : 0] dinb;
+output [71 : 0] douta;
+output [71 : 0] doutb;
 input wea;
+input web;
 
 // synthesis translate_off
 
@@ -68,11 +72,11 @@ input wea;
 		.c_enable_rlocs(0),
 		.c_has_default_data(1),
 		.c_has_dina(1),
-		.c_has_dinb(0),
-		.c_has_douta(0),
+		.c_has_dinb(1),
+		.c_has_douta(1),
 		.c_has_doutb(1),
 		.c_has_ena(0),
-		.c_has_enb(1),
+		.c_has_enb(0),
 		.c_has_limit_data_pitch(0),
 		.c_has_nda(0),
 		.c_has_ndb(0),
@@ -83,7 +87,7 @@ input wea;
 		.c_has_sinita(0),
 		.c_has_sinitb(0),
 		.c_has_wea(1),
-		.c_has_web(0),
+		.c_has_web(1),
 		.c_limit_data_pitch(18),
 		.c_mem_init_file("mif_file_16_1"),
 		.c_pipe_stages_a(0),
@@ -93,13 +97,13 @@ input wea;
 		.c_sim_collision_check("NONE"),
 		.c_sinita_value("0"),
 		.c_sinitb_value("0"),
-		.c_width_a(64),
-		.c_width_b(64),
+		.c_width_a(72),
+		.c_width_b(72),
 		.c_write_modea(0),
 		.c_write_modeb(0),
 		.c_ybottom_addr("0"),
 		.c_yclka_is_rising(1),
-		.c_yclkb_is_rising(0),
+		.c_yclkb_is_rising(1),
 		.c_yena_is_high(1),
 		.c_yenb_is_high(1),
 		.c_yhierarchy("hierarchy1"),
@@ -118,12 +122,13 @@ input wea;
 		.CLKA(clka),
 		.CLKB(clkb),
 		.DINA(dina),
+		.DINB(dinb),
+		.DOUTA(douta),
 		.DOUTB(doutb),
-		.ENB(enb),
 		.WEA(wea),
-		.DINB(),
-		.DOUTA(),
+		.WEB(web),
 		.ENA(),
+		.ENB(),
 		.NDA(),
 		.NDB(),
 		.RFDA(),
@@ -131,15 +136,14 @@ input wea;
 		.RDYA(),
 		.RDYB(),
 		.SINITA(),
-		.SINITB(),
-		.WEB());
+		.SINITB());
 
 
 // synthesis translate_on
 
 // XST black box declaration
 // box_type "black_box"
-// synthesis attribute box_type of D_Mem is "black_box"
+// synthesis attribute box_type of FIFO is "black_box"
 
 endmodule
 

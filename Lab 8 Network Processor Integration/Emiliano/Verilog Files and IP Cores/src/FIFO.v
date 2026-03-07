@@ -30,45 +30,49 @@
 // supported by Xilinx, Mentor Graphics and Synplicity synthesis
 // tools. Ensure they are correct for your synthesis tool(s).
 
-// You must compile the wrapper file I_Mem_Dual.v when simulating
-// the core, I_Mem_Dual. When compiling the wrapper file, be sure to
+// You must compile the wrapper file FIFO.v when simulating
+// the core, FIFO. When compiling the wrapper file, be sure to
 // reference the XilinxCoreLib Verilog simulation library. For detailed
 // instructions, please refer to the "CORE Generator Help".
 
 `timescale 1ns/1ps
 
-module I_Mem_Dual(
+module FIFO(
 	addra,
 	addrb,
 	clka,
 	clkb,
 	dina,
+	dinb,
 	douta,
 	doutb,
-	wea);
+	wea,
+	web);
 
 
-input [8 : 0] addra;
-input [8 : 0] addrb;
+input [7 : 0] addra;
+input [7 : 0] addrb;
 input clka;
 input clkb;
-input [31 : 0] dina;
-output [31 : 0] douta;
-output [31 : 0] doutb;
+input [71 : 0] dina;
+input [71 : 0] dinb;
+output [71 : 0] douta;
+output [71 : 0] doutb;
 input wea;
+input web;
 
 // synthesis translate_off
 
       BLKMEMDP_V6_3 #(
-		.c_addra_width(9),
-		.c_addrb_width(9),
+		.c_addra_width(8),
+		.c_addrb_width(8),
 		.c_default_data("0"),
-		.c_depth_a(512),
-		.c_depth_b(512),
+		.c_depth_a(256),
+		.c_depth_b(256),
 		.c_enable_rlocs(0),
-		.c_has_default_data(0),
+		.c_has_default_data(1),
 		.c_has_dina(1),
-		.c_has_dinb(0),
+		.c_has_dinb(1),
 		.c_has_douta(1),
 		.c_has_doutb(1),
 		.c_has_ena(0),
@@ -83,9 +87,9 @@ input wea;
 		.c_has_sinita(0),
 		.c_has_sinitb(0),
 		.c_has_wea(1),
-		.c_has_web(0),
+		.c_has_web(1),
 		.c_limit_data_pitch(18),
-		.c_mem_init_file("I_Mem_Dual.mif"),
+		.c_mem_init_file("mif_file_16_1"),
 		.c_pipe_stages_a(0),
 		.c_pipe_stages_b(0),
 		.c_reg_inputsa(0),
@@ -93,13 +97,13 @@ input wea;
 		.c_sim_collision_check("NONE"),
 		.c_sinita_value("0"),
 		.c_sinitb_value("0"),
-		.c_width_a(32),
-		.c_width_b(32),
+		.c_width_a(72),
+		.c_width_b(72),
 		.c_write_modea(0),
 		.c_write_modeb(0),
 		.c_ybottom_addr("0"),
 		.c_yclka_is_rising(1),
-		.c_yclkb_is_rising(0),
+		.c_yclkb_is_rising(1),
 		.c_yena_is_high(1),
 		.c_yenb_is_high(1),
 		.c_yhierarchy("hierarchy1"),
@@ -118,10 +122,11 @@ input wea;
 		.CLKA(clka),
 		.CLKB(clkb),
 		.DINA(dina),
+		.DINB(dinb),
 		.DOUTA(douta),
 		.DOUTB(doutb),
 		.WEA(wea),
-		.DINB(),
+		.WEB(web),
 		.ENA(),
 		.ENB(),
 		.NDA(),
@@ -131,15 +136,14 @@ input wea;
 		.RDYA(),
 		.RDYB(),
 		.SINITA(),
-		.SINITB(),
-		.WEB());
+		.SINITB());
 
 
 // synthesis translate_on
 
 // XST black box declaration
 // box_type "black_box"
-// synthesis attribute box_type of I_Mem_Dual is "black_box"
+// synthesis attribute box_type of FIFO is "black_box"
 
 endmodule
 
