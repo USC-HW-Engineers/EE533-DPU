@@ -1,0 +1,321 @@
+Release 10.1.03 Physical Synthesis Report K.39 (lin64)
+Copyright (c) 1995-2007 Xilinx, Inc. All rights reserved.
+
+TABLE OF CONTENTS
+  1) Physical Synthesis Options Summary
+  2) Optimizations statistics and details
+
+
+=========================================================================
+*                 Physical Synthesis Options Summary                    *
+=========================================================================
+---- Options
+Global Optimization                 : OFF
+    Retiming                        : OFF
+    Equivalent Register Removal     : OFF
+Timing-Driven Packing and Placement : ON
+    Logic Optimization              : OFF
+    Register Duplication            : ON
+
+---- Target Parameters
+Target Device                       : 2vp50ff1152-7
+
+=========================================================================
+
+
+=========================================================================
+*                        Optimizations                                  *
+=========================================================================
+---- Statistics
+   Number of registers added by Replication                  | 280             
+
+   Overall change in number of registers                     | +280             
+
+
+---- Details
+
+New or modified components                             | Optimization             | Objective           
+-------------------------------------------------------|--------------------------|----------------------
+nf2_core/user_data_path/network_processor/cpu_inst/ALUAddr(0)_REPLICA_129| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/cpu_inst/ALUAddr(0)_REPLICA_130| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/cpu_inst/ALUAddr(0)_REPLICA_131| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/cpu_inst/ALUAddr(0)_REPLICA_132| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/cpu_inst/ALUAddr(0)_REPLICA_133| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/cpu_inst/ALUAddr(0)_REPLICA_134| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/cpu_inst/ALUAddr(0)_REPLICA_135| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/cpu_inst/ALUAddr(0)_REPLICA_136| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/cpu_inst/ALUAddr(0)_REPLICA_137| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/cpu_inst/ALUAddr(0)_REPLICA_138| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/cpu_inst/ALUAddr(0)_REPLICA_139| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/cpu_inst/ALUAddr(0)_REPLICA_140| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/cpu_inst/ALUAddr(0)_REPLICA_141| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/cpu_inst/ALUAddr(0)_REPLICA_142| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/cpu_inst/ALUAddr(0)_REPLICA_143| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/cpu_inst/ALUAddr(0)_REPLICA_144| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/cpu_inst/ALUAddr(0)_REPLICA_145| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/cpu_inst/ALUAddr(0)_REPLICA_146| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/cpu_inst/ALUAddr(0)_REPLICA_147| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/cpu_inst/ALUAddr(0)_REPLICA_148| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/cpu_inst/ALUAddr(0)_REPLICA_149| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/cpu_inst/ALUAddr(0)_REPLICA_150| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/cpu_inst/ALUAddr(0)_REPLICA_151| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/cpu_inst/ALUAddr(0)_REPLICA_152| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/cpu_inst/ALUAddr(0)_REPLICA_153| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/cpu_inst/ALUAddr(1)_REPLICA_244| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/cpu_inst/ALUAddr(1)_REPLICA_245| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/cpu_inst/ALUAddr(1)_REPLICA_246| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/cpu_inst/ALUAddr(1)_REPLICA_247| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/cpu_inst/ALUAddr(1)_REPLICA_248| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/cpu_inst/ALUAddr(1)_REPLICA_249| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/cpu_inst/ALUAddr(1)_REPLICA_250| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/cpu_inst/ALUAddr(1)_REPLICA_251| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/cpu_inst/ALUAddr(1)_REPLICA_252| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/cpu_inst/ALUAddr(1)_REPLICA_253| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/cpu_inst/ALUAddr(1)_REPLICA_254| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/cpu_inst/ALUAddr(1)_REPLICA_255| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/cpu_inst/ALUAddr(1)_REPLICA_256| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/cpu_inst/ALUAddr(1)_REPLICA_257| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/cpu_inst/ALUAddr(1)_REPLICA_258| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/cpu_inst/ALUAddr(1)_REPLICA_259| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/cpu_inst/ALUAddr(1)_REPLICA_260| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/cpu_inst/ALUAddr(1)_REPLICA_261| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/cpu_inst/ALUAddr(1)_REPLICA_262| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/cpu_inst/ALUAddr(1)_REPLICA_263| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/cpu_inst/ALUAddr(1)_REPLICA_264| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/cpu_inst/ALUAddr(1)_REPLICA_265| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/cpu_inst/ALUAddr(1)_REPLICA_266| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/cpu_inst/ALUAddr(1)_REPLICA_267| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/cpu_inst/ALUAddr(2)_REPLICA_154| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/cpu_inst/ALUAddr(2)_REPLICA_155| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/cpu_inst/ALUAddr(2)_REPLICA_156| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/cpu_inst/ALUAddr(2)_REPLICA_157| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/cpu_inst/ALUAddr(2)_REPLICA_158| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/cpu_inst/ALUAddr(2)_REPLICA_159| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/cpu_inst/ALUAddr(2)_REPLICA_160| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/cpu_inst/ALUAddr(2)_REPLICA_161| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/cpu_inst/ALUAddr(2)_REPLICA_162| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/cpu_inst/ALUAddr(2)_REPLICA_163| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/cpu_inst/ALUAddr(2)_REPLICA_164| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/cpu_inst/ALUAddr(2)_REPLICA_165| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/cpu_inst/ALUAddr(2)_REPLICA_166| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/cpu_inst/ALUAddr(2)_REPLICA_167| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/cpu_inst/ALUAddr(2)_REPLICA_168| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/cpu_inst/ALUAddr(2)_REPLICA_169| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/cpu_inst/ALUAddr(2)_REPLICA_170| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/cpu_inst/ALUAddr(2)_REPLICA_171| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/cpu_inst/ALUAddr(2)_REPLICA_172| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/cpu_inst/ALUAddr(3)_REPLICA_268| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/cpu_inst/ALUAddr(3)_REPLICA_269| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/cpu_inst/ALUAddr(3)_REPLICA_270| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/cpu_inst/ALUAddr(3)_REPLICA_271| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/cpu_inst/ALUAddr(3)_REPLICA_272| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/cpu_inst/ALUAddr(3)_REPLICA_273| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/cpu_inst/ALUAddr(3)_REPLICA_274| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/cpu_inst/ALUAddr(3)_REPLICA_275| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/cpu_inst/ALUAddr(3)_REPLICA_276| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/cpu_inst/ALUAddr(3)_REPLICA_277| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/cpu_inst/ALUAddr(3)_REPLICA_278| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/cpu_inst/ALUAddr(3)_REPLICA_279| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/cpu_inst/ALUAddr(3)_REPLICA_280| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/cpu_inst/ALUAddr(3)_REPLICA_281| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/cpu_inst/ALUAddr(3)_REPLICA_282| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/cpu_inst/ALUAddr(3)_REPLICA_283| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/cpu_inst/ALUAddr(3)_REPLICA_284| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/cpu_inst/ALUAddr(3)_REPLICA_285| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/cpu_inst/ALUAddr(3)_REPLICA_286| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/cpu_inst/ALUAddr(3)_REPLICA_287| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/cpu_inst/ALUAddr(3)_REPLICA_288| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/cpu_inst/ALUAddr(3)_REPLICA_289| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/cpu_inst/ALUAddr(3)_REPLICA_290| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/cpu_inst/ALUAddr(3)_REPLICA_291| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/cpu_inst/EX_ALUSrc_REPLICA_316| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/cpu_inst/EX_ALUSrc_REPLICA_317| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/cpu_inst/EX_ALUSrc_REPLICA_318| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/cpu_inst/EX_ALUSrc_REPLICA_319| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/cpu_inst/EX_ALUSrc_REPLICA_320| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/cpu_inst/EX_ALUSrc_REPLICA_321| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/cpu_inst/EX_ALUSrc_REPLICA_322| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/cpu_inst/EX_ALUSrc_REPLICA_323| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/cpu_inst/EX_ALUSrc_REPLICA_324| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/cpu_inst/EX_ALUSrc_REPLICA_325| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/cpu_inst/EX_ALUSrc_REPLICA_326| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/cpu_inst/EX_ALUSrc_REPLICA_327| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/cpu_inst/EX_ALUSrc_REPLICA_328| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/cpu_inst/EX_ALUSrc_REPLICA_329| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/cpu_inst/EX_ALUSrc_REPLICA_330| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/cpu_inst/EX_ALUSrc_REPLICA_331| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/cpu_inst/EX_ALUSrc_REPLICA_332| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/cpu_inst/EX_ALUSrc_REPLICA_333| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/cpu_inst/EX_Imm12(11)_REPLICA_363| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/cpu_inst/EX_Imm12(11)_REPLICA_364| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/cpu_inst/EX_Imm12(11)_REPLICA_365| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/cpu_inst/EX_Imm12(11)_REPLICA_366| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/cpu_inst/EX_Imm12(11)_REPLICA_367| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/cpu_inst/EX_Imm12(11)_REPLICA_368| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/cpu_inst/EX_Imm12(11)_REPLICA_369| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/cpu_inst/EX_Imm12(11)_REPLICA_370| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/cpu_inst/EX_Imm12(11)_REPLICA_371| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/cpu_inst/EX_Imm12(11)_REPLICA_372| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/cpu_inst/EX_Imm12(11)_REPLICA_373| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/cpu_inst/EX_Imm12(11)_REPLICA_374| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/cpu_inst/EX_Imm12(11)_REPLICA_375| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/cpu_inst/EX_Imm12(11)_REPLICA_376| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/cpu_inst/EX_Imm12(11)_REPLICA_377| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_a(2)_REPLICA_48| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_a(2)_REPLICA_49| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_a(2)_REPLICA_50| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_a(2)_REPLICA_51| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_a(2)_REPLICA_52| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_a(2)_REPLICA_53| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_a(2)_REPLICA_54| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_a(2)_REPLICA_55| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_a(2)_REPLICA_56| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_a(2)_REPLICA_57| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_a(2)_REPLICA_58| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_a(2)_REPLICA_59| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_a(2)_REPLICA_60| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_a(2)_REPLICA_61| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_a(2)_REPLICA_62| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_a(2)_REPLICA_63| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_a(2)_REPLICA_64| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_a(2)_REPLICA_65| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_a(2)_REPLICA_66| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_a(2)_REPLICA_67| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_a(2)_REPLICA_68| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_a(2)_REPLICA_69| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_a(2)_REPLICA_70| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_a(2)_REPLICA_71| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_a(2)_REPLICA_72| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_a(2)_REPLICA_73| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_a(3)_REPLICA_206| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_a(3)_REPLICA_207| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_a(3)_REPLICA_208| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_a(3)_REPLICA_209| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_a(3)_REPLICA_210| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_a(3)_REPLICA_211| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_a(3)_REPLICA_212| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_a(3)_REPLICA_213| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_a(3)_REPLICA_214| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_a(3)_REPLICA_215| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_a(3)_REPLICA_216| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_a(3)_REPLICA_217| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_a(3)_REPLICA_218| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_a(3)_REPLICA_219| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_a(3)_REPLICA_220| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_a(3)_REPLICA_221| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_a(3)_REPLICA_222| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_a(3)_REPLICA_223| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_a(3)_REPLICA_224| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_a(3)_REPLICA_225| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_a(3)_REPLICA_226| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_a(3)_REPLICA_227| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_a(3)_REPLICA_228| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_a(3)_REPLICA_229| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_a(3)_REPLICA_230| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_a(3)_REPLICA_231| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_a(4)_REPLICA_334| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_a(4)_REPLICA_335| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_a(4)_REPLICA_336| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_a(4)_REPLICA_337| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_a(4)_REPLICA_338| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_a(4)_REPLICA_339| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_a(4)_REPLICA_340| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_a(4)_REPLICA_341| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_a(4)_REPLICA_342| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_a(4)_REPLICA_343| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_a(4)_REPLICA_344| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_a(4)_REPLICA_345| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_a(4)_REPLICA_346| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_a(4)_REPLICA_347| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_a(4)_REPLICA_348| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_a(4)_REPLICA_349| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_a(4)_REPLICA_350| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_a(4)_REPLICA_351| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_a(4)_REPLICA_352| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_a(4)_REPLICA_353| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_a(4)_REPLICA_354| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_a(4)_REPLICA_355| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_b(2)_REPLICA_23| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_b(2)_REPLICA_24| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_b(2)_REPLICA_25| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_b(2)_REPLICA_26| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_b(2)_REPLICA_27| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_b(2)_REPLICA_28| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_b(2)_REPLICA_29| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_b(2)_REPLICA_30| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_b(2)_REPLICA_31| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_b(2)_REPLICA_32| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_b(2)_REPLICA_33| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_b(2)_REPLICA_34| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_b(2)_REPLICA_35| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_b(2)_REPLICA_36| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_b(2)_REPLICA_37| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_b(2)_REPLICA_38| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_b(2)_REPLICA_39| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_b(2)_REPLICA_40| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_b(2)_REPLICA_41| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_b(2)_REPLICA_42| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_b(2)_REPLICA_43| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_b(2)_REPLICA_44| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_b(2)_REPLICA_45| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_b(2)_REPLICA_46| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_b(2)_REPLICA_47| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_b(3)_REPLICA_181| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_b(3)_REPLICA_182| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_b(3)_REPLICA_183| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_b(3)_REPLICA_184| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_b(3)_REPLICA_185| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_b(3)_REPLICA_186| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_b(3)_REPLICA_187| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_b(3)_REPLICA_188| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_b(3)_REPLICA_189| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_b(3)_REPLICA_190| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_b(3)_REPLICA_191| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_b(3)_REPLICA_192| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_b(3)_REPLICA_193| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_b(3)_REPLICA_194| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_b(3)_REPLICA_195| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_b(3)_REPLICA_196| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_b(3)_REPLICA_197| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_b(3)_REPLICA_198| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_b(3)_REPLICA_199| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_b(3)_REPLICA_200| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_b(3)_REPLICA_201| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_b(3)_REPLICA_202| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_b(3)_REPLICA_203| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_b(3)_REPLICA_204| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_b(3)_REPLICA_205| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_b(4)_REPLICA_292| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_b(4)_REPLICA_293| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_b(4)_REPLICA_294| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_b(4)_REPLICA_295| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_b(4)_REPLICA_296| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_b(4)_REPLICA_297| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_b(4)_REPLICA_298| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_b(4)_REPLICA_299| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_b(4)_REPLICA_300| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_b(4)_REPLICA_301| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_b(4)_REPLICA_302| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_b(4)_REPLICA_303| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_b(4)_REPLICA_304| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_b(4)_REPLICA_305| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_b(4)_REPLICA_306| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_b(4)_REPLICA_307| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_b(4)_REPLICA_308| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_b(4)_REPLICA_309| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_b(4)_REPLICA_310| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_b(4)_REPLICA_311| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_b(4)_REPLICA_312| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_b(4)_REPLICA_313| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_b(4)_REPLICA_314| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/rf_rd_b(4)_REPLICA_315| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/tensor_inst/LANE[3].lane_inst/mul_zero_s1_REPLICA_356| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/tensor_inst/LANE[3].lane_inst/mul_zero_s1_REPLICA_357| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/tensor_inst/LANE[3].lane_inst/mul_zero_s1_REPLICA_358| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/tensor_inst/LANE[3].lane_inst/mul_zero_s1_REPLICA_359| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/tensor_inst/LANE[3].lane_inst/mul_zero_s1_REPLICA_360| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/tensor_inst/LANE[3].lane_inst/mul_zero_s1_REPLICA_361| Replication              | Fanout Optimization
+nf2_core/user_data_path/network_processor/gpu_inst/tensor_inst/LANE[3].lane_inst/mul_zero_s1_REPLICA_362| Replication              | Fanout Optimization
+
+
+
