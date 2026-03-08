@@ -22,7 +22,7 @@ main:
 	@ args = 0, pretend = 0, frame = 16
 	@ frame_needed = 1, uses_anonymous_args = 0
 	@ link register save eliminated.
-	str	fp, [sp, #-4]!
+	push {fp}
 	add	fp, sp, #0
 	sub	sp, sp, #20
 	mov	r3, #4096
@@ -41,15 +41,21 @@ main:
 	mov	r2, #2
 	str	r2, [r3]
 	ldr	r3, [fp, #-12]
-	ldr	r3, [r3, #32]
+	add	r3, r3, #64
+	ldmia	r3, {r2-r3}
+	str	r2, [fp, #-20]
 	str	r3, [fp, #-16]
-	ldr	r3, [fp, #-16]
-	add	r3, r3, #100
-	str	r3, [fp, #-16]
+	sub	r3, fp, #20
+	ldmia	r3, {r2-r3}
+	adds	r0, r2, #100
+	adc	r1, r3, #0
+	str	r0, [fp, #-20]
+	str	r1, [fp, #-16]
 	ldr	r3, [fp, #-12]
-	add	r3, r3, #32
-	ldr	r2, [fp, #-16]
-	str	r2, [r3]
+	add	ip, r3, #64
+	sub	r3, fp, #20
+	ldmia	r3, {r2-r3}
+	stm	ip, {r2-r3}
 	ldr	r3, [fp, #-8]
 	mov	r2, #4
 	str	r2, [r3]
