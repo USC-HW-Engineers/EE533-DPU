@@ -22,6 +22,21 @@ The processor uses a fixed interleaving sequence (**T0 -> T1 -> T2 -> T3**). Eac
 | IM      | 0x000 - 0x7FF       | Instruction Fetch (512 words) |
 | DM      | 0x800 - 0xBFF       | Data Read/Write (256 words) |
 
+## Integration & Hardware Interface
+The 4-threaded core has been integrated into the NetFPGA reference pipeline via the `cpu.v` wrapper. 
+
+### External Monitoring Ports
+`ARM_Processor_4T.v` now includes external ports to facilitate communication with the NetFPGA host:
+- **`EXT_PC_OUT`**: Real-time program counter monitoring.
+- **`EXT_DM_ADDR / EXT_DM_DATA`**: Dedicated lines for Data Memory inspection.
+- **Muxed BRAM Access**: The Data Memory BRAM automatically switches control between the internal CPU pipeline and external register interface requests.
+
+### Software Control (`cpureg2`)
+A custom control script `cpureg2` (Perl) provides high-level commands for the processor:
+- `./cpureg2 load <file.hex>`: Loads instructions into IMEM using byte-aligned addressing.
+- `./cpureg2 read_dm_n <start> <n> <step>`: Performs batch reads of 64-bit words from DMEM.
+- `./cpureg2 status`: Polls the hardware for current PC and execution cycle count.
+
 ## Simulation & Testing
 The project includes a robust Verilog testbench (`ARM_Processor_4T_tb.v`) capable of:
 1.  **Direct Memory Loading**: Loads machine code from `.hex` files using `$readmemh`.

@@ -43,19 +43,32 @@ The Control Register is used for synchronization between hardware and software.
 - READ Operations:
   - Bit 0: 'packet_ready' (1 = Packet fully buffered and ready for CPU).
   - Bit 1: Current 'mode_select' state.
-  - Bit 2: 'cpu_packet_done' status (usually returns 0).
+  - Bit 2: 'cpu_packet_done' status.
 
 - WRITE Operations:
   - Bit 1: Set to 1 to take control of the FIFO (Mode 1), set to 0 to release (Mode 0).
-  - Bit 2: Set to 1 to pulse 'cpu_packet_done', triggering the release of the packet to the network output.
+  - Bit 2: Set to 1 to pulse 'cpu_packet_done', triggering the release of the packet.
 
-4. ARM CPU INTEGRATION (IN ARM_PROCESSOR_4T.V)
+4. NETFPGA INTEGRATION (IN CPU.V)
+---------------------------------
+The `cpu.v` module translates the NetFPGA streaming protocol into FIFO-compatible signals:
+- **Data Packing**: Concatenates 64-bit data and 8-bit control into a 72-bit internal bus.
+- **Boundary Logic**: Uses `in_ctrl` transitions to generate `is_first` (SOP) and `is_last` (EOP) pulses.
+- **Backpressure**: Asserts `in_rdy = !fifo_full`. The hardware pipeline stalls automatically when a packet is being processed by the CPU.
+- **Data Unpacking**: Splits the 72-bit FIFO output back into NetFPGA's 64/8-bit split for the downstream modules.
+
+5. ARM CPU INTEGRATION (IN ARM_PROCESSOR_4T.V)
 ---------------------------------------------
 - Decoder Logic: A dedicated decoder in the MEM stage uses M_ALU[12:10] to steer data between the IM, DM, FIFO, and Control Register.
-- Port Assignment: 
-  - Port A of the FIFO is used for CPU writes (storing modified packet data).
-  - Port B of the FIFO is used for CPU reads (inspecting packet headers).
+- External Monitoring: Added ports (EXT_DM_DATA, EXT_PC_OUT) to allow the cpureg2 script to inspect the system state while the network is active.
+- Software Handshake: The CPU follows a strict Poll -> Lock -> Process -> Done sequence to ensure no packet data is lost or double-processed.
 
-5. PREPARING FOR STEP 2 (GPU)
+6. VERIFICATION (STEP 1 COMPLETE)
+---------------------------------
+- Verified NetFPGA data path integration in cpu.v.
+- Verified 64-bit payload modification (Offset 64) using CPU-based math.
+- Successful end-to-end packet intercept-and-forward test.
+
+7. PREPARING FOR STEP 2 (GPU)
 ----------------------------
 The 72-bit data from Port B is already routed to the CPU. In the next step, the 144-bit wide vector path will be created by concatenating Port A and Port B outputs during GPU-specific instruction cycles, feeding the Tensor Units for parallel processing.
