@@ -1,0 +1,73 @@
+Software & Toolchain Walkthrough
+
+  Big Picture
+
+  The toolchain converts high-level CUDA C kernels into custom 32-bit machine code. 
+  It bridges the gap between NVIDIA's "Thread-based" (SIMT) model and our custom 
+  "Vector-based" (SIMD) hardware.
+
+    kernel.cu ──► (nvcc) ──► kernel.ptx ──► (ptx_parser.py) ──► gpu_program.hex
+       [C Code]             [NVIDIA ASM]       [Our Translator]     [Machine Bits]
+
+  ---
+  The Integrated Toolchain: compile_gpu.sh
+
+  To simplify the workflow, we have an automated script that handles the entire pipeline:
+  
+  Usage: ./compile_gpu.sh -i kernel.cu -o output.hex
+  
+  Flags:
+    -i  Input CUDA file (.cu)
+    -o  Custom output filename (default: gpu_program.hex)
+    -k  Keep the intermediate .ptx file (deleted by default)
+
+  ---
+  Step-by-Step Pipeline
+
+  1. kernel.cu — The Source Code
+  - Written in standard CUDA C using __global__ functions.
+  - Supports two data types: int16_t (Integer) and __nv_bfloat16 (AI Math).
+  - Uses threadIdx.x to represent the 4 parallel lanes in our hardware.
+
+  2. kernel.ptx — The NVIDIA Assembly
+  - Generated using: nvcc -ptx -arch=sm_80 kernel.cu
+  - It is "Scalar" (operates on 1 element).
+  - It uses suffixes to define data size: .u64 (address), .s16 (our 16-bit data).
+
+  3. ptx_parser.py — The Bridge Translator
+  - Usage: python3 ptx_parser.py <input.ptx> <output.hex>
+  - Features: 
+    - Recursive brace-counting to handle nested inline assembly blocks.
+    - Automatic register mapping (R1-R31).
+    - Opcode translation to custom 32-bit R-TYPE and I-TYPE formats.
+
+  ---
+  Verification & Debugging Tools
+
+  1. gpu_program.hex
+  - The final machine code loaded into the GPU's Instruction Memory.
+
+  2. gpu_simulator.py
+  - A behavioral Python simulator that executes the .hex file.
+  - Mimics the 10-state FSM and 64-bit SIMD register updates.
+
+  3. disassembler.py
+  - Usage: python3 disassembler.py <file1.hex> <file2.hex>
+  - Translates machine code back into human-readable assembly mnemonics.
+
+  ---
+  Supported Operations Mapping
+
+  ┌───────────────┬───────────────┬─────────┬────────────────────────────┐
+  │ CUDA Function │ PTX Instr     │ Opcode  │ Custom Hardware Instr      │
+  ├───────────────┼───────────────┼─────────┼────────────────────────────┤
+  │ a[i] + b[i]   │ add.s16       │ 0x00    │ VADD (ALU)                 │
+  ├───────────────┼───────────────┼─────────┼────────────────────────────┤
+  │ a[i] - b[i]   │ sub.s16       │ 0x00    │ VSUB (ALU)                 │
+  ├───────────────┼───────────────┼─────────┼────────────────────────────┤
+  │ __hfma(a,b,c) │ fma.rn.bf16   │ 0x01    │ TENSOR_FMA (Tensor Mode 2) │
+  ├───────────────┼───────────────┼─────────┼────────────────────────────┤
+  │ max(0, in)    │ max.s16       │ 0x0D    │ RELU_INT                   │
+  ├───────────────┼───────────────┼─────────┼────────────────────────────┤
+  │ return;       │ ret           │ 0x0A    │ HALT                       │
+  └───────────────┴───────────────┴─────────┴────────────────────────────┘

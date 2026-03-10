@@ -1,0 +1,93 @@
+EE 533 Lab 8: DPU (Deep Processing Unit) Architecture & Integration
+===================================================================
+
+1. SYSTEM ARCHITECTURE OVERVIEW
+-------------------------------
+The design implements a heterogeneous processing subsystem integrated into the NetFPGA 
+reference pipeline. It consists of an ARM-compatible orchestrator (CPU) and a 
+high-performance math accelerator (GPU/DPU) sharing a centralized buffer.
+
+A. Top-Level Integration (network_processor_top.v):
+- Acts as a bridge between the NetFPGA streaming interface and the processing core.
+- Contains Host-accessible registers for loading programs into both CPU and GPU 
+  Instruction Memories (IMEM) via the `generic_regs` module.
+- Routes the Convertible FIFO to the NetFPGA `in_data` and `out_data` ports.
+
+B. The Convertible FIFO (Hub):
+- A 256x72 True Dual-Port BRAM that switches between "Network Mode" (FIFO) 
+  and "Processor Mode" (RAM).
+- Port A: Dedicated to the ARM CPU (64-bit data path).
+- Port B: Shared between the GPU (for processing) and the Output FSM (for sending).
+
+C. ARM Processor (Orchestrator):
+- 4-hardware-threaded pipeline (Fine-Grained Multithreading).
+- Manages the system lifecycle: Handshaking with NetFPGA, address decoding for 
+  MMIO, and triggering GPU execution.
+
+D. GPU/DPU (Accelerator):
+- 4-lane SIMD architecture optimized for BFloat16 (BF16) and Integer math.
+- Contains a "Tensor Unit" capable of Fused Multiply-Add (FMA) across 4 parallel lanes.
+- Directly accesses FIFO Port B to process packet data in place.
+
+2. HARDWARE DIAGRAM
+-------------------
+      +-------------------------------------------------+
+      |             NetFPGA Reference Pipeline          |
+      +---------^-----------------------------|---------+
+                |                             |
+          (Output Port)                  (Input Port)
+                |                             |
+      +---------|-----------------------------v---------+
+      |            CONVERTIBLE FIFO (256x72)            |
+      |   (Mode 0: FIFO / Mode 1: Dual-Port RAM)        |
+      |                                                 |
+      |   [Port A: CPU]            [Port B: GPU / FSM]  |
+      +---------^-----------------------------^---------+
+                |                             |
+        (64-bit | MMIO)               (64-bit | Vector)
+                |                             |
+      +---------v---------+           +-------v---------+
+      |     ARM CPU       |           |    GPU (DPU)    |
+      |  (Orchestrator)   |           |  (Tensor Unit)  |
+      |                   |           |                 |
+      |  - 4 Threads      |  Control  |  - 4 SIMD Lanes |
+      |  - Handshake      |---------->|  - BF16 Math    |
+      |  - MMIO Mapping   |  (Reset,  |  - Vector ALU   |
+      |  - Mode Control   |   Run)    |  - Shared BRAM  |
+      +---------^---------+           +-------^---------+
+                |                             |
+                +-------------+---------------+
+                              |
+                     (Host Register IF)
+                   (Program Loading / Status)
+
+3. MMIO & CONTROL (In ARM_Processor_4T.v)
+-----------------------------------------
+The CPU controls the entire system using Memory-Mapped I/O:
+
+| Address Range | Target                     | Description                    |
+|---------------|----------------------------|--------------------------------|
+| 0x0000-0x07FF | Instruction Memory (IM)    | 512 words for ARM code         |
+| 0x0800-0x0BFF | Data Memory (DM)           | 256 words local scratchpad     |
+| 0x0C00-0x0FFF | Convertible FIFO           | 256 words shared packet buffer |
+| 0x1000        | Control Register           | Mailbox for CPU/GPU/FIFO sync  |
+
+Control Register (0x1000) Bits:
+- Bit 0: packet_ready (Read-Only)
+- Bit 1: mode_select  (0=Network, 1=Processor)
+- Bit 2: send_packet  (Write Pulse to release packet)
+- Bit 3: gpu_run      (Write 1 to start GPU)
+- Bit 4: gpu_rst      (Write 1 to reset GPU)
+- Bit 5: gpu_halted   (Read-Only from GPU)
+
+4. OPERATIONAL WORKFLOW
+-----------------------
+1. Packet Intercept: FIFO is in Mode 0. Packet is buffered from the pipeline.
+2. Handshake: CPU polls bit 0 (packet_ready). Once high, CPU sets mode_select=1.
+3. Preparation: CPU inspects packet header via Port A (0x0C00 range).
+4. Acceleration: CPU sets gpu_run=1. GPU executes its kernel from its own IMEM, 
+   reading/writing Port B of the FIFO to perform SIMD math (e.g., encryption, 
+   checksums, or neural net inference).
+5. Completion: GPU hits 'HALT' instruction. CPU sees gpu_halted=1.
+6. Release: CPU sets mode_select=0 and pulses send_packet=1.
+7. Forwarding: FIFO Output FSM drains the modified data back to the NetFPGA pipeline.
