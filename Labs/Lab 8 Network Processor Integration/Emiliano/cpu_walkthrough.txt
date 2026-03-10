@@ -1,0 +1,88 @@
+==========================================================
+EE 533: ARM FGMT CPU Toolchain Walkthrough
+==========================================================
+
+This document explains the workflow for generating machine code for the 
+4-threaded ARM-compatible processor. The toolchain handles both high-level 
+C code and hand-optimized assembly, combining them into a single 1024-word 
+Instruction Memory (IMEM) image.
+
+1. High-Level Workflow (compile_cpu.sh)
+---------------------------------------
+The `compile_cpu.sh` script is the orchestrator. It uses flags (-0, -1, -2, -3)
+to assign source files to specific hardware threads.
+
+Workflow for a .c file:
+   GCC -> [ASM] -> cleaner.py -> [Clean ASM] -> Latest_Parser.py -> [Thread HEX]
+
+Workflow for a .s file:
+   [ASM] -> Latest_Parser.py -> [Thread HEX]
+
+Final Step:
+   [All Thread HEXs] -> combine.py -> [Final Machine Code]
+
+Optional Verification:
+   The -r flag can be used to run reverseEng.py on the final output to 
+   generate a human-readable disassembly (.txt).
+
+2. The Python Toolset
+---------------------
+
+A. cleaner.py
+   - Role: Sanitizer.
+   - Logic: When GCC compiles C code to assembly, it adds dozens of metadata 
+     directives (e.g., .type, .ident, .section, .fnstart). 
+   - Function: Strips these non-executable directives so the custom parser 
+     dont get confused by unsupported syntax.
+
+B. Latest_Parser.py
+   - Role: The Assembler.
+   - Logic: A two-pass parser. 
+     - Pass 1: Identifies labels and calculates their absolute PC addresses.
+     - Pass 2: Translates ARM instructions into 32-bit custom machine code.
+   - Key Feature: Handles "Pseudo-instructions" like 'mov' (converted to add) 
+     and 'cmp' (converted to sub) to keep the hardware ALU simple.
+   - Output: A .hex file containing the machine code for a single thread.
+
+C. combine.py
+   - Role: Memory Image Builder.
+   - Logic: The 4-threaded CPU expects a memory layout where each thread is 
+     interleaved or blocked.
+   - Function: 
+     1. Takes the 4 individual thread hex files.
+     2. Normalizes each to exactly 128 words (padding with 0s if necessary).
+     3. Merges them into a single continuous file.
+   - Total Output: 512 words (or 1024 words depending on config) ready to be 
+     loaded into the NetFPGA BRAM.
+
+D. reverseEng.py
+   - Role: The Disassembler.
+   - Function: Takes a machine code .hex file and translates it back into 
+     human-readable assembly mnemonics.
+   - Purpose: Used for verifying that the parser and combiner correctly 
+     mapped instructions to their intended addresses.
+
+3. Addressing and Memory Map
+----------------------------
+- Word Alignment: The CPU uses bits [10:2] for instruction addresses.
+- Thread ID (TID): Bits [10:9] of the PC typically select the active thread.
+- Memory Map:
+    0x0000 - 0x07FF: Instruction Memory (IMEM)
+    0x0800 - 0x0BFF: Data Memory (DMEM)
+    0x0C00 - 0x0FFF: Convertible FIFO (Network Buffer)
+    0x1000         : Control Register (Handshake)
+
+4. The Hardware Handshake
+-------------------------
+The CPU interacts with the Network FIFO via the Control Register (0x1000):
+- Bit 0 (Read): Packet Ready (1 = Data available in FIFO)
+- Bit 1 (R/W):  Mode Select (0 = Network Mode, 1 = Processor Mode)
+- Bit 2 (Write): Done Pulse (1 = Release packet to network)
+
+Typical Handshake Sequence:
+1. Poll 0x1000 for Bit 0 == 1.
+2. Write 2 to 0x1000 (Lock into Processor Mode).
+3. Read/Modify data at 0x0C00 (FIFO base).
+4. Write 4 to 0x1000 (Signal Done and return to Network Mode).
+
+==========================================================

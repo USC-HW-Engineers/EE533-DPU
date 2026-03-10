@@ -39,6 +39,9 @@ The project is developed incrementally across multiple laboratory assignments. H
 ### Phase 4: Custom GPU Design
 - [x] **Lab 7: Custom SIMD GPU** - Designed a standalone GPU optimized for BFloat16 tensor operations. Developed a complete software toolchain (`kernel.cu` -> PTX -> Custom Machine Code) and a Python-based behavioral simulator.
 
+### Phase 5: System Integration & Performance
+- [x] **Lab 8: Network Processor Integration** - Successfully integrated the multi-threaded ARM processor with the NetFPGA pipeline using a specialized **Convertible FIFO** architecture. Implemented a robust hardware-software handshake protocol (Poll -> Lock -> Process -> Done) to enable real-time packet modification at line rate.
+
 ---
 
 ## 📂 Repository Structure
@@ -52,6 +55,7 @@ The repository is organized by laboratory assignments, each containing source co
 *   **`Lab 5/`** - Verilog implementation of the 5-stage pipelined datapath.
 *   **`Lab 6/`** - Xilinx ISE projects for the single-threaded and 4-threaded ARM processor, including the custom assembly parser.
 *   **`Lab 7/`** - Custom GPU architecture documentation, CUDA kernels, Python-based PTX parser, and hardware simulator.
+*   **`Lab 8/`** - Integrated NetFPGA system with the ARM core, including the **Convertible FIFO** Verilog source and specialized testing toolkits.
 *   **`CUDA Lab/`** - Various CPU and GPU (CUDA) implementations for performance benchmarking.
 
 ---
@@ -69,10 +73,10 @@ To build, simulate, or modify the components in this repository, you will need:
 
 ## 🔮 Upcoming Work
 
-We are entering the final weeks of the semester. Our immediate next steps are:
-1.  **Full System Integration**: Connecting the multithreaded ARM core and the custom GPU within the NetFPGA platform.
-2.  **Performance Benchmarking**: Evaluating the end-to-end throughput and latency of the complete DPU architecture.
-3.  **Final Demonstration**: Presenting the integrated hardware system and comprehensive project report.
+We are entering the final stage of the semester. Our immediate next steps are:
+1.  **GPU Tensor Integration**: Mapping the 144-bit vector path of the GPU to the Convertible FIFO for high-performance tensor acceleration on network data.
+2.  **Performance Benchmarking**: Evaluating the end-to-end throughput and latency of the complete DPU architecture using `iperf`.
+3.  **Final Demonstration**: Presenting the fully integrated hardware system and comprehensive project report.
 
 ---
 *Developed as part of EE533: Network Processor Design and Programming at the University of Southern California (USC).*
