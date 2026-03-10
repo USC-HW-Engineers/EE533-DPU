@@ -34,19 +34,6 @@ OPCODE = {
 }
 BRANCH_TYPE = {
     "b": 0b01,
-    "beq": 0b01, # Hardware Condition Unit says 01 is unconditional? 
-                 # Actually Condition_Unit says:
-                 # (BType == 2'b01) ? 1'b1 (ALWAYS)
-                 # It seems BType 00 is BEQ? No, 00 is 1'b0.
-                 # Wait, looking at the code:
-                 # 2'b01: unconditional
-                 # 2'b10: bge
-                 # 2'b11: ble
-                 # The user had beq in the .s file. 
-                 # If I map beq to 01 it is unconditional. 
-                 # If I check .s file again: beq .L2
-                 # If beq is not in Condition_Unit, maybe the user wants to add it.
-                 # Let's assume for now 01 is unconditional 'b'.
     "bge": 0b10,
     "ble": 0b11
 }
@@ -65,9 +52,9 @@ def parse_register(reg):
         return 12
     elif reg == "sp":
         return 13
+
     elif reg == "lr":
         return 14
-    # Note: r15 is hardwired to 0 in HW. actual PC is not a GP register.
     elif reg.startswith("r"):
         return int(reg[1:])
     else:
@@ -146,45 +133,105 @@ def encode_r_type_i(tokens):
 
 
 def encode_lw(tokens, raw_line):
+    # supports forms like:
+    #   ldr r3, [fp, #-12]   or  ldr r3, [fp #-12]  (space or comma)
     rd = parse_register(tokens[1])
+
+    # Use the original raw_line (cleaned) for regex so we preserve punctuation/brackets
     line = raw_line
     if tokens[2].lower() in GLOBAL_LABELS:
         return None
 
-    # Handle ldr r3, [r3] or ldr r3, [fp, #-8]
-    match = re.search(r'\[\s*([^,\s\]]+)(?:[,\s]+#?(-?\d+))?\s*\]', line)
+    # match base and byte offset (allow comma or whitespace between base and offset)
+    match = re.search(r'\[\s*([^,\s\]]+)[,\s]+#?(-?\d+)\s*\]', line)
     if not match:
-        raise ValueError(f"Unsupported or invalid ldr syntax: {line}")
+        raise ValueError("Unsupported or invalid ldr syntax (literal loads like 'ldr r3, .L8' are not supported).")
 
     base_reg = match.group(1).strip()
-    byte_offset = int(match.group(2)) if match.group(2) else 0
+    byte_offset = int(match.group(2))
 
-    word_offset = byte_offset # hardware uses byte address in Imm? 
-                              # Latest_Parser used byte offset as Imm for LW/SW.
+    if byte_offset % 4 != 0:
+        raise ValueError("Memory offset must be multiple of 4 (byte offset)")
+
+    # convert byte offset to word offset (divide by 1)
+    word_offset = byte_offset // 1
     imm = sign_extend_12bit(word_offset)
+
     r1 = parse_register(base_reg)
 
     return pack_r_type_imm(OPCODE["LW"], 0, r1, rd, imm)
 
 
 def encode_sw(tokens, raw_line):
+    # supports forms like:
+    #   str r2, [r3, #-52]  or str r2, [r3 #-52]
     r2 = parse_register(tokens[1])
     line = raw_line
+
     if tokens[2].lower() in GLOBAL_LABELS:
         return None
 
-    match = re.search(r'\[\s*([^,\s\]]+)(?:[,\s]+#?(-?\d+))?\s*\]', line)
+    match = re.search(r'\[\s*([^,\s\]]+)[,\s]+#?(-?\d+)\s*\]', line)
     if not match:
-        raise ValueError(f"Unsupported or invalid str syntax: {line}")
+        raise ValueError("Unsupported or invalid str syntax.")
 
     base_reg = match.group(1).strip()
-    byte_offset = int(match.group(2)) if match.group(2) else 0
+    byte_offset = int(match.group(2))
 
-    word_offset = byte_offset
+    if byte_offset % 4 != 0:
+        raise ValueError("Memory offset must be multiple of 4 (byte offset)")
+
+    word_offset = byte_offset // 1
     imm = sign_extend_12bit(word_offset)
+
     r1 = parse_register(base_reg)
 
     return pack_sw(OPCODE["SW"], 0, r1, r2, imm)
+
+
+"""
+def encode_lw(tokens):
+
+    # ldr r3, [fp, #-12]
+    rd = parse_register(tokens[1])
+
+    line = " ".join(tokens)
+    match = re.search(r'\[(.*?),\s*#?(-?\d+)\]', line)
+
+    base_reg = match.group(1).strip()
+    byte_offset = int(match.group(2))
+
+    if byte_offset % 4 != 0:
+        raise ValueError("Memory offset must be multiple of 4")
+
+    word_offset = byte_offset // 4
+    imm = sign_extend_12bit(word_offset)
+
+    base = parse_register(base_reg)
+
+    return pack_r_type_imm(OPCODE["LW"], 0, base, rd, imm)
+
+
+def encode_sw(tokens):
+
+    r2 = parse_register(tokens[1])
+
+    line = " ".join(tokens)
+    match = re.search(r'\[(.*?),\s*#?(-?\d+)\]', line)
+
+    base_reg = match.group(1).strip()
+    byte_offset = int(match.group(2))
+
+    if byte_offset % 4 != 0:
+        raise ValueError("Memory offset must be multiple of 4")
+
+    word_offset = byte_offset // 4
+    imm = sign_extend_12bit(word_offset)
+
+    base = parse_register(base_reg)
+
+    return pack_sw(OPCODE["SW"], 0, base, r2, imm)
+"""
 
 
 def encode_branch(tokens, labels, current_pc):
@@ -308,8 +355,6 @@ def parse_file(filename):
 
         if line.endswith(":"):
             labels[line[:-1].lower()] = pc
-        elif line.startswith("."): # Ignore directives
-            continue
         else:
             pc += 1
 
@@ -327,8 +372,6 @@ def parse_file(filename):
             label_name = line[:-1].lower()
             GLOBAL_LABELS[label_name] = pc
             continue
-        elif line.startswith("."): # Ignore directives
-            continue
 
         tokens = re.split(r'[,\s]+', line)
         instr = tokens[0].lower()
@@ -342,14 +385,14 @@ def parse_file(filename):
                 else:
                     code = encode_r_type(tokens)
 
-            # is r0 always 0?
+            # is r15 always 0?
             elif instr == "mov":
 
                 if tokens[2].startswith("#"):
-                    pseudo = ["add", tokens[1], "r0", tokens[2]]
+                    pseudo = ["add", tokens[1], "r15", tokens[2]]
                     code = encode_r_type_i(pseudo)
                 else:
-                    pseudo = ["add", tokens[1], tokens[2], "r0"]
+                    pseudo = ["add", tokens[1], tokens[2], "r15"]
                     code = encode_r_type(pseudo)
 
 
@@ -370,14 +413,14 @@ def parse_file(filename):
                 if tokens[2].startswith("#"):
 
                     # convert to: sub r0, rX, #imm
-                    pseudo = ["sub", "r0", tokens[1], tokens[2]]
+                    pseudo = ["sub", "r15", tokens[1], tokens[2]]
                     code = encode_r_type_i(pseudo)
 
                 # cmp rX, rY
                 else:
 
                     # convert to: sub r0, rX, rY
-                    pseudo = ["sub", "r0", tokens[1], tokens[2]]
+                    pseudo = ["sub", "r15", tokens[1], tokens[2]]
                     code = encode_r_type(pseudo)
 
             elif instr in ["str", "sw"]:
@@ -462,6 +505,7 @@ def write_readable(instructions):
         r2 = (inst >> 16) & 0xF
         rd = (inst >> 12) & 0xF
         imm12 = inst & 0xFFF
+        addr7 = inst & 0x7F
 
         if imm12 & 0x800:
             imm12 -= 0x1000
@@ -558,3 +602,24 @@ if __name__ == "__main__":
 
     print("\nAssembly complete.")
     print("Hex written to:", output_file)
+# if __name__ == "__main__":
+#
+#     if len(sys.argv) != 3:
+#         print("Usage: python parser.py input.s output.hex")
+#         sys.exit(1)
+#
+#     input_file = sys.argv[1]
+#     output_file = sys.argv[2]
+#
+#     machine_code = parse_file(input_file)
+#
+#     write_readable(machine_code)
+#     write_readable_to_file(machine_code, "machine_code.txt")
+#
+#     final_machine_code = resolve_labels(machine_code)
+#
+#     write_readable_to_file(final_machine_code, "final_machine_code.txt")
+#     write_hex(final_machine_code, output_file)
+#
+#     print("\nAssembly complete.")
+#     print("Hex written to:", output_file)
