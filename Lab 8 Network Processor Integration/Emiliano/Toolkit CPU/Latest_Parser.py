@@ -355,6 +355,9 @@ def parse_file(filename):
 
         if line.endswith(":"):
             labels[line[:-1].lower()] = pc
+        elif line.startswith("."):
+            # Skip directives like .text, .global, etc.
+            continue
         else:
             pc += 1
 
@@ -413,14 +416,14 @@ def parse_file(filename):
                 if tokens[2].startswith("#"):
 
                     # convert to: sub r0, rX, #imm
-                    pseudo = ["sub", "r15", tokens[1], tokens[2]]
+                    pseudo = ["sub", "r9", tokens[1], tokens[2]]
                     code = encode_r_type_i(pseudo)
 
                 # cmp rX, rY
                 else:
 
                     # convert to: sub r0, rX, rY
-                    pseudo = ["sub", "r15", tokens[1], tokens[2]]
+                    pseudo = ["sub", "r9", tokens[1], tokens[2]]
                     code = encode_r_type(pseudo)
 
             elif instr in ["str", "sw"]:

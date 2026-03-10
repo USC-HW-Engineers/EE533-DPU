@@ -13,9 +13,6 @@ Disassembled Assembly:
 0x028 | 040: ble 0x01C
 0x02C | 044: add r3, r15, #2
 0x030 | 048: str r3, [r10, #0]
-0x034 | 052: ldr r3, [r2, #64]
-0x038 | 056: add r3, r3, r4
-0x03C | 060: str r3, [r2, #64]
-0x040 | 064: add r3, r15, #4
-0x044 | 068: str r3, [r10, #0]
-0x048 | 072: b 0x01C
+0x034 | 052: add r3, r15, #4
+0x038 | 056: str r3, [r10, #0]
+0x03C | 060: b 0x01C

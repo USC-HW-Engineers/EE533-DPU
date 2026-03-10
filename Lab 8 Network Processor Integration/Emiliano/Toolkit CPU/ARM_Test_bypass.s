@@ -38,12 +38,6 @@ main:
     mov  r3, #2
     str  r3, [r10, #0]
 
-.process:
-    @ PHASE 3: Modify data at index 8
-    ldr  r3, [r2, #64]
-    add  r3, r3, r4
-    str  r3, [r2, #64]
-
 .done:
     @ PHASE 4: Release and Send (done = 1, mode = 0)
     mov  r3, #4
