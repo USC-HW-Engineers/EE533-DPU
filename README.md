@@ -41,6 +41,8 @@ The project is developed incrementally across multiple laboratory assignments. H
 
 ### Phase 5: System Integration & Performance
 - [x] **Lab 8: Network Processor Integration** - Successfully integrated the multi-threaded ARM processor with the NetFPGA pipeline using a specialized **Convertible FIFO** architecture. Implemented a robust hardware-software handshake protocol (Poll -> Lock -> Process -> Done) to enable real-time packet modification at line rate.
+- [x] **Lab 9: Network Processor Integration and Refinements** - Heterogeneous integration of a 7-stage barrel ARM CPU with a custom SIMD GPU and a 16-PE BF16 Tensor Core. Enabled end-to-end hardware acceleration of vector and tensor operations triggered by Ethernet packets (EtherType `0x88B5`).
+- [x] **Lab 10: Network Processor Integration and Refinements 2** - Implemented a complete SoC on the NetFPGA platform, integrating a SIMT GPU with a systolic array tensor core and a DMA engine. Demonstrated full FC (Fully Connected) neural network layer inference (`y = ReLU(W * X + B)`) using hardware-accelerated BF16 operations.
 
 ---
 
@@ -56,6 +58,8 @@ The repository is organized by laboratory assignments, each containing source co
 *   **`Lab 6/`** - Xilinx ISE projects for the single-threaded and 4-threaded ARM processor, including the custom assembly parser.
 *   **`Lab 7/`** - Custom GPU architecture documentation, CUDA kernels, Python-based PTX parser, and hardware simulator.
 *   **`Lab 8/`** - Integrated NetFPGA system with the ARM core, including the **Convertible FIFO** Verilog source and specialized testing toolkits.
+*   **`Lab 9/`** - Final integration phase with the 16-PE BF16 Tensor Core and command-driven packet processing.
+*   **`Lab 10/`** - Complete SoC implementation featuring SIMT GPU, systolic array, DMA engine, and FC layer inference demo.
 *   **`CUDA Lab/`** - Various CPU and GPU (CUDA) implementations for performance benchmarking.
 
 ---
@@ -67,16 +71,17 @@ To build, simulate, or modify the components in this repository, you will need:
 *   **NetFPGA Development Environment** (Fedora VM, `nf_download`, etc.)
 *   **NVIDIA CUDA Toolkit** (For compiling `.cu` files in Lab 7 and the CUDA Lab)
 *   **Python 3.x** (For custom parsers, disassemblers, and behavioral simulators)
+*   **Icarus Verilog** (For SoC simulation)
 *   **GCC** (For standard C applications)
 
 ---
 
 ## 🔮 Upcoming Work
 
-We are entering the final stage of the semester. Our immediate next steps are:
-1.  **GPU Tensor Integration**: Mapping the 144-bit vector path of the GPU to the Convertible FIFO for high-performance tensor acceleration on network data.
-2.  **Performance Benchmarking**: Evaluating the end-to-end throughput and latency of the complete DPU architecture using `iperf`.
-3.  **Final Demonstration**: Presenting the fully integrated hardware system and comprehensive project report.
+The project has reached its final integration stage. Our current focus is on:
+1.  **Full Model Acceleration**: Extending the FC layer inference to support multi-layer neural network architectures on the DPU.
+2.  **Performance Optimization**: Tuning the DMA engine and systolic array for maximum throughput during large matrix operations.
+3.  **Final Documentation**: Completing the comprehensive technical manual and project report.
 
 ---
 *Developed as part of EE533: Network Processor Design and Programming at the University of Southern California (USC).*
