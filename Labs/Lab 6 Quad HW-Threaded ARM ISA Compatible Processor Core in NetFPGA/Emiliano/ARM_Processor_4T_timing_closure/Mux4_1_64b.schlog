@@ -1,0 +1,2 @@
+select figure at 1699 2385 19 -branches -sn=1
+select all in 158 19 1694 2380 -branches -enclosed -noattrwin -sn=1

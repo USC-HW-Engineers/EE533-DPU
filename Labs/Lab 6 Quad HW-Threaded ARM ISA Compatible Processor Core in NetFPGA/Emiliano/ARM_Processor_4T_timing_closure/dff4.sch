@@ -1,0 +1,164 @@
+VERSION 6
+BEGIN SCHEMATIC
+    BEGIN ATTR DeviceFamilyName "virtex2p"
+        DELETE all:0
+        EDITNAME all:0
+        EDITTRAIT all:0
+    END ATTR
+    BEGIN NETLIST
+        SIGNAL D(1)
+        SIGNAL D(0)
+        SIGNAL Q(1)
+        SIGNAL CLK
+        SIGNAL Q(0)
+        SIGNAL CE
+        SIGNAL CLR
+        SIGNAL D(2)
+        SIGNAL Q(2)
+        SIGNAL D(3:0)
+        SIGNAL Q(3:0)
+        SIGNAL D(3)
+        SIGNAL Q(3)
+        PORT Input CLK
+        PORT Input CE
+        PORT Input CLR
+        PORT Input D(3:0)
+        PORT Output Q(3:0)
+        BEGIN BLOCKDEF fdce
+            TIMESTAMP 2000 1 1 10 10 10
+            LINE N 0 -128 64 -128 
+            LINE N 0 -192 64 -192 
+            LINE N 0 -32 64 -32 
+            LINE N 0 -256 64 -256 
+            LINE N 384 -256 320 -256 
+            LINE N 64 -112 80 -128 
+            LINE N 80 -128 64 -144 
+            LINE N 192 -64 192 -32 
+            LINE N 192 -32 64 -32 
+            RECTANGLE N 64 -320 320 -64 
+        END BLOCKDEF
+        BEGIN BLOCK XLXI_12 fdce
+            PIN C CLK
+            PIN CE CE
+            PIN CLR CLR
+            PIN D D(1)
+            PIN Q Q(1)
+        END BLOCK
+        BEGIN BLOCK XLXI_13 fdce
+            PIN C CLK
+            PIN CE CE
+            PIN CLR CLR
+            PIN D D(0)
+            PIN Q Q(0)
+        END BLOCK
+        BEGIN BLOCK XLXI_14 fdce
+            PIN C CLK
+            PIN CE CE
+            PIN CLR CLR
+            PIN D D(2)
+            PIN Q Q(2)
+        END BLOCK
+        BEGIN BLOCK XLXI_15 fdce
+            PIN C CLK
+            PIN CE CE
+            PIN CLR CLR
+            PIN D D(3)
+            PIN Q Q(3)
+        END BLOCK
+    END NETLIST
+    BEGIN SHEET 1 3520 2720
+        BEGIN BRANCH D(1)
+            WIRE 1216 1264 1296 1264
+            BEGIN DISPLAY 1216 1264 ATTR Name
+                ALIGNMENT SOFT-RIGHT
+            END DISPLAY
+        END BRANCH
+        BEGIN BRANCH D(0)
+            WIRE 1216 1568 1296 1568
+            BEGIN DISPLAY 1216 1568 ATTR Name
+                ALIGNMENT SOFT-RIGHT
+            END DISPLAY
+        END BRANCH
+        BEGIN BRANCH Q(1)
+            WIRE 1680 1264 1760 1264
+            BEGIN DISPLAY 1760 1264 ATTR Name
+                ALIGNMENT SOFT-LEFT
+            END DISPLAY
+        END BRANCH
+        BEGIN BRANCH CLK
+            WIRE 1200 1696 1264 1696
+            WIRE 1264 1696 1296 1696
+            WIRE 1264 752 1296 752
+            WIRE 1264 752 1264 1072
+            WIRE 1264 1072 1296 1072
+            WIRE 1264 1072 1264 1392
+            WIRE 1264 1392 1264 1696
+            WIRE 1264 1392 1296 1392
+        END BRANCH
+        BEGIN BRANCH Q(0)
+            WIRE 1680 1568 1744 1568
+            BEGIN DISPLAY 1744 1568 ATTR Name
+                ALIGNMENT SOFT-LEFT
+            END DISPLAY
+        END BRANCH
+        INSTANCE XLXI_12 1296 1520 R0
+        INSTANCE XLXI_13 1296 1824 R0
+        BEGIN BRANCH CE
+            WIRE 1216 1328 1248 1328
+            WIRE 1248 1328 1296 1328
+            WIRE 1248 1328 1248 1632
+            WIRE 1248 1632 1296 1632
+            WIRE 1248 688 1296 688
+            WIRE 1248 688 1248 1008
+            WIRE 1248 1008 1296 1008
+            WIRE 1248 1008 1248 1328
+        END BRANCH
+        BEGIN BRANCH CLR
+            WIRE 1216 1792 1280 1792
+            WIRE 1280 1792 1296 1792
+            WIRE 1280 848 1296 848
+            WIRE 1280 848 1280 1168
+            WIRE 1280 1168 1296 1168
+            WIRE 1280 1168 1280 1488
+            WIRE 1280 1488 1296 1488
+            WIRE 1280 1488 1280 1792
+        END BRANCH
+        INSTANCE XLXI_14 1296 1200 R0
+        BEGIN BRANCH D(2)
+            WIRE 1216 944 1296 944
+            BEGIN DISPLAY 1216 944 ATTR Name
+                ALIGNMENT SOFT-RIGHT
+            END DISPLAY
+        END BRANCH
+        BEGIN BRANCH Q(2)
+            WIRE 1680 944 1760 944
+            BEGIN DISPLAY 1760 944 ATTR Name
+                ALIGNMENT SOFT-LEFT
+            END DISPLAY
+        END BRANCH
+        IOMARKER 1200 1696 CLK R180 28
+        IOMARKER 1216 1328 CE R180 28
+        IOMARKER 1216 1792 CLR R180 28
+        BEGIN BRANCH D(3:0)
+            WIRE 1360 432 1440 432
+        END BRANCH
+        BEGIN BRANCH Q(3:0)
+            WIRE 1520 432 1600 432
+        END BRANCH
+        IOMARKER 1360 432 D(3:0) R180 28
+        IOMARKER 1600 432 Q(3:0) R0 28
+        INSTANCE XLXI_15 1296 880 R0
+        BEGIN BRANCH D(3)
+            WIRE 1216 624 1296 624
+            BEGIN DISPLAY 1216 624 ATTR Name
+                ALIGNMENT SOFT-RIGHT
+            END DISPLAY
+        END BRANCH
+        BEGIN BRANCH Q(3)
+            WIRE 1680 624 1760 624
+            BEGIN DISPLAY 1760 624 ATTR Name
+                ALIGNMENT SOFT-LEFT
+            END DISPLAY
+        END BRANCH
+    END SHEET
+END SCHEMATIC

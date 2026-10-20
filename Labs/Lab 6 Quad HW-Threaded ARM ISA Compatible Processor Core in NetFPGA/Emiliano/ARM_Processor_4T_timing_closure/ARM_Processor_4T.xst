@@ -1,0 +1,4 @@
+set -tmpdir "./xst/projnav.tmp"
+elaborate
+-ifn ARM_Processor_4T.prj
+-ifmt mixed

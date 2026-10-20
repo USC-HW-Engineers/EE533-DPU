@@ -1,0 +1,241 @@
+////////////////////////////////////////////////////////////////////////////////
+// Copyright (c) 1995-2003 Xilinx, Inc.
+// All Right Reserved.
+////////////////////////////////////////////////////////////////////////////////
+//   ____  ____ 
+//  /   /\/   / 
+// /___/  \  /    Vendor: Xilinx 
+// \   \   \/     Version : 10.1
+//  \   \         Application : ISE
+//  /   /         Filename : ID_EX_Reg_tb.ant
+// /___/   /\     Timestamp : Wed Feb 18 23:52:38 2026
+// \   \  /  \ 
+//  \___\/\___\ 
+//
+//Command: 
+//Design Name: ID_EX_Reg_tb
+//Device: Xilinx
+//
+`timescale 1ns/1ps
+
+module ID_EX_Reg_tb;
+    reg CE = 1'b0;
+    reg CLK = 1'b0;
+    reg CLR = 1'b0;
+    reg [2:0] ID_Addr = 3'b000;
+    reg [3:0] ID_ALUC = 4'b0000;
+    reg [15:0] ID_ALUD = 16'b0000000000000000;
+    reg ID_ALUSrc = 1'b0;
+    reg ID_B = 1'b0;
+    reg ID_MemR = 1'b0;
+    reg ID_MemW = 1'b0;
+    reg ID_M2Reg = 1'b0;
+    reg ID_RegW = 1'b0;
+    reg [63:0] ID_R1 = 64'b0000000000000000000000000000000000000000000000000000000000000000;
+    reg [63:0] ID_R2 = 64'b0000000000000000000000000000000000000000000000000000000000000000;
+    wire [2:0] EX_Addr;
+    wire [3:0] EX_ALUC;
+    wire [15:0] EX_ALUD;
+    wire EX_ALUSrc;
+    wire EX_B;
+    wire EX_MemR;
+    wire EX_MemW;
+    wire EX_M2Reg;
+    wire EX_RegW;
+    wire [63:0] EX_R1;
+    wire [63:0] EX_R2;
+
+    parameter PERIOD = 200;
+    parameter real DUTY_CYCLE = 0.5;
+    parameter OFFSET = 100;
+
+    initial    // Clock process for CLK
+    begin
+        #OFFSET;
+        forever
+        begin
+            CLK = 1'b0;
+            #(PERIOD-(PERIOD*DUTY_CYCLE)) CLK = 1'b1;
+            #(PERIOD*DUTY_CYCLE);
+        end
+    end
+
+    ID_EX_Reg UUT (
+        .CE(CE),
+        .CLK(CLK),
+        .CLR(CLR),
+        .ID_Addr(ID_Addr),
+        .ID_ALUC(ID_ALUC),
+        .ID_ALUD(ID_ALUD),
+        .ID_ALUSrc(ID_ALUSrc),
+        .ID_B(ID_B),
+        .ID_MemR(ID_MemR),
+        .ID_MemW(ID_MemW),
+        .ID_M2Reg(ID_M2Reg),
+        .ID_RegW(ID_RegW),
+        .ID_R1(ID_R1),
+        .ID_R2(ID_R2),
+        .EX_Addr(EX_Addr),
+        .EX_ALUC(EX_ALUC),
+        .EX_ALUD(EX_ALUD),
+        .EX_ALUSrc(EX_ALUSrc),
+        .EX_B(EX_B),
+        .EX_MemR(EX_MemR),
+        .EX_MemW(EX_MemW),
+        .EX_M2Reg(EX_M2Reg),
+        .EX_RegW(EX_RegW),
+        .EX_R1(EX_R1),
+        .EX_R2(EX_R2));
+
+    integer TX_FILE = 0;
+    integer TX_ERROR = 0;
+    
+    initial begin    // Annotation process for clock CLK
+        #0;
+        ANNOTATE_EX_Addr;
+        ANNOTATE_EX_ALUC;
+        ANNOTATE_EX_ALUD;
+        ANNOTATE_EX_ALUSrc;
+        ANNOTATE_EX_B;
+        ANNOTATE_EX_MemR;
+        ANNOTATE_EX_MemW;
+        ANNOTATE_EX_M2Reg;
+        ANNOTATE_EX_RegW;
+        ANNOTATE_EX_R1;
+        ANNOTATE_EX_R2;
+        #OFFSET;
+        forever begin
+            #115;
+            ANNOTATE_EX_Addr;
+            ANNOTATE_EX_ALUC;
+            ANNOTATE_EX_ALUD;
+            ANNOTATE_EX_ALUSrc;
+            ANNOTATE_EX_B;
+            ANNOTATE_EX_MemR;
+            ANNOTATE_EX_MemW;
+            ANNOTATE_EX_M2Reg;
+            ANNOTATE_EX_RegW;
+            ANNOTATE_EX_R1;
+            ANNOTATE_EX_R2;
+            #85;
+        end
+    end
+
+    initial begin  // Open the annotations file...
+        TX_FILE = $fopen("C:\\Documents and Settings\\student\\Desktop\\ARM_Processor\\ID_EX_Reg_tb.ano");
+        #1200 // Final time:  1200 ns
+        $display("Success! Annotation Simulation Complete.");
+        $fdisplay(TX_FILE, "Total[%d]", TX_ERROR);
+        $fclose(TX_FILE);
+        $finish;
+    end
+
+    initial begin
+        // -------------  Current Time:  100ns
+        #100;
+        CE = 1'b1;
+        CLR = 1'b1;
+        // -------------------------------------
+        // -------------  Current Time:  185ns
+        #85;
+        CLR = 1'b0;
+        ID_R1 = 64'b0000000000000000000000000000000000000000000000000000000000001001;
+        ID_R2 = 64'b0000000000000000000000000000000000000000000000000000000000001001;
+        // -------------------------------------
+        // -------------  Current Time:  385ns
+        #200;
+        ID_R1 = 64'b0000000000000000000000000000000000000000000000000000000000100101;
+        ID_R2 = 64'b0000000000000000000000000000000000000000000000000000000000110100;
+        // -------------------------------------
+    end
+
+    task ANNOTATE_EX_Addr;
+        #0 begin
+            $fdisplay(TX_FILE, "Annotate[%d,EX_Addr,%b]", $time, EX_Addr);
+            $fflush(TX_FILE);
+            TX_ERROR = TX_ERROR + 1;
+        end
+    endtask
+
+    task ANNOTATE_EX_ALUC;
+        #0 begin
+            $fdisplay(TX_FILE, "Annotate[%d,EX_ALUC,%b]", $time, EX_ALUC);
+            $fflush(TX_FILE);
+            TX_ERROR = TX_ERROR + 1;
+        end
+    endtask
+
+    task ANNOTATE_EX_ALUD;
+        #0 begin
+            $fdisplay(TX_FILE, "Annotate[%d,EX_ALUD,%b]", $time, EX_ALUD);
+            $fflush(TX_FILE);
+            TX_ERROR = TX_ERROR + 1;
+        end
+    endtask
+
+    task ANNOTATE_EX_ALUSrc;
+        #0 begin
+            $fdisplay(TX_FILE, "Annotate[%d,EX_ALUSrc,%b]", $time, EX_ALUSrc);
+            $fflush(TX_FILE);
+            TX_ERROR = TX_ERROR + 1;
+        end
+    endtask
+
+    task ANNOTATE_EX_B;
+        #0 begin
+            $fdisplay(TX_FILE, "Annotate[%d,EX_B,%b]", $time, EX_B);
+            $fflush(TX_FILE);
+            TX_ERROR = TX_ERROR + 1;
+        end
+    endtask
+
+    task ANNOTATE_EX_MemR;
+        #0 begin
+            $fdisplay(TX_FILE, "Annotate[%d,EX_MemR,%b]", $time, EX_MemR);
+            $fflush(TX_FILE);
+            TX_ERROR = TX_ERROR + 1;
+        end
+    endtask
+
+    task ANNOTATE_EX_MemW;
+        #0 begin
+            $fdisplay(TX_FILE, "Annotate[%d,EX_MemW,%b]", $time, EX_MemW);
+            $fflush(TX_FILE);
+            TX_ERROR = TX_ERROR + 1;
+        end
+    endtask
+
+    task ANNOTATE_EX_M2Reg;
+        #0 begin
+            $fdisplay(TX_FILE, "Annotate[%d,EX_M2Reg,%b]", $time, EX_M2Reg);
+            $fflush(TX_FILE);
+            TX_ERROR = TX_ERROR + 1;
+        end
+    endtask
+
+    task ANNOTATE_EX_RegW;
+        #0 begin
+            $fdisplay(TX_FILE, "Annotate[%d,EX_RegW,%b]", $time, EX_RegW);
+            $fflush(TX_FILE);
+            TX_ERROR = TX_ERROR + 1;
+        end
+    endtask
+
+    task ANNOTATE_EX_R1;
+        #0 begin
+            $fdisplay(TX_FILE, "Annotate[%d,EX_R1,%b]", $time, EX_R1);
+            $fflush(TX_FILE);
+            TX_ERROR = TX_ERROR + 1;
+        end
+    endtask
+
+    task ANNOTATE_EX_R2;
+        #0 begin
+            $fdisplay(TX_FILE, "Annotate[%d,EX_R2,%b]", $time, EX_R2);
+            $fflush(TX_FILE);
+            TX_ERROR = TX_ERROR + 1;
+        end
+    endtask
+
+endmodule
+

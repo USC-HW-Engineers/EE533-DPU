@@ -1,0 +1,13 @@
+[Inputs]
+N
+Z
+C
+V
+br_en
+=BType[1:0]=
+[Outputs]
+branch_taken
+[BiDir]
+[ATTRIBUTES]
+VeriModel Condition_Unit
+
