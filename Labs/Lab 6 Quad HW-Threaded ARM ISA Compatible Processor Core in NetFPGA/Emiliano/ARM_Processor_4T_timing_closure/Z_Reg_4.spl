@@ -1,0 +1,12 @@
+[Inputs]
+CLK
+CLR
+Z_in
+=EX_TID[1:0]=
+=M_TID[1:0]=
+[Outputs]
+Z_out
+[BiDir]
+[ATTRIBUTES]
+VeriModel Z_Reg_4
+

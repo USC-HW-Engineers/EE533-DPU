@@ -1,0 +1,8 @@
+[Inputs]
+=result[63:0]=
+[Outputs]
+Z
+[BiDir]
+[ATTRIBUTES]
+VeriModel Zero_Detect
+
